@@ -413,7 +413,7 @@ function TripSummary() {
 
       <div className="mt-5 space-y-3">
         <Link
-          href="/explore"
+          href="/planner/penginapan"
           className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] bg-[#0E75BC] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#095f99]"
         >
           <BuildingIcon />
