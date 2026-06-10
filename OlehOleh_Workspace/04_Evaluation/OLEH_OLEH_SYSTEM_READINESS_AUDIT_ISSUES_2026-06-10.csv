@@ -1,7 +1,0 @@
-﻿"severity","area","issue","detail","recommendation"
-"P1","ui_fields","Kolom UI belum ikut di file scoring","address; image_url; opening_hours; price_range; google_category; search_query; distance_km; region_label","Join kembali dari cleaned place discovery sebelum masuk UI."
-"P2","coverage","Kategori eligible masih tipis","haji_umroh_kurma=1; souvenir_non_makanan=1","Aman untuk baseline, tapi jangan klaim kategori ini lengkap."
-"P2","confidence","Tempat aktif dengan text review rendah","2 tempat","Tetap pakai confidence label; jangan terlalu percaya diri."
-"P2","aspect_scoring","Banyak tempat aktif punya service signal rendah","10 tempat","Jangan artikan service_score sebagai sentiment service murni; ini masih sinyal aspek awal."
-"P1","app_integration","Dataset oleh-oleh belum dipakai app/recommender utama","Tidak ada reference OLEH_OLEH_BASELINE atau OlehOleh_Workspace di Scripts app.","Buat loader/endpoint atau modul recommender oleh-oleh sebelum UI memakai data ini."
-"P1","location_ranking","Ranking test belum memakai jarak/lokasi wisata","File test query belum punya distance_km/anchor wisata.","Tambahkan distance scoring saat dihubungkan dengan wisata atau user location."

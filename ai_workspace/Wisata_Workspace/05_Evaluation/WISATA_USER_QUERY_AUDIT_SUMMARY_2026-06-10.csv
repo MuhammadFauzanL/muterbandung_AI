@@ -1,0 +1,21 @@
+﻿query_id,query,expected,status,status_code,top5_count,expected_match_count_top5,minimum_expected_match,top5_names,no_strong_match_used,low_crowd_preference,low_crowd_hard_filter
+WQ01,curug murah Bandung,curug/air terjun murah,PASS,200,5,5,4,Curug Ceret Pangalengan | Curug Aseupan | Curug Anom | Curug Bugbrug | Curug Dago,False,False,False
+WQ02,wisata keluarga ramah anak Bandung,ramah anak/keluarga,PASS,200,5,5,3,The Nice Park Bandung | Alam Wisata Cimahi | Venus Cimahi | The Lodge Maribaya | Terminal Wisata Grafika Cikole,False,False,False
+WQ03,wisata gratis Bandung,gratis atau sangat murah,PASS,200,5,5,3,Teras Sunda Cibiru | Alam Wisata Cimahi | Curug Ceret Pangalengan | Lapangan Gasibu | Museum Inggit Garnasih,False,False,False
+WQ04,wisata alam healing Bandung,alam/santai/outdoor,PASS,200,5,5,4,Wayang Windu Panenjoan | Situ Cileunca Pangalengan Bandung | Bukit Moko Bandung | Curug Aseupan | Tahura Gunung Kunci,False,True,False
+WQ05,wisata malam Bandung,malam/open night,PASS,200,5,5,3,Bukit Moko Bandung | Sudut Pandang Bandung | Lawangwangi Creative Space | Terminal Wisata Grafika Cikole | Bukit Bintang Bandung (Patahan Lembang),False,False,False
+WQ06,wisata edukasi anak Bandung,edukasi dan/atau anak,PASS,200,5,5,3,Lembang Park & Zoo | Taman Kupu-Kupu Cihanjuang | Amazing Artgames | Cimory Dairyland Lembang | De'Ranch Lembang,False,False,False
+WQ07,wisata indoor saat hujan Bandung,indoor/museum/mall/galeri,PASS,200,5,5,3,Lawangwangi Creative Space | Museum Inggit Garnasih | Gedung Sate | Museum Konferensi Asia Afrika | Saung Angklung Udjo,False,False,False
+WQ08,wisata ada mushola dan parkir Bandung,mushola/parkir/fasilitas,PASS,200,5,5,3,Alam Wisata Cimahi | Terminal Wisata Grafika Cikole | The Lodge Maribaya | The Nice Park Bandung | Wisata Kampoeng Ciherang,False,False,False
+WQ09,wisata dekat alun-alun Bandung,punya jarak/konteks alun-alun,PASS,200,5,5,3,Alun-Alun Kota Bandung | Taman Dewi Sartika | Masjid Agung Bandung | Gedung Merdeka | Museum Konferensi Asia Afrika,False,False,False
+WQ10,tempat belanja oleh-oleh Bandung,wisata boleh kosong; UI route ke modul oleh-oleh,PASS,200,0,0,0,,True,False,False
+WQ11,wisata sejarah Bandung,sejarah/budaya,PASS,200,5,5,3,Gedung Sate | Gedung Merdeka | Taman Sejarah Bandung | Gedung Indonesia Menggugat | Monumen Perjuangan Rakyat Jawa Barat,False,False,False
+WQ12,wisata religi Bandung,religi/masjid/makam,PASS,200,5,5,3,"Vihara Satya Budhi | Masjid Jami' Al Baakhirah | Gereja Katedral Bandung, Santo Petrus | Masjid Raya Al-Jabbar | Masjid Agung Bandung",False,False,False
+WQ13,wisata petualangan alam Bandung,petualangan/alam/outdoor,PASS,200,5,5,3,Kampung Singkur | Gantolle Paralayang Singajaya Cihampelas | Glamping Legok Kondang | Ciwangun Indah Camp | Wisata Kampoeng Ciherang,False,False,False
+WQ14,spot foto instagramable Bandung,spot foto/instagramable,PASS,200,5,5,3,Lawangwangi Creative Space | NuArt Sculpture Park | Bukit Moko Bandung | Perkebunan Teh Malabar | The Lodge Maribaya,False,False,False
+WQ15,wisata murah untuk keluarga,murah + keluarga/anak,PASS,200,5,5,2,Alam Wisata Cimahi | Venus Cimahi | Terminal Wisata Grafika Cikole | Wisata Kampoeng Ciherang | Taman Lembah Dewata,False,False,False
+WQ16,tempat santai outdoor Bandung,santai/outdoor,PASS,200,5,5,4,Bukit Moko Bandung | Wayang Windu Panenjoan | Situ Cileunca Pangalengan Bandung | Tahura Gunung Kunci | Perkebunan Teh Malabar,False,False,False
+WQ17,museum edukasi Bandung,museum/edukasi,PASS,200,5,5,3,Museum Inggit Garnasih | Museum Geologi Bandung | Museum Konferensi Asia Afrika | Museum Sri Baduga | NuArt Sculpture Park,False,False,False
+WQ18,wisata rating bagus Bandung,rating tinggi,PASS,200,5,5,4,Bukit Moko Bandung | Wayang Windu Panenjoan | Taman Langit Pangalengan (Sunrise Point & Camping Ground) | Situ Cileunca Pangalengan Bandung | Kampung Singkur,False,False,False
+WQ19,wisata ada toilet Bandung,toilet/fasilitas,PASS,200,5,5,2,Wahoo Waterworld | The Nice Park Bandung | Sudut Pandang Bandung | Malabar Mountain Coffee Shop & Eatery | Terminal Wisata Grafika Cikole,False,False,False
+WQ20,healing alam tidak terlalu ramai,"alam/santai, crowd jadi soft preference",PASS,200,5,5,3,Curug Aseupan | Perkebunan Teh Malabar | Kebun Begonia Lembang | Wayang Windu Panenjoan | Bukit Moko Bandung,False,True,False

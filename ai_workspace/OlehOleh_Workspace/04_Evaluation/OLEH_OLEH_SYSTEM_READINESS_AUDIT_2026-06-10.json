@@ -1,0 +1,141 @@
+﻿{
+    "created_at":  "2026-06-10T08:53:16",
+    "data_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_2026-06-10.csv",
+    "test_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_TEST_QUERIES_2026-06-10.csv",
+    "total_rows":  22,
+    "eligible_for_main":  20,
+    "not_eligible_for_main":  2,
+    "missing_required_columns":  [
+
+                                 ],
+    "optional_ui_columns_missing":  [
+                                        "address",
+                                        "image_url",
+                                        "opening_hours",
+                                        "price_range",
+                                        "google_category",
+                                        "search_query",
+                                        "distance_km",
+                                        "region_label"
+                                    ],
+    "duplicate_name_groups":  0,
+    "invalid_coordinate_rows":  0,
+    "invalid_score_rows":  0,
+    "manual_status_counts":  [
+                                 {
+                                     "status":  "active",
+                                     "count":  19
+                                 },
+                                 {
+                                     "status":  "needs_review",
+                                     "count":  1
+                                 },
+                                 {
+                                     "status":  "held_manual",
+                                     "count":  1
+                                 },
+                                 {
+                                     "status":  "active_low_rank",
+                                     "count":  1
+                                 }
+                             ],
+    "eligible_category_counts":  [
+                                     {
+                                         "category":  "kue_bolu_pastry",
+                                         "count":  9
+                                     },
+                                     {
+                                         "category":  "snack_keripik",
+                                         "count":  4
+                                     },
+                                     {
+                                         "category":  "olahan_susu",
+                                         "count":  3
+                                     },
+                                     {
+                                         "category":  "tahu_tempe",
+                                         "count":  2
+                                     },
+                                     {
+                                         "category":  "haji_umroh_kurma",
+                                         "count":  1
+                                     },
+                                     {
+                                         "category":  "souvenir_non_makanan",
+                                         "count":  1
+                                     }
+                                 ],
+    "test_query_counts":  [
+                              {
+                                  "query":  "snack murah Bandung",
+                                  "count":  4,
+                                  "top1":  "Keripik Tempe Tembul"
+                              },
+                              {
+                                  "query":  "oleh-oleh Lembang",
+                                  "count":  5,
+                                  "top1":  "Donatsu - Donat Susu Lembang"
+                              },
+                              {
+                                  "query":  "tahu susu Lembang",
+                                  "count":  2,
+                                  "top1":  "Pabrik Tahu PD Uties"
+                              },
+                              {
+                                  "query":  "oleh-oleh untuk keluarga",
+                                  "count":  5,
+                                  "top1":  "Donatsu - Donat Susu Lembang"
+                              }
+                          ],
+    "issues":  [
+                   {
+                       "severity":  "P1",
+                       "area":  "ui_fields",
+                       "issue":  "Kolom UI belum ikut di file scoring",
+                       "detail":  "address; image_url; opening_hours; price_range; google_category; search_query; distance_km; region_label",
+                       "recommendation":  "Join kembali dari cleaned place discovery sebelum masuk UI."
+                   },
+                   {
+                       "severity":  "P2",
+                       "area":  "coverage",
+                       "issue":  "Kategori eligible masih tipis",
+                       "detail":  "haji_umroh_kurma=1; souvenir_non_makanan=1",
+                       "recommendation":  "Aman untuk baseline, tapi jangan klaim kategori ini lengkap."
+                   },
+                   {
+                       "severity":  "P2",
+                       "area":  "confidence",
+                       "issue":  "Tempat aktif dengan text review rendah",
+                       "detail":  "2 tempat",
+                       "recommendation":  "Tetap pakai confidence label; jangan terlalu percaya diri."
+                   },
+                   {
+                       "severity":  "P2",
+                       "area":  "aspect_scoring",
+                       "issue":  "Banyak tempat aktif punya service signal rendah",
+                       "detail":  "10 tempat",
+                       "recommendation":  "Jangan artikan service_score sebagai sentiment service murni; ini masih sinyal aspek awal."
+                   },
+                   {
+                       "severity":  "P1",
+                       "area":  "app_integration",
+                       "issue":  "Dataset oleh-oleh belum dipakai app/recommender utama",
+                       "detail":  "Tidak ada reference OLEH_OLEH_BASELINE atau OlehOleh_Workspace di Scripts app.",
+                       "recommendation":  "Buat loader/endpoint atau modul recommender oleh-oleh sebelum UI memakai data ini."
+                   },
+                   {
+                       "severity":  "P1",
+                       "area":  "location_ranking",
+                       "issue":  "Ranking test belum memakai jarak/lokasi wisata",
+                       "detail":  "File test query belum punya distance_km/anchor wisata.",
+                       "recommendation":  "Tambahkan distance scoring saat dihubungkan dengan wisata atau user location."
+                   }
+               ],
+    "readiness":  {
+                      "data_baseline":  "PASS",
+                      "scoring_baseline":  "PASS_WITH_WARNINGS",
+                      "app_integration":  "NOT_READY",
+                      "location_aware_recommendation":  "NOT_READY",
+                      "production_status":  "baseline_candidate_only"
+                  }
+}

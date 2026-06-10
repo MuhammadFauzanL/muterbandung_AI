@@ -1,0 +1,46 @@
+﻿{
+    "created_at":  "2026-06-10T09:04:50",
+    "enriched_dataset":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_UI_ENRICHED_2026-06-10.csv",
+    "total_rows":  22,
+    "eligible_for_main":  20,
+    "not_eligible_for_main":  2,
+    "address_available":  22,
+    "image_available":  22,
+    "opening_hours_available":  21,
+    "price_range_available":  2,
+    "average_ui_field_completeness_score":  88.07,
+    "endpoint_registered":  true,
+    "recommender_module_exists":  true,
+    "issues":  [
+                   {
+                       "issue":  "Dataset belum dipakai app",
+                       "status":  "DONE",
+                       "note":  "Endpoint /api/oleh-oleh/recommend sudah memakai dataset oleh-oleh enriched."
+                   },
+                   {
+                       "issue":  "Field UI belum ikut",
+                       "status":  "PARTIAL_DONE",
+                       "note":  "address dan image 22/22, opening hours 21/22, price range 2/22 karena raw memang minim harga."
+                   },
+                   {
+                       "issue":  "Ranking belum pakai jarak",
+                       "status":  "DONE",
+                       "note":  "OlehOlehRecommender sudah menghitung haversine dan mendukung sort_by nearest/balanced."
+                   },
+                   {
+                       "issue":  "Kategori tipis",
+                       "status":  "HANDLED_AS_WARNING",
+                       "note":  "Kategori haji/umroh dan souvenir tetap dipakai, tetapi diberi category_coverage_low."
+                   },
+                   {
+                       "issue":  "Review text rendah",
+                       "status":  "HANDLED_AS_WARNING",
+                       "note":  "Tempat dengan text review rendah diberi warning review_text_low."
+                   },
+                   {
+                       "issue":  "Service score belum sentiment murni",
+                       "status":  "DONE",
+                       "note":  "Field output memakai service_aspect_signal_score dan endpoint memberi service_score_note."
+                   }
+               ]
+}
