@@ -1,0 +1,70 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+.venv*/
+.venv/
+venv/
+env/
+ENV/
+
+# Python caches and test artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Jupyter and notebook caches
+.ipynb_checkpoints/
+
+# Logs and generated runtime outputs
+logs/
+*.log
+*.out.log
+*.err.log
+server_*.out.log
+server_*.err.log
+muterbandung_*.out.log
+muterbandung_*.err.log
+groundtruth_eval_report.md
+groundtruth_eval_results.json
+qc_report.md
+*.tmp
+
+# Raw scraper outputs; keep curated/runtime datasets instead
+dataset_Google-Maps-Reviews-Scraper_*.json
+dataset_google-hotels-search-scraper_*.json
+Salinan dataset_google-hotels-search-scraper_*.json
+dataset_crawler-google-places_*.csv
+Penginapan_Workspace/01_Raw_Data/
+OlehOleh_Workspace/01_Raw_Data/
+OlehOleh_Workspace/05_Review_Scraping/raw_outputs/
+
+# Local backups and tool state
+Codex_Backups/
+.playwright-mcp/
+
+# Large local model/artifact files
+Models/
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.h5
+*.keras
+*.pkl
+*.joblib
+*.zip
+*.7z
+*.rar
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+!.vscode/extensions.json

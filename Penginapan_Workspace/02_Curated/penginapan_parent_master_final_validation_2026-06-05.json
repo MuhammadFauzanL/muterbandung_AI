@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-05T08:01:29.462878Z",
+  "gate": "PASS_WITH_WARNINGS",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "CHILD_WITHOUT_FINAL_PARENT",
+      "count": 41,
+      "message": "Child tetap ditahan dari parent master, tetapi parent final belum dipilih."
+    }
+  ],
+  "candidate_rows": 1656,
+  "relations_final_rows": 13,
+  "parent_master_rows": 1602,
+  "child_listings_rows": 54,
+  "review_target_rows": 1518,
+  "accepted_child_in_parent_master": 0,
+  "any_child_in_parent_master": 0,
+  "child_in_review_targets": 0,
+  "child_without_final_parent": 41
+}

@@ -1,0 +1,38 @@
+﻿{
+    "created_at":  "2026-06-10T10:07:34",
+    "input_file":  "D:\\File\\file\\Fauzan Lubada\\PIJAK\\OLEH_OLEH_MANUAL_COMPLETION_PRICE_PRODUCT_FILLED_2026-06-10.csv",
+    "rows":  22,
+    "all_manual_required_filled":  true,
+    "p1_count":  0,
+    "p2_count":  17,
+    "ok_count":  5,
+    "evidence_general_knowledge_only":  17,
+    "complete_but_not_main_eligible":  2,
+    "complete_but_low_rank":  1,
+    "price_confidence_counts":  [
+                                    {
+                                        "value":  "high",
+                                        "count":  10
+                                    },
+                                    {
+                                        "value":  "medium",
+                                        "count":  12
+                                    }
+                                ],
+    "durability_class_counts":  [
+                                    {
+                                        "value":  "rendah",
+                                        "count":  5
+                                    },
+                                    {
+                                        "value":  "tinggi",
+                                        "count":  9
+                                    },
+                                    {
+                                        "value":  "sedang",
+                                        "count":  8
+                                    }
+                                ],
+    "output_audit_csv":  ".\\OlehOleh_Workspace\\04_Evaluation\\OLEH_OLEH_MANUAL_COMPLETION_FILLED_AUDIT_2026-06-10.csv",
+    "output_normalization_preview":  ".\\OlehOleh_Workspace\\04_Evaluation\\OLEH_OLEH_MANUAL_COMPLETION_NORMALIZATION_PREVIEW_2026-06-10.csv"
+}

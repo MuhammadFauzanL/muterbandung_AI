@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuterBandung - Recommender Engine</title>
+    <link rel="icon" href="data:,">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background-effects">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <header class="glass-header">
+        <div class="logo">
+            <i class='bx bx-map-alt'></i>
+            <span>MuterBandung<span class="highlight">.ai</span></span>
+        </div>
+        <nav>
+            <span class="badge">v1.0 (Test Mode)</span>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Sidebar Filters -->
+        <aside class="sidebar glass-panel">
+            <h3><i class='bx bx-filter-alt'></i> Filter Pencarian</h3>
+            
+            <form id="filter-form">
+                <div class="form-group">
+                    <label>Kategori Wisata</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Alam">
+                            <span class="checkmark"></span> Alam
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Keluarga">
+                            <span class="checkmark"></span> Keluarga
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Budaya">
+                            <span class="checkmark"></span> Budaya
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Sejarah">
+                            <span class="checkmark"></span> Sejarah
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Edukasi">
+                            <span class="checkmark"></span> Edukasi
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Kuliner">
+                            <span class="checkmark"></span> Kuliner
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Belanja">
+                            <span class="checkmark"></span> Belanja
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Satwa">
+                            <span class="checkmark"></span> Satwa
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Santai/Healing">
+                            <span class="checkmark"></span> Santai
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Spot Foto">
+                            <span class="checkmark"></span> Spot Foto
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Petualangan">
+                            <span class="checkmark"></span> Petualangan
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Religi">
+                            <span class="checkmark"></span> Religi
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Ramah Anak">
+                            <span class="checkmark"></span> Ramah Anak
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Indoor">
+                            <span class="checkmark"></span> Indoor
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Outdoor">
+                            <span class="checkmark"></span> Outdoor
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Malam">
+                            <span class="checkmark"></span> Malam
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="categories" value="Gratis">
+                            <span class="checkmark"></span> Gratis
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="max_price">Maksimal Harga (Rp)</label>
+                    <input type="number" id="max_price" name="max_price" placeholder="Misal: 50000" class="glass-input">
+                </div>
+
+                <div class="form-group inline-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="free_only" name="free_only">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Hanya yang Gratis</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="min_rating">Minimal Rating (1-5)</label>
+                    <input type="number" step="0.1" id="min_rating" name="min_rating" placeholder="Misal: 4.5" class="glass-input" max="5" min="1">
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="form-group inline-group">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="open_now" name="open_now">
+                        <span class="slider"></span>
+                    </label>
+                    <span>Buka Sekarang</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="day_type">Tipe Hari</label>
+                    <select id="day_type" name="day_type" class="glass-input">
+                        <option value="">-- Pilih --</option>
+                        <option value="weekday">Hari Kerja (Weekday)</option>
+                        <option value="weekend">Akhir Pekan (Weekend)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="open_at_hour">Jam Rencana (Format: 14:30)</label>
+                    <input type="time" id="open_at_hour" name="open_at_hour" class="glass-input">
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="form-group">
+                    <label for="sort_by">Mode Ranking</label>
+                    <select id="sort_by" name="sort_by" class="glass-input">
+                        <option value="balanced" selected>Seimbang</option>
+                        <option value="relevance">Relevansi</option>
+                        <option value="nearest">Terdekat</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="max_distance_km">Radius Maksimal (km)</label>
+                    <input type="number" step="0.1" min="0" id="max_distance_km" name="max_distance_km" placeholder="Misal: 30" class="glass-input">
+                </div>
+
+                <div class="form-group location-panel">
+                    <button type="button" id="use-location-btn" class="btn-secondary w-100">
+                        <i class='bx bx-current-location'></i> Gunakan lokasi saya
+                    </button>
+                    <p id="location-status" class="location-status">Lokasi belum aktif</p>
+                </div>
+
+                <button type="submit" class="btn-primary w-100">
+                    <i class='bx bx-search'></i> Terapkan Filter
+                </button>
+            </form>
+        </aside>
+
+        <!-- Main Content -->
+        <section class="main-content">
+            <!-- Search Bar -->
+            <div class="search-section glass-panel">
+                <form id="search-form" class="search-wrapper">
+                    <i class='bx bx-search-alt-2 search-icon'></i>
+                    <input type="text" id="query" name="query" placeholder="Ceritakan liburan impianmu... (Misal: wisata alam yang ramah anak dan sejuk)" class="glass-input search-input" autocomplete="off">
+                    <button type="submit" class="btn-primary btn-large">Cari Rekomendasi</button>
+                </form>
+                <div class="suggested-queries">
+                    <span class="suggestion-tag" data-query="wisata alam dan spot foto instagramable">#alam & instagramable</span>
+                    <span class="suggestion-tag" data-query="tempat edukasi anak yang gratis">#edukasi anak</span>
+                    <span class="suggestion-tag" data-query="kuliner sunda dengan pemandangan malam">#kuliner malam</span>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div id="results-container">
+                <div class="empty-state">
+                    <div class="icon-wrapper">
+                        <i class='bx bx-bot'></i>
+                    </div>
+                    <h3>AI Recommender Siap</h3>
+                    <p>Masukkan kata kunci atau atur filter di samping untuk menemukan destinasi wisata terbaik di Bandung Raya.</p>
+                </div>
+            </div>
+            
+            <!-- Loading State (Hidden by default) -->
+            <div id="loading-state" class="hidden">
+                <div class="spinner"></div>
+                <p>AI sedang menganalisis kecocokan destinasi...</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
