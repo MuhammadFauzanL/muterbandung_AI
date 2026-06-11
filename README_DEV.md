@@ -9,48 +9,45 @@
 ```
 muterbandung_AI/
 │
-├── backend/                      # 🔧 Backend API (Flask/FastAPI + ML Runtime)
+├── backend/                       # 🔧 Backend API (FastAPI + PostgreSQL)
 │   ├── app/
-│   │   ├── main.py              # Entry point (Flask app)
-│   │   ├── services/            # Business logic & ML services
-│   │   │   ├── recommender.py   # Core rekomendasi wisata
-│   │   │   ├── oleh_oleh_recommender.py
-│   │   │   ├── llm_evidence_pack.py
-│   │   │   └── llm_guard.py     # Guardrail validasi LLM
-│   │   ├── routers/             # API endpoints (untuk migrasi ke FastAPI)
-│   │   ├── schemas/             # Request/response models (Pydantic)
-│   │   ├── models/              # Database models (SQLAlchemy)
-│   │   └── database/            # Database utilities
-│   ├── test_*.py                # Unit tests
-│   ├── validate_*.py            # Data validation scripts
-│   ├── audit_*.py               # Audit & evaluation scripts
-│   ├── requirements.txt         # Python dependencies
-│   └── Dockerfile               # Container image (untuk produksi)
+│   │   ├── main.py               # FastAPI entry-point
+│   │   ├── database.py           # SQLAlchemy engine & session
+│   │   ├── core/
+│   │   │   ├── config.py         # Pydantic-settings (.env)
+│   │   │   ├── exceptions.py     # Custom exception handlers
+│   │   │   └── security.py      # JWT auth (Phase 2)
+│   │   ├── models/              # SQLAlchemy ORM models
+│   │   ├── schemas/             # Pydantic request/response schemas
+│   │   ├── api/
+│   │   │   ├── __init__.py      # Router aggregation
+│   │   │   └── health.py       # Health check endpoints
+│   │   ├── services/            # Business logic layer
+│   │   └── utils/
+│   │       ├── response.py      # Standard response helpers
+│   │       └── pagination.py   # Pagination utility
+│   ├── alembic/                 # Database migrations
+│   ├── tests/                   # pytest test suite
+│   ├── requirements.txt         # Production dependencies
+│   ├── requirements-dev.txt     # Dev/test dependencies
+│   ├── docker-compose.yml       # PostgreSQL container
+│   ├── .env.example             # Environment template
+│   └── .python-version         # Python version pin
 │
-├── frontend/                     # 🎨 Frontend Website (Next.js Prototype / Static Dev)
-│   ├── static/                  # CSS, JavaScript, assets
-│   │   ├── style.css
-│   │   └── script.js
-│   └── templates/               # HTML templates
-│       └── index.html
+├── frontend/                     # 🎨 Frontend Website (Next.js)
+│   ├── app/                     # Next.js app router
+│   ├── components/              # React components
+│   └── public/                  # Static assets
 │
 ├── ai_workspace/                # 📊 AI Research & Data Pipeline (Jupyter + Datasets)
-│   ├── notebooks/               # Jupyter Notebook untuk riset
 │   ├── Wisata_Workspace/        # Dataset dan dokumen wisata
-│   │   ├── 01_Dataset/
-│   │   │   └── 3_Curated/       # CSV wisata yang sudah di-kurasi
-│   │   ├── 02_Notebooks/
-│   │   ├── 03_Evaluation/
-│   │   └── 05_Evaluation/
-│   ├── OlehOleh_Workspace/      # Dataset oleh-oleh
-│   └── Penginapan_Workspace/    # Dataset penginapan/hotel
+│   ├── OlehOleh_Workspace/     # Dataset oleh-oleh
+│   └── Penginapan_Workspace/   # Dataset penginapan/hotel
 │
 ├── logs/                         # 📝 Server logs (tidak di-commit ke git)
 │
-├── .gitignore                   # Git ignore rules (model besar, venv, logs)
-├── .env.example                 # Environment variables template
-├── requirements.txt             # Root-level deps (untuk development)
-├── docker-compose.yml           # Local PostgreSQL + services (opsional)
+├── .gitignore                   # Git ignore rules
+├── .env.example                 # Root environment variables template
 │
 ├── ARCHITECTURE.md              # Arsitektur sistem detail
 ├── BACKEND_AGENT_HANDOFF.md    # Dokumentasi untuk developer backend
@@ -64,70 +61,91 @@ muterbandung_AI/
 ## 🚀 Cara Menjalankan Lokal
 
 ### Prerequisites
-- **Python 3.11+** (pastikan tersedia di sistem)
+- **Python 3.9+** (3.11+ direkomendasikan)
+- **Node.js 18+** (untuk frontend)
+- **Docker & Docker Compose** (untuk PostgreSQL)
 - **pip** (Python package manager)
 - Git
 
-### Setup Backend (Flask API)
+### Setup Backend (FastAPI)
 
-1. **Clone atau buka repositori**:
+1. **Navigate ke backend**:
    ```bash
-   cd /Users/muhammadrahardianbaihaqi/Projects/muterbandung_AI
+   cd backend
    ```
 
-2. **Buat virtual environment**:
+2. **Start PostgreSQL**:
    ```bash
-   python3 -m venv .venv
-   source .venv/bin/activate  # macOS/Linux
-   # atau pada Windows:
-   # .venv\Scripts\activate
+   docker compose up -d
    ```
 
-3. **Install dependencies**:
+3. **Buat virtual environment**:
    ```bash
-   pip install -r backend/requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate  # macOS/Linux
    ```
 
-4. **Setup environment variables** (copy `.env.example` ke `.env`):
+4. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   # Untuk development/testing:
+   pip install -r requirements-dev.txt
+   ```
+
+5. **Setup environment variables**:
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` dan pastikan path ke dataset benar (harus menunjuk ke `ai_workspace/`).
 
-5. **Jalankan server Flask**:
+6. **Jalankan server**:
    ```bash
-   cd backend
-   python app/main.py
+   uvicorn app.main:app --reload
    ```
-   Server akan berjalan di `http://127.0.0.1:5000`.
+   Server akan berjalan di `http://localhost:8000`.
 
-### Buka Frontend (Sementara)
+7. **Buka API docs**: http://localhost:8000/docs
 
-Buka browser ke `http://127.0.0.1:5000`. Anda akan melihat antarmuka web dev sementara di `frontend/templates/index.html`.
+### Setup Frontend (Next.js)
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend berjalan di `http://localhost:3000`.
 
 ---
 
 ## ✅ Testing Backend
 
-### Test API Contract
 ```bash
 cd backend
-python -m pytest test_api_contract.py -v
-```
+source venv/bin/activate
+pip install -r requirements-dev.txt
 
-### Test Recommender Engine
-```bash
-cd backend
-python -m pytest test_recommender.py -v
-```
+# Run all tests
+pytest tests/ -v
 
-### Test LLM Guard (Validasi Output AI)
-```bash
-cd backend
-python -m pytest test_llm_guard.py -v
+# Run specific test file
+pytest tests/test_health.py -v
 ```
 
 ---
 
-**Last Updated:** 2026-06-10  
-**Status:** 🟢 Active Development
+## 📖 API Endpoints
+
+### Phase 1 (Current)
+
+| Method | Path | Description |
+|--------|------|-------------|
+| `GET` | `/health` | Combined health check |
+| `GET` | `/health/live` | Liveness probe |
+| `GET` | `/health/ready` | Readiness probe (checks DB) |
+| `GET` | `/docs` | Swagger UI |
+| `GET` | `/redoc` | ReDoc documentation |
+
+---
+
+**Last Updated:** 2026-06-11
+**Status:** 🟢 Active Development — Phase 1 Foundation Complete

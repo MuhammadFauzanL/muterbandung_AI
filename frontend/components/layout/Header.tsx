@@ -1,9 +1,3 @@
-/**
- * Header Component
- *
- * Top navigation bar with logo and menu items.
- * Renamed from Navigation for semantic clarity.
- */
 import Image from 'next/image';
 import Link from 'next/link';
 import { NAVIGATION_ITEMS } from '@/constants';

@@ -1,6 +1,6 @@
 # MuterBandung AI Backend Handoff
 
-Tanggal: 2026-06-10
+Tanggal: 2026-06-11
 
 Dokumen ini untuk agent/backend developer yang akan melanjutkan integrasi AI recommender MuterBandung.
 
@@ -16,81 +16,85 @@ Repo ini berisi runtime AI recommender untuk:
 
 Fokus backend saat ini: expose API, jaga ranking tetap di backend, dan jangan membuat klaim di luar data.
 
+## Stack Backend Saat Ini
+
+| Komponen | Teknologi |
+|---|---|
+| Framework | **FastAPI** (Python) |
+| Database | **PostgreSQL 16** via Docker Compose |
+| ORM | **SQLAlchemy 2.0** |
+| Migration | **Alembic** |
+| Configuration | **pydantic-settings** + `.env` |
+| Auth (Phase 2) | JWT via python-jose + passlib |
+
 ## File Utama
 
 | File | Fungsi |
 |---|---|
-| `Scripts/app.py` | Flask API utama |
-| `Scripts/recommender.py` | Ranking dan rekomendasi wisata |
-| `Scripts/oleh_oleh_recommender.py` | Ranking dan rekomendasi oleh-oleh |
-| `Scripts/llm_evidence_pack.py` | Evidence pack untuk penjelasan LLM |
-| `Scripts/llm_guard.py` | Guard agar LLM tidak mengarang |
-| `Scripts/templates/index.html` | UI dev sementara |
-| `Scripts/static/script.js` | Frontend logic sementara |
-| `Scripts/static/style.css` | Style UI sementara |
+| `backend/app/main.py` | FastAPI entry-point |
+| `backend/app/database.py` | SQLAlchemy engine & session |
+| `backend/app/core/config.py` | Konfigurasi dari environment variables |
+| `backend/app/core/exceptions.py` | Custom exception handlers |
+| `backend/app/core/security.py` | JWT auth (Phase 2 placeholder) |
+| `backend/app/api/health.py` | Health check endpoints |
+| `backend/app/utils/response.py` | Standard response helpers |
+| `backend/app/utils/pagination.py` | Pagination utility |
 
 ## Dataset Runtime
 
 | Entitas | File |
 |---|---|
-| Wisata | `Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_SENTIMENT_RUNTIME_CANDIDATE_2026-06-09.csv` |
-| Wisata validation | `Wisata_Workspace/01_Dataset/3_Curated/data_validation_runtime_candidate_2026-06-09.json` |
-| Alias lokasi | `Wisata_Workspace/01_Dataset/3_Curated/landmark_aliases.csv` |
-| Oleh-oleh | `OlehOleh_Workspace/03_Curated/OLEH_OLEH_BASELINE_UI_ENRICHED_WITH_MANUAL_PRODUCT_PRICE_2026-06-10.csv` |
-| Oleh-oleh summary | `OlehOleh_Workspace/03_Curated/OLEH_OLEH_BASELINE_UI_ENRICHED_WITH_MANUAL_PRODUCT_PRICE_SUMMARY_2026-06-10.json` |
-| Penginapan parent | `Penginapan_Workspace/02_Curated/PENGINAPAN_PARENT_MASTER_2026-06-05.csv` |
-| Penginapan child | `Penginapan_Workspace/02_Curated/PENGINAPAN_CHILD_LISTINGS_FINAL_2026-06-05.csv` |
-| Relasi penginapan | `Penginapan_Workspace/02_Curated/PENGINAPAN_PARENT_CHILD_RELATIONS_FINAL_2026-06-05.csv` |
+| Wisata | `ai_workspace/Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_SENTIMENT_RUNTIME_CANDIDATE_2026-06-09.csv` |
+| Wisata validation | `ai_workspace/Wisata_Workspace/01_Dataset/3_Curated/data_validation_runtime_candidate_2026-06-09.json` |
+| Alias lokasi | `ai_workspace/Wisata_Workspace/01_Dataset/3_Curated/landmark_aliases.csv` |
+| Oleh-oleh | `ai_workspace/OlehOleh_Workspace/03_Curated/OLEH_OLEH_BASELINE_UI_ENRICHED_WITH_MANUAL_PRODUCT_PRICE_2026-06-10.csv` |
+| Penginapan parent | `ai_workspace/Penginapan_Workspace/02_Curated/PENGINAPAN_PARENT_MASTER_2026-06-05.csv` |
+| Penginapan child | `ai_workspace/Penginapan_Workspace/02_Curated/PENGINAPAN_CHILD_LISTINGS_FINAL_2026-06-05.csv` |
 
-## Endpoint Saat Ini
+## Endpoint Saat Ini (Phase 1)
 
 | Endpoint | Method | Fungsi |
 |---|---|---|
-| `/api/recommend` | POST | Rekomendasi wisata |
-| `/api/oleh-oleh/recommend` | POST | Rekomendasi oleh-oleh |
-| `/api/llm/validate` | POST | Validasi output LLM |
-
-Contoh payload wisata:
-
-```json
-{
-  "query": "wisata alam murah ramah anak",
-  "top_n": 5
-}
-```
-
-Contoh payload oleh-oleh:
-
-```json
-{
-  "query": "snack murah tahan perjalanan",
-  "top_n": 5
-}
-```
+| `/health` | GET | Combined health check |
+| `/health/live` | GET | Liveness probe (process up?) |
+| `/health/ready` | GET | Readiness probe (DB reachable?) |
+| `/docs` | GET | Swagger UI |
+| `/redoc` | GET | ReDoc docs |
 
 ## Cara Jalan Lokal
 
-```powershell
-python -m venv .venv
-.\.venv\Scripts\activate
+```bash
+cd backend
+
+# Start PostgreSQL
+docker compose up -d
+
+# Setup Python
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
-$env:HOST="127.0.0.1"
-$env:PORT="5000"
-python .\Scripts\app.py
+
+# Copy env
+cp .env.example .env
+
+# Run server
+uvicorn app.main:app --reload
 ```
 
-Lalu buka:
-
-```text
-http://127.0.0.1:5000
-```
+Lalu buka: http://localhost:8000/docs
 
 ## Validasi Cepat
 
-```powershell
-python -m py_compile .\Scripts\app.py .\Scripts\recommender.py .\Scripts\oleh_oleh_recommender.py .\Scripts\llm_evidence_pack.py .\Scripts\llm_guard.py
-python .\Scripts\run_recommender_runtime_audit.py
-python .\Scripts\audit_oleh_oleh_recommender_queries.py
+```bash
+cd backend
+source venv/bin/activate
+
+# Run tests
+pip install -r requirements-dev.txt
+pytest tests/ -v
+
+# Quick health check
+curl http://localhost:8000/health
 ```
 
 ## Aturan Penting
@@ -107,12 +111,13 @@ python .\Scripts\audit_oleh_oleh_recommender_queries.py
 
 | Prioritas | Pekerjaan |
 |---|---|
-| 1 | Stabilkan API backend untuk wisata dan oleh-oleh |
-| 2 | Buat endpoint penginapan sebagai candidate/stub dulu |
-| 3 | Tambahkan penginapan ke ranking setelah sentiment selesai |
-| 4 | Pasang LLM hanya sebagai layer penjelasan, bukan ranking utama |
-| 5 | Tambahkan test kontrak API sebelum ubah response schema |
+| 1 | Implementasi Authentication (JWT) — Phase 2 |
+| 2 | Buat endpoint destinations CRUD — Phase 3 |
+| 3 | Buat endpoint penginapan sebagai candidate/stub |
+| 4 | Tambahkan user preferences & interactions — Phase 4 |
+| 5 | Integrasi AI recommendation engine — Phase 5 |
+| 6 | RAG Chatbot integration — Phase 6 |
 
 ## Status Singkat
 
-Wisata sudah paling matang. Oleh-oleh sudah baseline dan bisa dikembangkan. Penginapan sudah punya struktur data, tapi belum final untuk rekomendasi karena sentiment review masih menunggu hasil.
+Backend foundation sudah berjalan dengan FastAPI. Health check, error handling, CORS, dan database connection sudah dikonfigurasi. Test suite sudah ada untuk contract validation. Siap untuk Phase 2 (Authentication).

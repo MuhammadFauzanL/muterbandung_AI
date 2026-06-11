@@ -1,9 +1,3 @@
-/**
- * Popular Destinations Section Component
- *
- * Displays a grid of popular tourist destinations in Bandung.
- * Uses DestinationCard for each destination item.
- */
 import { POPULAR_DESTINATIONS } from '@/constants';
 import { DestinationCard } from '@/components/ui/cards';
 

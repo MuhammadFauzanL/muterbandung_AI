@@ -1,9 +1,3 @@
-/**
- * Heart Icon Component
- *
- * Reusable SVG icon for favorite/like actions.
- */
-
 interface HeartIconProps {
   className?: string;
   size?: number;

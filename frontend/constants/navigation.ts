@@ -1,8 +1,3 @@
-/**
- * Navigation Constants
- *
- * Static data for navigation bar and footer links.
- */
 import type { NavigationItem, FooterLink } from '@/types';
 
 export const NAVIGATION_ITEMS: readonly NavigationItem[] = [

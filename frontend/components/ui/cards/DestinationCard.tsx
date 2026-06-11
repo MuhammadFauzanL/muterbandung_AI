@@ -1,9 +1,3 @@
-/**
- * Destination Card Component
- *
- * Displays a tourist destination with image, location, price, and rating.
- * Used in the Popular Destinations section of the landing page.
- */
 import Image from 'next/image';
 import type { Destination } from '@/types';
 import { LocationIcon, HeartIcon } from '@/components/ui/icons';
