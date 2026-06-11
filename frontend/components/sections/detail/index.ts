@@ -1,0 +1,1 @@
+export { DestinationDetailPageContent } from './DestinationDetailPageContent';
