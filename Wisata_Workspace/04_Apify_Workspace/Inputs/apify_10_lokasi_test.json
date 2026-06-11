@@ -1,0 +1,37 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kebun%20Strawberry%20Emte%20Highland%20Resort&query_place_id=ChIJLzjThYiMaC4RSjIst10YSeA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kebun%20Begonia%20Lembang&query_place_id=ChIJFTPWZ_PgaC4Rpjxz_DA1gqw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Perkebunan%20Teh%20RANCABALI&query_place_id=ChIJvwek54aLaC4RriJBwwiFnes"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Lawangwangi%20Creative%20Space&query_place_id=ChIJQ6CsgSznaC4RN_gMkXSo6Gw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Lembang%20Park%20%26%20Zoo&query_place_id=ChIJc0Pt2KrhaC4R5v7HbJL8cxs"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20Legok%20Kondang%20Lodge&query_place_id=ChIJ3T1zZ8SMaC4RYnYiIK2gk8o"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Guha%20Pawon&query_place_id=ChIJwTWk5_b8aC4RFlVjqfhHils"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Artapela&query_place_id=ChIJc9a6qQuWaC4RrqQXaaFG3rI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gn.%20Bohong&query_place_id=ChIJ9ZQXP_HkaC4RRRkqgETnj8k"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gn.%20Tangkuban%20Parahu&query_place_id=ChIJ2xOXxd3haC4R3P4oNLeWHKA"
+    }
+  ],
+  "maxReviewsPerPlace": 10,
+  "language": "id",
+  "reviewsSort": "newest"
+}

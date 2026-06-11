@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-06-05T08:01:21.682917Z",
+  "raw_master_input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\generated_raw_csv\\HOTEL_GOOGLE_SEARCH_RAW_MASTER_2026-06-02.csv",
+  "existing_canonical_input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\HOTEL_CANONICAL_CIMAHI_2026-05-29.csv",
+  "deduped_output_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_DEDUPED_MASTER_BANDUNG_RAYA_2026-06-02.csv",
+  "candidate_output_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_CANONICAL_CANDIDATE_BANDUNG_RAYA_2026-06-02.csv",
+  "validation_output_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\penginapan_canonical_candidate_validation_2026-06-02.json",
+  "raw_master_rows": 2840,
+  "existing_canonical_rows": 181,
+  "pool_rows": 3021,
+  "candidate_rows": 1656,
+  "dedupe_removed_rows": 1365,
+  "property_type_counts": {
+    "hotel": 487,
+    "apartment": 352,
+    "villa": 342,
+    "vacation_rental": 269,
+    "guest_house": 152,
+    "room_level_listing": 54
+  },
+  "region_validation_counts": {
+    "bandung_raya_valid": 1656
+  },
+  "region_bucket_counts": {
+    "kota_bandung": 805,
+    "cimahi_baros_pasteur": 443,
+    "kbb_tengah_barat": 317,
+    "kbb_utara_lembang_parongpong_cisarua": 34,
+    "kbb_selatan_baratdaya": 28,
+    "bandung_raya_other": 27,
+    "kabupaten_bandung": 2
+  },
+  "data_quality_label_counts": {
+    "high": 1070,
+    "medium": 541,
+    "low": 45
+  }
+}

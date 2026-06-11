@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%202625%20Pondok%20Penginapan%20Patradisa%20-6.9247%2C107.6288"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%202728%20Sinulingga%20Residence%20-6.8881399%2C107.5778059"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%202759%20-%20Jend.%20Sudirman%20Cibeureum%20-6.9104534%2C107.5688898"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%203339%20Rawabango%20Costel%20-6.8046%2C107.1756"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%203898%20Sultan%20Premiere%20Ayuni%20Residence%20-6.881313%2C107.5788895"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2092217%20Artana%20Bed%20and%20Breakfast.NearSitu%20Cileunca%20-7.1931%2C107.545"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093439%20The%20Suites%20Metro%20By%20Interindo%20-6.9175%2C107.6192"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20944%20Doorman%20Residence%20-6.918%2C107.5996"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Flagship%2091130%20Hotel%2099%20Lodaya%20-6.9314%2C107.6241"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%203143%20Blessing%20Bed%20And%20Breakfast%20-6.8931%2C107.6046"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2092127%20Skyland%20Pasteur%20-6.8907953%2C107.5680606"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Oemah%20Kakang%20Loft%20%26%20Bed%20-6.8531%2C107.5964"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Oslandmark%20Residence%20-6.9127%2C107.5925"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Oyo%20-6.8982107%2C107.561465"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=POP%21%20Hotel%20Festival%20Citylink%20Bandung%20-6.9295%2C107.5862"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=PRIME%20PARK%20Hotel%20Bandung%20-%20PP%20Hospitality%20-%20PT%20PP%20Properti%20Tbk%20-6.8989%2C107.6417"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=PURNAMA%20-7.1069%2C107.4558"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pakuhaji%20Highland%20Eco-Resort%20-6.8274%2C107.5404"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Palais%20Dago%20Hotel%20-6.8963%2C107.6131"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Palem%20hotel%20pasar%20baru%20-6.9172%2C107.5988"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Beautiful%20Luxurious%20House%20-6.8918368%2C107.5734011"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Patra%20Bandung%20Hotel%20-6.8891%2C107.6137"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Penginapan%20Rio%20Anakku%20Syariah%20Banjaran%20Mitra%20RedDoorz%20-7.0136%2C107.6085"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pingu%20House%20-6.908788%2C107.5742086"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Poin%20Phila%20Hotel%20-6.9061%2C107.6047"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pondok%20Ayuni%20-6.8814267%2C107.5788069"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Populair%20Hostel%20Braga%20-6.9187%2C107.6095"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Promenade%20Hotel%20Bandung%20-6.8969%2C107.6037"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Purnama%20homes%20-6.9175%2C107.6192"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RUMAH%20TAMU%20bandung%20-6.9022%2C107.6281"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rancho%20Topaz%20-6.8631%2C107.5633"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20ADDA%20Cabin%20Pengalengan%20-7.2%2C107.5438"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Amellia%20Pasteur%20Bandung%20-6.8857%2C107.5785"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Arwiga%20Hotel%20near%20RS%20Hasan%20Sadikin%20Bandung%20-6.893%2C107.5989"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Buah%20Batu%202%20-6.9443%2C107.6305"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Cikutra%203%20-6.8924%2C107.6317"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Dago%20Asri%203%20-6.8738%2C107.6128"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Gatot%20Subroto%20Street%20Bandung%203%20-6.9289%2C107.6385"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Hotel%20Arimbi%20Dewi%20Sartika%20Baru%20-6.9298%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Kiaracondong%20-6.9427%2C107.6419"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Lombok%20-6.9098%2C107.6186"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Natuna%20-6.9173%2C107.6174"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Paskal%20Hyper%20Square%20-6.9145%2C107.5941"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Talaga%20Bodas%20-6.9282%2C107.6202"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Hostel%20%40%20Dago%202%20-6.8802%2C107.6164"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Near%20Braga%20Street%20-6.9185%2C107.6122"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Bagusrangin%20Street%20-6.8978%2C107.6175"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Buah%20Batu%20-6.9475%2C107.6314"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Cipaganti%20Street%203%20-6.9028%2C107.6029"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20D%27San%20Residence%20Buah%20Batu%20-6.9385%2C107.6163"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Dago%20Pojok%203%20-6.8733%2C107.6179"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Karapitan%20Street%20-6.9293%2C107.6161"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Point%20Phila%20Cihampelas%20-6.9061%2C107.6047"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Surapati%202%20-6.898%2C107.633"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20Near%20BIP%20-6.9077%2C107.613"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Asia%20Afrika%203%20-6.9236%2C107.6098"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Exit%20Toll%20Pasteur%202%20-6.8873261%2C107.5798858"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Isola%20UPI%20-6.8624%2C107.5912"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Kampus%20UPI%20Setiabudhi%20-6.8488%2C107.5919"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Lembang%20Park%20%26%20Zoo%20-6.8121%2C107.5953"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Politeknik%20Negeri%20Bandung%20-6.8759316%2C107.5743878"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Surapati%20Core%20-6.9017%2C107.652"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20near%20Universitas%20Maranatha%20Bandung%202%20-6.8813%2C107.5805"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Premium%20%40%20HOTEL%20HEBAT%20-6.9479%2C107.5883"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Resort%20%40%20Ciater%203%20-6.7393%2C107.6577"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Resort%20at%20Hajeka%20Pangalengan%20Bandung%20-7.1974%2C107.5447"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Syariah%20Near%20Polban%203%20-6.8615796%2C107.5765003"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Syariah%20at%20Cigadung%20Raya%20Street%20-6.89%2C107.6302"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Syariah%20near%20BTC%20Fashion%20Mall%20-6.8912%2C107.582"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Syariah%20near%20Tugu%20Pandanwangi%20Cianjur%20-6.8288%2C107.1163"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20at%20Argapuri%20Resort%20Gambung%20-7.1318%2C107.5129"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20dekat%20Universitas%20Korporat%20Telkom%20-6.8724%2C107.5903"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Alun%20Alun%20Bandung%203%20-6.9296%2C107.6054"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Asia%20Afrika%202%20-6.9316%2C107.6193"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Cimahi%20Station%20-6.8689048%2C107.527882"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Exit%20Toll%20Pasteur%204%20-6.8905976%2C107.5790232"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Exit%20Toll%20Pasteur%205%20-6.8862%2C107.5841"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Farm%20House%204%20-6.8401%2C107.597"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Istana%20Plaza%202%20-6.9051%2C107.5986"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Istana%20Plaza%203%20-6.9011%2C107.5954"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Jatinangor%20Town%20Square%20-6.9428%2C107.7735"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Lembang%20Park%20%26%20Zoo%202%20-6.8156%2C107.5983"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Margahayu%20Raya%20-6.9437%2C107.6615"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Metro%20Bandung%20-6.9409%2C107.6549"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Parahyangan%20University%20-6.8743%2C107.6075"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Paris%20Van%20Java%20-6.885%2C107.5969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Riau%20Junction%20Mall%202%20-6.9023%2C107.6152"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Setrasari%20mall%204%20-6.8808%2C107.5792"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Simpang%20Dago%202%20-6.8853%2C107.6163"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Situ%20Cileunca%20Pangalengan%20-7.1872%2C107.5555"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Tegalega%20Park%20-6.9395%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Tegalega%20Park%202%20-6.9345%2C107.6129"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Telkom%20Corporate%20University%20-6.8724%2C107.5903"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Upi%20Sersan%20Bajuri%20Bandung%20-6.8556%2C107.592"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Reddoorz%20Syariah%20%40%20Gatot%20Subroto%20Street%20Bandung%204%20-6.9241%2C107.6266"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Regan%20Luxcamp%20-7.1844%2C107.5469"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rehat%20at%20Hotel%2010%20Buah%20Batu%20-6.9342%2C107.6204"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Revin%20Vouncher%20Hotel%20-6.925%2C107.6302"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rhapsodic%20Stay%20Bed%20and%20Breakfast%20Bandung%20-6.8966%2C107.6213"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rizh%20Hotel%20-6.9283%2C107.6202"
+        }
+    ]
+}

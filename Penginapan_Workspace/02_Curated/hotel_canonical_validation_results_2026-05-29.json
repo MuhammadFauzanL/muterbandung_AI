@@ -1,0 +1,348 @@
+{
+  "summary": {
+    "schema_version": "muterbandung.hotel_canonical_validation.v1",
+    "dataset_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\HOTEL_CANONICAL_CIMAHI_2026-05-29.csv",
+    "row_count": 181,
+    "column_count": 76,
+    "unique_hotel_id_count": 181,
+    "error_count": 0,
+    "warning_count": 469,
+    "issue_count": 6,
+    "gate_status": "PASS_WITH_WARNINGS",
+    "property_segment_counts": {
+      "apartment": 65,
+      "hotel": 64,
+      "guest_house": 36,
+      "villa": 10,
+      "room_level_listing": 5,
+      "vacation_rental": 1
+    },
+    "review_confidence_counts": {
+      "missing_review_confidence": 53,
+      "low_review_confidence": 53,
+      "medium_review_confidence": 48,
+      "high_review_confidence": 27
+    },
+    "quality_flag_counts": {
+      "rating_available": 128,
+      "price_available": 89,
+      "amenities_available": 121,
+      "image_available": 180,
+      "description_available": 24,
+      "source_link_available": 94,
+      "reviews_breakdown_available": 18
+    },
+    "validated_at": "2026-06-02T03:19:12.631791Z"
+  },
+  "issues": [
+    {
+      "severity": "WARNING",
+      "code": "W_RATING_MISSING",
+      "message": "Rows without rating/review count cannot be ranked by rating confidence.",
+      "count": 53,
+      "field": "rating_available",
+      "sample_rows": [
+        {
+          "row_number": 20,
+          "hotel_id": "HOTEL-019",
+          "name": "OYO 2088 Grha Blue Sky Syariah - Standard Double Room"
+        },
+        {
+          "row_number": 21,
+          "hotel_id": "HOTEL-020",
+          "name": "Mountain View at The Edge - Two-Bedroom Apartment"
+        },
+        {
+          "row_number": 39,
+          "hotel_id": "HOTEL-038",
+          "name": "Sans Stay Skyland Pasteur Bandung - Deluxe Double Room"
+        },
+        {
+          "row_number": 53,
+          "hotel_id": "HOTEL-052",
+          "name": "Wakeqi Villa"
+        },
+        {
+          "row_number": 58,
+          "hotel_id": "HOTEL-057",
+          "name": "Studio Gateway Pasteur By Kevin Property Topaz A"
+        },
+        {
+          "row_number": 60,
+          "hotel_id": "HOTEL-059",
+          "name": "OYO 94155 Gateway Pasteur Apartment By Goodtime"
+        },
+        {
+          "row_number": 66,
+          "hotel_id": "HOTEL-065",
+          "name": "Sewa Apartemen Bandung"
+        },
+        {
+          "row_number": 78,
+          "hotel_id": "HOTEL-077",
+          "name": "Apartment 2Bedroom Gateway Pasteur By Kevin"
+        },
+        {
+          "row_number": 79,
+          "hotel_id": "HOTEL-078",
+          "name": "Spacious Chic Studio Room Apartment At Gateway Pasteur"
+        },
+        {
+          "row_number": 91,
+          "hotel_id": "HOTEL-090",
+          "name": "OYO 94150 Gateway Apartment Pasteur By Eldian"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "code": "W_PRICE_MISSING",
+      "message": "Rows without price should not be used for budget claims.",
+      "count": 92,
+      "field": "price_available",
+      "sample_rows": [
+        {
+          "row_number": 11,
+          "hotel_id": "HOTEL-010",
+          "name": "Awana Dream Gateway Pasteur"
+        },
+        {
+          "row_number": 13,
+          "hotel_id": "HOTEL-012",
+          "name": "Javaretro Hotel & Suite"
+        },
+        {
+          "row_number": 15,
+          "hotel_id": "HOTEL-014",
+          "name": "High Livin Apartment Baros"
+        },
+        {
+          "row_number": 16,
+          "hotel_id": "HOTEL-015",
+          "name": "The Banyu House"
+        },
+        {
+          "row_number": 17,
+          "hotel_id": "HOTEL-016",
+          "name": "Seven Homestay"
+        },
+        {
+          "row_number": 18,
+          "hotel_id": "HOTEL-017",
+          "name": "Ouma Gateway Pasteur Apartment"
+        },
+        {
+          "row_number": 25,
+          "hotel_id": "HOTEL-024",
+          "name": "OYO Life 92774 The Edge Apartment By My Home"
+        },
+        {
+          "row_number": 27,
+          "hotel_id": "HOTEL-026",
+          "name": "Hotel Candra"
+        },
+        {
+          "row_number": 29,
+          "hotel_id": "HOTEL-028",
+          "name": "The Cordyline Guesthouse"
+        },
+        {
+          "row_number": 30,
+          "hotel_id": "HOTEL-029",
+          "name": "Mega raya"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "code": "W_AMENITIES_MISSING",
+      "message": "Rows without amenities require conservative LLM wording.",
+      "count": 60,
+      "field": "amenities_available",
+      "sample_rows": [
+        {
+          "row_number": 8,
+          "hotel_id": "HOTEL-007",
+          "name": "C Family Hotel"
+        },
+        {
+          "row_number": 11,
+          "hotel_id": "HOTEL-010",
+          "name": "Awana Dream Gateway Pasteur"
+        },
+        {
+          "row_number": 16,
+          "hotel_id": "HOTEL-015",
+          "name": "The Banyu House"
+        },
+        {
+          "row_number": 17,
+          "hotel_id": "HOTEL-016",
+          "name": "Seven Homestay"
+        },
+        {
+          "row_number": 25,
+          "hotel_id": "HOTEL-024",
+          "name": "OYO Life 92774 The Edge Apartment By My Home"
+        },
+        {
+          "row_number": 26,
+          "hotel_id": "HOTEL-025",
+          "name": "High Livin Apartment Pasteur"
+        },
+        {
+          "row_number": 30,
+          "hotel_id": "HOTEL-029",
+          "name": "Mega raya"
+        },
+        {
+          "row_number": 31,
+          "hotel_id": "HOTEL-030",
+          "name": "Namdur Villa Sariwangi"
+        },
+        {
+          "row_number": 32,
+          "hotel_id": "HOTEL-031",
+          "name": "Frank House Guest House Korean Style"
+        },
+        {
+          "row_number": 34,
+          "hotel_id": "HOTEL-033",
+          "name": "Hen's Guest House"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "code": "W_DESCRIPTION_MISSING",
+      "message": "Rows without description need generated/curated description before rich LLM explanation.",
+      "count": 157,
+      "field": "description_available",
+      "sample_rows": [
+        {
+          "row_number": 3,
+          "hotel_id": "HOTEL-002",
+          "name": "HOTEL PARAHYANGAN"
+        },
+        {
+          "row_number": 4,
+          "hotel_id": "HOTEL-003",
+          "name": "The Cluster Harris"
+        },
+        {
+          "row_number": 6,
+          "hotel_id": "HOTEL-005",
+          "name": "Asthaloka"
+        },
+        {
+          "row_number": 8,
+          "hotel_id": "HOTEL-007",
+          "name": "C Family Hotel"
+        },
+        {
+          "row_number": 10,
+          "hotel_id": "HOTEL-009",
+          "name": "Sans Hotel Skyland Pasteur Bandung"
+        },
+        {
+          "row_number": 11,
+          "hotel_id": "HOTEL-010",
+          "name": "Awana Dream Gateway Pasteur"
+        },
+        {
+          "row_number": 12,
+          "hotel_id": "HOTEL-011",
+          "name": "CIMAHI GUEST HOUSE"
+        },
+        {
+          "row_number": 15,
+          "hotel_id": "HOTEL-014",
+          "name": "High Livin Apartment Baros"
+        },
+        {
+          "row_number": 16,
+          "hotel_id": "HOTEL-015",
+          "name": "The Banyu House"
+        },
+        {
+          "row_number": 17,
+          "hotel_id": "HOTEL-016",
+          "name": "Seven Homestay"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "code": "W_IMAGE_MISSING",
+      "message": "Rows without primary image should not be used for visual cards.",
+      "count": 1,
+      "field": "image_available",
+      "sample_rows": [
+        {
+          "row_number": 134,
+          "hotel_id": "HOTEL-133",
+          "name": "OYO 93923 Gateway Pasteur Apartment By"
+        }
+      ]
+    },
+    {
+      "severity": "WARNING",
+      "code": "W_LOW_REVIEW_CONFIDENCE",
+      "message": "Low/missing review confidence rows need shrinkage and cautious explanations.",
+      "count": 106,
+      "field": "review_confidence_label",
+      "sample_rows": [
+        {
+          "row_number": 11,
+          "hotel_id": "HOTEL-010",
+          "name": "Awana Dream Gateway Pasteur"
+        },
+        {
+          "row_number": 20,
+          "hotel_id": "HOTEL-019",
+          "name": "OYO 2088 Grha Blue Sky Syariah - Standard Double Room"
+        },
+        {
+          "row_number": 21,
+          "hotel_id": "HOTEL-020",
+          "name": "Mountain View at The Edge - Two-Bedroom Apartment"
+        },
+        {
+          "row_number": 25,
+          "hotel_id": "HOTEL-024",
+          "name": "OYO Life 92774 The Edge Apartment By My Home"
+        },
+        {
+          "row_number": 30,
+          "hotel_id": "HOTEL-029",
+          "name": "Mega raya"
+        },
+        {
+          "row_number": 37,
+          "hotel_id": "HOTEL-036",
+          "name": "Bali Puspa Guest House"
+        },
+        {
+          "row_number": 39,
+          "hotel_id": "HOTEL-038",
+          "name": "Sans Stay Skyland Pasteur Bandung - Deluxe Double Room"
+        },
+        {
+          "row_number": 41,
+          "hotel_id": "HOTEL-040",
+          "name": "JK House Bandung"
+        },
+        {
+          "row_number": 44,
+          "hotel_id": "HOTEL-043",
+          "name": "Sentra Duta"
+        },
+        {
+          "row_number": 47,
+          "hotel_id": "HOTEL-046",
+          "name": "Villa hegar by Kavastay"
+        }
+      ]
+    }
+  ]
+}

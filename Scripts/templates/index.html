@@ -37,120 +37,86 @@
             <h3><i class='bx bx-filter-alt'></i> Filter Pencarian</h3>
             
             <form id="filter-form">
-                <div class="form-group">
-                    <label>Kategori Wisata</label>
-                    <div class="checkbox-group">
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Alam">
-                            <span class="checkmark"></span> Alam
+                <div id="wisata-filters" class="filter-group-module">
+                    <div class="form-group">
+                        <label>Kategori Wisata</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Alam"><span class="checkmark"></span> Alam</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Keluarga"><span class="checkmark"></span> Keluarga</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Budaya"><span class="checkmark"></span> Budaya</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Sejarah"><span class="checkmark"></span> Sejarah</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Edukasi"><span class="checkmark"></span> Edukasi</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Kuliner"><span class="checkmark"></span> Kuliner</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Belanja"><span class="checkmark"></span> Belanja</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Satwa"><span class="checkmark"></span> Satwa</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Santai/Healing"><span class="checkmark"></span> Santai</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Spot Foto"><span class="checkmark"></span> Spot Foto</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Petualangan"><span class="checkmark"></span> Petualangan</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Religi"><span class="checkmark"></span> Religi</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Ramah Anak"><span class="checkmark"></span> Ramah Anak</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Indoor"><span class="checkmark"></span> Indoor</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Outdoor"><span class="checkmark"></span> Outdoor</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Malam"><span class="checkmark"></span> Malam</label>
+                            <label class="checkbox-item"><input type="checkbox" name="categories" value="Gratis"><span class="checkmark"></span> Gratis</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group inline-group">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="free_only" name="free_only">
+                            <span class="slider"></span>
                         </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Keluarga">
-                            <span class="checkmark"></span> Keluarga
+                        <span>Hanya yang Gratis</span>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="form-group inline-group">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="open_now" name="open_now">
+                            <span class="slider"></span>
                         </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Budaya">
-                            <span class="checkmark"></span> Budaya
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Sejarah">
-                            <span class="checkmark"></span> Sejarah
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Edukasi">
-                            <span class="checkmark"></span> Edukasi
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Kuliner">
-                            <span class="checkmark"></span> Kuliner
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Belanja">
-                            <span class="checkmark"></span> Belanja
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Satwa">
-                            <span class="checkmark"></span> Satwa
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Santai/Healing">
-                            <span class="checkmark"></span> Santai
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Spot Foto">
-                            <span class="checkmark"></span> Spot Foto
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Petualangan">
-                            <span class="checkmark"></span> Petualangan
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Religi">
-                            <span class="checkmark"></span> Religi
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Ramah Anak">
-                            <span class="checkmark"></span> Ramah Anak
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Indoor">
-                            <span class="checkmark"></span> Indoor
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Outdoor">
-                            <span class="checkmark"></span> Outdoor
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Malam">
-                            <span class="checkmark"></span> Malam
-                        </label>
-                        <label class="checkbox-item">
-                            <input type="checkbox" name="categories" value="Gratis">
-                            <span class="checkmark"></span> Gratis
-                        </label>
+                        <span>Buka Sekarang</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="day_type">Tipe Hari</label>
+                        <select id="day_type" name="day_type" class="glass-input">
+                            <option value="">-- Pilih --</option>
+                            <option value="weekday">Hari Kerja (Weekday)</option>
+                            <option value="weekend">Akhir Pekan (Weekend)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="open_at_hour">Jam Rencana (Format: 14:30)</label>
+                        <input type="time" id="open_at_hour" name="open_at_hour" class="glass-input">
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="max_price">Maksimal Harga (Rp)</label>
-                    <input type="number" id="max_price" name="max_price" placeholder="Misal: 50000" class="glass-input">
+                <div id="penginapan-filters" class="filter-group-module hidden">
+                    <div class="form-group">
+                        <label>Tipe Properti</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-item"><input type="checkbox" name="property_types" value="hotel"><span class="checkmark"></span> Hotel</label>
+                            <label class="checkbox-item"><input type="checkbox" name="property_types" value="villa"><span class="checkmark"></span> Villa</label>
+                            <label class="checkbox-item"><input type="checkbox" name="property_types" value="guest_house"><span class="checkmark"></span> Guest House</label>
+                            <label class="checkbox-item"><input type="checkbox" name="property_types" value="apartment"><span class="checkmark"></span> Apartment</label>
+                            <label class="checkbox-item"><input type="checkbox" name="property_types" value="vacation_rental"><span class="checkmark"></span> Vacation Rental</label>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="form-group inline-group">
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="free_only" name="free_only">
-                        <span class="slider"></span>
-                    </label>
-                    <span>Hanya yang Gratis</span>
+                <div class="divider"></div>
+
+                <div class="form-group">
+                    <label for="max_price">Maksimal Harga (Rp)</label>
+                    <input type="number" id="max_price" name="max_price" placeholder="Misal: 500000" class="glass-input">
                 </div>
 
                 <div class="form-group">
                     <label for="min_rating">Minimal Rating (1-5)</label>
                     <input type="number" step="0.1" id="min_rating" name="min_rating" placeholder="Misal: 4.5" class="glass-input" max="5" min="1">
-                </div>
-
-                <div class="divider"></div>
-
-                <div class="form-group inline-group">
-                    <label class="toggle-switch">
-                        <input type="checkbox" id="open_now" name="open_now">
-                        <span class="slider"></span>
-                    </label>
-                    <span>Buka Sekarang</span>
-                </div>
-
-                <div class="form-group">
-                    <label for="day_type">Tipe Hari</label>
-                    <select id="day_type" name="day_type" class="glass-input">
-                        <option value="">-- Pilih --</option>
-                        <option value="weekday">Hari Kerja (Weekday)</option>
-                        <option value="weekend">Akhir Pekan (Weekend)</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="open_at_hour">Jam Rencana (Format: 14:30)</label>
-                    <input type="time" id="open_at_hour" name="open_at_hour" class="glass-input">
                 </div>
 
                 <div class="divider"></div>
@@ -184,6 +150,15 @@
 
         <!-- Main Content -->
         <section class="main-content">
+            
+            <!-- Module Switcher -->
+            <div class="module-switcher-container">
+                <div class="module-switcher">
+                    <button class="module-btn active" data-module="wisata" type="button"><i class='bx bx-map-alt'></i> Wisata</button>
+                    <button class="module-btn" data-module="penginapan" type="button"><i class='bx bx-building-house'></i> Penginapan</button>
+                </div>
+            </div>
+
             <!-- Search Bar -->
             <div class="search-section glass-panel">
                 <form id="search-form" class="search-wrapper">

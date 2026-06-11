@@ -1,0 +1,61 @@
+location_id,location_name,display_status,curation_action,category,priority,issue_type,field_name,current_value,new_value,source_url,reviewer_status,reviewer_note
+LOC-016,Chinatown Bandung,active_candidate,keep,Tempat Budaya,HIGH,missing_value,jam_buka_weekday,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-016,Chinatown Bandung,active_candidate,keep,Tempat Budaya,HIGH,missing_value,jam_buka_weekend,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-016,Chinatown Bandung,active_candidate,keep,Tempat Budaya,HIGH,missing_value,jam_tutup_weekday,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-016,Chinatown Bandung,active_candidate,keep,Tempat Budaya,HIGH,missing_value,jam_tutup_weekend,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-023,Curug Malela,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-044,Jans Park (Jatinangor National Park),active_candidate,keep,Rekreasi Keluarga,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-069,Pemandian Cipanas Cileungsing,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-116,Wisata Kampoeng Ciherang,active_candidate,keep,Rekreasi Keluarga,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-123,Museum Pendidikan Nasional UPI,active_candidate,keep,Tempat Belajar,HIGH,missing_value,jam_buka_weekend,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-123,Museum Pendidikan Nasional UPI,active_candidate,keep,Tempat Belajar,HIGH,missing_value,jam_tutup_weekend,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-138,Kebun Teh Sukawana,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-155,Curug Panganten,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-158,Situ Ninah (Situ Datar),active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-162,Rumah Putih Cukul,active_candidate,keep,Rekreasi Keluarga,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-166,Muara Rahong Hills,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-228,Tanjung Duriat,active_candidate,keep,Wisata Alam,HIGH,verification_needed,coordinate_verified,False,,,todo,Koordinat aktif perlu dicek ulang sebelum dipakai untuk ranking dekat.
+LOC-029,Dusun Bambu,active_candidate,keep,Rekreasi Keluarga,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-029,Dusun Bambu,active_candidate,keep,Rekreasi Keluarga,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-068,Pasar Cimindi,active_candidate,keep,Tempat Belanja,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-068,Pasar Cimindi,active_candidate,keep,Tempat Belanja,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-137,Rumah Belanda,active_candidate,keep,Tempat Budaya,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-137,Rumah Belanda,active_candidate,keep,Tempat Budaya,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-152,Kebun Teh Rancabali,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-152,Kebun Teh Rancabali,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-155,Curug Panganten,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-155,Curug Panganten,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-162,Rumah Putih Cukul,active_candidate,keep,Rekreasi Keluarga,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-162,Rumah Putih Cukul,active_candidate,keep,Rekreasi Keluarga,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-174,Lereng Anteng Panoramic Coffee,active_candidate,keep,Tempat Kuliner,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-174,Lereng Anteng Panoramic Coffee,active_candidate,keep,Tempat Kuliner,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-176,Padepokan Dayang Sumbi,active_candidate,keep,Tempat Belajar,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-176,Padepokan Dayang Sumbi,active_candidate,keep,Tempat Belajar,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-192,Curug Ngebul Gununghalu,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-192,Curug Ngebul Gununghalu,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-196,Curug Walanda Citatah,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-196,Curug Walanda Citatah,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-213,Taman Cibeunying,active_candidate,keep,Taman Kota,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-213,Taman Cibeunying,active_candidate,keep,Taman Kota,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-220,Nimo Jungle Hot Spring,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-220,Nimo Jungle Hot Spring,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-226,Gunung Nini Pangalengan,active_candidate,keep,Wisata Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-226,Gunung Nini Pangalengan,active_candidate,keep,Wisata Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-234,Perkebunan Teh Rancabali,active_candidate,keep,Rekreasi Alam,MEDIUM,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-234,Perkebunan Teh Rancabali,active_candidate,keep,Rekreasi Alam,MEDIUM,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-004,Alun-Alun Sumedang,exclude_scope,remove,Taman Kota,LOW,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-004,Alun-Alun Sumedang,exclude_scope,remove,Taman Kota,LOW,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-037,Gn. Tampomas,exclude_scope,remove,Rekreasi Keluarga,LOW,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-037,Gn. Tampomas,exclude_scope,remove,Rekreasi Keluarga,LOW,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-159,Penangkaran Rusa Kertamanah,status_uncertain,needs_review,Wisata Satwa,LOW,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-159,Penangkaran Rusa Kertamanah,status_uncertain,needs_review,Wisata Satwa,LOW,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-229,Puncak Damar Jatigede,exclude_scope,remove,Wisata Alam,LOW,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-229,Puncak Damar Jatigede,exclude_scope,remove,Wisata Alam,LOW,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.
+LOC-233,Kampung Wisata Pangjugjugan,exclude_scope,remove,Rekreasi Alam,LOW,missing_value,avg_rating,,,,todo,Isi nilai baru jika data terpercaya sudah ditemukan.
+LOC-233,Kampung Wisata Pangjugjugan,exclude_scope,remove,Rekreasi Alam,LOW,sentiment_unavailable,sentiment_available,False,,,todo,Sentiment belum tersedia; isi hanya jika ada pipeline sentiment/review baru yang valid.

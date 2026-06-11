@@ -1,0 +1,17 @@
+﻿location_id,location_name,category,search_query,rows,text_rows,unique_review_ids,unique_place_ids,unique_titles,top_title,title_similarity,target_token_overlap,match_status,place_total_score,place_reviews_count,min_stars,max_stars,avg_scraped_stars
+LOC-029,Dusun Bambu,Rekreasi Keluarga,"Dusun Bambu -6.789984,107.578646",30,16,30,1,1,Dusun Bambu,1.0,1.0,strong_match,4.5,31829,1,5,4.467
+LOC-068,Pasar Cimindi,Tempat Belanja,"Pasar Cimindi -6.897185,107.558565",0,0,0,0,0,,0.0,0.0,missing,,,,,
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),Wisata Alam,"Punclut Bandung (Puncak Ciumbuleuit) -6.855200,107.611600",30,11,30,1,1,Kawasan Punclut,0.467,0.5,review_match,4.6,5373,2,5,4.7
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),Wisata Alam,"Bukit Bintang Bandung (Patahan Lembang) -6.821934,107.662363",30,14,30,1,1,Zona Sesar Lembang,0.205,0.0,needs_manual_check,4.4,64,1,5,4.333
+LOC-152,Kebun Teh Rancabali,Wisata Alam,"Kebun Teh Rancabali -7.111493,107.415219",30,15,30,1,1,Perkebunan Teh RANCABALI,0.884,0.667,strong_match,4.7,4592,1,5,4.733
+LOC-155,Curug Panganten,Wisata Alam,"Curug Panganten -6.843509,107.563939",0,0,0,0,0,,0.0,0.0,missing,,,,,
+LOC-162,Rumah Putih Cukul,Rekreasi Keluarga,"Rumah Putih Cukul -7.031500,107.720300",0,0,0,0,0,,0.0,0.0,missing,,,,,
+LOC-174,Lereng Anteng Panoramic Coffee,Tempat Kuliner,"Lereng Anteng Panoramic Coffee -6.842878,107.622150",30,17,30,1,1,"Lereng Anteng, Dago Bakery",0.618,0.5,review_match,4.5,45,1,5,4.533
+LOC-176,Padepokan Dayang Sumbi,Tempat Belajar,"Padepokan Dayang Sumbi -6.901362,107.638726",0,0,0,0,0,,0.0,0.0,missing,,,,,
+LOC-192,Curug Ngebul Gununghalu,Wisata Alam,"Curug Ngebul Gununghalu -7.082535,107.282444",30,18,30,1,1,Wisata Terpadu Curug Ngebul Cisitu,0.491,0.667,review_match,4.6,85,2,5,4.767
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,Wisata Alam,"Sungai Cikahuripan Green Canyon Saguling -6.901701,107.357266",30,18,30,1,1,Cikahuripan,0.431,0.2,needs_manual_check,4.3,143,1,5,4.167
+LOC-196,Curug Walanda Citatah,Wisata Alam,"Curug Walanda Citatah -6.651047,107.277045",23,12,23,1,1,Curug Walanda,0.765,0.667,review_match,4.6,23,1,5,4.565
+LOC-213,Taman Cibeunying,Taman Kota,"Taman Cibeunying -6.905218,107.624450",48,15,48,2,2,TOKO GOBERZ AUDIO MOBIL 97,0.286,0.0,needs_manual_check,4.5,8289,1,5,4.854
+LOC-220,Nimo Jungle Hot Spring,Wisata Alam,"Nimo Jungle Hot Spring -7.179917,107.495792",0,0,0,0,0,,0.0,0.0,missing,,,,,
+LOC-226,Gunung Nini Pangalengan,Wisata Alam,"Gunung Nini Pangalengan -7.221389,107.578333",30,17,30,1,1,Gunung Nini,0.647,0.667,review_match,4.4,103,2,5,4.433
+LOC-234,Perkebunan Teh Rancabali,Rekreasi Alam,"Perkebunan Teh Rancabali -7.154167,107.371111",0,0,0,0,0,,0.0,0.0,missing,,,,,

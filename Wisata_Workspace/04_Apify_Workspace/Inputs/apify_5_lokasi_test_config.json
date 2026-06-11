@@ -1,0 +1,30 @@
+{
+    "includeWebResults": false,
+    "language": "id",
+    "locationQuery": "",
+    "maxCrawledPlacesPerSearch": 1,
+    "maximumLeadsEnrichmentRecords": 0,
+    "scrapeContacts": false,
+    "scrapeDirectories": false,
+    "scrapeImageAuthors": false,
+    "scrapeOrderOnline": false,
+    "scrapePlaceDetailPage": true,
+    "scrapeReviewsPersonalData": false,
+    "scrapeSocialMediaProfiles": {
+        "facebooks": false,
+        "instagrams": false,
+        "tiktoks": false,
+        "twitters": false,
+        "youtubes": false
+    },
+    "scrapeTableReservationProvider": false,
+    "searchStringsArray": [
+        "23 Paskal Shopping Center Bandung Jawa Barat",
+        "Alam Wisata Cimahi Bandung Jawa Barat",
+        "Alun-Alun Kota Bandung Bandung Jawa Barat",
+        "Alun-Alun Sumedang Bandung Jawa Barat",
+        "Amazing Artgames Bandung Jawa Barat"
+    ],
+    "skipClosedPlaces": false,
+    "verifyLeadsEnrichmentEmails": false
+}

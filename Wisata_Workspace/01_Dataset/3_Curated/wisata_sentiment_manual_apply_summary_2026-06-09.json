@@ -1,0 +1,41 @@
+{
+  "base_dataset": "Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_FILLED_2026-06-09.csv",
+  "output_dataset": "Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_SENTIMENT_FILLED_2026-06-09.csv",
+  "accepted_source_csv": "Wisata_Workspace/01_Dataset/3_Curated/wisata_sentiment_manual_accepted_11_2026-06-09.csv",
+  "accepted_count": 11,
+  "changed_sentiment_rows": 11,
+  "changed_ids": [
+    "LOC-029",
+    "LOC-068",
+    "LOC-134",
+    "LOC-152",
+    "LOC-155",
+    "LOC-162",
+    "LOC-174",
+    "LOC-176",
+    "LOC-195",
+    "LOC-220",
+    "LOC-234"
+  ],
+  "unexpected_changed_ids": [],
+  "accepted_not_changed_ids": [],
+  "before_sentiment_coverage": {
+    "available": 193,
+    "missing": 16,
+    "pct": 92.3
+  },
+  "after_sentiment_coverage": {
+    "available": 204,
+    "missing": 5,
+    "pct": 97.6
+  },
+  "remaining_missing_sentiment_count": 5,
+  "remaining_missing_sentiment_ids": [
+    "LOC-133",
+    "LOC-192",
+    "LOC-196",
+    "LOC-213",
+    "LOC-226"
+  ],
+  "sentiment_method": "star-based fallback from approved Compass review rows; not NLP model inference"
+}

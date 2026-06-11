@@ -1,0 +1,31 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Air%20Terjun%20Anom&query_place_id=ChIJayJIusPjaC4RYHHMN37Na4w",
+        "https://www.google.com/maps/search/?api=1&query=Alam%20Wisata%20Cimahi&query_place_id=ChIJAbspL_PjaC4RGwfytELeq50",
+        "https://www.google.com/maps/search/?api=1&query=Bird%20Pavilion&query_place_id=ChIJISCBFczgaC4RAWCVd1ONVqE",
+        "https://www.google.com/maps/search/?api=1&query=Bukit%20senyum&query_place_id=ChIJ26aRnXsdaS4RgBltN-WCsLM",
+        "https://www.google.com/maps/search/?api=1&query=Cadas%20Pangeran%20Sumedang&query_place_id=ChIJh6Pd8-PRaC4RT7XMpGjIQ98",
+        "https://www.google.com/maps/search/?api=1&query=Cakrawala%20Resto&query_place_id=ChIJVVWeVvHmaC4R1Q8Q7y2VDsw",
+        "https://www.google.com/maps/search/?api=1&query=Cicalengka%20Dreamland&query_place_id=ChIJKRu4VcvPaC4RLwRHWB98sa4",
+        "https://www.google.com/maps/search/?api=1&query=Cikahuripan&query_place_id=ChIJMRXNHeb5aC4R3ZJCeZ0uVzA",
+        "https://www.google.com/maps/search/?api=1&query=Cikole%20Jayagiri%20Resort&query_place_id=ChIJB-ndBGvgaC4R2w6NT89_jO4",
+        "https://www.google.com/maps/search/?api=1&query=Cimahi%20Mall&query_place_id=ChIJYVoj2MflaC4RV6d342-reic",
+        "https://www.google.com/maps/search/?api=1&query=Cimahi%20Techno%20Park&query_place_id=ChIJxSRe6BflaC4RFIkDdhFfap4",
+        "https://www.google.com/maps/search/?api=1&query=Ciwangun%20Indah%20Camp&query_place_id=ChIJX-Jnyo3haC4RP4_AdBQXRvw",
+        "https://www.google.com/maps/search/?api=1&query=Coffee%20House%20Gunung%20Tilu&query_place_id=ChIJSSHTzfKTaC4RqyGsm7bt1Go",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Aseupan&query_place_id=ChIJdZffD9_haC4RCz8_rf5QzdI",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Bugbrug&query_place_id=ChIJ7UjmF1LhaC4RoKbIlIVS2v0",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Cinulang&query_place_id=ChIJDbM48vTPaC4RacUQQPXUjsc",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Gorobog&query_place_id=ChIJewt2agfSaC4RZihBj03HWQw",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Malela&query_place_id=ChIJ5aofLVBZaC4R4lZOp5B_emM",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Ngebul%20Cianjur%20Selatan&query_place_id=ChIJ17WXtC5haC4R3KOwXK1RK5Q",
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Tilu%20Leuwi%20Opat&query_place_id=ChIJBWTDg47haC4R8_hEkSFeJ3I"
+    ]
+}

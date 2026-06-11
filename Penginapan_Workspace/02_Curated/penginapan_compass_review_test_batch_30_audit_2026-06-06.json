@@ -1,0 +1,33 @@
+{
+  "raw_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\google_maps_reviews_json\\dataset_Google-Maps-Reviews-Scraper_2026-06-06_04-01-31-370.json",
+  "index_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_Final_Ready\\compass_google_maps_reviews_test_batch_30_index_2026-06-06.csv",
+  "raw_review_rows": 971,
+  "target_rows": 30,
+  "targets_with_review_rows": 28,
+  "missing_target_rows": 2,
+  "matched_review_rows": 971,
+  "rows_with_text": 626,
+  "rows_with_place_id": 971,
+  "rows_with_review_id": 971,
+  "duplicate_review_id_count": 0,
+  "unique_search_strings": 28,
+  "unique_place_titles": 33,
+  "unique_place_ids": 33,
+  "match_status_counts": {
+    "strong_match": 27,
+    "review_match": 1
+  },
+  "property_type_target_counts": {
+    "guest_house": 23,
+    "apartment": 7
+  },
+  "property_type_with_review_counts": {
+    "guest_house": 22,
+    "apartment": 6
+  },
+  "outputs": {
+    "normalized_csv": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPASS_REVIEW_TEST_BATCH_30_RAW_NORMALIZED_2026-06-06.csv",
+    "per_target_csv": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPASS_REVIEW_TEST_BATCH_30_PER_TARGET_AUDIT_2026-06-06.csv",
+    "missing_targets_csv": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPASS_REVIEW_TEST_BATCH_30_MISSING_TARGETS_2026-06-06.csv"
+  }
+}

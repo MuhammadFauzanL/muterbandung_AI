@@ -1,0 +1,15 @@
+location_name,category,display_status,curation_action,latitude,longitude,coordinate_verified,distance_from_alun_alun_km,coordinate_audit_reason
+Curug Malela,Wisata Alam,active_candidate,keep,-7.0115741,107.2056616,False,45.42,outside broad Bandung Raya coordinate bounds
+Gn. Tampomas,Rekreasi Keluarga,exclude_scope,remove,-6.8817995,107.5683276,False,6.17,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 6.2 km from Alun-Alun Bandung
+Jans Park (Jatinangor National Park),Rekreasi Keluarga,active_candidate,keep,-6.918795,107.769342,False,17.92,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 17.9 km from Alun-Alun Bandung
+Masjid Agung Sumedang,Tempat Ibadah,exclude_scope,remove,-6.907497,107.647137,False,4.7,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 4.7 km from Alun-Alun Bandung
+Pemandian Cipanas Cileungsing,Wisata Alam,active_candidate,keep,-7.00583,107.51944,False,13.45,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 13.5 km from Alun-Alun Bandung
+Wisata Kampoeng Ciherang,Rekreasi Keluarga,active_candidate,keep,-6.8293636,107.7978925,False,23.44,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 23.4 km from Alun-Alun Bandung
+Kebun Teh Sukawana,Wisata Alam,active_candidate,keep,-6.89556,107.58361,False,3.9,Sukawana/Lembang coordinate too close to Bandung center: 3.9 km from Alun-Alun Bandung
+Curug Panganten,Wisata Alam,active_candidate,keep,-6.8435086,107.5639385,False,9.92,Pangalengan/Malabar coordinate too close to Bandung center: 9.9 km from Alun-Alun Bandung
+Situ Ninah (Situ Datar),Wisata Alam,active_candidate,keep,-7.03278,107.56611,False,13.15,Pangalengan/Malabar coordinate too close to Bandung center: 13.1 km from Alun-Alun Bandung
+Rumah Putih Cukul,Rekreasi Keluarga,active_candidate,keep,-7.0315,107.7203,False,17.47,Pangalengan/Malabar coordinate too close to Bandung center: 17.5 km from Alun-Alun Bandung
+Muara Rahong Hills,Wisata Alam,active_candidate,keep,-6.9325,107.5625,False,5.06,Pangalengan/Malabar coordinate too close to Bandung center: 5.1 km from Alun-Alun Bandung
+Tanjung Duriat,Wisata Alam,active_candidate,keep,-6.91278,107.63083,False,2.81,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 2.8 km from Alun-Alun Bandung
+Puncak Damar Jatigede,Wisata Alam,exclude_scope,remove,-7.11,107.69583,False,23.11,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 23.1 km from Alun-Alun Bandung
+Panenjoan Jatigede,Wisata Alam,exclude_scope,remove,-6.972391,107.817965,False,23.95,Sumedang/Jatigede coordinate too close to Bandung center or outside strict scope: 23.9 km from Alun-Alun Bandung

@@ -1,0 +1,11 @@
+{
+  "batch_size": 100,
+  "max_reviews_per_target": 30,
+  "all_1140_rows": 1140,
+  "all_1140_batches": 12,
+  "remaining_1110_rows": 1110,
+  "remaining_1110_batches": 12,
+  "skipped_test_batch_rows": 30,
+  "recommended_folder": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_Final_Ready\\Compass_Full_Ready_Batches_2026-06-06\\remaining_1110_after_test30",
+  "rerun_all_folder": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_Final_Ready\\Compass_Full_Ready_Batches_2026-06-06\\all_1140"
+}

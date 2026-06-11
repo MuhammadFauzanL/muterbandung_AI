@@ -1,0 +1,32 @@
+{
+    "language": "id",
+    "scrapePlaceDetailPage": true,
+    "maxReviews": 0,
+    "maxReviewsPerPlace": 0,
+    "includeWebResults": false,
+    "scrapeContacts": false,
+    "scrapeDirectories": false,
+    "scrapeImageAuthors": false,
+    "scrapeOrderOnline": false,
+    "scrapeReviewsPersonalData": false,
+    "scrapeTableReservationProvider": false,
+    "skipClosedPlaces": false,
+    "verifyLeadsEnrichmentEmails": false,
+    "searchStringsArray": [
+        "23 Paskal Shopping Center Bandung Jawa Barat",
+        "Alam Wisata Cimahi Bandung Jawa Barat",
+        "Alun-Alun Kota Bandung Bandung Jawa Barat",
+        "Alun-Alun Sumedang Bandung Jawa Barat",
+        "Amazing Artgames Bandung Jawa Barat",
+        "Bandung Carnival Land Bandung Jawa Barat",
+        "Bandung Indah Plaza Bandung Jawa Barat",
+        "Bandung Science Center Bandung Jawa Barat",
+        "Bendungan Jatigede Bandung Jawa Barat",
+        "Braga Citywalk Bandung Jawa Barat",
+        "Bukit Jamur Rancabolang Pasirjambu Bandung Jawa Barat",
+        "Bukit Moko Bandung Bandung Jawa Barat",
+        "Bukit Senyum Bandung Jawa Barat",
+        "Bumi Perkemahan Ranca Upas Bandung Bandung Jawa Barat",
+        "Cadas Pangeran Sumedang Bandung Jawa Barat"
+    ]
+}

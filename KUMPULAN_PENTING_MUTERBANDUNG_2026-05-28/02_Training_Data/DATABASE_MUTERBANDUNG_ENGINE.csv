@@ -1,0 +1,233 @@
+location_id,location_name,latitude,longitude,price_min,price_max,price_type,category,subcategory,total_ulasan,ulasan_positif,ulasan_negatif,mentions_pemandangan,mentions_harga,mentions_fasilitas,mentions_keluarga,skor_sentimen_persen
+LOC-001,23 Paskal Shopping Center,-6.9153879,107.5943024,0,0,Gratis,Tempat Belanja,Mall,0,,,,,,,0.0
+LOC-002,Alam Wisata Cimahi,-6.8408401,107.5512452,0,0,Gratis,Rekreasi Keluarga,Kawasan rekreasi keluarga,11,10.0,1.0,4.0,2.0,5.0,2.0,90.9
+LOC-003,Alun-Alun Kota Bandung,-6.92156,107.607105,0,0,Gratis,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-004,Alun-Alun Sumedang,-6.8601203,107.9207044,0,0,Gratis,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-005,Amazing Artgames,-6.8515827,107.5952858,35000,90000,Per Orang,Rekreasi Keluarga,Wahana foto interaktif,196,193.0,3.0,146.0,90.0,60.0,76.0,98.5
+LOC-006,Bandung Carnival Land,-6.8783006,107.5951986,35000,45000,Per Orang,Rekreasi Keluarga,Taman hiburan,79,63.0,16.0,13.0,13.0,24.0,24.0,79.7
+LOC-007,Bandung Indah Plaza,-6.908338,107.6112548,0,0,Gratis,Tempat Belanja,Pusat belanja,193,171.0,22.0,52.0,48.0,103.0,47.0,88.6
+LOC-008,Bandung Science Center,-6.8773023,107.5947081,45000,45000,Per Orang,Tempat Belajar,Science center,89,70.0,19.0,22.0,16.0,19.0,43.0,78.7
+LOC-009,Bendungan Jatigede,-6.85639,108.09472,10000,10000,Per Orang,Wisata Alam,Bendungan,15,14.0,1.0,7.0,0.0,1.0,2.0,93.3
+LOC-010,Braga Citywalk,-6.917113,107.6084023,0,0,Gratis,Tempat Belanja,Citywalk,0,,,,,,,0.0
+LOC-011,Bukit Jamur Rancabolang Pasirjambu,-7.194647,107.4322046,20000,20000,Per Orang,Wisata Alam,Daya tarik alam,171,160.0,11.0,143.0,64.0,146.0,27.0,93.6
+LOC-012,Bukit Moko Bandung,-6.8580436,107.7113868,15000,30000,Per Orang,Wisata Alam,Daya tarik alam,194,192.0,2.0,173.0,89.0,132.0,46.0,99.0
+LOC-013,Bukit Senyum,-6.7623484,107.5097621,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-014,Bumi Perkemahan Ranca Upas Bandung,-7.1397,107.3922,28000,44000,Per Orang,Tempat Camping,Camping ground,64,60.0,4.0,45.0,6.0,20.0,18.0,93.8
+LOC-015,Cadas Pangeran Sumedang,-6.8827445,107.8585067,0,0,Gratis,Tempat Sejarah,Situs sejarah,2,2.0,0.0,0.0,0.0,0.0,1.0,100.0
+LOC-016,Chinatown Bandung,-6.91723,107.5927742,10000,30000,Per Orang,Tempat Budaya,Kawasan budaya tematik,179,177.0,2.0,162.0,133.0,65.0,68.0,98.9
+LOC-017,Cihampelas Walk,-6.8938202,107.6055658,0,0,Gratis,Tempat Belanja,Mall,198,192.0,6.0,97.0,36.0,119.0,62.0,97.0
+LOC-018,Cimahi Mall,-6.8784801,107.5395452,0,0,Gratis,Tempat Belanja,Pusat belanja,7,6.0,1.0,0.0,1.0,1.0,0.0,85.7
+LOC-019,Cimahi Techno Park,-6.9013502,107.5367378,30000,30000,Per Orang,Tempat Belajar,Pusat edukasi teknologi,10,10.0,0.0,2.0,0.0,0.0,3.0,100.0
+LOC-020,Ciwidey Valley Resort,-7.1009092,107.4537886,70000,70000,Per Orang,Penginapan Wisata,Resort wisata,167,112.0,55.0,125.0,77.0,116.0,81.0,67.1
+LOC-021,Curug Cipanas,-6.8018806,107.5915295,30000,35000,Per Orang,Wisata Alam,Daya tarik alam,12,11.0,1.0,8.0,1.0,3.0,6.0,91.7
+LOC-022,Curug Gorobog,-7.1076,107.4492,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,15,12.0,3.0,12.0,5.0,5.0,5.0,80.0
+LOC-023,Curug Malela,-7.0115741,107.2056616,10000,12000,Per Orang,Wisata Alam,Daya tarik alam,17,15.0,2.0,9.0,4.0,6.0,3.0,88.2
+LOC-024,Curug Maribaya,-6.8343728,107.6580337,35000,45000,Per Orang,Wisata Alam,Daya tarik alam,8,7.0,1.0,7.0,2.0,5.0,4.0,87.5
+LOC-025,Curug Pelangi,-6.7991735,107.5781113,20000,20000,Per Orang,Wisata Alam,Daya tarik alam,16,15.0,1.0,13.0,4.0,6.0,6.0,93.8
+LOC-026,Curug Tilu Leuwi Opat,-6.7908,107.582,25000,25000,Per Orang,Wisata Alam,Daya tarik alam,10,10.0,0.0,6.0,2.0,4.0,3.0,100.0
+LOC-027,Dago Dreampark,-6.8476037,107.6254233,30000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,15,9.0,6.0,6.0,7.0,7.0,5.0,60.0
+LOC-028,Danau Biru Situ Cilembang,-7.21111,107.67333,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,10,10.0,0.0,9.0,3.0,3.0,2.0,100.0
+LOC-029,Dusun Bambu,-6.7899841,107.5786457,25000,40000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi keluarga,0,,,,,,,0.0
+LOC-030,Farm House Susu Lembang,-6.833,107.6056,35000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,6,5.0,1.0,1.0,2.0,2.0,1.0,83.3
+LOC-031,Floating Market Lembang,-6.8188283,107.6180313,35000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,13,11.0,2.0,8.0,4.0,5.0,8.0,84.6
+LOC-032,Gantolle Paralayang Singajaya Cihampelas,-6.9589027,107.471356,15000,15000,Per Orang,Wisata Petualangan,Aktivitas petualangan,21,21.0,0.0,11.0,2.0,4.0,3.0,100.0
+LOC-033,Gedung Merdeka,-6.9210059,107.6092288,0,0,Gratis,Tempat Sejarah,Gedung bersejarah,123,119.0,4.0,36.0,8.0,27.0,20.0,96.7
+LOC-034,Gedung Sate,-6.9019107,107.6173031,5000,5000,Per Orang,Tempat Sejarah,Gedung bersejarah,195,194.0,1.0,130.0,92.0,96.0,60.0,99.5
+LOC-035,"Gereja Katedral Bandung, Santo Petrus",-6.91479,107.610453,0,0,Gratis,Tempat Ibadah,Gereja,196,187.0,9.0,75.0,22.0,66.0,19.0,95.4
+LOC-036,Glamping Lakeside Rancabali,-7.1670549,107.3540784,25000,50000,Per Orang,Tempat Camping,Glamping,187,146.0,41.0,151.0,95.0,131.0,70.0,78.1
+LOC-037,Gn. Tampomas,-6.8817995,107.5683276,5000,5000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi,0,,,,,,,0.0
+LOC-038,Gn. Tangkuban Parahu,-7.17444,107.73583,110000,110000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi,14,11.0,3.0,9.0,5.0,3.0,3.0,78.6
+LOC-039,Guha Pawon,-6.8231833,107.4371655,5000,5000,Per Orang,Wisata Alam,Gua,16,14.0,2.0,7.0,8.0,8.0,4.0,87.5
+LOC-040,Gunung Bohong,-6.876389,107.519722,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-041,Gunung Puntang,-7.1213917,107.6212909,25000,35000,Per Orang,Wisata Alam,Daya tarik alam,30,29.0,1.0,19.0,5.0,10.0,10.0,96.7
+LOC-042,Gunung Putri Lembang,-6.795833,107.6338052,10000,25000,Per Orang,Wisata Alam,Daya tarik alam,12,11.0,1.0,12.0,1.0,4.0,3.0,91.7
+LOC-043,Happyfarm Ciwidey,-7.1154888,107.4380458,10000,20000,Per Orang,Wisata Satwa,Wisata farm,182,176.0,6.0,138.0,123.0,109.0,119.0,96.7
+LOC-044,Jans Park (Jatinangor National Park),-6.918795,107.769342,30000,100000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,12,10.0,2.0,8.0,6.0,6.0,7.0,83.3
+LOC-045,Jendela Alam,-6.819371,107.596634,20000,20000,Per Orang,Tempat Belajar,Edukasi alam,18,16.0,2.0,7.0,6.0,4.0,13.0,88.9
+LOC-046,Kampung Buyut Cipageran (Kabuci) Asih Putera,-6.8480317,107.5487982,10000,10000,Per Orang,Desa Wisata,Kampung wisata,14,14.0,0.0,6.0,3.0,0.0,4.0,100.0
+LOC-047,Kampung Cireundeu,-6.9142798,107.523423,0,0,Gratis,Desa Wisata,Kampung adat,14,13.0,1.0,7.0,3.0,4.0,5.0,92.9
+LOC-048,Kampung Karuhun Eco Green Park Sumedang,-6.892019,107.954774,15000,30000,Per Orang,Rekreasi Keluarga,Eco park,0,,,,,,,0.0
+LOC-049,Kampung Toga Villa & Resto,-6.8722,107.9119,10000,10000,Per Orang,Tempat Kuliner,Restoran wisata,0,,,,,,,0.0
+LOC-050,Kawah Putih,-7.1661181,107.4022669,31000,31000,Per Orang,Wisata Alam,Daya tarik alam,186,174.0,12.0,150.0,128.0,124.0,39.0,93.5
+LOC-051,Kebun Begonia Lembang,-6.8257237,107.6377442,30000,30000,Per Orang,Wisata Alam,Taman bunga,438,423.0,15.0,285.0,89.0,95.0,86.0,96.6
+LOC-052,Kebun Binatang Bandung,-6.8911349,107.6069218,50000,50000,Per Orang,Wisata Satwa,Wisata satwa,187,184.0,3.0,98.0,123.0,132.0,119.0,98.4
+LOC-053,Lembang Park & Zoo,-6.8054528,107.5913571,65000,85000,Per Orang,Wisata Satwa,Wisata satwa,173,169.0,4.0,38.0,18.0,34.0,95.0,97.7
+LOC-054,Lembang Wonderland,-6.8172979,107.6121455,35000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,0,,,,,,,0.0
+LOC-055,Maribaya Natural Hotspring Resort,-6.8309841,107.6552157,45000,45000,Per Orang,Wisata Alam,Air panas alami,0,,,,,,,0.0
+LOC-056,Masjid Agung Bandung,-6.9218,107.6062,0,0,Gratis,Tempat Ibadah,Tempat ibadah,188,151.0,37.0,100.0,65.0,173.0,50.0,80.3
+LOC-057,Masjid Agung Sumedang,-6.907497,107.647137,0,0,Gratis,Tempat Ibadah,Tempat ibadah,0,,,,,,,0.0
+LOC-058,Masjid Jami' Al Baakhirah,-6.8901807,107.5373351,0,0,Gratis,Tempat Ibadah,Tempat ibadah,11,11.0,0.0,4.0,0.0,7.0,1.0,100.0
+LOC-059,Mata Air Cikandung,-6.7911008,107.9241417,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,17,16.0,1.0,15.0,8.0,8.0,5.0,94.1
+LOC-060,Museum Geologi Bandung,-6.9003424,107.620961,5000,5000,Per Orang,Tempat Belajar,Tempat edukasi,199,197.0,2.0,100.0,117.0,75.0,150.0,99.0
+LOC-061,Museum Konferensi Asia Afrika,-6.9210729,107.6096452,0,0,Gratis,Tempat Belajar,Tempat edukasi,197,196.0,1.0,85.0,115.0,96.0,81.0,99.5
+LOC-062,Museum Pos Indonesia,-6.9020925,107.6198013,0,0,Gratis,Tempat Belajar,Tempat edukasi,191,186.0,5.0,72.0,81.0,58.0,59.0,97.4
+LOC-063,Museum Sri Baduga,-6.9377186,107.6035761,5000,5000,Per Orang,Tempat Belajar,Tempat edukasi,194,188.0,6.0,71.0,78.0,57.0,98.0,96.9
+LOC-064,Nimo Highland,-7.2203,107.5781,30000,60000,Per Orang,Rekreasi Keluarga,Wisata panorama buatan,0,,,,,,,0.0
+LOC-065,Orchid Forest Cikole,-6.7801991,107.6379318,40000,40000,Per Orang,Wisata Alam,Hutan wisata,11,7.0,4.0,2.0,6.0,3.0,3.0,63.6
+LOC-066,Pandiga Educreation Sports,-6.8755807,107.5554364,30000,35000,Per Orang,Rekreasi Keluarga,Olahraga rekreasi,18,15.0,3.0,3.0,3.0,7.0,8.0,83.3
+LOC-067,Paris Van Java Resort Lifestyle Place,-6.9231445,107.6822858,0,0,Gratis,Tempat Belanja,Mall,190,178.0,12.0,97.0,34.0,114.0,54.0,93.7
+LOC-068,Pasar Cimindi,-6.8971851,107.5585651,0,0,Gratis,Tempat Belanja,Pusat belanja,0,,,,,,,0.0
+LOC-069,Pemandian Cipanas Cileungsing,-7.00583,107.51944,10000,15000,Per Orang,Wisata Alam,Daya tarik alam,12,10.0,2.0,7.0,3.0,4.0,5.0,83.3
+LOC-070,Penangkaran Rusa Ranca Upas,-7.1227905,107.424115,28000,44000,Per Orang,Tempat Camping,Camping ground,191,180.0,11.0,142.0,114.0,93.0,96.0,94.2
+LOC-071,Puncak Bukit Kujang Gunung Bohong,-6.8766,107.5199,0,0,Gratis,Wisata Alam,Puncak bukit,13,13.0,0.0,6.0,5.0,6.0,5.0,100.0
+LOC-072,Puncak Eurad,-6.7903231,107.68087,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,18,15.0,3.0,10.0,2.0,5.0,1.0,83.3
+LOC-073,Ranca Upas Ciwidey,-7.1384888,107.3917416,28000,28000,Per Orang,Tempat Camping,Camping ground,189,174.0,15.0,134.0,100.0,109.0,110.0,92.1
+LOC-074,Rumah Makan Sangu Liwet Ibu Ika Pasirjambu Ciwidey,-7.0728751,107.4894089,0,0,Gratis,Tempat Kuliner,Rumah makan,169,139.0,30.0,29.0,83.0,51.0,22.0,82.2
+LOC-075,Sanghyang Heuleut,-6.8764679,107.341682,20000,20000,Per Orang,Wisata Alam,Danau alami,15,12.0,3.0,6.0,4.0,4.0,2.0,80.0
+LOC-076,Sanghyang Kenit,-6.8598247,107.3478097,5000,10000,Per Orang,Wisata Alam,Sungai dan tebing,16,14.0,2.0,9.0,6.0,5.0,5.0,87.5
+LOC-077,Saung Angklung Udjo,-6.8982695,107.6552971,85000,85000,Per Orang,Tempat Seni,Seni pertunjukan,200,195.0,5.0,98.0,63.0,59.0,143.0,97.5
+LOC-078,Selasar Sunaryo Art Space,-6.8586315,107.6365204,25000,45000,Per Orang,Tempat Seni,Galeri seni,191,186.0,5.0,86.0,87.0,70.0,43.0,97.4
+LOC-079,Situ Cileunca Pangalengan Bandung,-7.1962036,107.5514079,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,191,184.0,7.0,138.0,59.0,75.0,75.0,96.3
+LOC-080,Situ Cisanti,-7.2093913,107.6574773,10000,20000,Per Orang,Wisata Alam,Daya tarik alam,179,173.0,6.0,144.0,47.0,92.0,52.0,96.6
+LOC-081,Situ Ciseupan Cibeber,-6.8932952,107.5160775,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,17,15.0,2.0,9.0,5.0,8.0,7.0,88.2
+LOC-082,Situ Patenggang Ciwidey Bandung,-7.1672928,107.3576729,25000,25000,Per Orang,Wisata Alam,Daya tarik alam,184,162.0,22.0,136.0,80.0,89.0,41.0,88.0
+LOC-083,Stone Garden Citatah,-6.8250977,107.4375517,15000,20000,Per Orang,Wisata Alam,Taman batu,15,15.0,0.0,8.0,5.0,4.0,2.0,100.0
+LOC-084,Sunrise Point Cukul,-7.2337053,107.5342649,10000,10000,Per Orang,Wisata Alam,Titik panorama,93,91.0,2.0,82.0,46.0,47.0,14.0,97.8
+LOC-085,Tahura Gunung Kunci,-7.2145,107.3579,10000,10000,Per Orang,Wisata Alam,Hutan raya,12,11.0,1.0,9.0,4.0,7.0,6.0,91.7
+LOC-086,Taman Alun-Alun Kota Cimahi,-6.8732,107.5423,0,0,Gratis,Taman Kota,Ruang publik kota,8,8.0,0.0,2.0,0.0,3.0,2.0,100.0
+LOC-087,Taman Ecowisata Cimenteng,-6.8422004,107.5467493,0,0,Gratis,Wisata Alam,Ekowisata,0,,,,,,,0.0
+LOC-088,Taman Endog,-6.8474026,107.9240642,0,0,Gratis,Taman Kota,Ruang publik kota,6,6.0,0.0,3.0,1.0,3.0,0.0,100.0
+LOC-089,Taman Film,-6.8985088,107.6077767,0,0,Gratis,Taman Kota,Ruang publik kota,171,158.0,13.0,59.0,38.0,95.0,101.0,92.4
+LOC-090,Taman Foto Bandung,-6.9134767,107.6271878,0,0,Gratis,Taman Kota,Ruang publik kota,189,180.0,9.0,98.0,26.0,105.0,131.0,95.2
+LOC-091,Taman Hutan Raya Ir. H. Djuanda,-6.8566957,107.6334977,17000,17000,Per Orang,Taman Kota,Ruang publik kota,197,196.0,1.0,159.0,92.0,152.0,102.0,99.5
+LOC-092,Taman Jomblo,-6.8981221,107.6092198,5000,10000,Per Orang,Taman Kota,Ruang publik kota,158,141.0,17.0,42.0,15.0,71.0,33.0,89.2
+LOC-093,Taman Kartini,-6.8886533,107.536768,0,0,Gratis,Taman Kota,Ruang publik kota,9,8.0,1.0,5.0,2.0,2.0,6.0,88.9
+LOC-094,Taman Lalu Lintas Ade Irma Suryani Nasution,-6.91193,107.613624,10000,15000,Per Orang,Tempat Belajar,Edukasi lalu lintas,189,179.0,10.0,95.0,135.0,133.0,167.0,94.7
+LOC-095,Taman Langit Pangalengan (Sunrise Point & Camping Ground),-7.218568,107.575971,5000,15000,Per Orang,Tempat Camping,Camping ground,192,186.0,6.0,175.0,101.0,157.0,49.0,96.9
+LOC-096,Taman Lansia,-6.8975989,107.6312048,0,0,Gratis,Taman Kota,Ruang publik kota,184,178.0,6.0,106.0,41.0,138.0,86.0,96.7
+LOC-097,Taman Lembah Dewata,-6.8115695,107.6428718,20000,25000,Per Orang,Rekreasi Keluarga,Taman rekreasi alam,0,,,,,,,0.0
+LOC-098,Taman Musik,-6.9119444,107.6159987,0,0,Gratis,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-099,Taman Superhero,-6.9107448,107.6306343,0,0,Gratis,Taman Kota,Ruang publik kota,192,188.0,4.0,65.0,49.0,100.0,156.0,97.9
+LOC-100,Tebing Karaton,-6.8348771,107.6637416,17000,17000,Per Orang,Wisata Alam,Tebing panorama,17,17.0,0.0,13.0,3.0,4.0,2.0,100.0
+LOC-101,Teras Cikapundung Bbws,-6.8843,107.6069,0,0,Gratis,Taman Kota,Ruang publik sungai,0,,,,,,,0.0
+LOC-102,Terminal Wisata Grafika Cikole,-6.7850486,107.6516285,20000,20000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi keluarga,14,14.0,0.0,6.0,3.0,6.0,5.0,100.0
+LOC-103,The Great Asia Africa,-6.8326049,107.6047628,50000,65000,Per Orang,Tempat Budaya,Taman budaya tematik,11,11.0,0.0,9.0,4.0,3.0,3.0,100.0
+LOC-104,The Kings Shopping Centre,-6.9228656,107.6049577,0,0,Gratis,Tempat Belanja,Pusat belanja,193,187.0,6.0,57.0,63.0,107.0,68.0,96.9
+LOC-105,The Lodge Maribaya,-6.8288811,107.688434,50000,65000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi alam,21,21.0,0.0,8.0,4.0,7.0,11.0,100.0
+LOC-106,The Nice Park Bandung,-6.8235133,107.5555715,30000,60000,Per Orang,Rekreasi Keluarga,Taman rekreasi keluarga,23,23.0,0.0,2.0,5.0,3.0,13.0,100.0
+LOC-107,Toga Hill,-6.8769363,107.9091747,10000,10000,Per Orang,Wisata Alam,Bukit panorama,0,,,,,,,0.0
+LOC-108,Trans Studio Bandung,-6.9247021,107.6360969,100000,100000,Per Orang,Rekreasi Keluarga,Taman hiburan indoor,187,142.0,45.0,76.0,98.0,135.0,104.0,75.9
+LOC-109,Trans Studio Mall Bandung,-6.9256414,107.6367469,0,0,Gratis,Tempat Belanja,Pusat belanja,182,118.0,64.0,47.0,62.0,123.0,59.0,64.8
+LOC-110,Upside Down World Bandung,-6.8963,107.617,80000,100000,Per Orang,Rekreasi Keluarga,Wahana foto interaktif,164,131.0,33.0,125.0,78.0,30.0,47.0,79.9
+LOC-111,Venus Cimahi,-6.8770592,107.5399984,15000,25000,Per Orang,Rekreasi Keluarga,Tempat hiburan,19,17.0,2.0,5.0,5.0,3.0,7.0,89.5
+LOC-112,Vihara Satya Budhi,-6.9179615,107.5926411,0,0,Gratis,Tempat Ibadah,Vihara,43,41.0,2.0,17.0,6.0,20.0,2.0,95.3
+LOC-113,Wayang Windu Panenjoan,-7.2041999,107.6264991,20000,20000,Per Orang,Wisata Alam,Titik panorama,0,,,,,,,0.0
+LOC-114,Wisata Air Gajah Depa,-6.8193829,107.9446083,30000,35000,Per Orang,Wahana Air,Wahana air buatan,0,,,,,,,0.0
+LOC-115,Wisata Hutan Pinus Pal 16 Cikole Lembang,-6.7798046,107.6454692,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-116,Wisata Kampoeng Ciherang,-6.8293636,107.7978925,20000,20000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi keluarga,12,11.0,1.0,7.0,5.0,6.0,7.0,91.7
+LOC-117,Kiara Artha Park,-6.916458,107.6422474,10000,10000,Per Orang,Rekreasi Keluarga,Taman rekreasi,533,469.0,64.0,228.0,127.0,177.0,204.0,88.0
+LOC-118,Forest Walk Babakan Siliwangi,-6.8870113,107.6109441,0,0,Gratis,Wisata Alam,Hutan kota,0,,,,,,,0.0
+LOC-119,Taman Dewi Sartika,-6.9133997,107.6095152,0,0,Gratis,Taman Kota,Ruang publik kota,17,16.0,1.0,9.0,2.0,10.0,6.0,94.1
+LOC-120,Rumah Guguk,-6.8469616,107.5955585,70000,90000,Per Orang,Wisata Satwa,Wisata hewan peliharaan,0,,,,,,,0.0
+LOC-121,NuArt Sculpture Park,-6.8772419,107.5724908,50000,50000,Per Orang,Tempat Seni,Taman patung,0,,,,,,,0.0
+LOC-122,Peta Park,-6.9317342,107.5883194,10000,15000,Per Orang,Rekreasi Keluarga,Taman rekreasi,12,10.0,2.0,2.0,1.0,2.0,4.0,83.3
+LOC-123,Museum Pendidikan Nasional UPI,-6.8597725,107.5941677,5000,15000,Per Orang,Tempat Belajar,Tempat edukasi,0,,,,,,,0.0
+LOC-124,Museum Barli,-6.8783934,107.5875219,25000,25000,Per Orang,Tempat Belajar,Tempat edukasi,9,8.0,1.0,1.0,3.0,2.0,2.0,88.9
+LOC-125,Wot Batu,-6.8585391,107.6366148,50000,50000,Per Orang,Tempat Seni,Instalasi seni,9,8.0,1.0,2.0,0.0,0.0,1.0,88.9
+LOC-126,Lawangwangi Creative Space,-6.8476429,107.6275129,25000,200000,Per Orang,Tempat Seni,Ruang kreatif,555,538.0,17.0,261.0,115.0,114.0,65.0,96.9
+LOC-127,Sarae Hills,-6.8436646,107.6242395,35000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,9,6.0,3.0,5.0,1.0,2.0,1.0,66.7
+LOC-128,Observatorium Bosscha,-6.8244765,107.61602,50000,50000,Per Orang,Tempat Belajar,Observatorium,0,,,,,,,0.0
+LOC-129,Curug Dago,-6.8654924,107.6181817,15000,15000,Per Orang,Wisata Alam,Daya tarik alam,11,11.0,0.0,7.0,7.0,6.0,4.0,100.0
+LOC-130,Fairy Garden by The Lodge,-6.8233175,107.6886132,25000,25000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,0,,,,,,,0.0
+LOC-131,Cikole Jayagiri Resort,-6.7823255,107.650253,15000,25000,Per Orang,Penginapan Wisata,Resort wisata,4,4.0,0.0,3.0,1.0,3.0,2.0,100.0
+LOC-132,Bird & Bromelia Pavilion,-6.8408955,107.6376637,35000,50000,Per Orang,Wisata Satwa,Taman burung,0,,,,,,,0.0
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),-6.8552,107.6116,0,0,Gratis,Wisata Alam,Kawasan panorama,0,,,,,,,0.0
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),-6.8219342,107.6623629,15000,25000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-135,Taman Main Mili-Mili & Hutan Mycelia,-6.7854682,107.6516053,50000,50000,Per Orang,Rekreasi Keluarga,Taman rekreasi tematik,0,,,,,,,0.0
+LOC-136,Tepi Danau,-6.8594685,107.4625265,20000,30000,Per Orang,Wisata Alam,Tepi danau,9,6.0,3.0,3.0,3.0,3.0,4.0,66.7
+LOC-137,Rumah Belanda,-6.780124,107.7075748,25000,50000,Per Orang,Tempat Budaya,Rumah tematik budaya,0,,,,,,,0.0
+LOC-138,Kebun Teh Sukawana,-6.89556,107.58361,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,238,226.0,12.0,146.0,24.0,77.0,44.0,95.0
+LOC-139,Kawah Rengganis Ciwidey,-7.1724375,107.3766875,15000,100000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-140,Rengganis Suspension Bridge,-7.1735,107.374,70000,100000,Per Orang,Wisata Petualangan,Jembatan gantung,19,19.0,0.0,11.0,7.0,3.0,5.0,100.0
+LOC-141,Taman Wisata Bougenville,-7.110494,107.601071,35000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi alam,15,15.0,0.0,7.0,2.0,6.0,5.0,100.0
+LOC-142,Hejo Forest Ciwidey,-7.143119,107.3912496,15000,250000,Per Orang,Wisata Alam,Hutan wisata,0,,,,,,,0.0
+LOC-143,Driam Riverside,-7.06826,107.4904614,15000,310000,Per Orang,Penginapan Wisata,Resort wisata,0,,,,,,,0.0
+LOC-144,Barusen Hills Ciwidey,-7.1186146,107.5000118,25000,35000,Per Orang,Rekreasi Keluarga,Taman rekreasi keluarga,0,,,,,,,0.0
+LOC-145,Palalangon Park,-7.1107391,107.4956463,15000,30000,Per Orang,Rekreasi Keluarga,Taman rekreasi,12,12.0,0.0,6.0,2.0,5.0,6.0,100.0
+LOC-146,Taman Love Soreang,-7.0449031,107.5039119,25000,30000,Per Orang,Rekreasi Keluarga,Taman rekreasi keluarga,12,11.0,1.0,4.0,3.0,3.0,1.0,91.7
+LOC-147,Victory Waterpark Soreang,-7.0316564,107.5072181,40000,60000,Per Orang,Wahana Air,Wahana air buatan,0,,,,,,,0.0
+LOC-148,Pesona Nirwana Waterpark,-7.0409974,107.5266339,40000,50000,Per Orang,Wahana Air,Wahana air buatan,0,,,,,,,0.0
+LOC-149,Taman Wisata Alam Cimanggu,-7.1453684,107.3912258,15000,15000,Per Orang,Wisata Alam,Taman wisata alam,0,,,,,,,0.0
+LOC-150,Southland Camp Ciwidey,-7.1425721,107.3921291,26000,26000,Per Orang,Tempat Camping,Camping ground,0,,,,,,,0.0
+LOC-151,Ecopark Curug Tilu Ciwidey,-7.1499028,107.3757828,25000,40000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-152,Kebun Teh Rancabali,-7.111493,107.4152189,0,0,Gratis,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-153,Perkebunan Teh Malabar,-7.2029908,107.5911852,5000,15000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-154,Kampung Singkur,-7.1843442,107.5467251,10000,10000,Per Orang,Wisata Petualangan,Wisata sungai,16,16.0,0.0,7.0,1.0,3.0,6.0,100.0
+LOC-155,Curug Panganten,-6.8435086,107.5639385,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-156,Gunung Artapela,-7.178754,107.6492849,15000,15000,Per Orang,Wisata Alam,Daya tarik alam,9,9.0,0.0,6.0,0.0,2.0,2.0,100.0
+LOC-157,Hutan Pinus Rahong,-7.1807,107.547,5000,5000,Per Orang,Wisata Alam,Daya tarik alam,15,11.0,4.0,8.0,3.0,3.0,8.0,73.3
+LOC-158,Situ Ninah (Situ Datar),-7.03278,107.56611,25000,25000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-159,Penangkaran Rusa Kertamanah,-7.1902358,107.6106834,5000,10000,Per Orang,Wisata Satwa,Penangkaran rusa,0,,,,,,,0.0
+LOC-160,Kawah Wayang,-7.2069313,107.6373723,15000,15000,Per Orang,Wisata Alam,Daya tarik alam,16,15.0,1.0,11.0,6.0,7.0,3.0,93.8
+LOC-161,Pemandian Air Panas Cibolang,-7.2320625,107.6169375,25000,40000,Per Orang,Wisata Alam,Daya tarik alam,15,8.0,7.0,4.0,7.0,7.0,1.0,53.3
+LOC-162,Rumah Putih Cukul,-7.0315,107.7203,10000,10000,Per Orang,Rekreasi Keluarga,Wahana foto panorama,0,,,,,,,0.0
+LOC-163,Kampung Adat Cikondang,-7.1275756,107.5514148,25000,50000,Per Orang,Desa Wisata,Kampung adat,0,,,,,,,0.0
+LOC-164,Java Preanger Gunung Tilu,-7.1570989,107.5642904,25000,50000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-165,Malabar Mountain Coffee Shop & Eatery,-7.2029,107.5912,25000,100000,Per Orang,Tempat Kuliner,Coffee shop,0,,,,,,,0.0
+LOC-166,Muara Rahong Hills,-6.9325,107.5625,0,0,Gratis,Wisata Alam,Perbukitan,0,,,,,,,0.0
+LOC-167,Cicalengka Dreamland,-6.9686051,107.8855249,0,0,Gratis,Rekreasi Keluarga,Taman rekreasi tematik,11,7.0,4.0,6.0,3.0,4.0,1.0,63.6
+LOC-168,Curug Cinulang,-6.9628443,107.881471,10000,15000,Per Orang,Wisata Alam,Daya tarik alam,9,8.0,1.0,6.0,4.0,3.0,2.0,88.9
+LOC-169,Dago Bakery Punclut,-6.8423415,107.6228747,20000,25000,Per Orang,Tempat Kuliner,Bakery wisata,0,,,,,,,0.0
+LOC-170,Tafso Barn,-6.8424051,107.6227991,19000,50000,Per Orang,Tempat Kuliner,Restoran wisata,15,12.0,3.0,11.0,7.0,5.0,2.0,80.0
+LOC-171,D'Dieuland,-6.8420561,107.6233591,10000,20000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi,0,,,,,,,0.0
+LOC-172,Sudut Pandang Bandung,-6.8423638,107.6232403,75000,85000,Per Orang,Tempat Kuliner,Restoran wisata,18,17.0,1.0,10.0,7.0,6.0,4.0,94.4
+LOC-173,Cakrawala Nature Sparkling Restaurant,-6.8421396,107.6230737,50000,50000,Per Orang,Tempat Kuliner,Restoran wisata,0,,,,,,,0.0
+LOC-174,Lereng Anteng Panoramic Coffee,-6.8428782,107.6221498,22000,22000,Per Orang,Tempat Kuliner,Coffee shop,0,,,,,,,0.0
+LOC-175,Taman Kupu-Kupu Cihanjuang,-6.8590047,107.568779,20000,20000,Per Orang,Wisata Satwa,Wisata satwa,12,12.0,0.0,4.0,0.0,4.0,2.0,100.0
+LOC-176,Padepokan Dayang Sumbi,-6.9013623,107.6387264,85000,85000,Per Orang,Tempat Belajar,Edukasi budaya dan alam,0,,,,,,,0.0
+LOC-177,Wahoo Waterworld,-6.8599638,107.4630882,92000,130000,Per Orang,Wahana Air,Waterworld,0,,,,,,,0.0
+LOC-178,De'Ranch Lembang,-6.8150007,107.6265289,26000,26000,Per Orang,Wisata Satwa,Wisata satwa,0,,,,,,,0.0
+LOC-179,Mini Mania Lembang,-6.8209615,107.6099985,35000,35000,Per Orang,Rekreasi Keluarga,Taman miniatur,0,,,,,,,0.0
+LOC-180,Cimory Dairyland Lembang,-6.8214385,107.6258437,15000,45000,Per Orang,Wisata Satwa,Wisata farm,0,,,,,,,0.0
+LOC-181,Noah's Park Lembang,-6.8302741,107.6341391,20000,250000,Per Orang,Rekreasi Keluarga,Taman rekreasi,0,,,,,,,0.0
+LOC-182,Pine Forest Camp Lembang,-6.8154456,107.6940115,25000,25000,Per Orang,Tempat Camping,Camping ground,0,,,,,,,0.0
+LOC-183,Imah Seniman Lembang,-6.8211591,107.6067087,0,0,Gratis,Penginapan Wisata,Resort wisata,0,,,,,,,0.0
+LOC-184,Gunung Batu Lembang,-6.8303443,107.6361831,15000,20000,Per Orang,Wisata Alam,Daya tarik alam,15,14.0,1.0,11.0,2.0,3.0,1.0,93.3
+LOC-185,Ciwangun Indah Camp,-6.786939,107.5837331,15000,45000,Per Orang,Tempat Camping,Camping ground,8,8.0,0.0,5.0,3.0,5.0,1.0,100.0
+LOC-186,Indiana Camp Lembang,-6.8258247,107.4356112,10000,10000,Per Orang,Tempat Camping,Camping ground,0,,,,,,,0.0
+LOC-187,Curug Layung,-6.7768125,107.5778125,5000,20000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-188,Curug Bugbrug,-6.7975673,107.5783554,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,18,18.0,0.0,11.0,1.0,7.0,9.0,100.0
+LOC-189,Curug Aseupan,-6.7875652,107.5822844,10000,15000,Per Orang,Wisata Alam,Daya tarik alam,12,11.0,1.0,10.0,3.0,4.0,4.0,91.7
+LOC-190,Curug Anom,-6.8111367,107.5616226,30000,35000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-191,Curug Panyandaan,-7.0304477,107.3749802,10000,15000,Per Orang,Wisata Alam,Daya tarik alam,11,9.0,2.0,9.0,0.0,3.0,0.0,81.8
+LOC-192,Curug Ngebul Gununghalu,-7.082535,107.2824445,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-193,Sanghyang Poek,-6.868449,107.3472266,25000,25000,Per Orang,Wisata Alam,Gua dan sungai,0,,,,,,,0.0
+LOC-194,Sanghyang Tikoro,-6.8638417,107.348877,5000,20000,Per Orang,Wisata Alam,Gua dan sungai,11,11.0,0.0,7.0,1.0,1.0,1.0,100.0
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,-6.901701,107.3572662,10000,10000,Per Orang,Wisata Alam,Sungai dan tebing,0,,,,,,,0.0
+LOC-196,Curug Walanda Citatah,-6.6510472,107.277045,8000,8000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-197,Curug Nyalangkadar,-7.1076,107.4492,22000,450000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-198,Tebing Gunung Hawu,-6.8347221,107.4602778,10000,15000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-199,Taman Buru Gunung Masigit Kareumbi,-6.9413427,107.9378767,5000,7000,Per Orang,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-200,Wisata Batu Kuda,-6.893123,107.74516,10000,15000,Per Orang,Wisata Alam,Hutan pinus,12,11.0,1.0,8.0,4.0,7.0,3.0,91.7
+LOC-201,Curug Batu Templek,-6.8716298,107.6845318,5000,30000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-202,Curug Cilengkrang,-6.8906,107.7308,10000,10000,Per Orang,Wisata Alam,Daya tarik alam,12,10.0,2.0,9.0,3.0,7.0,0.0,83.3
+LOC-203,Masjid Raya Al-Jabbar,-6.9480938,107.703504,0,0,Gratis,Tempat Ibadah,Tempat ibadah,20,19.0,1.0,11.0,5.0,16.0,2.0,95.0
+LOC-204,Teras Sunda Cibiru,-6.9274019,107.71135,0,0,Gratis,Tempat Budaya,Pusat budaya Sunda,12,12.0,0.0,3.0,1.0,2.0,1.0,100.0
+LOC-205,Lapangan Gasibu,-6.9013276,107.6201481,0,0,Gratis,Taman Kota,Ruang publik,364,344.0,20.0,87.0,32.0,150.0,67.0,94.5
+LOC-206,Monumen Perjuangan Rakyat Jawa Barat,-6.8934346,107.6185412,2000,3000,Per Orang,Tempat Sejarah,Situs sejarah,8,8.0,0.0,3.0,0.0,2.0,2.0,100.0
+LOC-207,Monumen Bandung Lautan Api,-6.960281,107.6153415,0,0,Gratis,Tempat Sejarah,Situs sejarah,12,10.0,2.0,3.0,3.0,0.0,4.0,83.3
+LOC-208,Museum Kota Bandung,-6.910008,107.6095212,0,0,Gratis,Tempat Belajar,Tempat edukasi,18,17.0,1.0,6.0,7.0,7.0,4.0,94.4
+LOC-209,Museum Mandala Wangsit Siliwangi,-6.9173055,107.6111041,0,0,Gratis,Tempat Belajar,Tempat edukasi,9,9.0,0.0,3.0,3.0,4.0,4.0,100.0
+LOC-210,Taman Sejarah Bandung,-6.910367,107.6103563,30000,30000,Per Orang,Tempat Sejarah,Taman sejarah,8,7.0,1.0,3.0,1.0,3.0,3.0,87.5
+LOC-211,Taman Vanda,-6.9140617,107.6100689,0,0,Gratis,Taman Kota,Ruang publik kota,8,8.0,0.0,2.0,1.0,4.0,2.0,100.0
+LOC-212,Taman Maluku,-6.9093784,107.6151634,0,0,Gratis,Taman Kota,Ruang publik kota,8,7.0,1.0,3.0,0.0,1.0,0.0,87.5
+LOC-213,Taman Cibeunying,-6.9052183,107.6244498,0,0,Gratis,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-214,Taman Panatayuda,-6.8979724,107.6157428,10000,10000,Per Orang,Taman Kota,Ruang publik kota,9,8.0,1.0,1.0,2.0,2.0,3.0,88.9
+LOC-215,Taman Pramuka Bandung,-6.9101779,107.626927,0,0,Gratis,Taman Kota,Ruang publik kota,0,,,,,,,0.0
+LOC-216,Panama Park 825,-6.9119342,107.5695,80000,100000,Per Orang,Rekreasi Keluarga,Taman rekreasi indoor,18,17.0,1.0,2.0,1.0,5.0,15.0,94.4
+LOC-217,Karang Setra Waterland,-6.8787208,107.5949619,45000,50000,Per Orang,Wahana Air,Waterland,0,,,,,,,0.0
+LOC-218,Gedung Indonesia Menggugat,-6.9133816,107.6079413,0,0,Gratis,Tempat Sejarah,Gedung bersejarah,10,10.0,0.0,2.0,2.0,3.0,2.0,100.0
+LOC-219,Museum Inggit Garnasih,-6.9314629,107.6024885,0,0,Gratis,Tempat Belajar,Tempat edukasi,0,,,,,,,0.0
+LOC-220,Nimo Jungle Hot Spring,-7.1799165,107.4957924,40000,50000,Per Orang,Wisata Alam,Air panas alami,0,,,,,,,0.0
+LOC-221,Glamping Legok Kondang,-7.1181959,107.4202751,0,0,Gratis,Tempat Camping,Camping ground,0,,,,,,,0.0
+LOC-222,Nuansa Riung Gunung,-7.17417,107.52556,10000,15000,Per Orang,Wisata Alam,Panorama pegunungan,0,,,,,,,0.0
+LOC-223,Kebun Strawberry Emte Highland Resort,-7.1272684,107.4199866,20000,20000,Per Orang,Wisata Alam,Agrowisata stroberi,229,210.0,19.0,112.0,28.0,36.0,56.0,91.7
+LOC-224,Sungai Palayangan Rafting,-7.1931675,107.5469199,150000,250000,Per Orang,Wisata Petualangan,Rafting,0,,,,,,,0.0
+LOC-225,Curug Ceret Pangalengan,-7.3620716,107.5468974,0,0,Gratis,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-226,Gunung Nini Pangalengan,-7.2213888,107.5783333,0,0,Gratis,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-227,Puncak Mega Gunung Puntang,-7.1213917,107.6212909,25000,35000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-228,Tanjung Duriat,-6.91278,107.63083,20000,25000,Per Orang,Wisata Alam,Titik panorama,0,,,,,,,0.0
+LOC-229,Puncak Damar Jatigede,-7.11,107.69583,4000,4000,Per Orang,Wisata Alam,Daya tarik alam,0,,,,,,,0.0
+LOC-230,Desa Wisata Buricak Burinong,-6.877,108.0792,20000,20000,Per Orang,Desa Wisata,Desa wisata,0,,,,,,,0.0
+LOC-231,Panenjoan Jatigede,-6.972391,107.817965,10000,10000,Per Orang,Wisata Alam,Titik panorama,13,13.0,0.0,5.0,1.0,5.0,2.0,100.0
+LOC-232,Pangjugjugan Sumedang,-6.9162307,107.8470758,20000,20000,Per Orang,Rekreasi Keluarga,Kawasan rekreasi keluarga,0,,,,,,,0.0

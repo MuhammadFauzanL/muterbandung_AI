@@ -1,0 +1,21 @@
+{
+    "language": "id",
+    "maxReviews": 50,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Andalucia%20Lodge%20%26%20Brunch%20Bandung%20-6.8925826%2C107.5744608",
+        "https://www.google.com/maps/search/?api=1&query=Grha%20Blue%20Sky%20-6.8843554%2C107.5780626",
+        "https://www.google.com/maps/search/?api=1&query=Hotel%20Cassadua%20-6.8897582%2C107.5782557",
+        "https://www.google.com/maps/search/?api=1&query=HOTEL%20PARAHYANGAN%20-6.9112319%2C107.5784938",
+        "https://www.google.com/maps/search/?api=1&query=Lembur%20Kiwari%20Setra%20Duta%20RedPartner%20-6.8664655%2C107.5665694",
+        "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Amellia%20Pasteur%20Bandung%20-6.8857202%2C107.5785125",
+        "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Exit%20Toll%20Pasteur%204%20-6.8905976%2C107.5790232",
+        "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Setrasari%20mall%204%20-6.8807689%2C107.579175",
+        "https://www.google.com/maps/search/?api=1&query=Sans%20Hotel%20Skyland%20Pasteur%20Bandung%20-6.8828529%2C107.5794329",
+        "https://www.google.com/maps/search/?api=1&query=Sari%20Ater%20Kamboti%20Bandung%20-6.883268%2C107.5801017"
+    ]
+}

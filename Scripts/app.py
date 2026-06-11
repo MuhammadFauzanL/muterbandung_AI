@@ -20,13 +20,16 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from recommender import MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
 from oleh_oleh_recommender import OlehOlehRecommender, DEFAULT_OLEH_OLEH_DATASET_PATH
+from penginapan_recommender import PenginapanRecommender, DEFAULT_PENGINAPAN_DATASET_PATH
 from llm_evidence_pack import build_llm_evidence_pack, build_oleh_oleh_evidence_pack
+from llm_service import generate_rag_summary
 from llm_guard import build_llm_prompt_guard, validate_llm_output
 
 app = Flask(__name__)
 
 API_SCHEMA_VERSION = "muterbandung.api.recommend.v1"
 OLEH_OLEH_API_SCHEMA_VERSION = "muterbandung.api.oleh_oleh.recommend.v1"
+PENGINAPAN_API_SCHEMA_VERSION = "muterbandung.api.penginapan.recommend.v1"
 MAX_QUERY_LENGTH = 500
 MAX_CATEGORY_COUNT = 20
 MAX_CATEGORY_LENGTH = 64
@@ -35,6 +38,14 @@ MAX_PRICE = 10_000_000
 MAX_DISTANCE_KM = 200.0
 VALID_SORT_MODES = {"relevance", "balanced", "nearest"}
 VALID_DAY_TYPES = {"weekday", "weekend"}
+VALID_PENGINAPAN_PROPERTY_TYPES = {
+    "hotel",
+    "guest_house",
+    "villa",
+    "apartment",
+    "vacation_rental",
+    "room_level_listing",
+}
 DEFAULT_DATASET_PATH = (
     os.getenv("MUTERBANDUNG_DATASET_PATH")
     or os.getenv("MUTERBANDUNG_DB_PATH")
@@ -43,6 +54,10 @@ DEFAULT_DATASET_PATH = (
 DEFAULT_OLEH_OLEH_PATH = (
     os.getenv("MUTERBANDUNG_OLEH_OLEH_DATASET_PATH")
     or DEFAULT_OLEH_OLEH_DATASET_PATH
+)
+DEFAULT_PENGINAPAN_PATH = (
+    os.getenv("MUTERBANDUNG_PENGINAPAN_DATASET_PATH")
+    or DEFAULT_PENGINAPAN_DATASET_PATH
 )
 
 
@@ -64,6 +79,13 @@ def _oleh_oleh_data_version():
     return f"{os.path.basename(path)}:{int(os.path.getmtime(path))}"
 
 
+def _penginapan_data_version():
+    path = getattr(penginapan_engine, "dataset_path", None) if penginapan_engine is not None else None
+    if not path or not os.path.exists(path):
+        return "unknown"
+    return f"{os.path.basename(path)}:{int(os.path.getmtime(path))}"
+
+
 def _response_metadata(request_id=None):
     return {
         "api_schema_version": API_SCHEMA_VERSION,
@@ -79,6 +101,16 @@ def _oleh_oleh_response_metadata(request_id=None):
         "data_version": _oleh_oleh_data_version(),
         "request_id": request_id or str(uuid4()),
         "generated_at": _utc_now_iso(),
+    }
+
+
+def _penginapan_response_metadata(request_id=None):
+    return {
+        "api_schema_version": PENGINAPAN_API_SCHEMA_VERSION,
+        "data_version": _penginapan_data_version(),
+        "request_id": request_id or str(uuid4()),
+        "generated_at": _utc_now_iso(),
+        "ranking_mode": "distance_weighted_baseline",
     }
 
 
@@ -147,6 +179,30 @@ def _parse_categories(data, errors):
             continue
         categories.append(item)
     return categories or None
+
+
+def _parse_property_types(data, errors):
+    value = data.get("property_types")
+    if value is None or value == "":
+        value = data.get("property_type")
+    if value is None or value == "":
+        return None
+    raw_items = value if isinstance(value, list) else [value]
+    property_types = []
+    for item in raw_items:
+        if not isinstance(item, str):
+            errors.append("property_types items must be strings.")
+            continue
+        normalized = item.strip().lower()
+        if not normalized:
+            continue
+        if normalized not in VALID_PENGINAPAN_PROPERTY_TYPES:
+            errors.append(
+                f"property_types must contain only: {', '.join(sorted(VALID_PENGINAPAN_PROPERTY_TYPES))}."
+            )
+            continue
+        property_types.append(normalized)
+    return property_types or None
 
 
 def _parse_bool(data, field, errors, default=False):
@@ -293,6 +349,62 @@ except Exception as e:
     print(f"Error initializing oleh-oleh engine: {e}")
     oleh_oleh_engine = None
 
+print("Initializing PenginapanRecommender...")
+try:
+    penginapan_engine = PenginapanRecommender(dataset_path=DEFAULT_PENGINAPAN_PATH)
+    print("Penginapan engine initialized successfully.")
+except Exception as e:
+    print(f"Error initializing penginapan engine: {e}")
+    penginapan_engine = None
+
+def _generate_ai_summary(results, module="wisata"):
+    """Rule-based text generator that summarizes recommendations naturally."""
+    recs = results.get("recommendations", [])
+    query = results.get("query", "")
+    if not recs:
+        return None
+
+    top = recs[0]
+    total = results.get("after_filtering") or results.get("total_results") or len(recs)
+
+    if module == "penginapan":
+        name = top.get("name", "Penginapan")
+        rating = top.get("overall_rating")
+        price = top.get("price_lowest")
+        sentiment = top.get("hotel_adjusted_sentiment_label", "")
+        distance = top.get("distance_km")
+
+        parts = [f"Dari {total} penginapan yang cocok, rekomendasi teratas adalah {name}"]
+        if rating:
+            parts[0] += f" dengan rating {float(rating):.1f}/5.0"
+        parts[0] += "."
+        if price:
+            parts.append(f"Harga mulai dari Rp {int(price):,}.".replace(",", "."))
+        if sentiment:
+            parts.append(f"Ulasan tamu secara umum bernada {sentiment.lower()}.")
+        if distance is not None:
+            parts.append(f"Jaraknya sekitar {float(distance):.1f} km dari titik pencarian Anda.")
+        return " ".join(parts)
+    else:
+        name = top.get("location_name", "Destinasi")
+        info = top.get("info_praktis", {})
+        harga = info.get("harga", "")
+        bd = top.get("score_breakdown", {})
+        sentiment_label = bd.get("sentiment_label", "")
+
+        parts = [f"Dari {total} destinasi yang cocok, pilihan terbaik adalah {name}"]
+        if harga and harga != "Tidak ada info":
+            parts[0] += f" dengan harga tiket {harga}"
+        parts[0] += "."
+        if sentiment_label:
+            parts.append(f"Ulasan pengunjung didominasi respon {sentiment_label.lower()}.")
+        if len(recs) > 1:
+            second = recs[1].get("location_name", "")
+            if second:
+                parts.append(f"Alternatif lainnya adalah {second}.")
+        return " ".join(parts)
+
+
 @app.route('/')
 def index():
     """Render the main UI page."""
@@ -339,6 +451,12 @@ def recommend_api():
         evidence_pack = build_llm_evidence_pack(results)
         results["llm_evidence_pack"] = evidence_pack
         results["llm_prompt_guard"] = build_llm_prompt_guard(evidence_pack)
+        
+        rag_summary = generate_rag_summary(parsed["query"], evidence_pack, module="wisata")
+        if rag_summary:
+            results["ai_summary"] = rag_summary
+        else:
+            results["ai_summary"] = _generate_ai_summary(results, module="wisata")
         results.update(metadata)
         return jsonify(results)
     except Exception as e:
@@ -387,6 +505,53 @@ def oleh_oleh_recommend_api():
         import traceback
         traceback.print_exc()
         return _error_response("Oleh-oleh recommendation failed.", [str(e)], status_code=500, metadata=metadata)
+
+
+@app.route('/api/penginapan/recommend', methods=['POST'])
+def penginapan_recommend_api():
+    """Baseline API endpoint for distance-weighted penginapan recommendations."""
+    metadata = _penginapan_response_metadata()
+    if penginapan_engine is None:
+        return _error_response(
+            "Penginapan recommender failed to initialize.",
+            ["Penginapan recommender failed to initialize."],
+            status_code=500,
+            metadata=metadata,
+        )
+
+    data, json_errors = _load_json_body()
+    if json_errors:
+        return _error_response("Invalid request body.", json_errors, status_code=400, metadata=metadata)
+
+    parsed, validation_errors = _parse_recommend_payload(data)
+    property_types = _parse_property_types(data, validation_errors)
+    if validation_errors:
+        return _error_response("Invalid request parameters.", validation_errors, status_code=400, metadata=metadata)
+
+    try:
+        results = penginapan_engine.recommend(
+            query=parsed["query"],
+            property_types=property_types,
+            max_price=parsed["max_price"],
+            min_rating=parsed["min_rating"],
+            user_lat=parsed["user_lat"],
+            user_lon=parsed["user_lon"],
+            max_distance_km=parsed["max_distance_km"],
+            sort_by=parsed["sort_by"],
+            top_k=parsed["top_k"],
+        )
+        evidence_pack = {"recommendations": results.get("recommendations", [])[:3]}
+        rag_summary = generate_rag_summary(parsed["query"], evidence_pack, module="penginapan")
+        if rag_summary:
+            results["ai_summary"] = rag_summary
+        else:
+            results["ai_summary"] = _generate_ai_summary(results, module="penginapan")
+        results.update(metadata)
+        return jsonify(results)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return _error_response("Penginapan recommendation failed.", [str(e)], status_code=500, metadata=metadata)
 
 
 @app.route('/api/llm/validate', methods=['POST'])

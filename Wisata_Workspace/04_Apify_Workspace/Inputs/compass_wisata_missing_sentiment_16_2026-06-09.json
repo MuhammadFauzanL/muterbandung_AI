@@ -1,0 +1,55 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dusun%20Bambu%20-6.789984%2C107.578646"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pasar%20Cimindi%20-6.897185%2C107.558565"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Punclut%20Bandung%20%28Puncak%20Ciumbuleuit%29%20-6.855200%2C107.611600"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bukit%20Bintang%20Bandung%20%28Patahan%20Lembang%29%20-6.821934%2C107.662363"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kebun%20Teh%20Rancabali%20-7.111493%2C107.415219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Panganten%20-6.843509%2C107.563939"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Putih%20Cukul%20-7.031500%2C107.720300"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lereng%20Anteng%20Panoramic%20Coffee%20-6.842878%2C107.622150"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Padepokan%20Dayang%20Sumbi%20-6.901362%2C107.638726"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Ngebul%20Gununghalu%20-7.082535%2C107.282444"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sungai%20Cikahuripan%20Green%20Canyon%20Saguling%20-6.901701%2C107.357266"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Walanda%20Citatah%20-6.651047%2C107.277045"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Cibeunying%20-6.905218%2C107.624450"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nimo%20Jungle%20Hot%20Spring%20-7.179917%2C107.495792"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Nini%20Pangalengan%20-7.221389%2C107.578333"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Perkebunan%20Teh%20Rancabali%20-7.154167%2C107.371111"
+        }
+    ]
+}

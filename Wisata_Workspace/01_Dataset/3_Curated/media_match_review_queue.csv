@@ -1,0 +1,54 @@
+location_id,location_name,media_match_title,media_match_score,media_match_method,media_audit_status,media_audit_note
+LOC-155,Curug Panganten,Jl. Curug Panganten,0.9091,manual_reject,missing,"Road/route result, not destination-level media."
+LOC-037,Gn. Tampomas,Jl. Gn. Tampomas,0.88,manual_reject,missing,"Road result, not destination-level media."
+LOC-176,Padepokan Dayang Sumbi,Penginapan Dayang Sumbi,0.8,missing,missing,No reliable media match.
+LOC-177,Wahoo Waterworld,Wahoo Waterworld Bandung,0.8,missing,missing,No reliable media match.
+LOC-182,Pine Forest Camp Lembang,Pine Forest Camp,0.8,missing,missing,No reliable media match.
+LOC-187,Curug Layung,Curug Pelangi,0.8,missing,missing,No reliable media match.
+LOC-190,Curug Anom,Curug Dago,0.8,missing,missing,No reliable media match.
+LOC-228,Tanjung Duriat,Wisata Tanjung Duriat,0.8,missing,missing,No reliable media match.
+LOC-159,Penangkaran Rusa Kertamanah,Penangkaran Rusa Ranca Upas,0.7778,missing,missing,No reliable media match.
+LOC-196,Curug Walanda Citatah,Curug Walanda,0.7647,missing,missing,No reliable media match.
+LOC-215,Taman Pramuka Bandung,Taman Pramuka,0.7647,missing,missing,No reliable media match.
+LOC-163,Kampung Adat Cikondang,Rumah Adat Cikondang,0.7619,missing,missing,No reliable media match.
+LOC-222,Nuansa Riung Gunung,Nuansa Riung gunung Pangalengan,0.76,missing,missing,No reliable media match.
+LOC-193,Sanghyang Poek,Sanghyang Kenit,0.7586,missing,missing,No reliable media match.
+LOC-198,Tebing Gunung Hawu,Gunung Hawu,0.7586,missing,missing,No reliable media match.
+LOC-183,Imah Seniman Lembang,MiniMania Lembang,0.7568,missing,missing,No reliable media match.
+LOC-186,Indiana Camp Lembang,Indiana Camp,0.75,missing,missing,No reliable media match.
+LOC-201,Curug Batu Templek,CURUG BATU TEMPLEK CISANGGARUNG,0.7347,missing,missing,No reliable media match.
+LOC-120,Rumah Guguk,Rumah Guguk Petshop,0.7333,missing,missing,No reliable media match.
+LOC-225,Curug Ceret Pangalengan,Curug Ceret (Naringgul),0.7273,missing,missing,No reliable media match.
+LOC-226,Gunung Nini Pangalengan,Wayang Windu Pangalengan,0.7234,missing,missing,No reliable media match.
+LOC-181,Noah's Park Lembang,Noah's Park | Wisata Lembang Bandung,0.717,missing,missing,No reliable media match.
+LOC-199,Taman Buru Gunung Masigit Kareumbi,Kawasan Konservasi Taman Buru G. Masigit Kareumbi,0.7073,missing,missing,No reliable media match.
+LOC-148,Pesona Nirwana Waterpark,Pesona Nirwana Waterpark & Cottages / Resort,0.7059,missing,missing,No reliable media match.
+LOC-149,Taman Wisata Alam Cimanggu,Taman EcoWisata Cimenteng,0.7059,missing,missing,No reliable media match.
+LOC-230,Desa Wisata Buricak Burinong,Kampung Buricak Burinong,0.6923,missing,missing,No reliable media match.
+LOC-232,Pangjugjugan Sumedang,Cadas Pangeran Sumedang,0.6818,missing,missing,No reliable media match.
+LOC-004,Alun-Alun Sumedang,Alun-Alun,0.6667,missing,missing,No reliable media match.
+LOC-016,Chinatown Bandung,Kebun Binatang Bandung,0.6667,missing,missing,No reliable media match.
+LOC-139,Kawah Rengganis Ciwidey,KAWAH CIBUNI Rengganis,0.6667,missing,missing,No reliable media match.
+LOC-178,De'Ranch Lembang,De' Ranch,0.6667,missing,missing,No reliable media match.
+LOC-213,Taman Cibeunying,Taman Endog,0.6667,missing,missing,No reliable media match.
+LOC-224,Sungai Palayangan Rafting,Palayangan River,0.6341,missing,missing,No reliable media match.
+LOC-043,Happyfarm Ciwidey,Ranca Upas Ciwidey,0.6286,missing,missing,No reliable media match.
+LOC-173,Cakrawala Nature Sparkling Restaurant,MARIBAYA Natural Hotspring Resort,0.6286,missing,missing,No reliable media match.
+LOC-229,Puncak Damar Jatigede,Bendungan Jatigede,0.6154,missing,missing,No reliable media match.
+LOC-192,Curug Ngebul Gununghalu,Curug Bugbrug,0.6111,missing,missing,No reliable media match.
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),Kebun Binatang Bandung,0.6102,missing,missing,No reliable media match.
+LOC-219,Museum Inggit Garnasih,Museum Barli,0.5882,missing,missing,No reliable media match.
+LOC-180,Cimory Dairyland Lembang,MiniMania Lembang,0.5854,missing,missing,No reliable media match.
+LOC-008,Bandung Science Center,Science Centre Soreang (SCS),0.5833,missing,missing,No reliable media match.
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),Punclut Puncak,0.5833,missing,missing,No reliable media match.
+LOC-162,Rumah Putih Cukul,Kawah Putih,0.5714,missing,missing,No reliable media match.
+LOC-164,Java Preanger Gunung Tilu,Coffee House Gunung Tilu,0.5714,missing,missing,No reliable media match.
+LOC-217,Karang Setra Waterland,LEMBANG Wonderland,0.55,missing,missing,No reliable media match.
+LOC-121,NuArt Sculpture Park,Nu Art Studio,0.5455,missing,missing,No reliable media match.
+LOC-158,Situ Ninah (Situ Datar),Situ Datar Buana,0.5405,missing,missing,No reliable media match.
+LOC-049,Kampung Toga Villa & Resto,Kampung Cireundeu,0.5333,missing,missing,No reliable media match.
+LOC-017,Cihampelas Walk,Taman Maluku,0.5185,missing,missing,No reliable media match.
+LOC-220,Nimo Jungle Hot Spring,Kampung Singkur,0.4865,missing,missing,No reliable media match.
+LOC-174,Lereng Anteng Panoramic Coffee,Perkebunan Teh RANCABALI,0.4815,missing,missing,No reliable media match.
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,Kampung Karuhun ECO Green Park Sumedang,0.481,missing,missing,No reliable media match.
+LOC-135,Taman Main Mili-Mili & Hutan Mycelia,Taman Hutan Raya Ir. H. Djuanda,0.4478,missing,missing,No reliable media match.

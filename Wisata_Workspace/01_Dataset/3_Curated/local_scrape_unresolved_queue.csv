@@ -1,0 +1,79 @@
+queue_type,location_id,location_name,priority,field_name,reason
+media,LOC-176,Padepokan Dayang Sumbi,HIGH,media,no reliable local raw media match
+media,LOC-190,Curug Anom,HIGH,media,no reliable local raw media match
+media,LOC-163,Kampung Adat Cikondang,HIGH,media,no reliable local raw media match
+media,LOC-149,Taman Wisata Alam Cimanggu,HIGH,media,no reliable local raw media match
+media,LOC-139,Kawah Rengganis Ciwidey,HIGH,media,no reliable local raw media match
+media,LOC-213,Taman Cibeunying,HIGH,media,no reliable local raw media match
+media,LOC-224,Sungai Palayangan Rafting,HIGH,media,no reliable local raw media match
+media,LOC-173,Cakrawala Nature Sparkling Restaurant,HIGH,media,no reliable local raw media match
+media,LOC-192,Curug Ngebul Gununghalu,HIGH,media,no reliable local raw media match
+media,LOC-134,Bukit Bintang Bandung (Patahan Lembang),HIGH,media,no reliable local raw media match
+media,LOC-180,Cimory Dairyland Lembang,HIGH,media,no reliable local raw media match
+media,LOC-008,Bandung Science Center,HIGH,media,no reliable local raw media match
+media,LOC-162,Rumah Putih Cukul,HIGH,media,no reliable local raw media match
+media,LOC-164,Java Preanger Gunung Tilu,HIGH,media,no reliable local raw media match
+media,LOC-217,Karang Setra Waterland,HIGH,media,no reliable local raw media match
+media,LOC-121,NuArt Sculpture Park,HIGH,media,no reliable local raw media match
+media,LOC-158,Situ Ninah (Situ Datar),HIGH,media,no reliable local raw media match
+media,LOC-017,Cihampelas Walk,HIGH,media,no reliable local raw media match
+media,LOC-220,Nimo Jungle Hot Spring,HIGH,media,no reliable local raw media match
+media,LOC-174,Lereng Anteng Panoramic Coffee,HIGH,media,no reliable local raw media match
+media,LOC-135,Taman Main Mili-Mili & Hutan Mycelia,HIGH,media,no reliable local raw media match
+media,LOC-159,Penangkaran Rusa Kertamanah,LOW,media,no reliable local raw media match
+media,LOC-199,Taman Buru Gunung Masigit Kareumbi,LOW,media,no reliable local raw media match
+media,LOC-230,Desa Wisata Buricak Burinong,LOW,media,no reliable local raw media match
+media,LOC-232,Pangjugjugan Sumedang,LOW,media,no reliable local raw media match
+media,LOC-043,Happyfarm Ciwidey,LOW,media,no reliable local raw media match
+media,LOC-229,Puncak Damar Jatigede,LOW,media,no reliable local raw media match
+media,LOC-049,Kampung Toga Villa & Resto,LOW,media,no reliable local raw media match
+data,LOC-016,Chinatown Bandung,HIGH,jam_buka_weekday,not derivable from local Google Maps extractor
+data,LOC-016,Chinatown Bandung,HIGH,jam_buka_weekend,not derivable from local Google Maps extractor
+data,LOC-016,Chinatown Bandung,HIGH,jam_tutup_weekday,not derivable from local Google Maps extractor
+data,LOC-016,Chinatown Bandung,HIGH,jam_tutup_weekend,not derivable from local Google Maps extractor
+data,LOC-023,Curug Malela,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-044,Jans Park (Jatinangor National Park),HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-069,Pemandian Cipanas Cileungsing,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-116,Wisata Kampoeng Ciherang,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-123,Museum Pendidikan Nasional UPI,HIGH,jam_buka_weekend,not derivable from local Google Maps extractor
+data,LOC-123,Museum Pendidikan Nasional UPI,HIGH,jam_tutup_weekend,not derivable from local Google Maps extractor
+data,LOC-138,Kebun Teh Sukawana,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-155,Curug Panganten,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-158,Situ Ninah (Situ Datar),HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-162,Rumah Putih Cukul,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-166,Muara Rahong Hills,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-228,Tanjung Duriat,HIGH,coordinate_verified,not derivable from local Google Maps extractor
+data,LOC-029,Dusun Bambu,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-029,Dusun Bambu,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-068,Pasar Cimindi,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-133,Punclut Bandung (Puncak Ciumbuleuit),MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-134,Bukit Bintang Bandung (Patahan Lembang),MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-134,Bukit Bintang Bandung (Patahan Lembang),MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-137,Rumah Belanda,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-152,Kebun Teh Rancabali,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-155,Curug Panganten,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-162,Rumah Putih Cukul,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-162,Rumah Putih Cukul,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-174,Lereng Anteng Panoramic Coffee,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-174,Lereng Anteng Panoramic Coffee,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-176,Padepokan Dayang Sumbi,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-176,Padepokan Dayang Sumbi,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-192,Curug Ngebul Gununghalu,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-192,Curug Ngebul Gununghalu,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-195,Sungai Cikahuripan Green Canyon Saguling,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-196,Curug Walanda Citatah,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-213,Taman Cibeunying,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-213,Taman Cibeunying,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-220,Nimo Jungle Hot Spring,MEDIUM,avg_rating,not derivable from local Google Maps extractor
+data,LOC-220,Nimo Jungle Hot Spring,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-226,Gunung Nini Pangalengan,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-234,Perkebunan Teh Rancabali,MEDIUM,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-004,Alun-Alun Sumedang,LOW,avg_rating,not derivable from local Google Maps extractor
+data,LOC-004,Alun-Alun Sumedang,LOW,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-037,Gn. Tampomas,LOW,avg_rating,not derivable from local Google Maps extractor
+data,LOC-037,Gn. Tampomas,LOW,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-159,Penangkaran Rusa Kertamanah,LOW,avg_rating,not derivable from local Google Maps extractor
+data,LOC-159,Penangkaran Rusa Kertamanah,LOW,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-229,Puncak Damar Jatigede,LOW,avg_rating,not derivable from local Google Maps extractor
+data,LOC-229,Puncak Damar Jatigede,LOW,sentiment_available,not derivable from local Google Maps extractor
+data,LOC-233,Kampung Wisata Pangjugjugan,LOW,sentiment_available,not derivable from local Google Maps extractor

@@ -9,6 +9,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const locationStatus = document.getElementById('location-status');
     let userLocation = { lat: null, lon: null };
     let lastSearchPayload = {};
+    let currentModule = 'wisata';
+
+    // Module Switcher Logic
+    const moduleBtns = document.querySelectorAll('.module-btn');
+    const wisataFilters = document.getElementById('wisata-filters');
+    const penginapanFilters = document.getElementById('penginapan-filters');
+
+    moduleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            moduleBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            currentModule = btn.getAttribute('data-module');
+            
+            if (currentModule === 'penginapan') {
+                wisataFilters.classList.add('hidden');
+                penginapanFilters.classList.remove('hidden');
+                queryInput.placeholder = "Cari penginapan... (Misal: apartemen murah dekat stasiun)";
+            } else {
+                wisataFilters.classList.remove('hidden');
+                penginapanFilters.classList.add('hidden');
+                queryInput.placeholder = "Ceritakan liburan impianmu... (Misal: wisata alam yang ramah anak)";
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="icon-wrapper">
+                        <i class='bx ${currentModule === 'penginapan' ? 'bx-building-house' : 'bx-bot'}'></i>
+                    </div>
+                    <h3>AI ${currentModule === 'penginapan' ? 'Penginapan' : 'Recommender'} Siap</h3>
+                    <p>Masukkan kata kunci atau atur filter di samping untuk menemukan ${currentModule === 'penginapan' ? 'penginapan' : 'destinasi wisata'} terbaik di Bandung Raya.</p>
+                </div>
+            `;
+        });
+    });
 
     function escapeHtml(value) {
         return String(value ?? '').replace(/[&<>"']/g, (char) => ({
@@ -37,6 +72,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle Filter Form Submission
     filterForm.addEventListener('submit', (e) => {
         e.preventDefault();
+        triggerSearch();
+    });
+
+    // Cross-Recommend: Wisata -> Penginapan Terdekat
+    resultsContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-cross-recommend');
+        if (!btn) return;
+
+        const lat = parseFloat(btn.dataset.lat);
+        const lon = parseFloat(btn.dataset.lon);
+        const wisataName = btn.dataset.name;
+
+        // Switch module to Penginapan
+        currentModule = 'penginapan';
+        moduleBtns.forEach(b => b.classList.remove('active'));
+        document.querySelector('[data-module="penginapan"]').classList.add('active');
+        wisataFilters.classList.add('hidden');
+        penginapanFilters.classList.remove('hidden');
+
+        // Set query and coordinates
+        queryInput.value = `Penginapan dekat ${wisataName}`;
+        queryInput.placeholder = "Cari penginapan... (Misal: apartemen murah dekat stasiun)";
+        userLocation = { lat, lon };
+        updateLocationStatus(`Lokasi wisata: ${wisataName} (${lat.toFixed(4)}, ${lon.toFixed(4)})`, true);
+
+        // Set radius to 15km (adaptive for mountain areas)
+        const maxDistInput = document.getElementById('max_distance_km');
+        if (maxDistInput) maxDistInput.value = '15';
+
+        // Trigger search
         triggerSearch();
     });
 
@@ -78,7 +143,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateLocationStatus(message, active) {
         if (!locationStatus) return;
-        locationStatus.textContent = message;
+        if (active) {
+            locationStatus.innerHTML = `${escapeHtml(message)} <span id="clear-location-btn" style="cursor:pointer; color: #dc2626; margin-left: 8px; font-weight: bold; background: rgba(220, 38, 38, 0.1); padding: 2px 6px; border-radius: 4px;" title="Hapus Lokasi">✖</span>`;
+            const clearBtn = document.getElementById('clear-location-btn');
+            if (clearBtn) {
+                clearBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    userLocation = { lat: null, lon: null };
+                    updateLocationStatus('Lokasi belum aktif', false);
+                    const maxDistInput = document.getElementById('max_distance_km');
+                    if (maxDistInput) maxDistInput.value = '';
+                    if (useLocationBtn) useLocationBtn.disabled = false;
+                    triggerSearch();
+                });
+            }
+        } else {
+            locationStatus.textContent = message;
+        }
         locationStatus.classList.toggle('active', Boolean(active));
     }
 
@@ -92,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
         lastSearchPayload = payload;
 
         // Fetch API
-        fetch('/api/recommend', {
+        const endpoint = currentModule === 'penginapan' ? '/api/penginapan/recommend' : '/api/recommend';
+        fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -120,27 +202,29 @@ document.addEventListener('DOMContentLoaded', () => {
         // Filter Form Data
         const formData = new FormData(filterForm);
         
-        // Categories (multiple checkboxes)
-        const categories = formData.getAll('categories');
-        if (categories.length > 0) {
-            payload.categories = categories;
+        if (currentModule === 'penginapan') {
+            const propertyTypes = formData.getAll('property_types');
+            if (propertyTypes.length > 0) {
+                payload.property_types = propertyTypes;
+            }
+        } else {
+            const categories = formData.getAll('categories');
+            if (categories.length > 0) {
+                payload.categories = categories;
+            }
+            payload.free_only = formData.get('free_only') === 'on';
+            payload.open_now = formData.get('open_now') === 'on';
+            const dayType = formData.get('day_type');
+            if (dayType) payload.day_type = dayType;
+            const openAtHour = formData.get('open_at_hour');
+            if (openAtHour) payload.open_at_hour = openAtHour;
         }
 
-        // Other filters
         const maxPrice = formData.get('max_price');
         if (maxPrice) payload.max_price = parseInt(maxPrice);
 
         const minRating = formData.get('min_rating');
         if (minRating) payload.min_rating = parseFloat(minRating);
-
-        payload.free_only = formData.get('free_only') === 'on';
-        payload.open_now = formData.get('open_now') === 'on';
-
-        const dayType = formData.get('day_type');
-        if (dayType) payload.day_type = dayType;
-
-        const openAtHour = formData.get('open_at_hour');
-        if (openAtHour) payload.open_at_hour = openAtHour;
 
         const sortBy = formData.get('sort_by');
         payload.sort_by = sortBy || 'balanced';
@@ -163,6 +247,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const locationContext = data.location_context || {};
+        const recommendations = data.recommendations || [];
+
+        if (recommendations.length === 0) {
+            const emptyIcon = currentModule === 'penginapan' ? 'bx-building-house' : 'bx-search-alt';
+            const emptyTitle = currentModule === 'penginapan' ? 'Tidak ada penginapan ditemukan' : 'Tidak ada hasil';
+            const emptyMsg = currentModule === 'penginapan'
+                ? 'Tidak ditemukan penginapan yang cocok. Coba perluas radius pencarian atau ubah filter tipe properti.'
+                : 'AI tidak menemukan destinasi yang cocok dengan kriteria Anda. Coba ubah filter atau gunakan kata kunci yang berbeda.';
+            resultsContainer.innerHTML = `
+                <div class="empty-state">
+                    <div class="icon-wrapper"><i class='bx ${emptyIcon}'></i></div>
+                    <h3>${emptyTitle}</h3>
+                    <p>${emptyMsg}</p>
+                </div>`;
+            return;
+        }
+
         if (locationContext.enabled) {
             const locationBadge = document.createElement('div');
             locationBadge.className = 'location-context-badge';
@@ -174,33 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span>Ranking ${escapeHtml(locationContext.sort_by || 'balanced')} memakai lokasi Anda, ${escapeHtml(radiusText)}.</span>
             `;
             resultsContainer.appendChild(locationBadge);
-        }
-        
-        if (data.status === 'error') {
-            renderError('Error dari Server: ' + data.message);
-            return;
-        }
-        
-        const recommendations = data.recommendations || [];
-        if (recommendations.length === 0) {
-            if (queryHasOlehOlehIntent(searchPayload.query || '')) {
-                resultsContainer.innerHTML = '';
-                const routeNotice = document.createElement('div');
-                routeNotice.className = 'location-context-badge';
-                routeNotice.innerHTML = `
-                    <i class='bx bx-shopping-bag'></i>
-                    <span>Pencarian ini lebih cocok ke modul oleh-oleh. Saya tampilkan rekomendasi oleh-oleh pendukung.</span>
-                `;
-                resultsContainer.appendChild(routeNotice);
-                renderOlehOlehRecommendations(data, searchPayload);
-                return;
-            }
-            const noStrongMatch = data.no_strong_match || {};
-            const message = noStrongMatch.used && noStrongMatch.reason
-                ? noStrongMatch.reason
-                : 'Tidak ada destinasi yang cocok dengan kriteria pencarian Anda. Coba kurangi filter atau gunakan kata kunci lain.';
-            renderError(message);
-            return;
         }
 
         // Clear container first
@@ -241,10 +315,39 @@ document.addEventListener('DOMContentLoaded', () => {
             resultsContainer.appendChild(intentBadge);
         }
 
+        // AI Summary Bubble
+        if (data.ai_summary) {
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = 'ai-summary-bubble';
+            summaryDiv.innerHTML = `
+                <div class="ai-avatar"><i class='bx bx-bot'></i></div>
+                <div class="ai-text">
+                    <strong>Asisten MuterBandung</strong>
+                    <p>${escapeHtml(data.ai_summary)}</p>
+                </div>
+            `;
+            resultsContainer.appendChild(summaryDiv);
+        }
+
         let delay = 0;
         recommendations.forEach((item, index) => {
-            const card = document.createElement('div');
-            card.className = 'result-card';
+            if (currentModule === 'penginapan') {
+                resultsContainer.appendChild(createPenginapanCard(item, index, delay));
+            } else {
+                resultsContainer.appendChild(createWisataCard(item, index, delay));
+            }
+            delay += 0.1;
+        });
+
+        // renderOlehOlehRecommendations(data, searchPayload);
+    }
+
+    
+    function createWisataCard(item, index, delay) {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.style.animationDelay = `${delay}s`;
+        card.className = 'result-card';
             card.style.animationDelay = `${delay}s`;
             delay += 0.1;
 
@@ -290,6 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const explanation = escapeHtml(item.alasan || 'Sesuai dengan filter dan preferensi Anda.');
             const duration = escapeHtml(info.estimasi_durasi || '-');
             const distanceLabel = item.distance_label ? escapeHtml(item.distance_label) : 'Jarak belum dihitung';
+            const koordinat = Array.isArray(info.koordinat) ? info.koordinat : [];
             const media = item.media || {};
             const hasMedia = media.available === true;
             const mediaImageUrl = hasMedia && media.image_url ? escapeHtml(media.image_url) : '';
@@ -377,12 +481,116 @@ document.addEventListener('DOMContentLoaded', () => {
                     ${bd.review_confidence !== undefined ? `<span title="Confidence Review berbasis p95"><i class='bx bx-bar-chart-alt-2'></i> Conf: ${(bd.review_confidence*100).toFixed(0)}%</span>` : ''}
                     ${bd.distance_score !== undefined && bd.distance_score !== null ? `<span title="Skor Kedekatan"><i class='bx bx-map-pin'></i> Jarak: ${(bd.distance_score*100).toFixed(0)}%</span>` : ''}
                 </div>
-            `;
-            
-            resultsContainer.appendChild(card);
-        });
 
-        renderOlehOlehRecommendations(data, searchPayload);
+                ${koordinat.length === 2 ? `
+                <div class="cross-recommend-section">
+                    <button class="btn-secondary btn-cross-recommend" type="button"
+                            data-lat="${koordinat[0]}" data-lon="${koordinat[1]}" data-name="${locationName}">
+                        <i class='bx bx-building-house'></i> Cari Penginapan Terdekat
+                    </button>
+                </div>
+                ` : ''}
+            `;
+        return card;
+    }
+
+    function createPenginapanCard(item, index, delay) {
+        const card = document.createElement('div');
+        card.className = 'result-card';
+        card.style.animationDelay = `${delay}s`;
+
+        const bd = item.score_breakdown || {};
+        let propClass = "hotel-badge";
+        if (item.property_type === "apartment") propClass = "apartment-badge";
+        if (item.property_type === "villa" || item.property_type === "vacation_rental") propClass = "villa-badge";
+
+        const propTypeLabel = item.property_type ? item.property_type.replace('_', ' ').toUpperCase() : 'PENGINAPAN';
+
+        // Fix: use item.hotel_adjusted_sentiment_label (actual field from penginapan_recommender.py)
+        const sentimentLabel = item.hotel_adjusted_sentiment_label || 'Netral';
+        let sentClass = "sentiment-neutral";
+        if (sentimentLabel.toLowerCase().includes('positif')) sentClass = "sentiment-positive";
+        if (sentimentLabel.toLowerCase().includes('negatif')) sentClass = "sentiment-negative";
+
+        // Fix: use item.overall_rating (actual field from penginapan_recommender.py)
+        const ratingHtml = item.overall_rating ? parseFloat(item.overall_rating).toFixed(1) + " / 5.0" : "Belum dirating";
+        const priceHtml = item.price_lowest ? "Rp " + parseInt(item.price_lowest).toLocaleString("id-ID") : "Hubungi Pengelola";
+        const distanceHtml = item.distance_label || "Jarak belum dihitung";
+        const scorePercent = item.final_score ? parseFloat(item.final_score).toFixed(1) : '0.0';
+        const locationName = escapeHtml(item.name || 'Penginapan tanpa nama');
+        // Fix: use item.note (actual field from penginapan_recommender.py)
+        const explanation = escapeHtml(item.note || 'Sesuai dengan filter dan preferensi Anda.');
+        const reviewCount = item.reviews || 0;
+        const imageUrl = item.primary_image_url ? escapeHtml(item.primary_image_url) : '';
+        const mapLink = item.link ? escapeHtml(item.link) : '';
+
+        card.innerHTML = `
+            ${imageUrl ? `
+            <div class="card-media">
+                <div class="card-media-visual">
+                    <img src="${imageUrl}" alt="${locationName}" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('.card-media-visual').classList.add('hidden')">
+                </div>
+                ${mapLink ? `<div class="card-media-links"><a class="media-link" href="${mapLink}" target="_blank" rel="noopener noreferrer"><i class='bx bx-map'></i> Lihat di Maps</a></div>` : ''}
+            </div>
+            ` : ''}
+            <div class="card-header">
+                <div class="card-title-group">
+                    <h3>${item.rank || index + 1}. ${locationName}</h3>
+                    <div class="card-categories">
+                        <span class="category-tag ${propClass}">${propTypeLabel}</span>
+                    </div>
+                </div>
+                <div class="score-badge">
+                    <span class="score-value">${scorePercent}%</span>
+                    <span class="score-label">Kecocokan</span>
+                </div>
+            </div>
+
+            <div class="card-info-grid">
+                <div class="info-item">
+                    <i class='bx bx-money'></i>
+                    <div class="info-content">
+                        <span class="info-label">Mulai Dari</span>
+                        <span class="info-value">${priceHtml}</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-star'></i>
+                    <div class="info-content">
+                        <span class="info-label">Google Rating</span>
+                        <span class="info-value">${ratingHtml}</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-smile'></i>
+                    <div class="info-content">
+                        <span class="info-label">Review Sentimen</span>
+                        <span class="info-value ${sentClass}">${sentimentLabel} (${reviewCount} ulasan)</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class='bx bx-map-pin'></i>
+                    <div class="info-content">
+                        <span class="info-label">Jarak</span>
+                        <span class="info-value">${distanceHtml}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-explanation">
+                <strong><i class='bx bx-bulb'></i> Mengapa direkomendasikan?</strong><br>
+                ${explanation}
+            </div>
+
+            <div class="score-breakdown">
+                <span title="Berdasarkan Filter Keras"><i class='bx bx-check-shield'></i> Lolos Filter</span>
+                ${bd.distance_score !== undefined ? `<span title="Skor Kedekatan"><i class='bx bx-map-pin'></i> Jarak: ${(bd.distance_score*100).toFixed(0)}%</span>` : ''}
+                ${bd.sentiment_score !== undefined ? `<span title="Skor Sentimen"><i class='bx bx-smile'></i> Sent: ${(bd.sentiment_score*100).toFixed(0)}%</span>` : ''}
+                ${bd.property_type_priority_score < 1.0 ? `<span title="Prioritas Diturunkan"><i class='bx bx-down-arrow-alt'></i> Penalti Tipe: ${(bd.property_type_priority_score*100).toFixed(0)}%</span>` : ''}
+            </div>
+        `;
+
+        return card;
     }
 
     function queryHasOlehOlehIntent(query) {

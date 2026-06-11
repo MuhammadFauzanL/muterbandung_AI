@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-06-05T11:36:57.244014Z",
+  "input_rows": {
+    "initial_ready": 1131,
+    "held_child": 300,
+    "held_low_priority": 58,
+    "final_29": 29
+  },
+  "decision_rows": {
+    "final_29_child_parent": 19,
+    "final_29_parent_ready": 9,
+    "final_29_held_drop": 1
+  },
+  "final_ready_rows": 1140,
+  "final_excluded_rows": 378,
+  "test_batch_rows": 30,
+  "ready_excluded_overlap_review_target_id_count": 0,
+  "excluded_group_counts": {
+    "held_child_detail": 300,
+    "held_low_priority": 58,
+    "final_29_child_parent": 19,
+    "final_29_held_drop": 1
+  },
+  "ready_source_counts": {
+    "initial_ready": 1131,
+    "final_29_parent_ready": 9
+  },
+  "outputs": {
+    "final_ready": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_FINAL_READY_2026-06-05.csv",
+    "final_excluded": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_FINAL_EXCLUDED_2026-06-05.csv",
+    "test_batch": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_TEST_BATCH_30_2026-06-05.csv"
+  }
+}

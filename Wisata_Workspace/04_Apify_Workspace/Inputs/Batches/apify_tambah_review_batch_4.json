@@ -1,0 +1,31 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=NIMO%20Highland%20Ciwidey%20Bandung%20Jawa%20Barat",
+        "https://www.google.com/maps/search/?api=1&query=Nu%20Art%20Studio&query_place_id=ChIJ9QHX-SfkaC4RCC0ZG0KM0Pg",
+        "https://www.google.com/maps/search/?api=1&query=Orchid%20Forest%20Cikole&query_place_id=ChIJBxan4TjgaC4RYi4ejXdY-Hk",
+        "https://www.google.com/maps/search/?api=1&query=Palalangon%20Park&query_place_id=ChIJ0yTCHpCTaC4RTuG34A2lAxI",
+        "https://www.google.com/maps/search/?api=1&query=Palayangan%20River&query_place_id=ChIJ5ZaSISeRaC4RPTIX-35U4-A",
+        "https://www.google.com/maps/search/?api=1&query=Panama%20Park%20825&query_place_id=ChIJoUTGLGjlaC4RbA-dVkxv-Gc",
+        "https://www.google.com/maps/search/?api=1&query=Pandiga%20Educreation%20Sports&query_place_id=ChIJ9_jNcTnkaC4RS3p5dhgPahU",
+        "https://www.google.com/maps/search/?api=1&query=Pemandian%20Air%20Panas%20Cibolang&query_place_id=ChIJr63EXQmXaC4RId2jyPRQmp4",
+        "https://www.google.com/maps/search/?api=1&query=Pesona%20Nirwana%20Waterpark%20%26%20Cottages%20%2F%20Resort&query_place_id=ChIJ_xWz4FHsaC4RcSL8vAov3L0",
+        "https://www.google.com/maps/search/?api=1&query=Peta%20Park&query_place_id=ChIJcd4jrKfoaC4RpokEfBFEQM0",
+        "https://www.google.com/maps/search/?api=1&query=Pine%20Forest%20Camp&query_place_id=ChIJ1XNNI0feaC4RUZizKWoMwB8",
+        "https://www.google.com/maps/search/?api=1&query=Puncak%20Bukit%20Kujang%20Gunung%20Bohong&query_place_id=ChIJpalhFPHlaC4R_5WE_LUF0Bw",
+        "https://www.google.com/maps/search/?api=1&query=Puncak%20Eurad&query_place_id=ChIJ5_6aW8XfaC4RrtKR92P_PC4",
+        "https://www.google.com/maps/search/?api=1&query=Puncak%20Mega%20(Gn%20Puntang)&query_place_id=ChIJDQIzbZuVaC4RZ-rhsuUpxzY",
+        "https://www.google.com/maps/search/?api=1&query=Puncak%20Permata&query_place_id=ChIJs1XrHsstby4R7Ucp6AUE5DY",
+        "https://www.google.com/maps/search/?api=1&query=Punclut%20Puncak&query_place_id=ChIJNbO7_NPmaC4Rq9bKfN9tV0M",
+        "https://www.google.com/maps/search/?api=1&query=Rengganis%20Suspension%20Bridge&query_place_id=ChIJu6xh-pGLaC4RgKp4gou_wR0",
+        "https://www.google.com/maps/search/?api=1&query=Rumah%20Adat%20Cikondang&query_place_id=ChIJY5zKz3KTaC4RMRJI3ToxmOc",
+        "https://www.google.com/maps/search/?api=1&query=Sanghyang%20Poek%20Bandung%20purba&query_place_id=ChIJ9dLIAiX5aC4RQOIRasoIyfc",
+        "https://www.google.com/maps/search/?api=1&query=Situ%20Datar%20Buana&query_place_id=ChIJCXWW-DiRaC4R6LZRSJDCP98"
+    ]
+}

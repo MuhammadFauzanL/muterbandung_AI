@@ -1,0 +1,40 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_01_LOC-068"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_02_LOC-134"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_03_LOC-155"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_04_LOC-162"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_05_LOC-174"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_06_LOC-176"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_07_LOC-195"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_08_LOC-196"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_09_LOC-213"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_10_LOC-220"
+        },
+        {
+            "url": "PASTE_GOOGLE_MAPS_PLACE_URL_11_LOC-234"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "language": "id",
+    "maxReviews": 50,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=KARIZMA%20RESIDENCE%20-6.8896251%2C107.5791915",
+        "https://www.google.com/maps/search/?api=1&query=RedDoorz%20%40%20Amellia%20Pasteur%20Bandung%20-6.8857202%2C107.5785125",
+        "https://www.google.com/maps/search/?api=1&query=Sans%20Hotel%20Skyland%20Pasteur%20Bandung%20-6.8828529%2C107.5794329",
+        "https://www.google.com/maps/search/?api=1&query=Sari%20Ater%20Kamboti%20Bandung%20-6.883268%2C107.5801017",
+        "https://www.google.com/maps/search/?api=1&query=Stay%20at%20Rozelle%20-6.8811637%2C107.569519",
+        "https://www.google.com/maps/search/?api=1&query=Valore%20Hotel%20Cimahi%20-6.8977855%2C107.5370591"
+    ]
+}

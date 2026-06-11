@@ -1,0 +1,12 @@
+﻿location_id,location_name,returned_title,decision,source_batch,reviews_used,text_rows,avg_rating_fallback,sentiment_score_fallback,sentiment_label_fallback,ulasan_positif_fallback,ulasan_netral_fallback,ulasan_negatif_fallback,place_total_score,place_reviews_count
+LOC-029,Dusun Bambu,Dusun Bambu,accept_strong,first,30,16,4.466667,0.8,Sangat Positif,26,2,2,4.5,31829
+LOC-152,Kebun Teh Rancabali,Perkebunan Teh RANCABALI,accept_strong,first,30,15,4.733333,0.933333,Sangat Positif,29,0,1,4.7,4592
+LOC-068,Pasar Cimindi,Pasar Cimindi,accept_strong,rescrape,30,2,4.533333,0.866667,Sangat Positif,27,2,1,4.1,4132
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),Puncak Bintang,accept_after_light_check,rescrape,30,7,4.666667,0.9,Sangat Positif,28,1,1,4.6,756
+LOC-155,Curug Panganten,Curug Penganten,accept_after_light_check,rescrape,30,22,4.566667,0.9,Sangat Positif,28,1,1,4.2,393
+LOC-162,Rumah Putih Cukul,Kp cipurut,accept_user_confirmed,rescrape,30,13,4.366667,0.766667,Sangat Positif,25,3,2,4.5,365
+LOC-174,Lereng Anteng Panoramic Coffee,"Lereng Anteng, Dago Bakery",accept_after_light_check,rescrape,30,17,4.533333,0.866667,Sangat Positif,28,0,2,4.5,45
+LOC-176,Padepokan Dayang Sumbi,Wisata Ilmu Sutera Bandung,accept_after_light_check,rescrape,30,13,4.7,0.933333,Sangat Positif,28,2,0,4.3,216
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,Cikahuripan,accept_after_light_check,rescrape,30,18,4.166667,0.666667,Sangat Positif,23,4,3,4.3,143
+LOC-220,Nimo Jungle Hot Spring,Nimo Resort Ciwidey,accept_user_confirmed,rescrape,30,21,4.366667,0.733333,Sangat Positif,25,2,3,4.6,51
+LOC-234,Perkebunan Teh Rancabali,Perkebunan Teh RANCABALI,accept_strong,rescrape,30,15,4.733333,0.933333,Sangat Positif,29,0,1,4.7,4592

@@ -1,0 +1,12 @@
+﻿no,location_id,location_name,placeholder,reason,paste_google_maps_place_url_here
+1,LOC-068,Pasar Cimindi,PASTE_GOOGLE_MAPS_PLACE_URL_01_LOC-068,missing pada scrape awal,
+2,LOC-134,Bukit Bintang Bandung (Patahan Lembang),PASTE_GOOGLE_MAPS_PLACE_URL_02_LOC-134,hasil awal nyasar ke Zona Sesar Lembang,
+3,LOC-155,Curug Panganten,PASTE_GOOGLE_MAPS_PLACE_URL_03_LOC-155,missing pada scrape awal,
+4,LOC-162,Rumah Putih Cukul,PASTE_GOOGLE_MAPS_PLACE_URL_04_LOC-162,missing pada scrape awal,
+5,LOC-174,Lereng Anteng Panoramic Coffee,PASTE_GOOGLE_MAPS_PLACE_URL_05_LOC-174,perlu URL asli karena hasil awal beda nama,
+6,LOC-176,Padepokan Dayang Sumbi,PASTE_GOOGLE_MAPS_PLACE_URL_06_LOC-176,missing pada scrape awal,
+7,LOC-195,Sungai Cikahuripan Green Canyon Saguling,PASTE_GOOGLE_MAPS_PLACE_URL_07_LOC-195,hasil awal terlalu umum: Cikahuripan,
+8,LOC-196,Curug Walanda Citatah,PASTE_GOOGLE_MAPS_PLACE_URL_08_LOC-196,hasil awal kemungkinan salah wilayah,
+9,LOC-213,Taman Cibeunying,PASTE_GOOGLE_MAPS_PLACE_URL_09_LOC-213,hasil awal tercampur tempat lain,
+10,LOC-220,Nimo Jungle Hot Spring,PASTE_GOOGLE_MAPS_PLACE_URL_10_LOC-220,missing pada scrape awal,
+11,LOC-234,Perkebunan Teh Rancabali,PASTE_GOOGLE_MAPS_PLACE_URL_11_LOC-234,missing pada scrape awal,

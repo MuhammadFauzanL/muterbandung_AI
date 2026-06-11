@@ -1,0 +1,19 @@
+location_name,display_status,curation_action,is_active_verified,price_min,price_max,price_type,remove_core_labels,remove_secondary_labels,add_avoid_labels,curation_note
+Glamping Legok Kondang,active_candidate,keep,True,250000,1500000,Berbayar,,Gratis;Malam,Gratis;Malam,QA override: paid glamping/resort; do not return for free-only or generic night-tour queries without stronger evidence.
+Cicalengka Dreamland,active_candidate,keep,True,25000,40000,Per Orang,,Gratis,Gratis,QA override: ticketed family park; do not treat as free entry.
+Alun-Alun Sumedang,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Bendungan Jatigede,exclude_scope,remove,False,,,,,,,QA override: Jatigede/Sumedang destination is outside strict Bandung Raya scope.
+Cadas Pangeran Sumedang,exclude_scope,remove,False,,,,,,,QA override: Sumedang historical site is outside strict Bandung Raya scope.
+Kampung Karuhun Eco Green Park Sumedang,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Kampung Toga Villa & Resto,exclude_scope,remove,False,,,,,,,QA override: Sumedang/Toga area destination is outside strict Bandung Raya scope.
+Masjid Agung Sumedang,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Mata Air Cikandung,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Taman Endog,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Toga Hill,exclude_scope,remove,False,,,,,,,QA override: Sumedang/Toga area destination is outside strict Bandung Raya scope.
+Wisata Air Gajah Depa,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Taman Buru Gunung Masigit Kareumbi,exclude_scope,remove,False,,,,,,,QA override: outside strict Bandung Raya default scope.
+Puncak Damar Jatigede,exclude_scope,remove,False,,,,,,,QA override: Jatigede/Sumedang destination is outside strict Bandung Raya scope.
+Panenjoan Jatigede,exclude_scope,remove,False,,,,,,,QA override: Jatigede/Sumedang destination is outside strict Bandung Raya scope.
+Pangjugjugan Sumedang,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Kampung Wisata Pangjugjugan,exclude_scope,remove,False,,,,,,,QA override: Sumedang destination is outside strict Bandung Raya scope.
+Gn. Tampomas,exclude_scope,remove,False,,,,,,,QA override: Tampomas/Sumedang destination is outside strict Bandung Raya scope.

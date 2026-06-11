@@ -1,0 +1,48 @@
+{
+  "generated_at": "2026-06-10T10:15:34.890694+00:00",
+  "model_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\07_Models\\model_sentimen_muterbandung.pkl",
+  "review_input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPASS_REVIEW_TEST_BATCH_30_RAW_NORMALIZED_2026-06-06.csv",
+  "parent_master_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_2026-06-05.csv",
+  "sentiment_classes": [
+    "Negatif",
+    "Netral",
+    "Positif"
+  ],
+  "model_warning_count": 4,
+  "model_warnings": [
+    "Trying to unpickle estimator TfidfTransformer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator TfidfVectorizer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator SVC from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator Pipeline from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations"
+  ],
+  "review_rows_input": 971,
+  "review_rows_with_text_inference": 626,
+  "parent_hotels_with_sentiment": 28,
+  "parent_master_rows": 1602,
+  "parent_master_with_sentiment_rows": 28,
+  "sentiment_global_average": 0.526355,
+  "sentiment_review_count_p95": 37.7,
+  "distance_weighted_baseline": {
+    "reference_point": {
+      "name": "Bandung Center",
+      "latitude": -6.9175,
+      "longitude": 107.6191
+    },
+    "distance_score_scale_km": 5.0,
+    "weights": {
+      "distance": 0.45,
+      "rating": 0.18,
+      "sentiment": 0.16,
+      "price": 0.09,
+      "data_quality": 0.07,
+      "review_confidence": 0.05
+    }
+  },
+  "outputs": {
+    "inference": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_SENTIMENT_INFERENCE_2026-06-10.csv",
+    "aggregated": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_SENTIMENT_AGGREGATED_2026-06-10.csv",
+    "parent_with_sentiment": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_WITH_SENTIMENT_2026-06-10.csv",
+    "baseline_sample": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_DISTANCE_WEIGHTED_BASELINE_SAMPLE_2026-06-10.csv"
+  },
+  "decision": "Distance is intentionally the largest baseline ranking weight for hotel. Sentiment is included only where scraped review text exists."
+}

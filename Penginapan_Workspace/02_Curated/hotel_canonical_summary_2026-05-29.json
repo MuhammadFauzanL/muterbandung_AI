@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-29T06:18:52.528241Z",
+  "input_path": "dataset_hotel\\dataset_hotel_cimahi_semua_kolom (2).csv",
+  "output_path": "Dataset\\3_Curated\\HOTEL_CANONICAL_CIMAHI_2026-05-29.csv",
+  "row_count": 181,
+  "column_count": 76,
+  "property_segment_counts": {
+    "apartment": 65,
+    "hotel": 64,
+    "guest_house": 36,
+    "villa": 10,
+    "room_level_listing": 5,
+    "vacation_rental": 1
+  },
+  "readiness": {
+    "strong_core_ready": 41,
+    "usable_without_price_required": 83,
+    "minimal_usable": 166
+  },
+  "quality_flags": {
+    "rating_available": 128,
+    "price_available": 89,
+    "amenities_available": 121,
+    "image_available": 180,
+    "description_available": 24,
+    "source_link_available": 94,
+    "reviews_breakdown_available": 18
+  },
+  "review_confidence_counts": {
+    "missing_review_confidence": 53,
+    "low_review_confidence": 53,
+    "medium_review_confidence": 48,
+    "high_review_confidence": 27
+  },
+  "sentiment_source_counts": {
+    "rating_distribution": 118,
+    "unavailable": 53,
+    "overall_rating_fallback": 10
+  },
+  "rating_sentiment_prior_score": 0.6377,
+  "review_count_p95": 582.2
+}

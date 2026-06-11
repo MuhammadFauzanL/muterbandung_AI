@@ -1,0 +1,37 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20with%20jacuzzi%2C%20Damar%20Ningrum%205%20-6.8216%2C107.5555"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20zann%20kaktus%20-7.1278%2C107.4193"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wakeqi%20Villa%20-6.8712092%2C107.5417894"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Yama%20Onsen%20Villa%20-6.8759%2C107.6236"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zann%20Villa%20Ciwidey%20-7.1199%2C107.4319"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=disewakan%20villa%20puncak%20kota%20bunga%20new%20year%20-6.812%2C107.1451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=dr%20stable%20villa%20-6.8118%2C107.1451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20Camsal%20Boock%20H%2010%20No3%20-6.813%2C107.1296"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20arjuna%2060%20-6.8119%2C107.1452"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20kota%20Bunga%20little%20indian%20-6.8139%2C107.1315"
+        }
+    ]
+}

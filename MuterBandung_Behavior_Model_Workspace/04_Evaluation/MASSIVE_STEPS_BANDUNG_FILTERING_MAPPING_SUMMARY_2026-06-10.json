@@ -1,0 +1,44 @@
+{
+  "created_at": "2026-06-10",
+  "source": "CRUISEResearchGroup/Massive-STEPS-Bandung",
+  "raw_rows": 161284,
+  "raw_categories": 421,
+  "mapping_status_counts_categories": {
+    "needs_review": 170,
+    "mapped_keep": 162,
+    "excluded_noise": 89
+  },
+  "mapping_status_counts_rows": {
+    "mapped_keep": 79696,
+    "excluded_noise": 63910,
+    "needs_review": 17678
+  },
+  "filtered_rows": 79696,
+  "filtered_row_pct": 49.41,
+  "filtered_unique_trails": 41463,
+  "filtered_unique_users": 3366,
+  "filtered_unique_venues": 10289,
+  "filtered_label_counts": {
+    "kuliner": 40120,
+    "belanja": 23988,
+    "hiburan": 7318,
+    "religi": 3130,
+    "penginapan": 2077,
+    "alam_santai": 2021,
+    "budaya_edukasi": 1042
+  },
+  "sequence_rows": 23473,
+  "sequence_split_counts": {
+    "train": 16556,
+    "test": 4626,
+    "validation": 2291
+  },
+  "outputs": {
+    "category_mapping": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\MuterBandung_Behavior_Model_Workspace\\03_Curated\\MASSIVE_STEPS_BANDUNG_CATEGORY_MAPPING_CANDIDATE_2026-06-10.csv",
+    "filtered_checkins": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\MuterBandung_Behavior_Model_Workspace\\03_Curated\\MASSIVE_STEPS_BANDUNG_FILTERED_CHECKINS_CANDIDATE_2026-06-10.csv",
+    "category_sequences": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\MuterBandung_Behavior_Model_Workspace\\03_Curated\\MASSIVE_STEPS_BANDUNG_CATEGORY_SEQUENCE_CANDIDATE_2026-06-10.csv",
+    "needs_review_categories": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\MuterBandung_Behavior_Model_Workspace\\04_Evaluation\\MASSIVE_STEPS_BANDUNG_CATEGORY_MAPPING_NEEDS_REVIEW_2026-06-10.csv",
+    "excluded_noise_categories": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\MuterBandung_Behavior_Model_Workspace\\04_Evaluation\\MASSIVE_STEPS_BANDUNG_EXCLUDED_NOISE_CATEGORIES_2026-06-10.csv"
+  },
+  "decision": "Use mapped_keep rows for next-category baseline. Excluded categories are not deleted from raw data; they are held out from behavior training candidate."
+}

@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "path": "/",
+      "status_code": 200,
+      "length": 10968,
+      "contains_brand": true,
+      "contains_api_recommend": false
+    },
+    {
+      "path": "/static/style.css",
+      "status_code": 200,
+      "length": 13001,
+      "contains_brand": false,
+      "contains_api_recommend": false
+    },
+    {
+      "path": "/static/script.js",
+      "status_code": 200,
+      "length": 17091,
+      "contains_brand": false,
+      "contains_api_recommend": true
+    },
+    {
+      "path": "/api/recommend",
+      "status_code": 200,
+      "recommendations": 5,
+      "fallback_used": false,
+      "first_result": "Alam Wisata Cimahi"
+    }
+  ]
+}

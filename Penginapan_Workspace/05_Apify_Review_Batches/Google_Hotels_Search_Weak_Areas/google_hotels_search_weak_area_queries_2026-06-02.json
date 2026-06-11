@@ -1,0 +1,307 @@
+{
+  "purpose": "Google Hotels Search Scraper queries untuk menutup area penginapan Bandung Raya yang masih lemah.",
+  "actor": "johnvc/google-hotels-search-scraper",
+  "created_at": "2026-06-02",
+  "execution_rule": "Jalankan dari priority P0 dulu. Copy object input saja ke form JSON Apify.",
+  "default_input": {
+    "adults": 2,
+    "check_in_date": "2026-07-02",
+    "check_out_date": "2026-07-03",
+    "children": 0,
+    "currency": "IDR",
+    "gl": "id",
+    "hl": "id",
+    "vacation_rentals": true
+  },
+  "queries": [
+    {
+      "id": "P0-KBB-SELATAN-01-CILILIN",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Cililin, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P0-KBB-SELATAN-02-SAGULING",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Saguling, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P0-KBB-SELATAN-03-CIPONGKOR",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Cipongkor, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P0-KBB-SELATAN-04-GUNUNGHALU",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Gununghalu, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P0-KBB-SELATAN-05-RONGGA",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Rongga, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P0-KBB-SELATAN-06-SINDANGKERTA",
+      "priority": "P0",
+      "reason": "KBB selatan/barat masih kosong atau sangat lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Sindangkerta, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-TENGAH-01-PADALARANG",
+      "priority": "P1",
+      "reason": "Koridor Padalarang-Ngamprah-Batujajar masih lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Padalarang, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-TENGAH-02-NGAMPRAH",
+      "priority": "P1",
+      "reason": "Koridor Padalarang-Ngamprah-Batujajar masih lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Ngamprah, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-TENGAH-03-BATUJAJAR",
+      "priority": "P1",
+      "reason": "Koridor Padalarang-Ngamprah-Batujajar masih lemah.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Batujajar, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-TENGAH-04-CIPATAT",
+      "priority": "P1",
+      "reason": "Area KBB barat-tengah perlu coverage tambahan.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Cipatat, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-BARAT-05-CIPEUNDEUY",
+      "priority": "P1",
+      "reason": "Area KBB barat belum kuat di dataset.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Cipeundeuy, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P1-KBB-BARAT-06-CIKALONGWETAN",
+      "priority": "P1",
+      "reason": "Area KBB barat belum kuat di dataset.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Cikalongwetan, Kabupaten Bandung Barat, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P2-KAB-BANDUNG-01-PANGALENGAN",
+      "priority": "P2",
+      "reason": "Pangalengan masih lemah, padahal penting untuk wisata alam.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 25,
+        "q": "penginapan in Pangalengan, Kabupaten Bandung, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P2-KAB-BANDUNG-02-KERTASARI",
+      "priority": "P2",
+      "reason": "Kertasari dekat koridor wisata alam Bandung selatan dan belum kuat.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Kertasari, Kabupaten Bandung, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P2-KAB-BANDUNG-03-PACET",
+      "priority": "P2",
+      "reason": "Pacet dekat koridor wisata alam Bandung selatan dan belum kuat.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 15,
+        "q": "penginapan in Pacet, Kabupaten Bandung, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P2-KAB-BANDUNG-04-RANCABALI",
+      "priority": "P2",
+      "reason": "Ciwidey-Rancabali sudah cukup, tapi masih perlu diperkuat untuk itinerary wisata.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Rancabali, Kabupaten Bandung, Jawa Barat",
+        "vacation_rentals": true
+      }
+    },
+    {
+      "id": "P2-KAB-BANDUNG-05-PASIRJAMBU",
+      "priority": "P2",
+      "reason": "Pasirjambu mendukung koridor Ciwidey-Gambung dan belum terpisah kuat.",
+      "input": {
+        "adults": 2,
+        "check_in_date": "2026-07-02",
+        "check_out_date": "2026-07-03",
+        "children": 0,
+        "currency": "IDR",
+        "gl": "id",
+        "hl": "id",
+        "max_pages": 20,
+        "q": "penginapan in Pasirjambu, Kabupaten Bandung, Jawa Barat",
+        "vacation_rentals": true
+      }
+    }
+  ]
+}

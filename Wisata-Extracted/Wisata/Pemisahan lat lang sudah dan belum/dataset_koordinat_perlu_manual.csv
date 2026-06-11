@@ -1,0 +1,136 @@
+location_id,location_name,latitude,longitude,price_min,price_max,price_type,category,subcategory,coordinate_status,coordinate_source
+LOC-002,Alam Wisata Cimahi,,,,,,Rekreasi Keluarga,Kawasan rekreasi keluarga,Not Found,Nominatim OSM
+LOC-005,Amazing Artgames,,,,,,Rekreasi Keluarga,Wahana foto interaktif,Not Found,Nominatim OSM
+LOC-011,Bukit Jamur Rancabolang Pasirjambu,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-013,Bukit Senyum,,,,,,Wisata Alam,Daya tarik alam,Out of Bounds (Suspicious),Nominatim OSM
+LOC-014,Bumi Perkemahan Ranca Upas Bandung,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-019,Cimahi Techno Park,,,,,,Tempat Belajar,Pusat edukasi teknologi,Not Found,Nominatim OSM
+LOC-020,Ciwidey Valley Resort,,,,,,Penginapan Wisata,Resort wisata,Not Found,Nominatim OSM
+LOC-021,Curug Cipanas,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-022,Curug Gorobog,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-026,Curug Tilu Leuwi Opat,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-028,Danau Biru Situ Cilembang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-030,Farm House Susu Lembang,,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-035,"Gereja Katedral Bandung, Santo Petrus",,,,,,Tempat Ibadah,Gereja,Not Found,Nominatim OSM
+LOC-036,Glamping Lakeside Rancabali,,,,,,Tempat Camping,Glamping,Not Found,Nominatim OSM
+LOC-038,Gn. Tangkuban Parahu,,,,,,Rekreasi Keluarga,Kawasan rekreasi,Not Found,Nominatim OSM
+LOC-039,Guha Pawon,,,,,,Wisata Alam,Gua,Not Found,Nominatim OSM
+LOC-043,Happyfarm Ciwidey,,,,,,Wisata Satwa,Wisata farm,Not Found,Nominatim OSM
+LOC-044,Jans Park (Jatinangor National Park),,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-045,Jendela Alam,,,,,,Tempat Belajar,Edukasi alam,Not Found,Nominatim OSM
+LOC-046,Kampung Buyut Cipageran (Kabuci) Asih Putera,,,,,,Desa Wisata,Kampung wisata,Not Found,Nominatim OSM
+LOC-047,Kampung Cireundeu,,,,,,Desa Wisata,Kampung adat,Out of Bounds (Suspicious),Nominatim OSM
+LOC-048,Kampung Karuhun Eco Green Park Sumedang,,,,,,Rekreasi Keluarga,Eco park,Not Found,Nominatim OSM
+LOC-049,Kampung Toga Villa & Resto,,,,,,Tempat Kuliner,Restoran wisata,Not Found,Nominatim OSM
+LOC-051,Kebun Begonia Lembang,,,,,,Wisata Alam,Taman bunga,Not Found,Nominatim OSM
+LOC-054,Lembang Wonderland,,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-055,Maribaya Natural Hotspring Resort,,,,,,Wisata Alam,Air panas alami,Not Found,Nominatim OSM
+LOC-058,Masjid Jami' Al Baakhirah,,,,,,Tempat Ibadah,Tempat ibadah,Not Found,Nominatim OSM
+LOC-064,Nimo Highland,,,,,,Rekreasi Keluarga,Wisata panorama buatan,Not Found,Nominatim OSM
+LOC-066,Pandiga Educreation Sports,,,,,,Rekreasi Keluarga,Olahraga rekreasi,Not Found,Nominatim OSM
+LOC-067,Paris Van Java Resort Lifestyle Place,,,,,,Tempat Belanja,Mall,Not Found,Nominatim OSM
+LOC-069,Pemandian Cipanas Cileungsing,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-070,Penangkaran Rusa Ranca Upas,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-071,Puncak Bukit Kujang Gunung Bohong,,,,,,Wisata Alam,Puncak bukit,Not Found,Nominatim OSM
+LOC-072,Puncak Eurad,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-073,Ranca Upas Ciwidey,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-074,Rumah Makan Sangu Liwet Ibu Ika Pasirjambu Ciwidey,,,,,,Tempat Kuliner,Rumah makan,Not Found,Nominatim OSM
+LOC-079,Situ Cileunca Pangalengan Bandung,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-081,Situ Ciseupan Cibeber,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-082,Situ Patenggang Ciwidey Bandung,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-083,Stone Garden Citatah,,,,,,Wisata Alam,Taman batu,Not Found,Nominatim OSM
+LOC-085,Tahura Gunung Kunci,,,,,,Wisata Alam,Hutan raya,Not Found,Nominatim OSM
+LOC-086,Taman Alun-Alun Kota Cimahi,,,,,,Taman Kota,Ruang publik kota,Not Found,Nominatim OSM
+LOC-087,Taman Ecowisata Cimenteng,,,,,,Wisata Alam,Ekowisata,Not Found,Nominatim OSM
+LOC-091,Taman Hutan Raya Ir. H. Djuanda,,,,,,Taman Kota,Ruang publik kota,Not Found,Nominatim OSM
+LOC-094,Taman Lalu Lintas Ade Irma Suryani Nasution,,,,,,Tempat Belajar,Edukasi lalu lintas,Not Found,Nominatim OSM
+LOC-095,Taman Langit Pangalengan (Sunrise Point & Camping Ground),,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-100,Tebing Karaton,,,,,,Wisata Alam,Tebing panorama,Not Found,Nominatim OSM
+LOC-101,Teras Cikapundung Bbws,,,,,,Taman Kota,Ruang publik sungai,Not Found,Nominatim OSM
+LOC-103,The Great Asia Africa,,,,,,Tempat Budaya,Taman budaya tematik,Not Found,Nominatim OSM
+LOC-104,The Kings Shopping Centre,,,,,,Tempat Belanja,Pusat belanja,Not Found,Nominatim OSM
+LOC-106,The Nice Park Bandung,,,,,,Rekreasi Keluarga,Taman rekreasi keluarga,Not Found,Nominatim OSM
+LOC-107,Toga Hill,,,,,,Wisata Alam,Bukit panorama,Not Found,Nominatim OSM
+LOC-110,Upside Down World Bandung,,,,,,Rekreasi Keluarga,Wahana foto interaktif,Not Found,Nominatim OSM
+LOC-111,Venus Cimahi,,,,,,Rekreasi Keluarga,Tempat hiburan,Not Found,Nominatim OSM
+LOC-112,Vihara Satya Budhi,,,,,,Tempat Ibadah,Vihara,Not Found,Nominatim OSM
+LOC-113,Wayang Windu Panenjoan,,,,,,Wisata Alam,Titik panorama,Not Found,Nominatim OSM
+LOC-114,Wisata Air Gajah Depa,,,,,,Wahana Air,Wahana air buatan,Not Found,Nominatim OSM
+LOC-115,Wisata Hutan Pinus Pal 16 Cikole Lembang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-116,Wisata Kampoeng Ciherang,,,,,,Rekreasi Keluarga,Kawasan rekreasi keluarga,Not Found,Nominatim OSM
+LOC-119,Taman Dewi Sartika,,,,,,Taman Kota,Ruang publik kota,Out of Bounds (Suspicious),Nominatim OSM
+LOC-127,Sarae Hills,,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-131,Cikole Jayagiri Resort,,,,,,Penginapan Wisata,Resort wisata,Not Found,Nominatim OSM
+LOC-132,Bird & Bromelia Pavilion,,,,,,Wisata Satwa,Taman burung,Not Found,Nominatim OSM
+LOC-133,Punclut Bandung (Puncak Ciumbuleuit),,,,,,Wisata Alam,Kawasan panorama,Not Found,Nominatim OSM
+LOC-134,Bukit Bintang Bandung (Patahan Lembang),,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-135,Taman Main Mili-Mili & Hutan Mycelia,,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-136,Tepi Danau,,,,,,Wisata Alam,Tepi danau,Out of Bounds (Suspicious),Nominatim OSM
+LOC-138,Kebun Teh Sukawana,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-139,Kawah Rengganis Ciwidey,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-140,Rengganis Suspension Bridge,,,,,,Wisata Petualangan,Jembatan gantung,Not Found,Nominatim OSM
+LOC-141,Taman Wisata Bougenville,,,,,,Rekreasi Keluarga,Taman rekreasi alam,Not Found,Nominatim OSM
+LOC-142,Hejo Forest Ciwidey,,,,,,Wisata Alam,Hutan wisata,Not Found,Nominatim OSM
+LOC-143,Driam Riverside,,,,,,Penginapan Wisata,Resort wisata,Not Found,Nominatim OSM
+LOC-144,Barusen Hills Ciwidey,,,,,,Rekreasi Keluarga,Taman rekreasi keluarga,Not Found,Nominatim OSM
+LOC-146,Taman Love Soreang,,,,,,Rekreasi Keluarga,Taman rekreasi keluarga,Not Found,Nominatim OSM
+LOC-148,Pesona Nirwana Waterpark,,,,,,Wahana Air,Wahana air buatan,Not Found,Nominatim OSM
+LOC-150,Southland Camp Ciwidey,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-151,Ecopark Curug Tilu Ciwidey,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-153,Perkebunan Teh Malabar,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-154,Kampung Singkur,,,,,,Wisata Petualangan,Wisata sungai,Not Found,Nominatim OSM
+LOC-157,Hutan Pinus Rahong,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-158,Situ Ninah (Situ Datar),,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-160,Kawah Wayang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-161,Pemandian Air Panas Cibolang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-162,Rumah Putih Cukul,,,,,,Rekreasi Keluarga,Wahana foto panorama,Not Found,Nominatim OSM
+LOC-163,Kampung Adat Cikondang,,,,,,Desa Wisata,Kampung adat,Not Found,Nominatim OSM
+LOC-164,Java Preanger Gunung Tilu,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-165,Malabar Mountain Coffee Shop & Eatery,,,,,,Tempat Kuliner,Coffee shop,Not Found,Nominatim OSM
+LOC-166,Muara Rahong Hills,,,,,,Wisata Alam,Perbukitan,Not Found,Nominatim OSM
+LOC-167,Cicalengka Dreamland,,,,,,Rekreasi Keluarga,Taman rekreasi tematik,Not Found,Nominatim OSM
+LOC-168,Curug Cinulang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-170,Tafso Barn,,,,,,Tempat Kuliner,Restoran wisata,Not Found,Nominatim OSM
+LOC-171,D'Dieuland,,,,,,Rekreasi Keluarga,Kawasan rekreasi,Not Found,Nominatim OSM
+LOC-172,Sudut Pandang Bandung,,,,,,Tempat Kuliner,Restoran wisata,Not Found,Nominatim OSM
+LOC-173,Cakrawala Nature Sparkling Restaurant,,,,,,Tempat Kuliner,Restoran wisata,Not Found,Nominatim OSM
+LOC-174,Lereng Anteng Panoramic Coffee,,,,,,Tempat Kuliner,Coffee shop,Not Found,Nominatim OSM
+LOC-175,Taman Kupu-Kupu Cihanjuang,,,,,,Wisata Satwa,Wisata satwa,Not Found,Nominatim OSM
+LOC-176,Padepokan Dayang Sumbi,,,,,,Tempat Belajar,Edukasi budaya dan alam,Not Found,Nominatim OSM
+LOC-178,De'Ranch Lembang,,,,,,Wisata Satwa,Wisata satwa,Not Found,Nominatim OSM
+LOC-179,Mini Mania Lembang,,,,,,Rekreasi Keluarga,Taman miniatur,Not Found,Nominatim OSM
+LOC-180,Cimory Dairyland Lembang,,,,,,Wisata Satwa,Wisata farm,Not Found,Nominatim OSM
+LOC-181,Noah's Park Lembang,,,,,,Rekreasi Keluarga,Taman rekreasi,Not Found,Nominatim OSM
+LOC-182,Pine Forest Camp Lembang,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-183,Imah Seniman Lembang,,,,,,Penginapan Wisata,Resort wisata,Not Found,Nominatim OSM
+LOC-184,Gunung Batu Lembang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-185,Ciwangun Indah Camp,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-186,Indiana Camp Lembang,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-187,Curug Layung,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-189,Curug Aseupan,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-190,Curug Anom,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-191,Curug Panyandaan,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-192,Curug Ngebul Gununghalu,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-195,Sungai Cikahuripan Green Canyon Saguling,,,,,,Wisata Alam,Sungai dan tebing,Not Found,Nominatim OSM
+LOC-196,Curug Walanda Citatah,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-197,Curug Nyalangkadar,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-198,Tebing Gunung Hawu,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-200,Wisata Batu Kuda,,,,,,Wisata Alam,Hutan pinus,Out of Bounds (Suspicious),Nominatim OSM
+LOC-201,Curug Batu Templek,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-202,Curug Cilengkrang,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-204,Teras Sunda Cibiru,,,,,,Tempat Budaya,Pusat budaya Sunda,Not Found,Nominatim OSM
+LOC-207,Monumen Bandung Lautan Api,,,,,,Tempat Sejarah,Situs sejarah,Not Found,Nominatim OSM
+LOC-216,Panama Park 825,,,,,,Rekreasi Keluarga,Taman rekreasi indoor,Not Found,Nominatim OSM
+LOC-217,Karang Setra Waterland,,,,,,Wahana Air,Waterland,Not Found,Nominatim OSM
+LOC-220,Nimo Jungle Hot Spring,,,,,,Wisata Alam,Air panas alami,Not Found,Nominatim OSM
+LOC-221,Glamping Legok Kondang,,,,,,Tempat Camping,Camping ground,Not Found,Nominatim OSM
+LOC-222,Nuansa Riung Gunung,,,,,,Wisata Alam,Panorama pegunungan,Not Found,Nominatim OSM
+LOC-223,Kebun Strawberry Emte Highland Resort,,,,,,Wisata Alam,Agrowisata stroberi,Not Found,Nominatim OSM
+LOC-224,Sungai Palayangan Rafting,,,,,,Wisata Petualangan,Rafting,Not Found,Nominatim OSM
+LOC-225,Curug Ceret Pangalengan,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-226,Gunung Nini Pangalengan,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-228,Tanjung Duriat,,,,,,Wisata Alam,Titik panorama,Not Found,Nominatim OSM
+LOC-229,Puncak Damar Jatigede,,,,,,Wisata Alam,Daya tarik alam,Not Found,Nominatim OSM
+LOC-230,Desa Wisata Buricak Burinong,,,,,,Desa Wisata,Desa wisata,Not Found,Nominatim OSM
+LOC-231,Panenjoan Jatigede,,,,,,Wisata Alam,Titik panorama,Not Found,Nominatim OSM
+LOC-232,Pangjugjugan Sumedang,,,,,,Rekreasi Keluarga,Kawasan rekreasi keluarga,Not Found,Nominatim OSM

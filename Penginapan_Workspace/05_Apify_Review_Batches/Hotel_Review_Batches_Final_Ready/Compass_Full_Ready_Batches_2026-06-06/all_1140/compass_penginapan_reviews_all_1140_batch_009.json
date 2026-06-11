@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20home%20hideaway%20in%20Bandung%20-7.0114%2C107.5726"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20tropical%20houses%20with%20humble%20neighbourhood%20-6.57%2C107.4483"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=D%27Gloria%20Glamping%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=D%27Sentra%20Riverside%20Camp%20-7.1715%2C107.5619"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Datar%20Pinus%20Cabin%20Mezzanine%2018-1%20-7.1855%2C107.55"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Datar%20Pinus%20Cabin%20Mezzanine%2018-1%20-7.1854%2C107.5498"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Davion%20House%20near%20IKEA%20KBP%20by%20YourHome%20-6.857%2C107.4904"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dayang%20Arum%20Glamping%20-6.8035%2C107.5484"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dayang%20Arum%20Glamping%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dayang%20Rengganis%20Dome%202%20-6.8035%2C107.5479"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Bloem%20Lake%20View%20Pangalengan%20-%20Cottage%20-7.1912%2C107.548"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Delio%20by%20Kozystay%20-%20Bandung%20-6.9178%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Deluxe%20Cabin%20with%20Lake/Mountain%20View%20in%20Ciwidey%20-7.1397%2C107.3909"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Desaku%20Indah%20Home-Stay%20-6.8118%2C107.1451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Desaku%20Indah%20Home-Stay%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Desaku%20Indah%20Home-stay%20-6.8002%2C107.0624"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Desaku%20Indah%20Home-stay%20-6.8%2C107.0623"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=EXPRESS%20O%2090954%20Penginapan%20Daun%20Salam%20-6.6733%2C107.5004"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Easton%20Park%20Naffi%20Rooms%20by%20Mustika%20-6.936%2C107.7651"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Family%20Cabin%20with%20Lake/Mountain%20View%20in%20Ciwidey%20-7.1397%2C107.3909"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Family%20Staycation%2C%20Near%20Lembang%20With%20Complete%20Facilities%20-6.8386%2C107.5518"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Farmstay%20Manangel%20-6.7861%2C107.1329"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Farmstay%20Manangel%20-%20Deluxe%20Bungalow%20with%20Garden%20View%20-6.7864%2C107.1331"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gede%20pangrango%20resort%20n%20cafe%20-6.8115%2C107.1456"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gede%20pangrango%20resort%20n%20cafe%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Giri%20Home%20%26%20Travel%20-7.0921%2C107.4742"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20Ciwidey%20Argapuri%20-7.1307%2C107.5138"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20Gunung%20Bangku%20Ciwidey%20-7.1415%2C107.3797"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20Taman%20Love%20-7.045%2C107.5039"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20%5BSunrise%5D%20-%202%20%3A%20Argapuri%20Jungle%20Resort%20-7.126%2C107.5131"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20triangle%20riyadhi%202%20-6.8035%2C107.5481"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Good%20places%2C%20service%2C%20good%20view.%20Perfect%20choices.%20-7.1324%2C107.4183"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Green%20Hill%20Park%20Ciwidey%20-7.1418%2C107.3953"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20bangku%20ciwidey%20rancabali%20camp%20-%20Tent%20-7.1447%2C107.3822"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Haha%20house%20-6.8595%2C107.481"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hanara%20Private%20Glamping%20-6.8045%2C107.5487"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hanara%20Private%20Glamping%20-%20Tent%20-6.8042%2C107.5488"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hanna%20Home%20at%20Kota%20Baru%20Parahyangan%20KBP%20-6.8696%2C107.4559"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Heavenly%202%20Private%20Glamping%20-6.8041%2C107.5483"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Imah%20Safina%20Cozy%20Private%20Home%20Syariah%20Padalarang%20-6.8497%2C107.5115"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Imah%20Safina%2C%20Cozy%20Private%20Home%20Syariah%20in%20Padalarang%20Bandung%20-6.8497%2C107.5115"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Imah%20Seuri%20-6.8179%2C107.5743"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jardin%20A22%2C%20City%20View%2C%20Netflix%20%26%20WIFI%20-6.8923%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jardin%2C%20City%20View%2C%20Netflix%20WIFI%20-6.892%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jasmine%2037%20House%20-7.0067%2C107.5564"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kananta%20Home%20-6.8201%2C107.633"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Karaton%20by%20Kozystay%20-%20Paskal%20-6.913%2C107.5929"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Karna%20-7.1113%2C107.4969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kawoeng%20kabin%20-%20Tent%20-6.804%2C107.5492"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Keyla%20Private%20Dome%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Keyla%20Private%20Glamping%20-6.8036%2C107.5479"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Khaira%20Shakilla%20House%203%20Syariah%20Limbangansari%20-6.8235%2C107.1219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kota%20Bunga%20A%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kresna%20-7.1114%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kuleum%20Camp%20And%20Cabin%20By%20ARBA%20-7.1416%2C107.396"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kuleum%20Camp%20And%20Cabin%20By%20ARBA%20-7.1414%2C107.3969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kusumanagara%20Dome1%20-6.8044%2C107.5484"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kyoto%20House%20-%20KBP%20with%20Onsen%20style%20pool%2C%20Warm%20water%2C%20Near%20Parahyangan%20Golf%20-6.8735%2C107.4698"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=La%20Grande%20by%20Djitu%20Hospitality%20-6.9094%2C107.6104"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Layung%20Rancabali%20-7.1466%2C107.3819"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lee%20Simple%20House%20-%20Summarecon%20Bandung%20-6.9619%2C107.6969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Liorasuite%20Japandi%20house%20with%20Jacuzzi%20in%20KBP%20-6.8752%2C107.4701"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lovely%20private%20room%20for%202%20persons%20-6.8179%2C107.1432"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lovina%20Nature%20House%20701%20-6.8252%2C107.5549"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lovina%20Nature%20House%20702%20-6.8254%2C107.5548"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lovina%20Nature%20House%20703%20-6.821%2C107.556"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=M%27Square%20Commercial%20Suites%20-6.9442%2C107.5946"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Madukara%202%20-7.1114%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mala%20Green%20Camp%20-%20Tent%20-7.1659%2C107.5241"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Manna%20Tatami%20House%20KBP%20Bandung%20near%20Wahoo%2C%20Whoosh%20%26%20Parahyangan%20Golf%20-6.8689%2C107.4568"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Maple%20Dome%20Glamping%20-%20Tent%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Marina%20Private%20Glamping%20-6.8033%2C107.5481"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nadhif%20House%20Syariah%20-6.8698%2C107.456"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nakula%20-7.1114%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nakula%20-7.111%2C107.4971"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OZ%20Cabin%20by%20Farmstay%20Managel%20-6.7861%2C107.1329"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Orange%20Home%20Syariah%20-6.8891%2C107.5834"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pakuhaji%20Highland%20Eco%20Resort%20-6.8274%2C107.5405"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pakuhaji%20Highland%20Eco-Resort%20-6.8274%2C107.5405"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Beautiful%20Luxury%20Home%20-6.8929%2C107.5749"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pasteur%20Beautiful%20Luxury%20Home%20-%20Vacation%20Home%20-6.8929%2C107.5749"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pasteur%20House%20-6.891029358%2C107.5734711"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Patuha%20Resort%20-7.1339%2C107.4091"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Penginapan%20Ciwidey%20luas%2020m2%2C%202%20kasur%2C%201%20k.mandi%2C%20-7.1208%2C107.4305"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Penginapan%20nuansa%20Riung%20gunung%20-7.1689%2C107.5249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Penginapan%20segitiga%20-7.1688%2C107.5242"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pita%20Asri%20Mansion%20-6.8688%2C107.4747"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pondok%20Stevia%20Ciwidey%20-%20Cottage%20with%20Garden%20View%20-7.114%2C107.4436"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Porlak%20Jahe%20GTK%20%28%20Giri%20Tirta%20Kahuripan%20%29%20-6.6329%2C107.5352"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Private%20room%20with%20garden%20-6.8228%2C107.1295"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rarasa%20by%20Kozystay%20-%20Bandung%20-6.8697%2C107.6408"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Regan%20Luxcamp%20by%20Digihub%20Hospitality%20-7.1844%2C107.5469"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Regan%20Luxcamp%20by%20Digihub%20Hospitality%20-%20Tent%20-7.1845%2C107.5469"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rehat%20at%20Paskal%20Pelangi%20-6.9099%2C107.598"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rice%20Field%20View%20-6.837%2C107.085"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rice%20Field%20View%20-6.8374%2C107.0847"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Riyadhi%201%20Glamping%20-6.8033%2C107.548"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Riyadhi%201%20Glamping%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Royal%20Tulip%20Degreen%20Bandung%20-6.8995%2C107.5326"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Alifa%20Blok%20A3%20-6.7955%2C107.1624"
+        }
+    ]
+}

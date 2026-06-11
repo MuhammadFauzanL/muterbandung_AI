@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-06-05T10:55:42.439314Z",
+  "pack_dir": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05",
+  "combined_rows": 29,
+  "child_parent_rows": 20,
+  "manual_check_rows": 9,
+  "outputs": {
+    "combined": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\PENGINAPAN_CLAUDE_REVIEW_29_PARENT_CHILD_DECISION_2026-06-05.csv",
+    "child_parent_copy": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\PENGINAPAN_REVIEW_20_ACCEPTED_BY_RULE_CANDIDATE_2026-06-05.csv",
+    "manual_check_copy": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\PENGINAPAN_REVIEW_9_MANUAL_CHECK_2026-06-05.csv",
+    "readme": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\README_INSTRUKSI_CLAUDE_AGENT.md",
+    "prompt": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\PROMPT_UNTUK_CLAUDE_AGENT.md"
+  }
+}

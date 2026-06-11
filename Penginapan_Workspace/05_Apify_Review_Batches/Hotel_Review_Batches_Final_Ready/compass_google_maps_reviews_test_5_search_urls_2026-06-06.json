@@ -1,0 +1,22 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Emerald%20Tower%20-6.9325%2C107.6643"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%20Riau%20Near%20Trans%20Studio%20Bandung%20Formerly%20Asteria%20Hotel%20-6.9281%2C107.6214"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gateway%20Apartment%20Cicadas%20by%20DB%20Property%20-6.9067%2C107.6446"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Asia%20Afrika%20-6.9239%2C107.6177"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ibis%20Bandung%20Trans%20Studio%20Hotel%20-6.9273%2C107.6364"
+        }
+    ]
+}

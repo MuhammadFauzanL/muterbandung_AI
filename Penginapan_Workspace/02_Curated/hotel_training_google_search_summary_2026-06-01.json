@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-06-02T03:19:26.087141Z",
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\google_hotels_search_json\\dataset_google-hotels-search-scraper_2026-06-01_15-03-10-905.json",
+  "raw_csv_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\generated_raw_csv\\HOTEL_GOOGLE_SEARCH_RAW_2026-06-01.csv",
+  "training_csv_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\HOTEL_TRAINING_GOOGLE_SEARCH_2026-06-01.csv",
+  "page_count": 29,
+  "raw_property_records": 511,
+  "unique_property_tokens": 446,
+  "duplicate_property_groups": 61,
+  "duplicate_property_rows": 65,
+  "search_parameters": {
+    "q": "penginapan in Kabupaten Bandung, Jawa Barat",
+    "gl": "id",
+    "hl": "id",
+    "currency": "IDR",
+    "check_in_date": "2026-07-02",
+    "check_out_date": "2026-07-03",
+    "adults": 2,
+    "children": 0,
+    "vacation_rentals": true,
+    "max_pages": 55
+  },
+  "search_metadata_first_page": {
+    "total_results": 4090,
+    "properties_count": 511,
+    "ads_count": 0,
+    "pages_processed": 29,
+    "max_pages_set": 55,
+    "pagination_limit_reached": false
+  },
+  "raw_type_counts": {
+    "vacation rental": 511
+  },
+  "property_segment_counts_raw": {
+    "hotel": 23,
+    "room_level_listing": 30,
+    "vacation_rental": 84,
+    "apartment": 239,
+    "villa": 112,
+    "guest_house": 23
+  },
+  "property_segment_counts_training": {
+    "vacation_rental": 75,
+    "room_level_listing": 24,
+    "villa": 97,
+    "apartment": 208,
+    "hotel": 21,
+    "guest_house": 21
+  },
+  "quality_flags_training": {
+    "coordinate_available": 446,
+    "rating_available": 270,
+    "price_available": 414,
+    "amenities_available": 430,
+    "image_available": 445,
+    "source_link_available": 288,
+    "checkin_checkout_available": 364,
+    "nearby_places_available": 264
+  },
+  "review_confidence_counts_training": {
+    "low_review_confidence": 229,
+    "missing_review_confidence": 176,
+    "high_review_confidence": 9,
+    "medium_review_confidence": 32
+  },
+  "sentiment_source_counts_training": {
+    "overall_rating_fallback": 270,
+    "unavailable": 176
+  },
+  "readiness_training": {
+    "strong_core_ready": 255,
+    "recommendation_usable": 431,
+    "minimal_usable": 446
+  },
+  "rating_sentiment_model_version": "hotel_google_search_rating_sentiment_v1",
+  "review_count_p95": 131.0,
+  "rating_sentiment_prior_score": 0.4711
+}

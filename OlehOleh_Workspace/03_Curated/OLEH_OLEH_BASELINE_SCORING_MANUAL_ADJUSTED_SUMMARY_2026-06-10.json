@@ -1,0 +1,67 @@
+﻿{
+    "created_at":  "2026-06-10T08:17:55",
+    "input_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_2026-06-09.csv",
+    "output_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_2026-06-10.csv",
+    "total_rows":  22,
+    "eligible_for_main_recommendation":  20,
+    "not_eligible_for_main_recommendation":  2,
+    "manual_status_counts":  [
+                                 {
+                                     "status":  "active",
+                                     "count":  19
+                                 },
+                                 {
+                                     "status":  "needs_review",
+                                     "count":  1
+                                 },
+                                 {
+                                     "status":  "held_manual",
+                                     "count":  1
+                                 },
+                                 {
+                                     "status":  "active_low_rank",
+                                     "count":  1
+                                 }
+                             ],
+    "final_label_counts":  [
+                               {
+                                   "label":  "recommended_ready",
+                                   "count":  1
+                               },
+                               {
+                                   "label":  "usable_with_caution",
+                                   "count":  18
+                               },
+                               {
+                                   "label":  "not_in_main_recommendation",
+                                   "count":  2
+                               },
+                               {
+                                   "label":  "active_low_rank",
+                                   "count":  1
+                               }
+                           ],
+    "manual_decisions":  [
+                             {
+                                 "name":  "Kangsule Kampoeng Susu Lembang",
+                                 "manual_recommendation_status":  "needs_review",
+                                 "main_recommendation_eligible":  false,
+                                 "manual_recommendation_note":  "Masih perlu cek ringan sebelum masuk rekomendasi utama.",
+                                 "final_oleh_oleh_recommendation_score":  0
+                             },
+                             {
+                                 "name":  "Pabrik Tahu Sibungsu",
+                                 "manual_recommendation_status":  "held_manual",
+                                 "main_recommendation_eligible":  false,
+                                 "manual_recommendation_note":  "Ditahan dari rekomendasi utama karena hasil cek manual lebih terasa seperti pabrik biasa, bukan toko oleh-oleh utama.",
+                                 "final_oleh_oleh_recommendation_score":  0
+                             },
+                             {
+                                 "name":  "Bubunasnack",
+                                 "manual_recommendation_status":  "active_low_rank",
+                                 "main_recommendation_eligible":  true,
+                                 "manual_recommendation_note":  "Produk snack dan harga relevan, tetapi review manual menunjukkan service signal lemah.",
+                                 "final_oleh_oleh_recommendation_score":  53
+                             }
+                         ]
+}

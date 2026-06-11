@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-06-05T08:01:27.159145Z",
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_CANONICAL_CANDIDATE_BANDUNG_RAYA_2026-06-02.csv",
+  "possible_duplicate_review_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_POSSIBLE_DUPLICATE_REVIEW_2026-06-05.csv",
+  "room_level_listings_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_ROOM_LEVEL_LISTINGS_2026-06-05.csv",
+  "parent_child_mapping_candidate_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_CHILD_MAPPING_CANDIDATE_2026-06-05.csv",
+  "candidate_input_rows": 1656,
+  "possible_duplicate_rows": 247,
+  "possible_duplicate_groups": 111,
+  "possible_duplicate_review_type_counts": {
+    "same_type_duplicate_candidate": 218,
+    "room_variant_group": 18,
+    "parent_child_candidate": 9,
+    "mixed_type_duplicate_candidate": 2
+  },
+  "room_level_listing_rows": 54,
+  "parent_child_mapping_rows": 54,
+  "child_with_parent_candidate": 13,
+  "child_without_parent_candidate": 41,
+  "confidence_label_counts": {
+    "no_candidate": 41,
+    "high": 8,
+    "medium": 5
+  },
+  "relation_type_counts": {
+    "no_parent_candidate_found": 41,
+    "room_of": 13
+  }
+}

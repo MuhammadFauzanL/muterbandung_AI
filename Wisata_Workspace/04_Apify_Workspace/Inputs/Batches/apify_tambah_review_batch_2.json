@@ -1,0 +1,31 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Curug%20Walanda&query_place_id=ChIJg8_ElDKoaS4R0-oy_NhXO3Y",
+        "https://www.google.com/maps/search/?api=1&query=Dago%20Bakery%20punclut&query_place_id=ChIJC1zpuynhaC4Rv3W00zM1Fls",
+        "https://www.google.com/maps/search/?api=1&query=Dairyland%20Farm%20Theme%20Park%20Puncak&query_place_id=ChIJjyTpuxDJaS4R40dsaS6zJi8",
+        "https://www.google.com/maps/search/?api=1&query=Ecopark%20Curugtilu&query_place_id=ChIJs5uqeFGLaC4RjUXgBUqBwIY",
+        "https://www.google.com/maps/search/?api=1&query=Fairy%20Garden%20Edutainment%20Park%20by%20The%20Lodge&query_place_id=ChIJWck1uRXeaC4R5ynQbBfGAPk",
+        "https://www.google.com/maps/search/?api=1&query=Farm%20House%20Susu%20Lembang&query_place_id=ChIJia31vjvhaC4RcSMrAu3razU",
+        "https://www.google.com/maps/search/?api=1&query=Gantolle%20Paralayang%20Singajaya%20Cihampelas&query_place_id=ChIJSybkhSPwaC4RxsRybOEfmbw",
+        "https://www.google.com/maps/search/?api=1&query=Gedung%20Indonesia%20Menggugat&query_place_id=ChIJCfSWFTrmaC4R22PMVdzGW9A",
+        "https://www.google.com/maps/search/?api=1&query=Geger%20Bintang%20Matahari%20Gunung%20Putri&query_place_id=ChIJpyzCuVngaC4RVU6VWGUATWU",
+        "https://www.google.com/maps/search/?api=1&query=Tebing%20Gunung%20Hawu%20Padalarang%20Jawa%20Barat",
+        "https://www.google.com/maps/search/?api=1&query=Google%20Ann%20Arbor%20Bandung%20Jawa%20Barat",
+        "https://www.google.com/maps/search/?api=1&query=Guha%20Pawon&query_place_id=ChIJwTWk5_b8aC4RFlVjqfhHils",
+        "https://www.google.com/maps/search/?api=1&query=Gunung%20Artapela&query_place_id=ChIJc9a6qQuWaC4RrqQXaaFG3rI",
+        "https://www.google.com/maps/search/?api=1&query=Gunung%20Nini&query_place_id=ChIJc04etCuXaC4RI6TiWEhG8d4",
+        "https://www.google.com/maps/search/?api=1&query=Gunung%20Puntang&query_place_id=ChIJJZTFhuKUaC4RdwdeZbxhvZ0",
+        "https://www.google.com/maps/search/?api=1&query=Gunung%20Putri%20Lembang&query_place_id=ChIJ9dtIQFrgaC4RJNNihk5eBuQ",
+        "https://www.google.com/maps/search/?api=1&query=Hejo%20Forest&query_place_id=ChIJrxBl_H2MaC4R1sZM6citrhQ",
+        "https://www.google.com/maps/search/?api=1&query=Hutan%20Kota%20Babakan%20Siliwangi%20Bandung&query_place_id=ChIJ4zOrQPjmaC4R-hC2awabT3M",
+        "https://www.google.com/maps/search/?api=1&query=Hutan%20Mycelia%20Wahana%20Edukasi%20%26%20Interaktif&query_place_id=ChIJ56iFzr_haC4R9Zzi5hge8_4",
+        "https://www.google.com/maps/search/?api=1&query=Hutan%20Pinus%20Rahong&query_place_id=ChIJzdIdqWGRaC4Rez9P15dQ-9c"
+    ]
+}

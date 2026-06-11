@@ -1,0 +1,41 @@
+﻿{
+    "created_at":  "2026-06-10T09:54:05",
+    "input_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_UI_ENRICHED_2026-06-10.csv",
+    "output_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_MANUAL_COMPLETION_PRICE_PRODUCT_2026-06-10.csv",
+    "total_rows":  22,
+    "fields_to_fill":  [
+                           "produk_utama_manual",
+                           "price_range_manual",
+                           "price_confidence_manual",
+                           "daya_tahan_produk_manual",
+                           "cocok_untuk_manual",
+                           "best_use_case_manual",
+                           "catatan_manual",
+                           "evidence_source_manual",
+                           "manual_status"
+                       ],
+    "allowed_price_range":  [
+                                "\u003c50k",
+                                "50k-100k",
+                                "100k-200k",
+                                "200k+",
+                                "unknown"
+                            ],
+    "allowed_price_confidence":  [
+                                     "low",
+                                     "medium",
+                                     "high",
+                                     "unknown"
+                                 ],
+    "allowed_daya_tahan_produk":  [
+                                      "rendah",
+                                      "sedang",
+                                      "tinggi",
+                                      "unknown"
+                                  ],
+    "allowed_manual_status":  [
+                                  "complete",
+                                  "needs_review",
+                                  "hold"
+                              ]
+}

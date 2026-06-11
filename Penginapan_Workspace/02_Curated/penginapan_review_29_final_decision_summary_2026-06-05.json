@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-06-05T11:26:21.464792Z",
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\04_Dokumentasi\\CLAUDE_AGENT_REVIEW_29_2026-06-05\\PENGINAPAN_CLAUDE_REVIEW_29_PARENT_CHILD_DECISION_2026-06-05.csv",
+  "final_decision_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_29_FINAL_DECISION_2026-06-05.csv",
+  "total_rows": 29,
+  "child_parent_rows": 19,
+  "parent_ready_rows": 9,
+  "held_drop_rows": 1,
+  "needs_more_check_rows": 0,
+  "final_group_counts": {
+    "child_parent_relation": 19,
+    "parent_ready": 9,
+    "held_drop": 1
+  },
+  "outputs": {
+    "final_decision": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_29_FINAL_DECISION_2026-06-05.csv",
+    "child_parent": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_29_FINAL_CHILD_PARENT_2026-06-05.csv",
+    "parent_ready": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_29_FINAL_PARENT_READY_2026-06-05.csv",
+    "held_drop": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_29_FINAL_HELD_DROP_2026-06-05.csv"
+  }
+}

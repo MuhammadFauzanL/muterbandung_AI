@@ -1,0 +1,97 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Emerald%20Tower%20-6.9325%2C107.6643"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%20Riau%20Near%20Trans%20Studio%20Bandung%20Formerly%20Asteria%20Hotel%20-6.9281%2C107.6214"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gateway%20Apartment%20Cicadas%20by%20DB%20Property%20-6.9067%2C107.6446"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Asia%20Afrika%20-6.9239%2C107.6177"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ibis%20Bandung%20Trans%20Studio%20Hotel%20-6.9273%2C107.6364"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Reddoorz%20Near%20Trans%20Studio%20Mall%202%20-6.9314%2C107.6243"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Jarrdin%20Apartment%20Hotels%20by%20Ironman%20-6.8923%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Are%20You%20and%20I%20-%20Bed%20%26%20Breakfast%20Bandung%20-6.8858%2C107.6496"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Guest%20House%20Alun-alun%20Bandung%20-6.932%2C107.6065"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Guesthouse%20Trans%20-6.9304%2C107.6393"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cluster%20Harris%20Home%20Stay%20%26%20Kos%20-6.8953136%2C107.538659"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottonwood%20Bed%20%26%20Breakfast%20House%20Bandung%20-6.8863181%2C107.577594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Halimun%20Guest%20House%20-6.9264%2C107.6214"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Fiori%20Bed%20%26%20Breakfast%20-6.8831%2C107.5844"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hen%27s%20Guest%20House%20-6.8822678%2C107.5316067"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Homestay%20Budihouse%20-6.8908%2C107.5589"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Doorman%20Guest%20House%20-6.9175%2C107.5997"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20O%20Cihampelas%20Near%20Ciwalk%20Formerly%20D%27River%20Guest%20House%20-6.8862%2C107.6043"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Triple%20Seven%20Bed%20%26%20Breakfast%20-6.9047%2C107.5924"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jayagiri%20Guesthouse%20-6.8073%2C107.6196"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=LN9%20Bandung%20Guest%20House%20-6.8823948%2C107.5793923"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Micasa%20Guest%20House%20Bandung%20-6.8892%2C107.5795"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mogens%20Guest%20House%20-6.912%2C107.6063"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nice%20Guest%20House%20-6.8722%2C107.5987"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OBC%20Guest%20House%20Bandung%20-6.8742%2C107.6075"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%203463%20Cimahi%20Guest%20House%20-6.8982%2C107.5613"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=PTS%20Homestay%20Syariah%20-6.8946%2C107.5984"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pension%20Guesthouse%20-6.9092%2C107.6235"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Asri%20Bed%20%26%20Breakfast%20-6.8749%2C107.5855"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Saloka%20Guest%20House%20dan%20Residence%20-6.8673691%2C107.560356"
+        }
+    ]
+}

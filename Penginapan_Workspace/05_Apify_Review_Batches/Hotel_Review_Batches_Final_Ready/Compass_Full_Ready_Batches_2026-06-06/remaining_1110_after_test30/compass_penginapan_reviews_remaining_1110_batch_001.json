@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=1%20Bed%20Studio%20in%20Beverly%20Dago%20Apartment%20-6.8833%2C107.6094"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=2%20Bedroom%20at%20The%20Jarrdin%20Cihampelas%20By%20Azhimah%20Property%20Management%20-6.8921%2C107.6052"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Bandung%20Cimahi%20by%20Maulina%20-6.8973%2C107.5365"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Ciumbuleuit%2034%20m2%20by%20Nakasya%20-6.8807%2C107.6042"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Gateway%20Pasteur%20-6.88972044%2C107.5660095"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Grand%20Asia%20Afrika-Apartemen%20murahBandung%20-6.9238%2C107.6183"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Jarrdin%20Cihampelas%20B%202223%20By%20PROELIA%20INDONESIA%20-6.9193%2C107.6082"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20M%27Square%20%28%20Mekarwangi%20Square%20%29%20Bandung%20-6.9707%2C107.5902"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20Mungil%20Ilalang%20-%20Grand%20Asia%20Afrika%20-6.9238%2C107.6184"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20THE%20EDGE%20dengan%20pemandangan%20kota%20-6.8978%2C107.5371"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20The%20Edge%20Baros%20-%20Kamarku%20-6.8979256%2C107.536754"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20The%20Edge%20Baros%20-%20Kamarku%20-6.8979%2C107.5368"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20The%20Edge%20Baros%20by%20SKY%20-6.8977%2C107.537"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20The%20Suites%20Metro%20Yudis%20-6.9399%2C107.6584"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartemen%20grand%20setiabudi%20bdg%20-6.8746%2C107.5972"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartement%20Grand%20Asia%20Afrika%20Bandung%20House%20Of%20Tofi%20-6.9259%2C107.617"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartement%20Grand%20Asia%20Afrika%20Bandung%20by%20House%20Of%20Tofi%20-6.9242%2C107.6183"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartement%20The%20Suites%20Metro%20By%20Metro%20Suite%20Property%20-6.9381%2C107.6594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartement%20the%20edge%20by%20Keys%20properti%20-6.8978%2C107.5372"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartment%202Bedroom%20Gateway%20Pasteur%20By%20Kevin%20-6.890018463%2C107.5661774"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartment%20Bandung%20Cimahi%20by%20Maulina%20-6.8973%2C107.5365"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Apartment%20The%20Edge%20Baros%20Sewa%20per%20jam/Harian%20-6.8916%2C107.5384"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Appropriate%20Studio%20Apartment%20at%20Easton%20Park%20Residence%20Jatinangor%20near%20IPDN%20By%20Travelio%20-6.9365%2C107.7652"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Appropriate%20Studio%20Apartment%20at%20Harvard%20Jatinangor%20near%20IPDN%20-6.9367%2C107.7653"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Awana%20Dream%20Gateway%20Pasteur%20-6.8918604%2C107.56504"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bacup%20Studio%20Apartment%20%40Galeri%20Ciumbuleuit%20-6.8814%2C107.6039"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Best%20Studio%20Apartment%20at%20Pinewood%20Jatinangor%20By%20Travelio%20-6.9355%2C107.7719"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobo%20inn%20Baros%20The%20Edge%20-6.8974%2C107.5371"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Capital%20O%2092557%20Apartemen%20Mekarwangi%20Square%20By%20Agus%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cheap%203Bed%20Grand%20Asia%20Afrika%20Apartment%20-6.9238%2C107.6183"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cipto%20Apartment%20-6.9059%2C107.6006"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Homestay%202%20Bedroom%20-7.1229%2C107.424"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%201453%20The%20Edge%20Apartment%20Cimahi%20By%20Kamarku%20-6.8986%2C107.537"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%201453%20The%20Edge%20Apartment%20Cimahi%20By%20Kamarku%20-6.8976519%2C107.5370738"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%2090205%20Queen%20Rent%20Apartment%20Gateway%20Pasteur%20-6.8891979%2C107.5657746"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%2091614%20Jarrdin%20Apartment%20-6.9175%2C107.6192"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%2093344%20Gateway%20Pasteur%20Apartement%20By%20Maestro%20-6.88985%2C107.566288"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Comfort%20Studio%20Room%20Mekarwangi%20Square%20By%20Travelio%20-6.9551%2C107.5933"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Comfort%20Studio%20Room%20at%20Mekarwangi%20Square%20Cibaduyut%20Apartment%20By%20Travelio%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Comfortable%20Studio%20Room%20Apartment%20at%20Stanford%20Jatinangor%20-6.9366%2C107.7649"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Comfy%20Studio%20Apartment%20At%20Jarrdin%20Cihampelas%20-6.9063%2C107.6046"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Compact%20Studio%20Tamansari%20Panoramic%20Apartment%20By%20Travelio%20-6.9374%2C107.6816"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottonwood%20Apartment%20at%20Marbella%20Suites%20Dago%20-6.87%2C107.633"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottonwood%20Apartment%20at%20Sudirman%20Suites%20Bandung%205-pax%20-6.9178%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20%26%20Trendy%20Studio%20at%20Gateway%20Pasteur%20Apartment%20By%20Travelio%20-6.889532089%2C107.5662918"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20And%20Nice%20Studio%20Apartment%20At%20Mekarwangi%20Square%20Cibaduyut%20-6.956%2C107.5929"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Living%20Studio%20at%20Gateway%20Pasteur%20Apartment%20By%20Travelio%20-6.890330791%2C107.5656509"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20Apartment%20At%20The%20Jarrdin%20Near%20Cihampelas%20Walk%20-6.8925%2C107.604"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20Apartment%20at%20Mekarwangi%20Square%20Cibaduyut%20By%20Travelio%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20Gateway%20Pasteur%20Bandung%20By%20Travelio%20-6.889389992%2C107.567482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20Jarrdin%20Apartemen%20by%20Kaka%20-6.8925%2C107.6054"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20Room%20at%20Grand%20Asia%20Afrika%20Apartment%20By%20Travelio%20-6.9238%2C107.6184"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Studio%20at%20Apt%20Mekarwangi%20Square%20By%20Travelio%20-6.9561%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Style%20Studio%20Room%20at%20Jarrdin%20Cihampelas%20Apartment%20By%20Travelio%20-6.8899%2C107.5998"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Elegant%20%26%20Stylish%20Studio%20At%20Gateway%20Pasteur%20Apartment%20-6.889267921%2C107.5678482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Functional%20Studio%20Jarrdin%20Cihampelas%20By%20Travelio%20-6.8925%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Good%20Choice%20Studio%20at%20Gateway%20Pasteur%20Apartment%20By%20Travelio%20-6.8911%2C107.5656"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Good%20Deal%20Studio%20Apartment%20At%20Green%20Kosambi%20Bandung%20-6.9166%2C107.6241"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Good%20Deal%20Studio%20at%20Easton%20Park%20Apt%20By%20Travelio%20-6.9365%2C107.7652"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Great%20Escape%20Apartment%20Baros%20-6.8974859%2C107.5373958"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Great%20Escape%20Apartment%20Baros%20-6.8975%2C107.5369"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hala%20Rooms%20at%20Jarrdin%20Apartment%20Cihampelas%20Bandung%20-6.8924%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Happy%20Stay%20at%20Jarrdin%20Apartment%20-6.9063%2C107.6047"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Asia%20Afrika%20-6.9239%2C107.6182"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Baros%20-6.8974765%2C107.5369822"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Dago%20-6.8695%2C107.6335"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Pasteur%20-6.8902%2C107.5658"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=High%20Livin%20Apartment%20Pasteur%20-6.8897871%2C107.5667249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Homey%20Studio%20Furnished%20at%20Grand%20Asia%20Afrika%20Apartment%20By%20Travelio%20-6.9238%2C107.6184"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Homey%20and%20Cozy%20Studio%20Room%20at%20Suites%20%40Metro%20Apartment%20By%20Travelio%20-6.9392%2C107.6591"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Homey%20and%20Cozy%20Studio%20at%20Suites%20Metro%20By%20Travelio%20-6.9392%2C107.6591"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hommayoz%20Resort%2C%202%20Bedrooms%2C%20Buah%20Batu%2C%20Bandung%20-6.9785%2C107.6453"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Inkubus%20Gateway%20Apartment%20Ahmad%20Yani%20-6.9071%2C107.645"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jarrdin%20Apartemen%20Cihampelas%20By%20Micky%20Studio%20WIFI%20-6.8922%2C107.6056"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jarrdin%20Apartemen%20Cihampelas%20By%20Micky%20Studio2%20WIFI%20-6.8917%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jarrdin%20Apartemen%20Cihampelas%20By%20Micky%20Studio3%20WIFI%20-6.8917%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jarrdin%20Apartment%20by%20D%27Carpenter%2033%20studio%20-6.891%2C107.6043"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jatinangor%20Apartment%20near%20ITB%20-6.9364%2C107.7651"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Juar%20Room%20The%20Suites%20Apartment%20-6.9383%2C107.6592"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Luxury%20Living%20At%20The%20Edge%20-6.8974%2C107.5369"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mekarwangi%20M%20Square%20Apartement%20by%20Imah%20Amih%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Minimalist%20Apt%20Studio%20Gateway%20Pasteur%20By%20Travelio%20-6.889297962%2C107.565773"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Minimalist%20Studio%20Room%20at%20Gateway%20Ahmad%20Yani%20Cicadas%20Apartment%20By%20Travelio%20-6.9078%2C107.6448"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Modern%20And%20Cozy%20Studio%20Room%20At%20Gateway%20Pasteur%20Apartment%20-6.890397072%2C107.5659256"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Modern%20Studio%20Design%20at%20Harvard%20Jatinangor%20Apartment%20By%20Travelio%20-6.9365%2C107.7652"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mountain%20View%20at%20The%20Edge%20-6.897422314%2C107.5370865"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mountain%20View%20at%20The%20Edge%20-6.8974%2C107.5367"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mountain%20View%20at%20The%20Edge%20-6.8975%2C107.5369"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093920%20Apartemen%20Gateway%20Pasteur%20By%20D%20Carpenter%20-6.8896726%2C107.5663002"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093921%20Gateway%20Pasteur%20Apartment%20-6.8908244%2C107.5673481"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093922%20Apartemen%20Gateway%20Pasteur%20By%20Sinta%20-6.8890438%2C107.5633593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093923%20Gateway%20Pasteur%20Apartment%20By%20-6.8898271%2C107.5660289"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2093934%20Apartemen%20Gateway%20Pasteur%20By%20Groom%20-6.8893414%2C107.5632282"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094027%20Apartemen%20Gateway%20Pasteur%20-6.889508%2C107.566363"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094150%20Gateway%20Apartment%20Pasteur%20By%20Eldian%20-6.8911577%2C107.5665668"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094155%20Gateway%20Pasteur%20Apartment%20By%20Goodtime%20-6.8911577%2C107.5665668"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094158%20Gateway%20Pasteur%20Apartment%20By%20Iyan%20-6.8911577%2C107.5665668"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2092774%20The%20Edge%20Apartment%20By%20My%20Home%20-6.8840567%2C107.5413244"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2093097%20Apartemen%20Gateway%20Pasteur%20-6.8898608%2C107.5663423"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=One%20Bedroom%20Apartement%20-6.906%2C107.6048"
+        }
+    ]
+}

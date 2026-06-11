@@ -1,0 +1,84 @@
+location_name,category,subcategory,display_status,jam_buka_weekday,jam_tutup_weekday,jam_buka_weekend,jam_tutup_weekend,final_core_labels,final_secondary_labels,final_avoid_labels,night_verified,qa_flag_reason,night_audit_action
+23 Paskal Shopping Center,Tempat Belanja,Mall,active_candidate,10:00,22:00,10:00,22:00,Belanja;Indoor;Gratis,Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Bandung Carnival Land,Rekreasi Keluarga,Taman hiburan,active_candidate,11:00,22:00,11:00,23:00,Keluarga;Ramah Anak,Santai/Healing;Outdoor,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Bandung Indah Plaza,Tempat Belanja,Pusat belanja,active_candidate,10:00,22:00,10:00,22:00,Belanja;Indoor;Gratis,Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Braga Citywalk,Tempat Belanja,Citywalk,active_candidate,10:00,22:00,10:00,22:00,Belanja;Indoor;Gratis,Spot Foto;Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Bukit Moko Bandung,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor;Malam,Belanja;Indoor;Religi,True,,keep
+Bumi Perkemahan Ranca Upas Bandung,Tempat Camping,Camping ground,active_candidate,00:00,23:59,00:00,23:59,Alam;Petualangan;Outdoor,,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Cadas Pangeran Sumedang,Tempat Sejarah,Situs sejarah,exclude_scope,00:00,23:59,00:00,23:59,Sejarah;Edukasi;Gratis,Spot Foto;Budaya,Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Cihampelas Walk,Tempat Belanja,Mall,active_candidate,10:00,22:00,10:00,22:00,Belanja;Indoor;Gratis,Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Curug Cipanas,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Outdoor,Santai/Healing;Spot Foto,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Gorobog,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Spot Foto,Petualangan;Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Maribaya,Wisata Alam,Daya tarik alam,active_candidate,09:00,18:00,09:00,21:00,Alam;Santai/Healing;Spot Foto,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Dusun Bambu,Rekreasi Keluarga,Kawasan rekreasi keluarga,active_candidate,09:00,21:00,09:00,21:00,Keluarga;Ramah Anak;Alam,Kuliner;Malam;Outdoor,Belanja,True,,keep
+Floating Market Lembang,Rekreasi Keluarga,Taman rekreasi tematik,active_candidate,09:00,18:00,08:00,21:00,Keluarga;Ramah Anak;Kuliner,,Malam,False,Malam label removed: not night_verified,remove
+Gn. Tampomas,Rekreasi Keluarga,Kawasan rekreasi,exclude_scope,00:00,23:59,00:00,23:59,Keluarga;Ramah Anak;Alam,Sejarah;Outdoor,Belanja;Kuliner;Malam,False,Malam label removed: not night_verified,remove
+Gunung Puntang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing;Sejarah,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Gunung Putri Lembang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor;Malam,Belanja;Indoor;Kuliner;Religi,True,,keep
+Kampung Buyut Cipageran (Kabuci) Asih Putera,Desa Wisata,Kampung wisata,active_candidate,08:00,22:00,08:00,22:00,Budaya;Edukasi,Keluarga;Alam,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Kampung Toga Villa & Resto,Tempat Kuliner,Restoran wisata,exclude_scope,08:00,21:00,08:00,21:00,Kuliner;Santai/Healing,Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+Lembang Wonderland,Rekreasi Keluarga,Taman rekreasi tematik,active_candidate,10:00,19:00,10:00,20:00,Keluarga;Ramah Anak,Santai/Healing;Outdoor,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Masjid Agung Bandung,Tempat Ibadah,Tempat ibadah,active_candidate,05:00,22:00,05:00,22:00,Religi;Santai/Healing;Gratis,Budaya,Alam;Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Masjid Agung Sumedang,Tempat Ibadah,Tempat ibadah,exclude_scope,04:00,22:00,04:00,22:00,Religi;Santai/Healing;Budaya,Sejarah;Gratis,Alam;Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Masjid Jami' Al Baakhirah,Tempat Ibadah,Tempat ibadah,active_candidate,03:30,19:30,03:30,02:30,Religi;Santai/Healing;Gratis,Budaya,Alam;Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Paris Van Java Resort Lifestyle Place,Tempat Belanja,Mall,active_candidate,10:00,22:00,10:00,23:00,Belanja;Indoor;Gratis,Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Pasar Cimindi,Tempat Belanja,Pusat belanja,active_candidate,00:00,23:59,00:00,23:59,Belanja;Indoor;Gratis,Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Pemandian Cipanas Cileungsing,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Outdoor,Santai/Healing;Spot Foto,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Puncak Eurad,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Ranca Upas Ciwidey,Tempat Camping,Camping ground,active_candidate,00:00,23:59,00:00,23:59,Alam;Petualangan;Outdoor,Santai/Healing;Spot Foto,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Rumah Makan Sangu Liwet Ibu Ika Pasirjambu Ciwidey,Tempat Kuliner,Rumah makan,active_candidate,08:00,20:00,08:00,20:00,Kuliner;Santai/Healing;Gratis,Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+Situ Cisanti,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Spot Foto,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Situ Ciseupan Cibeber,Wisata Alam,Daya tarik alam,active_candidate,08:00,20:00,08:00,20:00,Alam;Santai/Healing;Spot Foto,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Sunrise Point Cukul,Wisata Alam,Titik panorama,active_candidate,05:00,18:00,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Taman Alun-Alun Kota Cimahi,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Keluarga;Ramah Anak,Outdoor;Gratis;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Endog,Taman Kota,Ruang publik kota,exclude_scope,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Film,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Jomblo,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Langit Pangalengan (Sunrise Point & Camping Ground),Tempat Camping,Camping ground,active_candidate,05:00,17:00,00:00,23:59,Alam;Petualangan;Spot Foto,Santai/Healing;Outdoor;Malam,Belanja,True,,keep
+Taman Lansia,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Musik,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Superhero,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Terminal Wisata Grafika Cikole,Rekreasi Keluarga,Kawasan rekreasi keluarga,active_candidate,08:00,22:00,08:00,22:00,Keluarga;Kuliner;Alam,Ramah Anak;Petualangan;Malam,Belanja,True,,keep
+The Kings Shopping Centre,Tempat Belanja,Pusat belanja,active_candidate,10:00,21:00,10:00,22:00,Belanja;Indoor;Gratis,Kuliner;Malam,Alam;Petualangan;Religi;Sejarah,True,,keep
+Toga Hill,Wisata Alam,Bukit panorama,exclude_scope,10:00,21:00,10:00,22:00,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Upside Down World Bandung,Rekreasi Keluarga,Wahana foto interaktif,active_candidate,10:00,20:00,10:00,20:00,Keluarga;Ramah Anak,Spot Foto,Belanja;Kuliner;Malam,False,Malam label removed: not night_verified,remove
+Venus Cimahi,Rekreasi Keluarga,Tempat hiburan,active_candidate,09:00,20:00,09:00,20:00,Keluarga;Ramah Anak,,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Kiara Artha Park,Rekreasi Keluarga,Taman rekreasi,active_candidate,07:00,22:00,07:00,22:00,Keluarga;Ramah Anak;Kuliner,Santai/Healing;Outdoor;Malam,Belanja,True,,keep
+Lawangwangi Creative Space,Tempat Seni,Ruang kreatif,active_candidate,12:00,20:00,10:00,21:00,Budaya;Spot Foto;Edukasi,Santai/Healing;Indoor;Malam,Belanja,True,,keep
+Punclut Bandung (Puncak Ciumbuleuit),Wisata Alam,Kawasan panorama,active_candidate,08:00,00:00,08:00,00:00,Alam;Spot Foto;Santai/Healing,Outdoor;Gratis;Malam,Belanja;Indoor;Religi,True,,keep
+Bukit Bintang Bandung (Patahan Lembang),Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing;Malam,Belanja;Indoor;Kuliner;Religi,True,,keep
+Kebun Teh Sukawana,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Hejo Forest Ciwidey,Wisata Alam,Hutan wisata,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Outdoor,Spot Foto;Petualangan,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Southland Camp Ciwidey,Tempat Camping,Camping ground,active_candidate,00:00,23:59,00:00,23:59,Alam;Petualangan;Outdoor,Keluarga,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Gunung Artapela,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing,Belanja;Indoor;Kuliner;Religi;Malam,False,Malam label removed: not night_verified,remove
+Situ Ninah (Situ Datar),Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Outdoor,Spot Foto,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Kawah Wayang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Pemandian Air Panas Cibolang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Outdoor,Santai/Healing;Spot Foto,Belanja;Indoor;Kuliner;Religi;Malam,False,Malam label removed: not night_verified,remove
+Malabar Mountain Coffee Shop & Eatery,Tempat Kuliner,Coffee shop,active_candidate,08:00,20:00,08:00,21:00,Kuliner;Santai/Healing,Outdoor;Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+Dago Bakery Punclut,Tempat Kuliner,Bakery wisata,active_candidate,09:00,21:00,08:00,21:00,Kuliner;Santai/Healing,Spot Foto;Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+Tafso Barn,Tempat Kuliner,Restoran wisata,status_uncertain,12:00,20:00,09:00,20:30,Kuliner;Santai/Healing;Spot Foto,Outdoor;Alam;Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+D'Dieuland,Rekreasi Keluarga,Kawasan rekreasi,active_candidate,11:00,19:00,09:00,21:00,Keluarga;Ramah Anak;Kuliner,Malam,Belanja,True,,keep
+Sudut Pandang Bandung,Tempat Kuliner,Restoran wisata,active_candidate,12:00,22:00,12:00,22:00,Kuliner;Santai/Healing,Malam,Alam;Belanja;Petualangan;Religi;Sejarah,True,,keep
+Cakrawala Nature Sparkling Restaurant,Tempat Kuliner,Restoran wisata,active_candidate,09:00,21:00,09:00,22:00,Kuliner;Santai/Healing,Spot Foto;Malam,Alam;Belanja;Petualangan;Religi;Sejarah,True,,keep
+Lereng Anteng Panoramic Coffee,Tempat Kuliner,Coffee shop,active_candidate,08:00,22:00,08:00,23:00,Kuliner;Santai/Healing,Spot Foto;Malam,Belanja;Petualangan;Religi;Sejarah,True,,keep
+Gunung Batu Lembang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Layung,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Spot Foto,Petualangan;Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Bugbrug,Wisata Alam,Daya tarik alam,active_candidate,08:00,17:00,08:00,00:00,Alam;Santai/Healing;Spot Foto,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Aseupan,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Sanghyang Tikoro,Wisata Alam,Gua dan sungai,active_candidate,00:00,23:59,00:00,23:59,Alam;Outdoor,Santai/Healing;Spot Foto,Belanja;Indoor;Kuliner;Religi;Malam,False,Malam label removed: not night_verified,remove
+Wisata Batu Kuda,Wisata Alam,Hutan pinus,active_candidate,00:00,23:59,00:00,23:59,Alam;Santai/Healing;Outdoor,Spot Foto,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Batu Templek,Wisata Alam,Daya tarik alam,active_candidate,06:00,18:00,06:00,21:00,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Masjid Raya Al-Jabbar,Tempat Ibadah,Tempat ibadah,active_candidate,04:00,22:00,04:00,22:00,Religi;Santai/Healing;Gratis,Budaya,Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Teras Sunda Cibiru,Tempat Budaya,Pusat budaya Sunda,active_candidate,08:00,22:00,08:00,22:00,Budaya;Gratis,Edukasi;Kuliner,Alam;Belanja;Malam,False,Malam label removed: not night_verified,remove
+Monumen Bandung Lautan Api,Tempat Sejarah,Situs sejarah,active_candidate,00:00,23:59,00:00,23:59,Sejarah;Edukasi;Gratis,Budaya,Alam;Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Taman Vanda,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Maluku,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Kuliner;Petualangan;Sejarah,True,,keep
+Taman Panatayuda,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Keluarga;Ramah Anak,Alam;Outdoor;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Taman Pramuka Bandung,Taman Kota,Ruang publik kota,active_candidate,00:00,23:59,00:00,23:59,Santai/Healing;Outdoor;Gratis,Keluarga;Ramah Anak;Malam,Belanja;Petualangan;Sejarah,True,,keep
+Panama Park 825,Rekreasi Keluarga,Taman rekreasi indoor,active_candidate,10:00,18:00,10:00,20:00,Keluarga;Ramah Anak,Kuliner;Indoor,Belanja;Malam,False,Malam label removed: not night_verified,remove
+Museum Inggit Garnasih,Tempat Belajar,Tempat edukasi,active_candidate,08:00,16:00,00:00,00:00,Edukasi;Indoor;Gratis,,Alam;Belanja;Kuliner;Petualangan;Malam,False,Malam label removed: not night_verified,remove
+Nimo Jungle Hot Spring,Wisata Alam,Air panas alami,active_candidate,09:00,17:00,08:00,23:00,Alam;Outdoor,Santai/Healing;Spot Foto,Belanja;Indoor;Kuliner;Religi;Malam,False,Malam label removed: not night_verified,remove
+Nuansa Riung Gunung,Wisata Alam,Panorama pegunungan,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Santai/Healing,Outdoor,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Curug Ceret Pangalengan,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing;Gratis,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove
+Puncak Mega Gunung Puntang,Wisata Alam,Daya tarik alam,active_candidate,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing,Belanja;Indoor;Kuliner;Religi;Malam,False,Malam label removed: not night_verified,remove
+Panenjoan Jatigede,Wisata Alam,Titik panorama,exclude_scope,00:00,23:59,00:00,23:59,Alam;Spot Foto;Outdoor,Santai/Healing,Belanja;Indoor;Religi;Malam,False,Malam label removed: not night_verified,remove

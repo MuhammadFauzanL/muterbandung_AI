@@ -1,0 +1,29 @@
+{
+  "raw_file": "D:/File/file/Fauzan Lubada/PIJAK/dataset_Google-Maps-Reviews-Scraper_2026-06-09_02-16-12-254.json",
+  "returned_place_titles": 10,
+  "raw_review_rows": 293,
+  "text_rows": 140,
+  "duplicate_review_id_count": 0,
+  "decision_counts": {
+    "accept_after_light_check": 5,
+    "needs_manual_check": 3,
+    "accept_strong": 2
+  },
+  "usable_targets": [
+    "LOC-134",
+    "LOC-155",
+    "LOC-174",
+    "LOC-176",
+    "LOC-195",
+    "LOC-068",
+    "LOC-234"
+  ],
+  "held_or_excluded_targets": [
+    "LOC-162",
+    "LOC-196",
+    "LOC-220"
+  ],
+  "user_cancelled": [
+    "LOC-213"
+  ]
+}

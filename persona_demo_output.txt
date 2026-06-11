@@ -1,0 +1,19 @@
+=== DATASET MENTAH (RATING USER) ===
+   User_ID  Parks  Beaches  Museums  Theaters  Malls  Restaurants  Cluster
+0   User_1      5        4        1         1      2            3        2
+1   User_2      4        5        2         1      1            3        2
+2   User_3      5        4        1         2      2            2        2
+3   User_4      5        5        1         1      2            3        2
+4   User_5      4        5        2         1      1            2        2
+5   User_6      4        5        1         2      2            3        2
+6   User_7      5        4        1         1      1            2        2
+7   User_8      5        5        2         1      2            3        2
+8   User_9      4        5        1         2      1            3        2
+9  User_10      5        4        1         1      2            2        2
+
+=== PERSONA YANG DITEMUKAN OLEH AI (K-MEANS) ===
+            Parks  Beaches  Museums  Theaters  Malls  Restaurants
+Cluster_ID                                                       
+0             1.4      1.3      4.7       4.6    1.6          3.4
+1             2.3      2.2      1.8       1.6    4.6          4.6
+2             4.6      4.6      1.3       1.3    1.6          2.6

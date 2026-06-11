@@ -1,0 +1,4 @@
+﻿"location_id","location_name","returned_title","decision","source_batch","reviews_used","text_rows","avg_rating_fallback","sentiment_score_fallback","sentiment_label_fallback","ulasan_positif_fallback","ulasan_netral_fallback","ulasan_negatif_fallback","place_total_score","place_reviews_count"
+"LOC-133","Punclut Bandung (Puncak Ciumbuleuit)","Kawasan Punclut","accept_after_light_check_user_approved","first","30","11","4.7","0.9","Sangat Positif","28","1","1","4.6","5373"
+"LOC-192","Curug Ngebul Gununghalu","Wisata Terpadu Curug Ngebul Cisitu","accept_after_light_check_user_approved","first","30","18","4.766667","0.9","Sangat Positif","28","1","1","4.6","85"
+"LOC-226","Gunung Nini Pangalengan","Gunung Nini","accept_after_light_check_user_approved","first","30","17","4.433333","0.8","Sangat Positif","25","4","1","4.4","103"

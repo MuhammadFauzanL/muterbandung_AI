@@ -1,0 +1,151 @@
+{
+  "schema_version": "muterbandung.eval_queries.v1",
+  "dataset_expected_contains": "DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_SENTIMENT_RUNTIME_CANDIDATE_2026-06-09.csv",
+  "created_at": "2026-06-09",
+  "notes": "Fixed query set for runtime recommender/API regression checks.",
+  "queries": [
+    {
+      "id": "Q001_ALAM_MURAH",
+      "payload": {
+        "query": "wisata alam murah",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "max_price": 50000
+      }
+    },
+    {
+      "id": "Q002_KELUARGA_RAMAH_ANAK",
+      "payload": {
+        "query": "wisata keluarga ramah anak",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "required_true_flags": ["child_friendly_verified"]
+      }
+    },
+    {
+      "id": "Q003_MALAM_BANDUNG",
+      "payload": {
+        "query": "wisata malam Bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "required_true_flags": ["night_verified"]
+      }
+    },
+    {
+      "id": "Q004_EDUKASI_ANAK",
+      "payload": {
+        "query": "wisata edukasi anak",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "required_true_flags": ["child_friendly_verified"]
+      }
+    },
+    {
+      "id": "Q005_MUSHOLA_PARKIR",
+      "payload": {
+        "query": "wisata ada mushola dan parkir",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "required_true_flags": ["mushola_verified", "parking_verified"],
+        "fallback_used": false
+      }
+    },
+    {
+      "id": "Q006_GRATIS_DEKAT_ALUN_ALUN",
+      "payload": {
+        "query": "wisata gratis dekat alun-alun bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "all_free": true,
+        "distance_required": true
+      }
+    },
+    {
+      "id": "Q007_MUSEUM_INDOOR",
+      "payload": {
+        "query": "museum indoor Bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 2
+      }
+    },
+    {
+      "id": "Q008_SATWA_ANAK",
+      "payload": {
+        "query": "wisata satwa untuk anak",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 2,
+        "required_true_flags": ["child_friendly_verified"]
+      }
+    },
+    {
+      "id": "Q009_SPOT_FOTO_HEALING",
+      "payload": {
+        "query": "spot foto healing pemandangan",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3
+      }
+    },
+    {
+      "id": "Q010_CURUG_MURAH",
+      "payload": {
+        "query": "curug murah Bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 3,
+        "max_price": 50000
+      }
+    },
+    {
+      "id": "Q011_BELANJA_OLEH_OLEH",
+      "payload": {
+        "query": "tempat belanja oleh-oleh Bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 1
+      }
+    },
+    {
+      "id": "Q012_UNSUPPORTED_PANTAI",
+      "payload": {
+        "query": "pantai di Bandung",
+        "top_k": 5,
+        "sort_by": "balanced"
+      },
+      "expect": {
+        "min_recommendations": 0,
+        "no_strong_match": true
+      }
+    }
+  ]
+}

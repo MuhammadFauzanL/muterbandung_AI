@@ -1,0 +1,505 @@
+{
+  "startUrls": [
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Masjid%20Jami'%20Al%20Baakhirah&query_place_id=ChIJTaNiObblaC4R81ETLxRqxoQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Masjid%20Raya%20Al-Jabbar&query_place_id=ChIJrzqDO4vDaC4RF1JS9zpMGfo"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Mata%20Air%20Cikandung&query_place_id=ChIJF566MV_WaC4R1qY3bY8QGOw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Monumen%20Bandung%20Lautan%20Api&query_place_id=ChIJ0Qbi6JvoaC4RLqQcvco4Gj8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=MiniMania%20Lembang&query_place_id=ChIJVcuI5GrhaC4RWBNP1nEobMA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Monumen%20Perjuangan%20Rakyat%20Jawa%20Barat&query_place_id=ChIJXRdECE3maC4Rg1r76u45BqI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=MUARA%20RAHONG%20HILL'S&query_place_id=ChIJqXGKqYGRaC4R57bOSsGogx4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Museum%20Barli&query_place_id=ChIJu3wt5o_maC4RcGMgJN_0k00"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Inggit%20Garnasih%20Historic%20House&query_place_id=ChIJlylSiZ7oaC4Rlh8q-k79Tso"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Museum%20Kota%20Bandung&query_place_id=ChIJxyE0KjjmaC4RBnHNchYMFsE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Museum%20Mandala%20Wangsit%20Siliwangi&query_place_id=ChIJlZsgIzDmaC4R6TWGDMXP3js"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Museum%20Pendidikan%20Nasional%20Universitas%20Pendidikan%20Indonesia&query_place_id=ChIJq9MNBbnmaC4R2_v1rPo1CbY"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Glamping%20Legok%20Kondang%20Lodge&query_place_id=ChIJ3T1zZ8SMaC4RYnYiIK2gk8o"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Jl.%20Gn.%20Tampomas&query_place_id=ChIJaePvzC7kaC4RLbEO2yTjqiw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gn.%20Tangkuban%20Parahu&query_place_id=ChIJ2xOXxd3haC4R3P4oNLeWHKA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Guha%20Pawon&query_place_id=ChIJwTWk5_b8aC4RFlVjqfhHils"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Batu%20Lembang&query_place_id=ChIJ76DXjcTgaC4RLuOUDLK3lyM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Artapela&query_place_id=ChIJc9a6qQuWaC4RrqQXaaFG3rI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gn.%20Bohong&query_place_id=ChIJ9ZQXP_HkaC4RRRkqgETnj8k"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Nini&query_place_id=ChIJc04etCuXaC4RI6TiWEhG8d4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gunung%20Putri%20Lembang&query_place_id=ChIJ9dtIQFrgaC4RJNNihk5eBuQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Hejo%20Forest&query_place_id=ChIJrxBl_H2MaC4R1sZM6citrhQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Hutan%20Pinus%20Rahong&query_place_id=ChIJzdIdqWGRaC4Rez9P15dQ-9c"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Indiana%20Camp&query_place_id=ChIJzXeSkvb8aC4RHX6o3yZmHl8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Imah%20Seniman&query_place_id=ChIJYf6XqQ3haC4R0rUDm4H5v60"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Jans%20Park%20(Jatinangor%20National%20Park)&query_place_id=ChIJ_z1GJJTbaC4RWY6r3Ewq5EI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Coffee%20House%20Gunung%20Tilu&query_place_id=ChIJSSHTzfKTaC4RqyGsm7bt1Go"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Adat%20Cikondang&query_place_id=ChIJY5zKz3KTaC4RMRJI3ToxmOc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Jendela%20Alam&query_place_id=ChIJG2FOuWzhaC4Ri9rRVo6onlQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Buyut%20Cipageran%20(Kabuci)%20Asih%20Putera&query_place_id=ChIJAVEWnorjaC4RUXdsl6tMukc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Karuhun%20ECO%20Green%20Park%20Sumedang&query_place_id=ChIJvfqDi__RaC4RqN__FAtEJtE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Cireundeu&query_place_id=ChIJ5Rrrf2flaC4RRjRvESawz60"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Singkur&query_place_id=ChIJdQN55k-RaC4RBWBt1MAIMP0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20toga%20villa%20pancing&query_place_id=ChIJLYLq2bbRaC4RmJrq5BYJQ-A"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kolam%20Renang%20Karang%20Setra&query_place_id=ChIJDUtfgjLmaC4RkRl7uYg0y0c"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=KAWAH%20CIBUNI%20Rengganis&query_place_id=ChIJ3bAwuvqLaC4RYHMnnPeZeUc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Nimo%20Resort%20Ciwidey&query_place_id=ChIJsxWc9MCNaC4RdqBPh8JHHJ8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Noah's%20Park%20%7C%20Wisata%20Lembang%20Bandung&query_place_id=ChIJRS1s70fhaC4RYk_1e3boibk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kawah%20Wayang&query_place_id=ChIJo82jZk-WaC4RA3QRvVJ0w-E"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Nu%20Art%20Studio&query_place_id=ChIJ9QHX-SfkaC4RCC0ZG0KM0Pg"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bosscha&query_place_id=ChIJg9uwkhLhaC4R_T9eA-4-98A"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Nuansa%20Riung%20gunung%20Pangalengan&query_place_id=ChIJx53-02eTaC4RaQfan8jAKDQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Orchid%20Forest%20Cikole&query_place_id=ChIJBxan4TjgaC4RYi4ejXdY-Hk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20Ilmu%20Sutera%20Bandung&query_place_id=ChIJJVjVUr3daC4RNif0ceHqtQw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Palalangon%20Park&query_place_id=ChIJ0yTCHpCTaC4RTuG34A2lAxI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Panama%20Park%20825&query_place_id=ChIJoUTGLGjlaC4RbA-dVkxv-Gc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pandiga%20Educreation%20Sports&query_place_id=ChIJ9_jNcTnkaC4RS3p5dhgPahU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Wisata%20Pangjugjugan&query_place_id=ChIJX6RTDK3aaC4RxJxrbszp9no"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Panenjoan%20Jatigede&query_place_id=ChIJY7mhjuUsby4R5Dcl935uDd4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pemandian%20Air%20Panas%20Cibolang&query_place_id=ChIJr63EXQmXaC4RId2jyPRQmp4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pasar%20Cimindi&query_place_id=ChIJ_ZYRy8jlaC4RPaMxHmIuSbE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pemandian%20Cipanas%20Cileungsing&query_place_id=ChIJm3yMWj8qaS4RdQaLMvAJa8k"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Rusa&query_place_id=ChIJrWZznw-UaC4RUsHRjUQY_-0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kebun%20Teh%20Malabar&query_place_id=ChIJ8z7hDUiXaC4RUR7zwMtms1c"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pesona%20Nirwana%20Waterpark%20%26%20Cottages%20%2F%20Resort&query_place_id=ChIJ_xWz4FHsaC4RcSL8vAov3L0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Peta%20Park&query_place_id=ChIJcd4jrKfoaC4RpokEfBFEQM0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pine%20Forest%20Camp&query_place_id=ChIJ1XNNI0feaC4RUZizKWoMwB8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Puncak%20Permata&query_place_id=ChIJs1XrHsstby4R7Ucp6AUE5DY"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Puncak%20Bukit%20Kujang%20Gunung%20Bohong&query_place_id=ChIJpalhFPHlaC4R_5WE_LUF0Bw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Puncak%20Eurad&query_place_id=ChIJ5_6aW8XfaC4RrtKR92P_PC4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Puncak%20Mega%20(Gn%20Puntang)&query_place_id=ChIJDQIzbZuVaC4RZ-rhsuUpxzY"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Punclut%20Puncak&query_place_id=ChIJNbO7_NPmaC4Rq9bKfN9tV0M"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Layung%20%26%20Camping%20Ground&query_place_id=ChIJDb_T8kLhaC4R51rzsM7ZZVc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Malela&query_place_id=ChIJ5aofLVBZaC4R4lZOp5B_emM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Maribaya&query_place_id=ChIJAxCGK6XgaC4RNltQlv39MKE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=curug%20nyalangkadar&query_place_id=ChIJPW-mTAD5aC4RmYLHQiUbTXI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Ngebul%20Cianjur%20Selatan&query_place_id=ChIJ17WXtC5haC4R3KOwXK1RK5Q"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Panyandaan&query_place_id=ChIJSa90EoT1aC4Rk-W-My6p1_Y"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Jl.%20Curug%20Panganten&query_place_id=ChIJNSkjEPjjaC4Rq4-JaclYcL8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Pelangi&query_place_id=ChIJc5yw4_fhaC4RhxOyVZWZifI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Walanda&query_place_id=ChIJg8_ElDKoaS4R0-oy_NhXO3Y"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=D%E2%80%99Dieuland&query_place_id=ChIJCcsMvtXgaC4RnoLxtrV8Ymc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Tilu%20Leuwi%20Opat&query_place_id=ChIJBWTDg47haC4R8_hEkSFeJ3I"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Dago%20Bakery%20punclut&query_place_id=ChIJC1zpuynhaC4Rv3W00zM1Fls"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Dago%20Dreampark&query_place_id=ChIJeUGDdCvnaC4RX24Dt0esfD4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Danau%20Biru%20Situ%20Cilembang&query_place_id=ChIJr7Ui1wMpaS4ReC3J1weOj6c"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=De'%20Ranch&query_place_id=ChIJ0Q5faePgaC4RMJ0GoMgAbAE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Dusun%20Bambu%20Lembang&query_place_id=ChIJb0cs8IvhaC4RTzpMGHCBpHQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kampung%20Buricak%20Burinong&query_place_id=ChIJd4msSyAtby4RvjMoZAJOgww"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=D'Riam%20Riverside&query_place_id=ChIJl8A9nertaC4RYWfiuhcaMBI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Fairy%20Garden%20Edutainment%20Park%20by%20The%20Lodge&query_place_id=ChIJWck1uRXeaC4R5ynQbBfGAPk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Ecopark%20Curugtilu&query_place_id=ChIJs5uqeFGLaC4RjUXgBUqBwIY"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Farm%20House%20Susu%20Lembang&query_place_id=ChIJia31vjvhaC4RcSMrAu3razU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Floating%20Market%20Lembang&query_place_id=ChIJ5SedShzhaC4RVU8QCM4azXs"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Hutan%20Kota%20Babakan%20Siliwangi%20Bandung&query_place_id=ChIJ4zOrQPjmaC4R-hC2awabT3M"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Alam%20Wisata%20Cimahi&query_place_id=ChIJAbspL_PjaC4RGwfytELeq50"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Alun-Alun&query_place_id=ChIJIfvr4C_RaC4RCBq4ogyDF-w"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gantolle%20Paralayang%20Singajaya%20Cihampelas&query_place_id=ChIJSybkhSPwaC4RxsRybOEfmbw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bendungan%20Jatigede&query_place_id=ChIJlYDVNQ8tby4R022zvEUEPcM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bird%20Pavilion&query_place_id=ChIJISCBFczgaC4RAWCVd1ONVqE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Barusen%20Hills&query_place_id=ChIJCYC8gJWSaC4RpfpenibvLGw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gedung%20Indonesia%20Menggugat&query_place_id=ChIJCfSWFTrmaC4R22PMVdzGW9A"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Geger%20Bintang%20Matahari%20Gunung%20Putri&query_place_id=ChIJpyzCuVngaC4RVU6VWGUATWU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bukit%20senyum&query_place_id=ChIJ26aRnXsdaS4RgBltN-WCsLM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cadas%20Pangeran%20Sumedang&query_place_id=ChIJh6Pd8-PRaC4RT7XMpGjIQ98"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cakrawala%20Resto&query_place_id=ChIJVVWeVvHmaC4R1Q8Q7y2VDsw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cicalengka%20Dreamland&query_place_id=ChIJKRu4VcvPaC4RLwRHWB98sa4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cimahi%20Techno%20Park&query_place_id=ChIJxSRe6BflaC4RFIkDdhFfap4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Dairyland%20Farm%20Theme%20Park%20Puncak&query_place_id=ChIJjyTpuxDJaS4R40dsaS6zJi8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Ciwangun%20Indah%20Camp&query_place_id=ChIJX-Jnyo3haC4RP4_AdBQXRvw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Air%20Terjun%20Anom&query_place_id=ChIJayJIusPjaC4RYHHMN37Na4w"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cimahi%20Mall&query_place_id=ChIJYVoj2MflaC4RV6d342-reic"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Bugbrug&query_place_id=ChIJ7UjmF1LhaC4RoKbIlIVS2v0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cikole%20Jayagiri%20Resort&query_place_id=ChIJB-ndBGvgaC4R2w6NT89_jO4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Ceret%20(Naringgul)&query_place_id=ChIJm9bQvQKHaC4RRAgjTKE2CYU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Cilengkrang&query_place_id=ChIJn9nMAPHcaC4RSDtSzhnEZoU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Cinulang&query_place_id=ChIJDbM48vTPaC4RacUQQPXUjsc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Aseupan&query_place_id=ChIJdZffD9_haC4RCz8_rf5QzdI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=CURUG%20BATU%20TEMPLEK%20CISANGGARUNG&query_place_id=ChIJLfH8F5PdaC4Ra6lG7TD33_g"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Dago&query_place_id=ChIJ8fAGLt7maC4Rs7svAM1wH-Y"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Cipanas&query_place_id=ChIJUZR7YpnhaC4RQs6M-vOT2rA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Rengganis%20Suspension%20Bridge&query_place_id=ChIJu6xh-pGLaC4RgKp4gou_wR0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Curug%20Gorobog&query_place_id=ChIJewt2agfSaC4RZihBj03HWQw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Belanda&query_place_id=ChIJrzbehdrlaC4Rl0N4eju7cmU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Love%20Soreang&query_place_id=ChIJBUW2Wr3taC4RHSWxQw75mmM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Lembah%20DEWATA&query_place_id=ChIJn8abk-LgaC4RMKBFBngt5Jo"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Guguk%20Petshop&query_place_id=ChIJhQ5yLrXmaC4RPtMtgHtoUS0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sanghyang%20Heuleut&query_place_id=ChIJhZQ93yH5aC4RvQf1HVZ3tzc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sanghyang%20Kenit&query_place_id=ChIJ1aA5wKX5aC4Rp5i9J9cpnes"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sunrise%20Point%20Cukul&query_place_id=ChIJNVohHfGQaC4Rn9CGfUiBBoI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Hutan%20Mycelia%20Wahana%20Edukasi%20%26%20Interaktif&query_place_id=ChIJ56iFzr_haC4R9Zzi5hge8_4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sanghyang%20Poek%20Bandung%20purba&query_place_id=ChIJ9dLIAiX5aC4RQOIRasoIyfc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Panatayuda&query_place_id=ChIJh8jB403maC4RESUYKkBElxw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Pramuka&query_place_id=ChIJm9ICwcvnaC4Rm_a-5ecbrhg"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Maluku&query_place_id=ChIJOzv_eTbmaC4R5PHL5afLZv4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Sejarah%20Bandung&query_place_id=ChIJ64KigjfmaC4RYmNYyYqAV0k"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Vanda&query_place_id=ChIJ4_mfmDDmaC4RjZ5NPgO9_PI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sarae%20Hills&query_place_id=ChIJcV52mNXgaC4RS4T6WU1owQ8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sanghyang%20Tikoro&query_place_id=ChIJtdhk3C_5aC4RMhx8bEgY20Y"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Situ%20Ciseupan%20Cibeber&query_place_id=ChIJR25lkCjlaC4RY3tnjTlnmp4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20keindahan%20alam%20hutan%20cimanggu&query_place_id=ChIJI7O87ruBby4RuTcKo9t4tH0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Wisata%20Bougenville&query_place_id=ChIJYX4zEsGUaC4RdHx2FeOpGQQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20Tanjung%20Duriat&query_place_id=ChIJpRRtzvksby4RzACfguN8etM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Gn.%20Hawu&query_place_id=ChIJmQ2p6r78aC4ReRxX82rRrgw"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Cikahuripan&query_place_id=ChIJMRXNHeb5aC4R3ZJCeZ0uVzA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Southland%20Camp&query_place_id=ChIJFSz2XYeMaC4RbgKFXmvIVVA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Tebing%20Karaton&query_place_id=ChIJwX3fcSHnaC4RRwqIfgJdkC8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Palayangan%20River&query_place_id=ChIJ5ZaSISeRaC4RPTIX-35U4-A"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Tafso%20Barn&query_place_id=ChIJR4j-ndXgaC4R7nY8HM89Ico"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Sudut%20Pandang%20Bandung&query_place_id=ChIJg5aI7frhaC4REqh7jx3_LZM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Tahura%20Gunung%20Kunci&query_place_id=ChIJcVwN9hfRaC4RDogyRPU6Rvk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Teras%20Sunda%20Cibiru&query_place_id=ChIJ49zoKQrDaC4R3YKF2XATdDI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kawasan%20Konservasi%20Taman%20Buru%20G.%20Masigit%20Kareumbi&query_place_id=ChIJx94b2lbOaC4RHifp2g8RnEE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=The%20Lodge%20Maribaya&query_place_id=ChIJI9FcZuXnaC4Rypqqskb250I"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Terminal%20Wisata%20Grafika%20Cikole&query_place_id=ChIJb_4hpRTgaC4RhHELJZTCoMY"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=TOKO%20GOBERZ%20AUDIO%20MOBIL%2097&query_place_id=ChIJZ4oPAbXnaC4ReIbiUW7xtu0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Alun-Alun%20Kota%20Cimahi&query_place_id=ChIJpcO0o0PkaC4RlDN0zejOQ3Y"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=The%20Great%20Asia%20Africa&query_place_id=ChIJrZMq_VrhaC4RjvaH06iyNa0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=The%20Nice%20Park%20Bandung&query_place_id=ChIJN6smqPPjaC4RyqIV1nm3fK8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20Batu%20Kuda&query_place_id=ChIJ_Rd4PpLcaC4RhcOYyolmwK4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Dewi%20Sartika&query_place_id=ChIJFViNADrmaC4RlxbBEqA5yHA"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=TOGA%20HILL&query_place_id=ChIJhRnMbkzRaC4RjZ1hLvVkAfU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20EcoWisata%20Cimenteng&query_place_id=ChIJ7eEMCv7jaC4RNRa7f1PwDgU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=wisata%20hutan%20pinus%20pal%2016%20cikole%20lembang&query_place_id=ChIJq6qqqkbgaC4RwfR8FyQyfuo"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wot%20Batu&query_place_id=ChIJfUpUnjvnaC4RvuXJAgevtS8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Venus%20Cimahi&query_place_id=ChIJi8JzIkXkaC4RGtNlmH1NRl4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Victory%20Waterpark&query_place_id=ChIJBZmJxmrtaC4RjDjvobJyh7s"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wahoo%20Waterworld%20Bandung&query_place_id=ChIJS3iQYLz7aC4Rod5ZYaaPDdM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Endog&query_place_id=ChIJ1cP5YznRaC4R9B4AmCPxP9Q"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Kartini&query_place_id=ChIJKw_b6VLkaC4Rto93Y25YDb0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20Air%20GAJAH%20DEPA&query_place_id=ChIJiexkW6TWaC4RvJa5EtBGhQc"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Situ%20Datar%20Buana&query_place_id=ChIJCXWW-DiRaC4R6LZRSJDCP98"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Stone%20Garden%20Citatah&query_place_id=ChIJ7bjao1n8aC4Ro5xdaKfIDnI"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Tepi%20Danau&query_place_id=ChIJbeSlr2v7aC4Rf9tM_NxU9d8"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Wisata%20Kampoeng%20Ciherang&query_place_id=ChIJAe9_C2TZaC4RAkWfB0B7TLU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Kupu-Kupu%20Cihanjuang&query_place_id=ChIJ87h0BRvkaC4Rnt9wmgSwFVQ"
+    }
+  ],
+  "maxReviews": 30,
+  "language": "id",
+  "reviewsSort": "newest"
+}

@@ -1,0 +1,40 @@
+﻿source_row,priority,location_id,location_name_excel,category_excel,media_image_url_candidate,media_domain,media_source_manual,manual_media_decision,applied_to_dataset
+6,1,LOC-017,Cihampelas Walk,Tempat Belanja,https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+7,1,LOC-120,Rumah Guguk,Wisata Satwa,https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+8,1,LOC-121,NuArt Sculpture Park,Tempat Seni,https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+9,1,LOC-133,Punclut Bandung (Puncak Ciumbuleuit),Wisata Alam,https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+10,1,LOC-134,Bukit Bintang Bandung (Patahan Lembang),Wisata Alam,https://images.unsplash.com/photo-1475274047050-1d0c0975c63e?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+11,1,LOC-148,Pesona Nirwana Waterpark,Wahana Air,https://images.unsplash.com/photo-1519817650390-64a93db51149?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+12,1,LOC-173,Cakrawala Nature Sparkling Restaurant,Tempat Kuliner,https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+13,1,LOC-174,Lereng Anteng Panoramic Coffee,Tempat Kuliner,https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+14,1,LOC-177,Wahoo Waterworld,Wahana Air,https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+15,1,LOC-178,De'Ranch Lembang,Wisata Satwa,https://images.unsplash.com/photo-1553284965-83fd3e82fa52?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+16,1,LOC-180,Cimory Dairyland Lembang,Wisata Satwa,https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+17,1,LOC-181,Noah's Park Lembang,Rekreasi Keluarga,https://images.unsplash.com/photo-1566415712160-b51317ded491?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+18,1,LOC-220,Nimo Jungle Hot Spring,Wisata Alam,https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+19,2,LOC-135,Taman Main Mili-Mili & Hutan Mycelia,Rekreasi Keluarga,https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+20,2,LOC-139,Kawah Rengganis Ciwidey,Wisata Alam,https://zumartour.com/wp-content/uploads/2024/11/kawah-rengganis-ciwidey-819x1024.webp,zumartour.com,manual_excel_2026-06-09,accepted_by_user,True
+21,2,LOC-149,Taman Wisata Alam Cimanggu,Wisata Alam,https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+22,2,LOC-158,Situ Ninah (Situ Datar),Wisata Alam,https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+23,2,LOC-163,Kampung Adat Cikondang,Desa Wisata,https://images.unsplash.com/photo-1590001155093-a3c66ab0c3ff?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+24,2,LOC-164,Java Preanger Gunung Tilu,Wisata Alam,https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+25,2,LOC-176,Padepokan Dayang Sumbi,Tempat Belajar,https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+26,2,LOC-182,Pine Forest Camp Lembang,Tempat Camping,https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+27,2,LOC-183,Imah Seniman Lembang,Penginapan Wisata,https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+28,2,LOC-186,Indiana Camp Lembang,Tempat Camping,https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+29,2,LOC-187,Curug Layung,Wisata Alam,https://images.unsplash.com/photo-1432406186174-2b24f4a6fe9c?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+30,2,LOC-190,Curug Anom,Wisata Alam,https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+31,2,LOC-193,Sanghyang Poek,Wisata Alam,https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+32,2,LOC-195,Sungai Cikahuripan Green Canyon Saguling,Wisata Alam,https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+33,2,LOC-198,Tebing Gunung Hawu,Wisata Alam,https://tourbandung.com/wp-content/webp-express/webp-images/uploads/2019/10/gunung-hawu-padalarang.jpg.webp,tourbandung.com,manual_excel_2026-06-09,accepted_by_user,True
+34,2,LOC-201,Curug Batu Templek,Wisata Alam,https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+35,2,LOC-213,Taman Cibeunying,Taman Kota,https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+36,2,LOC-215,Taman Pramuka Bandung,Taman Kota,https://images.unsplash.com/photo-1596436889106-be35e843f974?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+37,2,LOC-217,Karang Setra Waterland,Wahana Air,https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+38,2,LOC-219,Museum Inggit Garnasih,Tempat Belajar,https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+39,2,LOC-222,Nuansa Riung Gunung,Wisata Alam,https://images.unsplash.com/photo-1534447677768-be436bb09401?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+40,2,LOC-224,Sungai Palayangan Rafting,Wisata Petualangan,https://images.unsplash.com/photo-1530866495561-507c9faab2ed?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+41,2,LOC-225,Curug Ceret Pangalengan,Wisata Alam,https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+42,2,LOC-226,Gunung Nini Pangalengan,Wisata Alam,https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+43,3,LOC-192,Curug Ngebul Gununghalu,Wisata Alam,https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True
+44,3,LOC-196,Curug Walanda Citatah,Wisata Alam,https://images.unsplash.com/photo-1472214222541-d510753a4707?w=800&q=80,images.unsplash.com,manual_excel_2026-06-09,accepted_by_user,True

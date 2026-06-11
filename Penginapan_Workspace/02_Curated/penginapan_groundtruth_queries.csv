@@ -1,0 +1,11 @@
+id,scenario,query,expected_property_type,forbidden_property_type,user_lat,user_lon,realworld_note
+PT001,General Query,murah dekat alun alun bandung,,apartment,,,Should not have apartment for general query
+PT002,General Query,penginapan keluarga yang aman,,apartment,,,Families generally look for guest houses villas or hotels
+PT003,Specific Hotel,hotel bintang 4 bandung,hotel,,,,Must return hotel
+PT004,Specific Apartment,apartemen studio murah,apartment,,,,Must return apartment since it is specified
+PT005,Specific Apartment,penginapan long stay 2br,apartment,,,,Should recognize 2br and long stay as apartment
+PT006,Specific Villa,sewa villa buat rombongan,villa,,,,Must return villa
+PT007,Specific Guest House,syariah murah,guest_house,,,,Usually guest house or hotel
+PT008,Specific Vacation Rental,sewa rumah harian bandung,vacation_rental,,,,Must return vacation rental
+PT009,General Query,tempat menginap budget under 200rb,,apartment,,,General budget query should prefer non-apartment
+PT010,Specific Apartment,bulanan dekat dago,apartment,,,,Bulanan intent usually matches apartment

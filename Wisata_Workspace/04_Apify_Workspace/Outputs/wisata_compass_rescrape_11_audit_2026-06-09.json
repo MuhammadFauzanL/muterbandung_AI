@@ -1,0 +1,18 @@
+{
+  "raw_file": "D:/File/file/Fauzan Lubada/PIJAK/dataset_Google-Maps-Reviews-Scraper_2026-06-09_02-16-12-254.json",
+  "target_index": "D:/File/file/Fauzan Lubada/PIJAK/Wisata_Workspace/04_Apify_Workspace/Inputs/compass_wisata_rescrape_place_url_template_11_2026-06-09_index.csv",
+  "raw_review_rows": 293,
+  "unique_search_strings": 10,
+  "mapped_targets": 10,
+  "total_text_rows": 140,
+  "unique_review_ids_total": 293,
+  "duplicate_review_id_count": 0,
+  "decision_counts": {
+    "needs_manual_check": 8,
+    "accept_after_light_check": 1,
+    "exclude_user_cancel": 1
+  },
+  "excluded_by_user": [
+    "LOC-213"
+  ]
+}

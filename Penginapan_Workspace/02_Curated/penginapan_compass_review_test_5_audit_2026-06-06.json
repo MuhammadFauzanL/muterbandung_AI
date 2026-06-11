@@ -1,0 +1,50 @@
+{
+  "raw_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\google_maps_reviews_json\\dataset_Google-Maps-Reviews-Scraper_2026-06-06_03-50-37-656.json",
+  "index_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_Final_Ready\\compass_google_maps_reviews_test_5_search_urls_index_2026-06-06.csv",
+  "raw_review_rows": 121,
+  "target_rows": 5,
+  "matched_review_rows": 121,
+  "rows_with_text": 80,
+  "rows_with_place_id": 121,
+  "unique_search_strings": 4,
+  "unique_place_titles": 4,
+  "unique_place_ids": 5,
+  "per_target_rows": [
+    {
+      "review_target_id": "PHREV-20260605-0036",
+      "name_target": "Gateway Apartment Cicadas by DB Property",
+      "review_rows": 31,
+      "text_rows": 14,
+      "unique_place_titles": "Gateway Apartment Cicadas by DB Property",
+      "unique_place_ids": 2,
+      "place_title_match_rate": 1.0
+    },
+    {
+      "review_target_id": "PHREV-20260605-0126",
+      "name_target": "Apartemen Emerald Tower",
+      "review_rows": 30,
+      "text_rows": 26,
+      "unique_place_titles": "Apartemen Emerald Tower",
+      "unique_place_ids": 1,
+      "place_title_match_rate": 1.0
+    },
+    {
+      "review_target_id": "PHREV-20260605-0161",
+      "name_target": "High Livin Apartment Asia Afrika",
+      "review_rows": 30,
+      "text_rows": 16,
+      "unique_place_titles": "High Livin Apartment Asia Afrika",
+      "unique_place_ids": 1,
+      "place_title_match_rate": 1.0
+    },
+    {
+      "review_target_id": "PHREV-20260605-0331",
+      "name_target": "Ibis Bandung Trans Studio Hotel",
+      "review_rows": 30,
+      "text_rows": 24,
+      "unique_place_titles": "Ibis Bandung Trans Studio Hotel",
+      "unique_place_ids": 1,
+      "place_title_match_rate": 1.0
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "source_workbook": "Daftar_Destinasi_Wisata_Bandung_Professional.xlsx",
+  "manual_media_extract_csv": "Wisata_Workspace/01_Dataset/3_Curated/manual_media_fill_from_excel_2026-06-09.csv",
+  "media_filled_dataset_csv": "Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_FILLED_2026-06-09.csv",
+  "manual_rows": 39,
+  "updated_rows": 39,
+  "before_active_media_available_rows": 170,
+  "after_active_media_available_rows": 209,
+  "before_active_missing_media_rows": 39,
+  "after_active_missing_media_rows": 0,
+  "before_active_media_coverage_pct": 81.3,
+  "after_active_media_coverage_pct": 100.0,
+  "apply_ready": true
+}

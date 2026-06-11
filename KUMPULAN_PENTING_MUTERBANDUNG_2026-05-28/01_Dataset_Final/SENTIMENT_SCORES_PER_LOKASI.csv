@@ -1,0 +1,213 @@
+location_name,total_ulasan,avg_sentimen_skor,avg_rating,ulasan_positif,ulasan_negatif,sentimen_label_lokasi,sentiment_score,sentiment_model_source,sentiment_model_version,sentiment_available
+Gunung Artapela,9,1.0,4.777777777777778,9,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Nyalangkadar,1,1.0,5.0,1,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Ceret Pangalengan,52,1.0,4.846153846153846,52,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cikole Jayagiri Resort,4,1.0,5.0,4,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Toga Villa & Resto,2,1.0,5.0,2,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tebing Karaton,17,1.0,4.823529411764706,17,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Panama Park 825,18,1.0,4.944444444444445,18,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Rengganis Suspension Bridge,19,1.0,4.947368421052632,19,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Southland Camp Ciwidey,10,1.0,4.3,10,0,Sangat Positif,1.0,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Ecowisata Cimenteng,57,0.9824561403508772,4.87719298245614,56,0,Sangat Positif,0.9824561403508772,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Singkur,51,0.9803921568627452,4.823529411764706,50,0,Sangat Positif,0.9803921568627452,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Hutan Raya Ir. H. Djuanda,200,0.975,4.85,196,1,Sangat Positif,0.975,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Saung Angklung Udjo,200,0.975,4.87,196,1,Sangat Positif,0.975,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Geologi Bandung,200,0.975,4.89,197,2,Sangat Positif,0.975,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Lembang Park & Zoo,173,0.9710982658959536,4.930635838150289,170,2,Sangat Positif,0.9710982658959536,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Konferensi Asia Afrika,200,0.97,4.85,196,2,Sangat Positif,0.97,tfidf_linearsvc,run_nlp_pipeline_v2,True
+NuArt Sculpture Park,409,0.9657701711491442,4.850855745721272,399,4,Sangat Positif,0.9657701711491442,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Perkebunan Teh Malabar,517,0.9632495164410058,4.843326885880077,501,3,Sangat Positif,0.9632495164410058,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Glamping Legok Kondang,52,0.9615384615384616,4.807692307692308,50,0,Sangat Positif,0.9615384615384616,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wahoo Waterworld,207,0.961352657004831,4.942028985507246,202,3,Sangat Positif,0.961352657004831,tfidf_linearsvc,run_nlp_pipeline_v2,True
+The Nice Park Bandung,381,0.9606299212598424,4.955380577427822,373,7,Sangat Positif,0.9606299212598424,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wayang Windu Panenjoan,200,0.96,4.775,194,2,Sangat Positif,0.96,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bukit Moko Bandung,200,0.96,4.705,193,1,Sangat Positif,0.96,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Puncak Mega Gunung Puntang,24,0.9583333333333334,4.791666666666667,23,0,Sangat Positif,0.9583333333333334,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gedung Sate,200,0.95,4.785,192,2,Sangat Positif,0.95,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Malabar Mountain Coffee Shop & Eatery,179,0.9497206703910616,4.726256983240224,173,3,Sangat Positif,0.9497206703910616,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Sri Baduga,198,0.9494949494949496,4.686868686868687,191,3,Sangat Positif,0.9494949494949496,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gunung Bohong,76,0.9473684210526316,4.618421052631579,73,1,Sangat Positif,0.9473684210526316,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Kota Bandung,19,0.9473684210526316,4.526315789473684,18,0,Sangat Positif,0.9473684210526316,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Lawangwangi Creative Space,560,0.9464285714285714,4.776785714285714,543,13,Sangat Positif,0.9464285714285714,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gedung Merdeka,126,0.9444444444444444,4.746031746031746,121,2,Sangat Positif,0.9444444444444444,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sanghyang Kenit,53,0.9433962264150944,4.566037735849057,51,1,Sangat Positif,0.9433962264150944,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sunrise Point Cukul,94,0.9361702127659576,4.808510638297872,90,2,Sangat Positif,0.9361702127659576,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Musik,31,0.935483870967742,4.612903225806452,29,0,Sangat Positif,0.935483870967742,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Puncak Bukit Kujang Gunung Bohong,46,0.9347826086956522,4.826086956521739,44,1,Sangat Positif,0.9347826086956522,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gunung Puntang,30,0.9333333333333332,4.733333333333333,29,1,Sangat Positif,0.9333333333333332,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Aseupan,150,0.9333333333333332,4.76,142,2,Sangat Positif,0.9333333333333332,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Amazing Artgames,200,0.93,4.625,190,4,Sangat Positif,0.93,tfidf_linearsvc,run_nlp_pipeline_v2,True
+"Gereja Katedral Bandung, Santo Petrus",198,0.9242424242424242,4.808080808080808,190,7,Sangat Positif,0.9242424242424242,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Java Preanger Gunung Tilu,13,0.9230769230769232,4.538461538461538,12,0,Sangat Positif,0.9230769230769232,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Masjid Jami' Al Baakhirah,48,0.9166666666666666,4.75,45,1,Sangat Positif,0.9166666666666666,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sungai Palayangan Rafting,12,0.9166666666666666,4.416666666666667,11,0,Sangat Positif,0.9166666666666666,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gunung Putri Lembang,47,0.9148936170212766,4.659574468085107,45,2,Sangat Positif,0.9148936170212766,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Venus Cimahi,398,0.9095477386934674,4.736180904522613,374,12,Sangat Positif,0.9095477386934674,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Observatorium Bosscha,54,0.9074074074074074,4.833333333333333,51,2,Sangat Positif,0.9074074074074074,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Stone Garden Citatah,54,0.9074074074074074,4.62962962962963,50,1,Sangat Positif,0.9074074074074074,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gunung Batu Lembang,53,0.9056603773584906,4.735849056603773,49,1,Sangat Positif,0.9056603773584906,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Superhero,200,0.905,4.55,185,4,Sangat Positif,0.905,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Inggit Garnasih,292,0.9041095890410958,4.77054794520548,267,3,Sangat Positif,0.9041095890410958,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wot Batu,52,0.903846153846154,4.75,49,2,Sangat Positif,0.903846153846154,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Vihara Satya Budhi,82,0.902439024390244,4.719512195121951,77,3,Sangat Positif,0.902439024390244,tfidf_linearsvc,run_nlp_pipeline_v2,True
+The Lodge Maribaya,265,0.9018867924528302,4.754716981132075,249,10,Sangat Positif,0.9018867924528302,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Teras Sunda Cibiru,377,0.9018567639257294,4.607427055702917,347,7,Sangat Positif,0.9018567639257294,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Langit Pangalengan (Sunrise Point & Camping Ground),200,0.9,4.63,186,6,Sangat Positif,0.9,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cihampelas Walk,200,0.9,4.685,189,9,Sangat Positif,0.9,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kebun Binatang Bandung,213,0.8967136150234741,4.549295774647887,196,5,Sangat Positif,0.8967136150234741,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cimahi Techno Park,410,0.8951219512195122,4.587804878048781,377,10,Sangat Positif,0.8951219512195122,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Mata Air Cikandung,19,0.8947368421052632,4.631578947368421,17,0,Sangat Positif,0.8947368421052632,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kebun Begonia Lembang,463,0.8941684665226782,4.578833693304536,425,11,Sangat Positif,0.8941684665226782,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Pos Indonesia,198,0.8939393939393939,4.6767676767676765,182,5,Sangat Positif,0.8939393939393939,tfidf_linearsvc,run_nlp_pipeline_v2,True
+The Kings Shopping Centre,200,0.89,4.55,185,7,Sangat Positif,0.89,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Cireundeu,54,0.8888888888888888,4.62962962962963,51,3,Sangat Positif,0.8888888888888888,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Vanda,9,0.8888888888888888,4.555555555555555,8,0,Sangat Positif,0.8888888888888888,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Adat Cikondang,9,0.8888888888888888,4.777777777777778,8,0,Sangat Positif,0.8888888888888888,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pandiga Educreation Sports,18,0.8888888888888888,4.222222222222222,17,1,Sangat Positif,0.8888888888888888,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cadas Pangeran Sumedang,336,0.8869047619047619,4.636904761904762,312,14,Sangat Positif,0.8869047619047619,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Nuansa Riung Gunung,53,0.8867924528301887,4.69811320754717,49,2,Sangat Positif,0.8867924528301887,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Driam Riverside,53,0.8867924528301887,4.735849056603773,50,3,Sangat Positif,0.8867924528301887,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Braga Citywalk,200,0.885,4.57,182,5,Sangat Positif,0.885,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Penangkaran Rusa Ranca Upas,200,0.885,4.55,184,7,Sangat Positif,0.885,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Situ Cileunca Pangalengan Bandung,200,0.885,4.56,182,5,Sangat Positif,0.885,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Wisata Alam Cimanggu,26,0.8846153846153846,4.653846153846154,24,1,Sangat Positif,0.8846153846153846,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Dago,51,0.8823529411764706,4.509803921568627,46,1,Sangat Positif,0.8823529411764706,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Dewi Sartika,225,0.88,4.671111111111111,207,9,Sangat Positif,0.88,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Selasar Sunaryo Art Space,199,0.8793969849246231,4.592964824120603,183,8,Sangat Positif,0.8793969849246231,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gedung Indonesia Menggugat,40,0.875,4.75,36,1,Sangat Positif,0.875,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Monumen Perjuangan Rakyat Jawa Barat,8,0.875,4.625,7,0,Sangat Positif,0.875,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Lansia,199,0.8743718592964824,4.442211055276382,177,3,Sangat Positif,0.8743718592964824,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Anom,162,0.8703703703703703,4.5,146,5,Sangat Positif,0.8703703703703703,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tebing Gunung Hawu,46,0.8695652173913043,4.565217391304348,42,2,Sangat Positif,0.8695652173913043,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kebun Teh Sukawana,252,0.8690476190476191,4.5,231,12,Sangat Positif,0.8690476190476191,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sudut Pandang Bandung,1182,0.868020304568528,4.579526226734348,1072,46,Sangat Positif,0.868020304568528,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Sejarah Bandung,83,0.8674698795180723,4.421686746987952,74,2,Sangat Positif,0.8674698795180723,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Lapangan Gasibu,377,0.8647214854111406,4.612732095490716,345,19,Sangat Positif,0.8647214854111406,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Tilu Leuwi Opat,44,0.8636363636363636,4.659090909090909,39,1,Sangat Positif,0.8636363636363636,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Chinatown Bandung,200,0.86,4.415,174,2,Sangat Positif,0.86,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tahura Gunung Kunci,595,0.8588235294117647,4.502521008403361,531,20,Sangat Positif,0.8588235294117647,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Peta Park,14,0.8571428571428571,4.642857142857143,13,1,Sangat Positif,0.8571428571428571,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Foto Bandung,200,0.855,4.555,177,6,Sangat Positif,0.855,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Jendela Alam,649,0.8536209553158706,4.562403697996919,579,25,Sangat Positif,0.8536209553158706,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Terminal Wisata Grafika Cikole,527,0.8519924098671727,4.554079696394687,474,25,Sangat Positif,0.8519924098671727,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Pelangi,54,0.8518518518518519,4.666666666666667,49,3,Sangat Positif,0.8518518518518519,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bumi Perkemahan Ranca Upas Bandung,67,0.8507462686567164,4.552238805970149,60,3,Sangat Positif,0.8507462686567164,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Buyut Cipageran (Kabuci) Asih Putera,487,0.8501026694045175,4.552361396303901,435,21,Sangat Positif,0.8501026694045175,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wisata Kampoeng Ciherang,53,0.8490566037735849,4.377358490566038,47,2,Sangat Positif,0.8490566037735849,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Guha Pawon,46,0.8478260869565217,4.652173913043479,41,2,Sangat Positif,0.8478260869565217,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Alun-Alun Kota Cimahi,681,0.8472834067547724,4.538913362701909,601,24,Sangat Positif,0.8472834067547724,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Bugbrug,123,0.8455284552845529,4.577235772357724,110,6,Sangat Positif,0.8455284552845529,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Lalu Lintas Ade Irma Suryani Nasution,200,0.845,4.515,178,9,Sangat Positif,0.845,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Happyfarm Ciwidey,200,0.845,4.415,174,5,Sangat Positif,0.845,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pine Forest Camp Lembang,19,0.8421052631578947,4.526315789473684,17,1,Sangat Positif,0.8421052631578947,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Situ Cisanti,195,0.841025641025641,4.5487179487179485,170,6,Sangat Positif,0.841025641025641,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gantolle Paralayang Singajaya Cihampelas,463,0.8401727861771058,4.533477321814255,415,26,Sangat Positif,0.8401727861771058,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Alam Wisata Cimahi,1068,0.8380149812734082,4.440074906367041,934,39,Sangat Positif,0.8380149812734082,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Pramuka Bandung,36,0.8333333333333334,4.555555555555555,31,1,Sangat Positif,0.8333333333333334,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Buru Gunung Masigit Kareumbi,195,0.8307692307692308,4.482051282051282,169,7,Sangat Positif,0.8307692307692308,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Ciwangun Indah Camp,392,0.8290816326530612,4.540816326530612,347,22,Sangat Positif,0.8290816326530612,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Paris Van Java Resort Lifestyle Place,200,0.82,4.445,176,12,Sangat Positif,0.82,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Ranca Upas Ciwidey,200,0.82,4.485,177,13,Sangat Positif,0.82,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Endog,98,0.8163265306122449,4.561224489795919,84,4,Sangat Positif,0.8163265306122449,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Panyandaan,48,0.8125,4.104166666666667,42,3,Sangat Positif,0.8125,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Teras Cikapundung Bbws,200,0.81,4.31,170,8,Sangat Positif,0.81,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Floating Market Lembang,52,0.8076923076923077,4.480769230769231,46,4,Sangat Positif,0.8076923076923077,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bukit Senyum,415,0.8,4.36867469879518,355,23,Sangat Positif,0.8,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kawah Putih,200,0.8,4.49,173,13,Sangat Positif,0.8,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Masjid Raya Al-Jabbar,20,0.8,4.75,18,2,Sangat Positif,0.8,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Situ Ciseupan Cibeber,49,0.7959183673469388,4.612244897959184,41,2,Sangat Positif,0.7959183673469388,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Pendidikan Nasional UPI,34,0.7941176470588235,4.588235294117647,28,1,Sangat Positif,0.7941176470588235,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Kupu-Kupu Cihanjuang,48,0.7916666666666666,4.5625,41,3,Sangat Positif,0.7916666666666666,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Hejo Forest Ciwidey,43,0.7906976744186046,4.5813953488372094,37,3,Sangat Positif,0.7906976744186046,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Toga Hill,56,0.7857142857142857,4.303571428571429,49,5,Sangat Positif,0.7857142857142857,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Panatayuda,37,0.7837837837837838,4.513513513513513,32,3,Sangat Positif,0.7837837837837838,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Wisata Bougenville,32,0.78125,4.5625,27,2,Sangat Positif,0.78125,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Barli,9,0.7777777777777778,4.555555555555555,8,1,Sangat Positif,0.7777777777777778,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Museum Mandala Wangsit Siliwangi,9,0.7777777777777778,4.555555555555555,8,1,Sangat Positif,0.7777777777777778,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pangjugjugan Sumedang,354,0.7768361581920904,4.254237288135593,297,22,Sangat Positif,0.7768361581920904,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Batu Templek,49,0.7755102040816326,4.469387755102041,41,3,Sangat Positif,0.7755102040816326,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bandung Indah Plaza,200,0.775,4.33,173,18,Sangat Positif,0.775,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sanghyang Tikoro,52,0.7692307692307693,4.269230769230769,44,4,Sangat Positif,0.7692307692307693,tfidf_linearsvc,run_nlp_pipeline_v2,True
+D'Dieuland,52,0.7692307692307693,4.153846153846154,44,4,Sangat Positif,0.7692307692307693,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kawah Wayang,52,0.7692307692307693,4.615384615384615,44,4,Sangat Positif,0.7692307692307693,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Main Mili-Mili & Hutan Mycelia,17,0.7647058823529411,4.411764705882353,15,2,Sangat Positif,0.7647058823529411,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Noah's Park Lembang,54,0.7592592592592593,4.481481481481482,46,5,Sangat Positif,0.7592592592592593,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Kartini,177,0.7570621468926554,4.4124293785310735,145,11,Sangat Positif,0.7570621468926554,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wisata Hutan Pinus Pal 16 Cikole Lembang,45,0.7555555555555555,4.466666666666667,39,5,Sangat Positif,0.7555555555555555,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wisata Air Gajah Depa,49,0.7551020408163265,4.428571428571429,41,4,Sangat Positif,0.7551020408163265,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Panenjoan Jatigede,57,0.7543859649122807,4.350877192982456,48,5,Sangat Positif,0.7543859649122807,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Cinulang,81,0.7530864197530864,4.271604938271605,66,5,Sangat Positif,0.7530864197530864,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Nimo Highland,250,0.752,4.344,209,21,Sangat Positif,0.752,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Palalangon Park,177,0.751412429378531,4.389830508474576,144,11,Sangat Positif,0.751412429378531,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Lembah Dewata,304,0.75,4.384868421052632,254,26,Sangat Positif,0.75,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Layung,52,0.75,4.461538461538462,44,5,Sangat Positif,0.75,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Film,198,0.7474747474747475,4.2727272727272725,158,10,Sangat Positif,0.7474747474747475,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kebun Strawberry Emte Highland Resort,259,0.7451737451737451,4.239382239382239,213,20,Sangat Positif,0.7451737451737451,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Wisata Batu Kuda,51,0.7450980392156863,4.529411764705882,43,5,Sangat Positif,0.7450980392156863,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Orchid Forest Cikole,230,0.7434782608695653,4.404347826086957,194,23,Sangat Positif,0.7434782608695653,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Danau Biru Situ Cilembang,46,0.7391304347826086,4.434782608695652,38,4,Sangat Positif,0.7391304347826086,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Gorobog,19,0.7368421052631579,4.157894736842105,16,2,Sangat Positif,0.7368421052631579,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Situ Patenggang Ciwidey Bandung,200,0.735,4.36,165,18,Sangat Positif,0.735,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kiara Artha Park,563,0.7282415630550622,4.353463587921847,467,57,Sangat Positif,0.7282415630550622,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Masjid Agung Sumedang,58,0.7241379310344828,4.362068965517241,49,7,Sangat Positif,0.7241379310344828,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tepi Danau,508,0.7224409448818898,4.289370078740157,413,46,Sangat Positif,0.7224409448818898,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Hutan Pinus Rahong,36,0.7222222222222222,4.277777777777778,31,5,Sangat Positif,0.7222222222222222,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tanjung Duriat,54,0.7222222222222222,4.37037037037037,44,5,Sangat Positif,0.7222222222222222,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Tafso Barn,190,0.7210526315789474,4.247368421052632,153,16,Sangat Positif,0.7210526315789474,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Fairy Garden by The Lodge,478,0.7133891213389121,4.2887029288702925,379,38,Sangat Positif,0.7133891213389121,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Mini Mania Lembang,44,0.7045454545454546,4.409090909090909,35,4,Sangat Positif,0.7045454545454546,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Malela,20,0.7,4.2,16,2,Sangat Positif,0.7,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bukit Jamur Rancabolang Pasirjambu,200,0.7,4.15,156,16,Sangat Positif,0.7,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bendungan Jatigede,50,0.7,4.26,42,7,Sangat Positif,0.7,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Jans Park (Jatinangor National Park),53,0.6981132075471698,4.566037735849057,43,6,Sangat Positif,0.6981132075471698,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Dago Bakery Punclut,775,0.6890322580645162,4.24,630,96,Sangat Positif,0.6890322580645162,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pesona Nirwana Waterpark,41,0.6829268292682927,4.2682926829268295,33,5,Sangat Positif,0.6829268292682927,tfidf_linearsvc,run_nlp_pipeline_v2,True
+The Great Asia Africa,509,0.6817288801571709,4.255402750491159,400,53,Sangat Positif,0.6817288801571709,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Muara Rahong Hills,105,0.6761904761904762,4.314285714285714,85,14,Sangat Positif,0.6761904761904762,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Alun-Alun Kota Bandung,200,0.675,4.225,158,23,Sangat Positif,0.675,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Imah Seniman Lembang,52,0.6730769230769231,4.365384615384615,42,7,Sangat Positif,0.6730769230769231,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sanghyang Poek,18,0.6666666666666666,4.277777777777778,14,2,Sangat Positif,0.6666666666666666,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Indiana Camp Lembang,56,0.6607142857142857,4.160714285714286,46,9,Sangat Positif,0.6607142857142857,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cimahi Mall,399,0.6491228070175439,4.190476190476191,302,43,Sangat Positif,0.6491228070175439,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Ecopark Curug Tilu Ciwidey,983,0.6480162767039674,4.171922685656154,763,126,Sangat Positif,0.6480162767039674,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Maribaya Natural Hotspring Resort,119,0.6470588235294118,4.285714285714286,89,12,Sangat Positif,0.6470588235294118,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Monumen Bandung Lautan Api,14,0.6428571428571429,4.214285714285714,11,2,Sangat Positif,0.6428571428571429,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sanghyang Heuleut,56,0.6428571428571429,4.214285714285714,45,9,Sangat Positif,0.6428571428571429,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Desa Wisata Buricak Burinong,52,0.6346153846153846,4.115384615384615,38,5,Sangat Positif,0.6346153846153846,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Barusen Hills Ciwidey,54,0.6111111111111112,4.074074074074074,42,9,Sangat Positif,0.6111111111111112,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pemandian Cipanas Cileungsing,54,0.6111111111111112,4.222222222222222,39,6,Sangat Positif,0.6111111111111112,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Farm House Susu Lembang,631,0.606973058637084,4.080824088748019,462,79,Sangat Positif,0.606973058637084,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Love Soreang,60,0.6,4.2,44,8,Sangat Positif,0.6,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kawah Rengganis Ciwidey,50,0.6,4.26,39,9,Sangat Positif,0.6,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Jomblo,199,0.5778894472361809,3.969849246231156,132,17,Positif,0.5778894472361809,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Dago Dreampark,51,0.5686274509803921,4.0588235294117645,37,8,Positif,0.5686274509803921,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bandung Carnival Land,88,0.5681818181818182,4.170454545454546,63,13,Positif,0.5681818181818182,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Rumah Makan Sangu Liwet Ibu Ika Pasirjambu Ciwidey,198,0.5656565656565656,3.984848484848485,139,27,Positif,0.5656565656565656,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cakrawala Nature Sparkling Restaurant,18,0.5555555555555556,3.5,14,4,Positif,0.5555555555555556,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Kampung Karuhun Eco Green Park Sumedang,49,0.5510204081632653,3.979591836734694,36,9,Positif,0.5510204081632653,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Masjid Agung Bandung,200,0.55,4.09,146,36,Positif,0.55,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Glamping Lakeside Rancabali,199,0.5477386934673367,3.969849246231156,147,38,Positif,0.5477386934673367,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Gn. Tangkuban Parahu,55,0.5454545454545454,4.0,40,10,Positif,0.5454545454545454,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bandung Science Center,109,0.5412844036697247,3.8623853211009176,76,17,Positif,0.5412844036697247,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Cipanas,49,0.5102040816326531,4.020408163265306,35,10,Positif,0.5102040816326531,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Upside Down World Bandung,199,0.5025125628140703,3.8241206030150754,132,32,Positif,0.5025125628140703,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cimory Dairyland Lembang,2,0.5,4.5,1,0,Positif,0.5,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Cilengkrang,48,0.5,3.8541666666666665,33,9,Positif,0.5,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Sarae Hills,46,0.5,4.021739130434782,33,10,Positif,0.5,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Taman Maluku,8,0.5,4.0,6,2,Positif,0.5,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Karang Setra Waterland,127,0.4960629921259842,3.811023622047244,90,27,Positif,0.4960629921259842,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Curug Maribaya,41,0.4878048780487805,3.926829268292683,28,8,Positif,0.4878048780487805,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Trans Studio Bandung,200,0.48,3.875,139,43,Positif,0.48,tfidf_linearsvc,run_nlp_pipeline_v2,True
+23 Paskal Shopping Center,200,0.48,3.89,142,46,Positif,0.48,tfidf_linearsvc,run_nlp_pipeline_v2,True
+De'Ranch Lembang,53,0.4339622641509434,3.679245283018868,37,14,Positif,0.4339622641509434,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Victory Waterpark Soreang,61,0.3770491803278688,3.6885245901639343,41,18,Positif,0.3770491803278688,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Rumah Guguk,55,0.3636363636363636,3.7818181818181817,34,14,Positif,0.3636363636363636,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Cicalengka Dreamland,47,0.3617021276595745,3.808510638297872,29,12,Positif,0.3617021276595745,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Puncak Eurad,43,0.3255813953488372,3.604651162790698,27,13,Positif,0.3255813953488372,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Ciwidey Valley Resort,199,0.2663316582914573,3.5025125628140703,109,56,Positif,0.2663316582914573,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Trans Studio Mall Bandung,200,0.265,3.515,118,65,Positif,0.265,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Lembang Wonderland,210,0.1571428571428571,3.1142857142857143,111,78,Netral,0.1571428571428571,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Forest Walk Babakan Siliwangi,20,0.15,3.35,10,7,Netral,0.15,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Pemandian Air Panas Cibolang,22,0.1363636363636363,3.227272727272727,9,6,Netral,0.1363636363636363,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Situ Ninah (Situ Datar),21,0.0952380952380952,3.095238095238096,11,9,Netral,0.0952380952380952,tfidf_linearsvc,run_nlp_pipeline_v2,True
+Bird & Bromelia Pavilion,26,-0.3076923076923077,2.4615384615384617,8,16,Negatif,-0.3076923076923077,tfidf_linearsvc,run_nlp_pipeline_v2,True

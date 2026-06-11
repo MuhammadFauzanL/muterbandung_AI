@@ -1,0 +1,14 @@
+﻿{
+    "created_at":  "2026-06-10T08:58:23",
+    "input_scoring_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_2026-06-10.csv",
+    "input_raw_file":  ".\\OlehOleh_Workspace\\01_Raw_Data\\google_maps_search_csv\\dataset_crawler-google-places_2026-06-09_09-19-46-159.csv",
+    "output_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_UI_ENRICHED_2026-06-10.csv",
+    "total_rows":  22,
+    "raw_match_rows":  22,
+    "image_available":  22,
+    "opening_hours_available":  21,
+    "price_range_available":  2,
+    "eligible_for_main":  20,
+    "not_eligible_for_main":  2,
+    "average_ui_field_completeness_score":  88.07
+}

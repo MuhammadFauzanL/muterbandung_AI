@@ -1,0 +1,257 @@
+{
+  "schema_version": "muterbandung.api_schema_snapshot.v1",
+  "recommend_request": {
+    "query": "wisata alam yang sejuk",
+    "top_k": 1
+  },
+  "top_level_keys": [
+    "after_filtering",
+    "ai_badge",
+    "ai_intents",
+    "api_schema_version",
+    "data_version",
+    "database_source",
+    "fallback",
+    "generated_at",
+    "implicit_filters",
+    "llm_evidence_pack",
+    "llm_prompt_guard",
+    "location_context",
+    "manual_filters",
+    "no_strong_match",
+    "query",
+    "realworld_filters",
+    "recommendations",
+    "request_id",
+    "status",
+    "total_candidates",
+    "total_rows_before_status_filter"
+  ],
+  "error_top_level_keys": [
+    "api_schema_version",
+    "data_version",
+    "errors",
+    "generated_at",
+    "message",
+    "request_id",
+    "status"
+  ],
+  "recommendation_keys": [
+    "alasan",
+    "adjusted_sentiment_score",
+    "category",
+    "distance_km",
+    "distance_label",
+    "final_score",
+    "info_praktis",
+    "label_taxonomy",
+    "location_id",
+    "location_name",
+    "media",
+    "multi_labels",
+    "rank",
+    "realworld_flags",
+    "review_confidence",
+    "review_confidence_label",
+    "score_breakdown",
+    "sentiment_available",
+    "sentiment_metadata",
+    "sentiment_model_source",
+    "sentiment_model_version",
+    "sentiment_score"
+  ],
+  "recommendation_nested_keys": {
+    "info_praktis": [
+      "estimasi_durasi",
+      "harga",
+      "jam_buka_weekday",
+      "jam_buka_weekend",
+      "koordinat"
+    ],
+    "label_taxonomy": [
+      "avoid_labels",
+      "core_labels",
+      "curation_action",
+      "display_status",
+      "primary_intent",
+      "secondary_labels",
+      "shopping_subtype"
+    ],
+    "realworld_flags": [
+      "child_friendly_verified",
+      "coordinate_verified",
+      "crowd_level",
+      "indoor_verified",
+      "is_active_verified",
+      "mushola_verified",
+      "night_verified",
+      "open_24h_verified",
+      "parking_verified",
+      "pet_friendly_verified",
+      "price_verified",
+      "safety_verified",
+      "toilet_verified",
+      "wheelchair_accessible_verified"
+    ],
+    "score_breakdown": [
+      "adjusted_sentiment_score",
+      "base_relevance_score",
+      "confidence",
+      "distance_km",
+      "distance_score",
+      "distance_weight",
+      "google_rating",
+      "matched_intents",
+      "penalized_intents",
+      "ranking_mode",
+      "relevance_weight",
+      "review_confidence",
+      "review_confidence_label",
+      "sentiment_available",
+      "sentiment_label",
+      "sentiment_model_source",
+      "sentiment_model_version",
+      "sentiment_prior_score",
+      "sentiment_review_count",
+      "sentiment_review_count_p95",
+      "sentiment_score",
+      "sentiment_used_for_ranking",
+      "similarity",
+      "similarity_adjustment"
+    ],
+    "sentiment_metadata": [
+      "adjusted_sentiment_score",
+      "review_confidence",
+      "review_confidence_label",
+      "sentiment_available",
+      "sentiment_label",
+      "sentiment_model_source",
+      "sentiment_model_version",
+      "sentiment_prior_score",
+      "sentiment_review_count",
+      "sentiment_review_count_p95",
+      "sentiment_score"
+    ],
+    "media": [
+      "audit_status",
+      "available",
+      "destination_url",
+      "image_url",
+      "match_score",
+      "match_title",
+      "source",
+      "website"
+    ]
+  },
+  "llm_evidence_pack_keys": [
+    "backend_status",
+    "candidates",
+    "global_limitations",
+    "input_context",
+    "purpose",
+    "query",
+    "ranking_policy",
+    "schema_version",
+    "source_fields"
+  ],
+  "llm_evidence_pack_nested_keys": {
+    "ranking_policy": [
+      "allowed_destination_ids",
+      "llm_may_create_destinations",
+      "llm_may_explain",
+      "llm_may_rerank",
+      "source"
+    ],
+    "input_context": [
+      "ai_intents",
+      "fallback",
+      "implicit_filters",
+      "location_context",
+      "manual_filters",
+      "no_strong_match"
+    ],
+    "source_fields": [
+      "backend_reason",
+      "category",
+      "distance",
+      "labels",
+      "media",
+      "opening_hours",
+      "price",
+      "realworld_flags",
+      "sentiment"
+    ],
+    "candidate": [
+      "backend_reason",
+      "category",
+      "core_labels",
+      "destination_id",
+      "final_score",
+      "limitations",
+      "media",
+      "multi_labels",
+      "name",
+      "practical_info",
+      "primary_intent",
+      "rank",
+      "realworld_flags",
+      "score_signals",
+      "secondary_labels",
+      "sentiment"
+    ],
+    "candidate_practical_info": [
+      "coordinates",
+      "distance_label",
+      "duration",
+      "opening_hours",
+      "price"
+    ],
+    "candidate_sentiment": [
+      "adjusted_score",
+      "available",
+      "label",
+      "model_source",
+      "model_version",
+      "review_confidence",
+      "review_confidence_label",
+      "review_count",
+      "score",
+      "used_for_ranking"
+    ],
+    "candidate_media": [
+      "audit_status",
+      "available",
+      "destination_url",
+      "image_url",
+      "match_score",
+      "match_title",
+      "source",
+      "website"
+    ]
+  },
+  "llm_prompt_guard_keys": [
+    "allowed_destination_ids",
+    "allowed_destination_names",
+    "language",
+    "output_contract",
+    "output_schema_version",
+    "rules",
+    "schema_version",
+    "system_prompt"
+  ],
+  "llm_prompt_guard_nested_keys": {
+    "output_contract": [
+      "example_shape",
+      "format",
+      "media_policy",
+      "required_destination_summary_fields",
+      "required_top_level_fields"
+    ]
+  },
+  "expected_schema_versions": {
+    "api_schema_version": "muterbandung.api.recommend.v1",
+    "llm_evidence_pack": "muterbandung.llm_evidence_pack.v1",
+    "llm_prompt_guard": "muterbandung.llm_prompt_guard.v1",
+    "llm_output": "muterbandung.llm_output.v1"
+  }
+}

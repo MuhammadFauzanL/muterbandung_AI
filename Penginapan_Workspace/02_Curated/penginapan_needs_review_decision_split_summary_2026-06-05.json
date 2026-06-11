@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-05T10:36:40.939092Z",
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_NEEDS_REVIEW_AUDIT_2026-06-05.csv",
+  "total_needs_review_rows": 87,
+  "child_parent_candidate_rows": 20,
+  "manual_check_rows": 9,
+  "held_low_priority_rows": 58,
+  "split_total_rows": 87,
+  "overlap_review_target_id_count": 0,
+  "outputs": {
+    "child_parent_candidate": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_NEEDS_REVIEW_20_CHILD_PARENT_CANDIDATE_2026-06-05.csv",
+    "manual_check": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_NEEDS_REVIEW_9_MANUAL_CHECK_2026-06-05.csv",
+    "held_low_priority": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_NEEDS_REVIEW_58_HELD_LOW_PRIORITY_2026-06-05.csv"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-06-05T08:01:21.279892Z",
+  "gate": "PASS_WITH_WARNINGS",
+  "row_count": 1656,
+  "errors": [],
+  "warnings": [
+    {
+      "code": "ROOM_LEVEL_LISTING",
+      "count": 54,
+      "message": "Room-level listings should not outrank main properties."
+    }
+  ]
+}

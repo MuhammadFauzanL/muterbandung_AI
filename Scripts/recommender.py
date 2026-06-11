@@ -83,6 +83,20 @@ DISPLAY_LABEL_ALIASES = {
     "Wahana Ekstrem": "Petualangan"
 }
 
+ZONA_KEYWORDS = {
+    "Timur": ["timur", "cileunyi", "cibiru", "ujungberung", "manglayang", "rancaekek",
+              "gedebage", "panyileukan", "arcamanik", "bandung timur"],
+    "Utara": ["utara", "lembang", "maribaya", "dago", "punclut", "tangkuban",
+              "bandung atas", "bandung utara", "cisarua", "parongpong"],
+    "Selatan": ["selatan", "ciwidey", "pangalengan", "situ patenggang", "kawah putih",
+                "soreang", "bandung selatan", "pasirjambu", "rancabali"],
+    "Barat": ["barat", "cimahi", "padalarang", "rajamandala", "saguling",
+              "bandung barat", "ngamprah", "batujajar"],
+    "Tengah": ["tengah", "alun-alun", "alun alun", "braga", "asia afrika", "gedung sate",
+               "kota bandung", "bandung kota", "pusat kota", "dalam kota",
+               "cihampelas", "pasteur", "setiabudhi", "dipatiukur", "buah batu"]
+}
+
 LEXICAL_INTENT_KEYWORDS = {
     "Alam": [
         "alam", "outdoor", "sejuk", "adem", "ngadem", "gunung", "hutan",
@@ -156,6 +170,34 @@ LEXICAL_INTENT_KEYWORDS = {
         "gratis masuk"
     ]
 }
+
+USER_PERSONAS = {
+    "culture_learner": {
+        "name": "Culture Learner",
+        "description": "Pencinta Budaya & Sejarah (Dari Cluster 0 UCI Travel Reviews)",
+        "hard_constraints": {},
+        "soft_boosts": ["Budaya", "Edukasi", "Sejarah", "Religi", "Indoor"],
+        "soft_penalties": ["Petualangan", "Malam"],
+        "custom_weights": {"similarity": 0.50, "sentiment": 0.20, "rating": 0.15, "confidence": 0.15}
+    },
+    "urban_casual": {
+        "name": "Urban Casual",
+        "description": "Anak Kota / Kuliner & Belanja (Dari Cluster 1 UCI Travel Reviews)",
+        "hard_constraints": {},
+        "soft_boosts": ["Kuliner", "Belanja", "Malam", "Spot Foto", "Santai/Healing"],
+        "soft_penalties": ["Gratis", "Edukasi", "Religi"],
+        "custom_weights": {"similarity": 0.40, "sentiment": 0.30, "rating": 0.20, "confidence": 0.10}
+    },
+    "nature_seeker": {
+        "name": "Nature Seeker",
+        "description": "Pencinta Alam & Outdoor (Dari Cluster 2 UCI Travel Reviews)",
+        "hard_constraints": {},
+        "soft_boosts": ["Alam", "Outdoor", "Petualangan", "Keluarga", "Satwa"],
+        "soft_penalties": ["Indoor", "Belanja", "Malam"],
+        "custom_weights": {"similarity": 0.60, "sentiment": 0.20, "rating": 0.10, "confidence": 0.10}
+    }
+}
+
 
 UNSUPPORTED_QUERY_PATTERNS = [
     {
@@ -641,6 +683,37 @@ class MuterBandungRecommender:
             if any(re.search(pattern, text) for text in haystacks):
                 return True
         return False
+
+    def _detect_zone(self, query):
+        """Detect geographic zone from query using ZONA_KEYWORDS.
+        
+        Uses two strategies:
+        1. Exact phrase match for single-word keywords (e.g. 'timur', 'cimahi')
+        2. Order-independent match for multi-word phrases (e.g. 'kota bandung' 
+           also matches 'bandung kota', 'bandung yang ada di kota', etc.)
+        """
+        if not isinstance(query, str) or not query.strip():
+            return None
+        raw_query = query.lower()
+        normalized_query = self._preprocess_text(query)
+        haystacks = (raw_query, normalized_query)
+        
+        for zone, keywords in ZONA_KEYWORDS.items():
+            for keyword in keywords:
+                words = keyword.lower().split()
+                if len(words) == 1:
+                    # Single word: exact word-boundary match
+                    pattern = r'\b' + re.escape(words[0]) + r'\b'
+                    if any(re.search(pattern, text) for text in haystacks):
+                        return zone
+                else:
+                    # Multi-word: all words must appear (order-independent)
+                    if all(
+                        any(re.search(r'\b' + re.escape(w) + r'\b', text) for text in haystacks)
+                        for w in words
+                    ):
+                        return zone
+        return None
 
     def _detect_unsupported_query(self, query):
         """Detect impossible/out-of-scope tourism requests to avoid hallucinated recommendations."""
@@ -1145,7 +1218,7 @@ class MuterBandungRecommender:
         return "none"
 
     def _build_corpus(self):
-        """Build text corpus as a narrative paragraph to maximize Transformer context."""
+        """Build text corpus as a natural narrative to maximize Transformer semantic matching."""
         corpus = []
         for _, row in self.df.iterrows():
             name = str(row.get('location_name', ''))
@@ -1154,18 +1227,24 @@ class MuterBandungRecommender:
             subcat = str(row.get('subcategory', '')) if pd.notna(row.get('subcategory', '')) else ''
             cat = str(row.get('category', '')) if pd.notna(row.get('category', '')) else ''
             
-            primary_intent = str(row.get('primary_intent_final', '')) if pd.notna(row.get('primary_intent_final', '')) else ''
             core_labels = row.get('core_labels_parsed', [])
             secondary_labels = row.get('secondary_labels_parsed', [])
-            avoid_labels = row.get('avoid_labels_parsed', [])
             labels_str = ", ".join(row.get('display_labels_parsed', []))
             
-            # Narrative construction for Transformer contextual matching
+            # Natural narrative: NO avoid_labels, NO technical format
+            # This prevents SentenceTransformer from matching negative keywords
+            label_parts = []
+            if core_labels:
+                label_parts.append(", ".join(core_labels))
+            if secondary_labels:
+                label_parts.append(", ".join(secondary_labels))
+            all_labels = ", ".join(label_parts) if label_parts else ""
+            
             doc = (
-                f"{name} adalah destinasi dengan kategori {cat} ({subcat}). "
-                f"Primary intent: {primary_intent}. Core labels: {', '.join(core_labels)}. "
-                f"Secondary labels: {', '.join(secondary_labels)}. Avoid labels: {', '.join(avoid_labels)}. "
-                f"Fasilitas dan suasana: {tags}. Cocok untuk {labels_str}. Deskripsi: {desc}"
+                f"{name} adalah {cat} ({subcat}) yang sangat cocok untuk {labels_str}. "
+                f"Suasana dan aktivitas: {all_labels}. "
+                f"Fasilitas yang tersedia meliputi {tags}. "
+                f"{desc}"
             )
             cleaned_doc = self._preprocess_text(doc)
             corpus.append(cleaned_doc)
@@ -1262,7 +1341,7 @@ class MuterBandungRecommender:
 
     def _apply_hard_filters(self, df, categories=None, max_price=None, min_rating=None, free_only=False,
                             day_type=None, open_at_hour=None, night_only=False,
-                            shopping_subtype=None, facility_filters=None):
+                            shopping_subtype=None, facility_filters=None, zone=None):
         """Langkah A: Filter destinations deterministically based on user constraints."""
         filtered_df = df.copy()
         
@@ -1270,6 +1349,10 @@ class MuterBandungRecommender:
         if categories:
             mask = filtered_df.apply(lambda r: self._matches_category(r, categories), axis=1)
             filtered_df = filtered_df[mask]
+            
+        # Geographic Zone Filter
+        if zone is not None and "zona_wisata" in filtered_df.columns:
+            filtered_df = filtered_df[filtered_df["zona_wisata"].astype(str).str.lower() == zone.lower()]
             
         # 2. Harga Maksimum (price_max <= max_price)
         if max_price is not None:
@@ -1335,19 +1418,20 @@ class MuterBandungRecommender:
         return sim_scores
 
     def _compute_final_score(self, df_filtered, similarity_scores, query=None, weights=None,
-                             active_intents=None, sort_by="relevance", nearby_requested=False,
+                             active_intents=None, persona_penalties=None, sort_by="relevance", nearby_requested=False,
                              shopping_requested=False):
         """Langkah C: Compute final hybrid score and sort candidates."""
         if weights is None:
             if query and query.strip():
-                # 35% similarity, 35% sentiment, 20% rating, 10% confidence
-                weights = {'similarity': 0.35, 'sentiment': 0.35, 'rating': 0.20, 'confidence': 0.10}
+                # 60% similarity, 20% sentiment, 10% rating, 10% confidence
+                weights = {'similarity': 0.60, 'sentiment': 0.20, 'rating': 0.10, 'confidence': 0.10}
             else:
-                # 0% similarity, 55% sentiment, 30% rating, 15% confidence
-                weights = {'similarity': 0.0, 'sentiment': 0.55, 'rating': 0.30, 'confidence': 0.15}
+                # 0% similarity, 45% sentiment, 35% rating, 20% confidence
+                weights = {'similarity': 0.0, 'sentiment': 0.45, 'rating': 0.35, 'confidence': 0.20}
                 
         results = []
         active_intents = active_intents or []
+        persona_penalties = persona_penalties or []
         for idx, row in df_filtered.iterrows():
             sim_score = similarity_scores.get(idx, 0.0)
             similarity_adjustment = 0.0
@@ -1372,8 +1456,16 @@ class MuterBandungRecommender:
                     penalized_intents.append(intent)
                 else:
                     similarity_adjustment -= 0.035
+            
+            for penalty in persona_penalties:
+                tier = self._label_match_tier(row, penalty)
+                if tier in ["primary", "core", "secondary", "category"]:
+                    similarity_adjustment -= 0.10
+                    penalized_intents.append(penalty)
+
             if similarity_adjustment:
                 sim_score = max(-1.0, min(1.0, sim_score + similarity_adjustment))
+
 
             sentiment_metadata = self._get_sentiment_metadata(row)
             raw_sent_score = sentiment_metadata["sentiment_score"]
@@ -1507,7 +1599,8 @@ class MuterBandungRecommender:
     def recommend(self, query=None, categories=None, max_price=None,
                   min_rating=None, free_only=False, open_now=False,
                   day_type=None, open_at_hour=None, user_lat=None, user_lon=None,
-                  max_distance_km=None, sort_by="balanced", top_k=5, explain=True):
+                  max_distance_km=None, sort_by="balanced", top_k=5, explain=True,
+                  persona=None):
         """
         Produce a list of K tourism destination recommendations based on query and filters.
         
@@ -1532,6 +1625,7 @@ class MuterBandungRecommender:
         shopping_requested = self._query_requests_shopping(query) or bool(requested_shopping_subtype)
         low_crowd_requested = self._query_requests_low_crowd(query)
         facility_filters = self._query_facility_filters(query)
+        detected_zone = self._detect_zone(query) if query else None
         location_context_payload = {
             "enabled": has_user_location,
             "user_lat": parsed_user_lat if has_user_location else None,
@@ -1603,7 +1697,8 @@ class MuterBandungRecommender:
                         "shopping_subtype": requested_shopping_subtype,
                         "low_crowd_preference": low_crowd_requested,
                         "low_crowd_hard_filter": False,
-                        "facility_filters": facility_filters
+                        "facility_filters": facility_filters,
+                        "detected_zone": detected_zone
                     },
                     "total_candidates": len(self.df),
                     "after_filtering": 0,
@@ -1658,7 +1753,8 @@ class MuterBandungRecommender:
                         "shopping_subtype": requested_shopping_subtype,
                         "low_crowd_preference": low_crowd_requested,
                         "low_crowd_hard_filter": False,
-                        "facility_filters": facility_filters
+                        "facility_filters": facility_filters,
+                        "detected_zone": detected_zone
                     },
                     "total_candidates": len(self.df),
                     "after_filtering": 0,
@@ -1705,22 +1801,22 @@ class MuterBandungRecommender:
                 elif implicit_open_at_hour is not None and self._query_has_keyword(query, ["malam"]):
                     detected_intents = []
                         
-        # Step A: Hard Filtering (with implicit intents injected)
+        # Step A: Hard Filtering
+        # IMPORTANT: Only user's explicit checkbox categories are hard filters.
+        # AI-detected intents (filter_intents) are NOT injected here anymore.
+        # They are handled as soft boosts via active_intents in _compute_final_score()
+        # which applies +0.08 (primary), +0.06 (core), -0.035 (no match), -0.12 (avoid).
         injected_categories = list(categories) if categories else []
         filter_intents = list(detected_intents)
         if facility_filters and not lexical_intents:
-            # Facility words such as "mushola" and "parkir" are explicit hard filters.
-            # Avoid adding broad semantic intents that can force a fallback even when
-            # valid facility-matching candidates exist.
             filter_intents = []
         elif lexical_intents:
             filter_intents = list(lexical_intents)
         elif implicit_free_only or implicit_max_price is not None or implicit_open_at_hour is not None:
             filter_intents = []
 
-        for intent in filter_intents:
-            if intent not in injected_categories:
-                injected_categories.append(intent)
+        # AI-detected intents are NO LONGER injected as hard filters.
+        # They remain as metadata for reporting and as soft boosts in scoring.
                 
         filtered_df = self._apply_hard_filters(
             self.df,
@@ -1732,7 +1828,8 @@ class MuterBandungRecommender:
             open_at_hour=actual_open_at_hour,
             night_only=night_requested,
             shopping_subtype=requested_shopping_subtype,
-            facility_filters=facility_filters
+            facility_filters=facility_filters,
+            zone=detected_zone
         )
 
         waterfall_fallback_used = False
@@ -1742,29 +1839,9 @@ class MuterBandungRecommender:
                 filtered_df = waterfall_df
                 waterfall_fallback_used = len(waterfall_df) < min(top_k, 5)
         
-        # Fallback: if injected categories result in 0 candidates and we had auto-detected intents,
-        # try filtering using ONLY the user's explicit filters
+        # Fallback is no longer needed since AI intents are soft boosts, not hard filters.
+        # Hard filters now only contain user's explicit choices, which are always valid.
         using_fallback_filters = False
-        can_relax_auto_filters = not (facility_filters and lexical_intents)
-        if filtered_df.empty and filter_intents and injected_categories != (categories or []) and can_relax_auto_filters:
-            using_fallback_filters = True
-            filtered_df = self._apply_hard_filters(
-                self.df,
-                categories=categories,
-                max_price=effective_max_price,
-                min_rating=min_rating,
-                free_only=effective_free_only,
-                day_type=actual_day_type,
-                open_at_hour=actual_open_at_hour,
-                night_only=night_requested,
-                shopping_subtype=requested_shopping_subtype,
-                facility_filters=facility_filters
-            )
-            if waterfall_requested:
-                waterfall_df = filtered_df[filtered_df.apply(self._matches_waterfall_destination, axis=1)]
-                if len(waterfall_df) > 0:
-                    filtered_df = waterfall_df
-                    waterfall_fallback_used = len(waterfall_df) < min(top_k, 5)
             
         filtered_df = self._attach_distance_columns(
             filtered_df,
@@ -2009,7 +2086,8 @@ class MuterBandungRecommender:
                     "Preferensi tidak terlalu ramai dipakai sebagai sinyal lembut karena data crowd belum lengkap."
                     if low_crowd_requested else None
                 ),
-                "facility_filters": facility_filters
+                "facility_filters": facility_filters,
+                "detected_zone": detected_zone
             },
             "total_candidates": len(self.df),
             "total_rows_before_status_filter": self.total_rows_before_status_filter,

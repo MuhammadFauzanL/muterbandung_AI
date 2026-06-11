@@ -1,0 +1,43 @@
+{
+  "language": "id",
+  "maxReviews": 30,
+  "personalData": true,
+  "startUrls": [
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=*UMMI*%20Snack%20Lembang&query_place_id=ChIJJVnL5XHhaC4Ra-dPJyXNlaE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bakulsaudi%20%2F%20Grosir%20dan%20Gudang%20Kurma%20Bandung%20%2F%20Pusat%20Kurma%20Termurah%20Bandung%20%2F%20Pusat%20Oleh%20Oleh%20Haji%20Umroh%20Bandung&query_place_id=ChIJo1ycr-zhaC4RXVsIG3wFtpk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Barokah%20Fresh%20Milk&query_place_id=ChIJkSGDig3haC4Rrpv2DcARgnU"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bolu%20susu%20Lembang%20Cikole&query_place_id=ChIJO6lUdP7haC4RHeO43rEfTU0"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Brownies%20Susu%20Lembang%20-%20Ini%20Asli%20Lembang&query_place_id=ChIJ761kKE3haC4RzwhpLklp6Ss"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Bubunasnack&query_place_id=ChIJ5yvOWL7haC4ReScIJzK9vuM"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Kangsule%20Kampoeng%20Susu%20Lembang&query_place_id=ChIJn8-LjJ3haC4RZZp464sDaqE"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Karma%20Oleh%20Oleh%20Bandung&query_place_id=ChIJswQB6YvhaC4RjMafls9C5i4"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pabrik%20Tahu%20PD%20Uties&query_place_id=ChIJCb0kyx_haC4Rf97ZaVFQ3Gk"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Pabrik%20Tahu%20Sibungsu&query_place_id=ChIJKenfeGPgaC4Ra7R3pKaHocQ"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=PD.Bagus%20Tahu%20Dan%20Tempe%20Special&query_place_id=ChIJffKBxmLgaC4R6q6TSHmW24w"
+    },
+    {
+      "url": "https://www.google.com/maps/search/?api=1&query=Siliwangi%20Bolu%20Kukus%20Lembang%2C%20Bandung&query_place_id=ChIJE6oUkijhaC4RtPPSSK9EJ5Y"
+    }
+  ]
+}

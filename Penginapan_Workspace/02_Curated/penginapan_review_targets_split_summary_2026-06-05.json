@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-06-05T10:26:53.140892Z",
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_SCRAPE_TARGETS_PARENT_MASTER_2026-06-05.csv",
+  "flagged_input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_FLAGGED_DETAIL_NAME_2026-06-05.csv",
+  "total_review_targets": 1518,
+  "flagged_rows": 387,
+  "ready_rows": 1131,
+  "held_child_rows": 300,
+  "needs_review_rows": 87,
+  "held_child_flag_group_counts": {
+    "hold_unit_or_bedroom_listing": 265,
+    "hold_room_label": 35
+  },
+  "needs_review_flag_group_counts": {
+    "review_villa_or_house_unit": 66,
+    "review_other_detail_name": 21
+  },
+  "needs_review_audit_recommendation_counts": {
+    "candidate_standalone_or_unclear": 58,
+    "candidate_child_to_parent": 20,
+    "needs_manual_check": 9
+  },
+  "outputs": {
+    "ready": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_READY_2026-06-05.csv",
+    "held_child": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_HELD_CHILD_2026-06-05.csv",
+    "needs_review": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_NEEDS_REVIEW_2026-06-05.csv",
+    "needs_review_audit": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_NEEDS_REVIEW_AUDIT_2026-06-05.csv"
+  }
+}

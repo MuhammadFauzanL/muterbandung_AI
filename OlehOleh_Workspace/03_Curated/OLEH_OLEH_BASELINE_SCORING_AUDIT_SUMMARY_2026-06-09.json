@@ -1,0 +1,48 @@
+﻿{
+    "generated_at":  "2026-06-09",
+    "total_places":  22,
+    "total_review_texts":  372,
+    "score_formula_type":  "category_aware_rule_based_baseline_v2",
+    "calibration_note":  "V1 was too strict because aspect mentions dominated. V2 prioritizes rating and review confidence, with aspects as supporting signals.",
+    "status_counts":  [
+                          {
+                              "label":  "usable_with_caution",
+                              "count":  18
+                          },
+                          {
+                              "label":  "low_confidence",
+                              "count":  3
+                          },
+                          {
+                              "label":  "recommended_ready",
+                              "count":  1
+                          }
+                      ],
+    "category_counts":  [
+                            {
+                                "category":  "snack_keripik",
+                                "count":  5
+                            },
+                            {
+                                "category":  "haji_umroh_kurma",
+                                "count":  1
+                            },
+                            {
+                                "category":  "kue_bolu_pastry",
+                                "count":  9
+                            },
+                            {
+                                "category":  "olahan_susu",
+                                "count":  3
+                            },
+                            {
+                                "category":  "souvenir_non_makanan",
+                                "count":  1
+                            },
+                            {
+                                "category":  "tahu_tempe",
+                                "count":  3
+                            }
+                        ],
+    "weights_note":  "Weights vary by manual_category; see scoring_weight_profile in CSV."
+}

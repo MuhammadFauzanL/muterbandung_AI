@@ -1,0 +1,24 @@
+{
+  "file": "Wisata_Workspace/01_Dataset/3_Curated/DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_FILLED_2026-06-09.csv",
+  "location_id": "LOC-134",
+  "old": {
+    "location_id": "LOC-134",
+    "location_name": "Bukit Bintang Bandung (Patahan Lembang)",
+    "jam_buka_weekday": "06:00",
+    "jam_tutup_weekday": "17:00",
+    "jam_buka_weekend": "06:00",
+    "jam_tutup_weekend": "17:00",
+    "open_24h_verified": "True",
+    "catatan_jam": "Jadwal umum digunakan untuk weekday dan weekend."
+  },
+  "new": {
+    "location_id": "LOC-134",
+    "location_name": "Bukit Bintang Bandung (Patahan Lembang)",
+    "jam_buka_weekday": "00:00",
+    "jam_tutup_weekday": "23:59",
+    "jam_buka_weekend": "00:00",
+    "jam_tutup_weekend": "23:59",
+    "open_24h_verified": "True",
+    "catatan_jam": "Jadwal umum digunakan untuk weekday dan weekend. | Manual correction 2026-06-09: user confirmed Bukit Bintang Bandung is open 24 hours; hours normalized to 00:00-23:59."
+  }
+}

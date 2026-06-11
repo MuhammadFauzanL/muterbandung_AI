@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Blackbird%20Hotel%20-6.8314%2C107.5961"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobo%20inn%20Baros%20-6.8986029%2C107.5368741"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobobox%20Pods%20Alun%20Alun%20-6.9233%2C107.6047"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobobox%20Pods%20Cipaganti%20-6.9027%2C107.6031"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobocabin%20Pangalengan%2C%20Bandung%20-7.1723%2C107.5274"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobocabin%20Ranca%20upas%2C%20Bandung%20-7.1397%2C107.3909"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobopod%20Dago%2C%20Bandung%20-6.9024%2C107.613"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobopod%20Paskal%2C%20Bandung%20-6.9104%2C107.5982"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bukit%20Dago%20Hotel%20-6.8771%2C107.6171"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumi%20Makhraja%20-6.89%2C107.6302"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumi%20Sarehat%20-6.8460088%2C107.5450635"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Buton%20Backpacker%20Lodge%20-6.911%2C107.6"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=C%20Family%20Hotel%20-6.877606%2C107.548351"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=CT%20195%20Bandung%20-6.8801%2C107.5904"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Capital%20O%203270%20Hotel%20Arimbi%20Baru%20Dewi%20Sartika%20-6.9299%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Casa%20de%20Apple%20Dago%20Bandung%20by%20RedDoorz%20-6.8737%2C107.6292"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Chara%20Hotel%20-6.9225%2C107.6197"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Homes%20Express%20II%20Hotel%20-6.883%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cherry%20Homes%20Hotel%20%26%20Residence%20-6.887%2C107.5843"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cibogo%2055%20-6.8872943%2C107.5791675"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cihampelas%20Hotel%201%20-%20Bandung%20-6.889%2C107.6042"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cimindi%20Residence%20-6.8982606%2C107.5614139"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cipaku%20Garden%20Hotel%20-6.8614%2C107.6012"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciparay%20Residence%20-6.9592%2C107.6424"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Citarum%20Hotel%20-6.9044%2C107.623"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Jungle%20Camp%20-7.126%2C107.5147"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Clove%20Garden%20Hotel%20Bandung%20-6.8727%2C107.6426"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%20818%20Micasa%20Residence%20-6.889249%2C107.5793864"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%20By%20Boboin%20Baros%20Near%20Stasiun%20Cimahi%20-6.8974705%2C107.5369262"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%20Kebon%20Jeruk%20Near%20Paskal%2023%20Formerly%20Sentral%20Paskal%20-6.9154%2C107.5972"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottage%20Syariah%20GS%20Rumah%20Kayu%20-6.8206%2C107.5954"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottonwood%20Boutique%20Heritage%20Otten%20-6.9025%2C107.6003"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Courtyard%20by%20Marriott%20Bandung%20Dago%20-%20CHSE%20Certified%20-6.9043%2C107.6106"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cove%20Vaia%20-%20Coliving%20Bandung%20-6.9366%2C107.6151"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Room%20%40%20Hallo%20Tidur%20by%20Tio%20-6.892%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozzy%20Residence%20Cipedes%20Bandung%20-6.8723%2C107.5905"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=D%27Sovia%20Hotel%20Bandung%20-6.9172%2C107.598"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Daarul%20Jannah%20Cottage%20-6.8648%2C107.5895"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dago%27s%20Hill%20Hotel%20-6.8829%2C107.6213"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dancenter%20Promenade%20Near%20Cihampelas%20Walk%20-6.8969%2C107.6036"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Daun%20Residence%20-6.8899%2C107.6136"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Batara%20Hotel%20-6.8981%2C107.6042"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Riau%20Cottage%20by%20House%20in%20Bandung%20-6.9034%2C107.6266"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Sofia%20Dago%20-6.8913%2C107.616"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dormus%20Co-Living%20-6.8809%2C107.5844"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=EXPRESS%20O%2091033%20Efoproperti%20-6.8891606%2C107.5662568"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Easton%20Park%20Residence%20Naffi%20Rooms%20by%20Mustika%20-6.9361%2C107.7653"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=El%20Cavana%20Hotel%20-6.915%2C107.5987"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Elephant%20Eleven%20Residence%20Buah%20Batu%20Kota%20Bandung%20-6.9334%2C107.6217"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Emia%20Hotel%20-6.9241%2C107.6249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=FOX%20HARRIS%20Hotel%20City%20Center%20-6.9145%2C107.6129"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=FULMAR%20Residence%20-6.8855%2C107.5832"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Favehotel%20Hyper%20Square%20-6.9162%2C107.5946"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Feby%20Maisonatte%20by%20OYO%20Rooms%20-6.8897%2C107.5826"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Four%20Points%20by%20Sheraton%20Bandung%20-6.9013%2C107.6125"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=GASBLOCK%20BRAGA%20-6.9182%2C107.6096"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=GASINN%20Kebonwaru%20-6.9185%2C107.6401"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=GH%20Universal%20Hotel%20-6.8506%2C107.5981"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gandasari%20Hotel%20-6.908%2C107.613"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Geary%20Hotel%20-6.9125%2C107.6033"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Geowisata%20Inn%20-6.9175%2C107.5786"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ghotic%20Hotel%20-6.9443%2C107.647"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gino%20Feruci%20Braga%20Hotel%20-6.9178%2C107.6091"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Golden%20Flower%20Hotel%20-6.9204%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Graha%20Asri%20Hotel%20-6.8493%2C107.5978"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Amellia%20Hotel%20-6.8677554%2C107.577439"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Arjuna%20Hotel%20Bandung%20-6.8672%2C107.6063"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Cordela%20Hotel%20Bandung%20-6.9368%2C107.6879"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Dafam%20Braga%20Bandung%20-6.9168%2C107.609"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Hotel%20Preanger%20-6.921%2C107.6119"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Kembar%20Hotel%20-6.9451%2C107.6085"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Nirwana%20Resort%20Hotel%20-6.7908%2C107.6524"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Pacific%20Hotel%20-6.9088%2C107.5979"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Panorama%20Lembang%20-6.8104%2C107.6249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Pasundan%20Convention%20Hotel%20-6.9367%2C107.5935"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Sovia%20Hotel%20-6.9124%2C107.6028"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Sunshine%20Resort%20%26%20Convention%20-7.0253%2C107.5284"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grand%20Tjokro%20Premiere%20Bandung%20-6.8863%2C107.6038"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Green%20Batara%20Hotel%20-6.8949%2C107.6038"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grha%20Blue%20Sky%20-6.8843554%2C107.5780626"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gumilang%20Regency%20Hotel%20-6.8459%2C107.5993"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=HARRIS%20Ciumbuleuit%20Bandung%20-6.8807%2C107.6041"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=HARRIS%20Hotel%20%26%20Conventions%20Festival%20Citylink%20Bandung%20-6.9296%2C107.5866"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=HOTEL%20LOCUS%20ROOMS%20-6.9557%2C107.6286"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=HOTEL%20PARAHYANGAN%20-6.9112%2C107.5785"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hay%20Bandung%20-6.9033%2C107.6132"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hemangini%20Hotel%20-6.8806%2C107.5993"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Bandung%20Pasteur%20-6.8961%2C107.5906"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Holiday%20Inn%20Express%20Bandung%20Braga%20by%20IHG%20-6.9172%2C107.6109"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Aston%20Tropicana%20Bandung%20-6.8962%2C107.6036"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Astria%20Graha%20-6.9233%2C107.6104"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Augusta%20Surapati%20Bandung%20-6.8976%2C107.6337"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Augusta%20Valley%20-6.8639%2C107.5983"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Bali%20Indah%20-6.9382%2C107.6152"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Bandung%20Permai%20-6.914%2C107.6339"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Bumi%20Asih%20Gedung%20Sate%20Bandung%20-6.9033%2C107.6167"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Butik%20Sawunggaling%20-6.9007%2C107.6094"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20California%20Bandung%20-6.9038%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Candra%20-6.8775542%2C107.5482844"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Hotel%20Cassadua%20-6.8898%2C107.5783"
+        }
+    ]
+}

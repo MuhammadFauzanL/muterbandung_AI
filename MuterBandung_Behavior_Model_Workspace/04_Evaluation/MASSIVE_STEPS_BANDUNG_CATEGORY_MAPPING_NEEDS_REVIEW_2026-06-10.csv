@@ -1,0 +1,171 @@
+﻿venue_category,checkin_count,unique_venues,unique_users,unique_trails,missing_name,missing_latitude,mapping_status,muterbandung_label,mapping_group,rule_reason,missing_name_pct,missing_latitude_pct
+Grocery Store,1954,166,940,1873,134,134,needs_review,,needs_review,no confident mapping rule,6.86,6.86
+Convenience Store,755,144,491,744,63,63,needs_review,,needs_review,no confident mapping rule,8.34,8.34
+Photography Lab,720,33,527,703,15,15,needs_review,,needs_review,no confident mapping rule,2.08,2.08
+Event Space,599,74,419,580,47,47,needs_review,,needs_review,no confident mapping rule,7.85,7.85
+Electronics Store,593,125,353,559,99,99,needs_review,,needs_review,no confident mapping rule,16.69,16.69
+Pool,570,74,214,497,161,161,needs_review,,needs_review,no confident mapping rule,28.25,28.25
+Miscellaneous Shop,524,149,318,502,79,79,needs_review,,needs_review,no confident mapping rule,15.08,15.08
+Video Store,501,45,330,490,38,38,needs_review,,needs_review,no confident mapping rule,7.58,7.58
+Medical Center,460,160,270,439,99,99,needs_review,,needs_review,no confident mapping rule,21.52,21.52
+Field,413,64,239,391,38,38,needs_review,,needs_review,no confident mapping rule,9.2,9.2
+Travel Agency,390,43,238,361,28,28,needs_review,,needs_review,no confident mapping rule,7.18,7.18
+General Travel,388,139,206,361,115,115,needs_review,,needs_review,no confident mapping rule,29.64,29.64
+Mobile Phone Shop,346,35,253,342,17,17,needs_review,,needs_review,no confident mapping rule,4.91,4.91
+Drugstore,324,130,221,310,49,49,needs_review,,needs_review,no confident mapping rule,15.12,15.12
+Cosmetics Shop,321,89,226,311,73,73,needs_review,,needs_review,no confident mapping rule,22.74,22.74
+Basketball Court,313,44,131,303,20,20,needs_review,,needs_review,no confident mapping rule,6.39,6.39
+Shoe Store,309,79,230,287,36,36,needs_review,,needs_review,no confident mapping rule,11.65,11.65
+Sporting Goods Shop,303,78,221,289,51,51,needs_review,,needs_review,no confident mapping rule,16.83,16.83
+Soccer Field,295,74,143,272,68,68,needs_review,,needs_review,no confident mapping rule,23.05,23.05
+Tech Startup,291,63,171,275,11,11,needs_review,,needs_review,no confident mapping rule,3.78,3.78
+Hardware Store,275,56,158,268,13,13,needs_review,,needs_review,no confident mapping rule,4.73,4.73
+Convention Center,270,66,221,266,23,23,needs_review,,needs_review,no confident mapping rule,8.52,8.52
+Soccer Stadium,237,34,119,210,16,16,needs_review,,needs_review,no confident mapping rule,6.75,6.75
+Furniture / Home Store,233,43,145,213,15,15,needs_review,,needs_review,no confident mapping rule,6.44,6.44
+Stadium,217,15,131,214,10,10,needs_review,,needs_review,no confident mapping rule,4.61,4.61
+Assisted Living,196,67,60,173,75,75,needs_review,,needs_review,no confident mapping rule,38.27,38.27
+Women's Store,193,50,138,186,14,14,needs_review,,needs_review,no confident mapping rule,7.25,7.25
+Playground,188,54,87,177,27,27,needs_review,,needs_review,no confident mapping rule,14.36,14.36
+City Hall,178,17,83,157,22,22,needs_review,,needs_review,no confident mapping rule,12.36,12.36
+Bus Line,159,58,78,148,28,28,needs_review,,needs_review,no confident mapping rule,17.61,17.61
+Track Stadium,153,6,97,152,29,29,needs_review,,needs_review,no confident mapping rule,18.95,18.95
+Emergency Room,152,23,32,149,11,11,needs_review,,needs_review,no confident mapping rule,7.24,7.24
+Library,147,26,52,139,10,10,needs_review,,needs_review,no confident mapping rule,6.8,6.8
+Pool Hall,147,22,100,147,7,7,needs_review,,needs_review,no confident mapping rule,4.76,4.76
+Lounge,146,49,105,142,45,45,needs_review,,needs_review,no confident mapping rule,30.82,30.82
+Pet Store,144,47,99,142,26,26,needs_review,,needs_review,no confident mapping rule,18.06,18.06
+Accessories Store,135,43,111,129,13,13,needs_review,,needs_review,no confident mapping rule,9.63,9.63
+Baseball Field,135,8,38,133,9,9,needs_review,,needs_review,no confident mapping rule,6.67,6.67
+Moving Target,131,48,31,121,59,59,needs_review,,needs_review,no confident mapping rule,45.04,45.04
+Music Store,116,30,64,112,9,9,needs_review,,needs_review,no confident mapping rule,7.76,7.76
+Plaza,116,38,94,110,32,32,needs_review,,needs_review,no confident mapping rule,27.59,27.59
+Bike Shop,108,67,68,98,19,19,needs_review,,needs_review,no confident mapping rule,17.59,17.59
+Military Base,107,49,63,104,28,28,needs_review,,needs_review,no confident mapping rule,26.17,26.17
+Rental Car Location,99,32,38,86,39,39,needs_review,,needs_review,no confident mapping rule,39.39,39.39
+Skating Rink,96,1,67,94,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Kids Store,95,25,68,92,21,21,needs_review,,needs_review,no confident mapping rule,22.11,22.11
+Hobby Shop,94,43,78,92,25,25,needs_review,,needs_review,no confident mapping rule,26.6,26.6
+Funeral Home,91,27,30,76,17,17,needs_review,,needs_review,no confident mapping rule,18.68,18.68
+Basketball Stadium,88,5,56,81,6,6,needs_review,,needs_review,no confident mapping rule,6.82,6.82
+Design Studio,88,30,45,79,33,33,needs_review,,needs_review,no confident mapping rule,37.5,37.5
+Men's Store,87,36,63,87,13,13,needs_review,,needs_review,no confident mapping rule,14.94,14.94
+Cemetery,86,18,54,84,6,6,needs_review,,needs_review,no confident mapping rule,6.98,6.98
+Athletics & Sports,85,32,67,85,23,23,needs_review,,needs_review,no confident mapping rule,27.06,27.06
+Toy / Game Store,81,24,53,80,8,8,needs_review,,needs_review,no confident mapping rule,9.88,9.88
+Train,70,25,32,68,16,16,needs_review,,needs_review,no confident mapping rule,22.86,22.86
+Racetrack,68,21,37,62,43,43,needs_review,,needs_review,no confident mapping rule,63.24,63.24
+Bridal Shop,67,37,53,63,12,12,needs_review,,needs_review,no confident mapping rule,17.91,17.91
+City,66,16,43,59,38,38,needs_review,,needs_review,no confident mapping rule,57.58,57.58
+Radio Station,66,14,38,63,11,11,needs_review,,needs_review,no confident mapping rule,16.67,16.67
+Auditorium,65,42,52,65,11,11,needs_review,,needs_review,no confident mapping rule,16.92,16.92
+Dog Run,64,25,34,60,29,29,needs_review,,needs_review,no confident mapping rule,45.31,45.31
+Laboratory,64,19,61,63,20,20,needs_review,,needs_review,no confident mapping rule,31.25,31.25
+Metro Station,64,19,19,60,28,28,needs_review,,needs_review,no confident mapping rule,43.75,43.75
+Fraternity House,61,16,19,57,27,27,needs_review,,needs_review,no confident mapping rule,44.26,44.26
+Travel Lounge,58,25,23,47,22,22,needs_review,,needs_review,no confident mapping rule,37.93,37.93
+Bagel Shop,55,13,23,54,7,7,needs_review,,needs_review,no confident mapping rule,12.73,12.73
+Auto Dealership,54,22,31,51,19,19,needs_review,,needs_review,no confident mapping rule,35.19,35.19
+Camera Store,53,13,44,53,3,3,needs_review,,needs_review,no confident mapping rule,5.66,5.66
+Track,53,5,38,53,5,5,needs_review,,needs_review,no confident mapping rule,9.43,9.43
+Plane,50,18,17,48,32,32,needs_review,,needs_review,no confident mapping rule,64.0,64.0
+Other Nightlife,49,25,37,48,21,21,needs_review,,needs_review,no confident mapping rule,42.86,42.86
+Record Shop,48,10,41,47,9,9,needs_review,,needs_review,no confident mapping rule,18.75,18.75
+Stables,48,4,20,47,4,4,needs_review,,needs_review,no confident mapping rule,8.33,8.33
+Bike Rental / Bike Share,47,19,20,44,8,8,needs_review,,needs_review,no confident mapping rule,17.02,17.02
+Rest Area,47,21,32,47,21,21,needs_review,,needs_review,no confident mapping rule,44.68,44.68
+Flower Shop,46,18,40,46,2,2,needs_review,,needs_review,no confident mapping rule,4.35,4.35
+Deli / Bodega,43,8,42,43,2,2,needs_review,,needs_review,no confident mapping rule,4.65,4.65
+Lighthouse,42,9,14,37,5,5,needs_review,,needs_review,no confident mapping rule,11.9,11.9
+Smoke Shop,40,8,12,40,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Golf Course,39,11,29,39,14,14,needs_review,,needs_review,no confident mapping rule,35.9,35.9
+Jewelry Store,38,27,35,37,5,5,needs_review,,needs_review,no confident mapping rule,13.16,13.16
+Motel,38,17,29,35,16,16,needs_review,,needs_review,no confident mapping rule,42.11,42.11
+Speakeasy,34,13,17,33,8,8,needs_review,,needs_review,no confident mapping rule,23.53,23.53
+Tennis Court,34,18,22,32,11,11,needs_review,,needs_review,no confident mapping rule,32.35,32.35
+Professional & Other Places,32,13,19,32,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Yoga Studio,32,9,14,30,1,1,needs_review,,needs_review,no confident mapping rule,3.12,3.12
+Boat or Ferry,31,10,19,30,16,16,needs_review,,needs_review,no confident mapping rule,51.61,51.61
+Light Rail Station,29,15,22,29,9,9,needs_review,,needs_review,no confident mapping rule,31.03,31.03
+Optical Shop,29,24,24,26,7,7,needs_review,,needs_review,no confident mapping rule,24.14,24.14
+Courthouse,27,14,17,22,8,8,needs_review,,needs_review,no confident mapping rule,29.63,29.63
+Roof Deck,27,6,7,27,22,22,needs_review,,needs_review,no confident mapping rule,81.48,81.48
+Antique Shop,25,14,24,25,10,10,needs_review,,needs_review,no confident mapping rule,40.0,40.0
+Casino,25,11,11,25,15,15,needs_review,,needs_review,no confident mapping rule,60.0,60.0
+Hot Spring,25,9,23,25,5,5,needs_review,,needs_review,no confident mapping rule,20.0,20.0
+Wings Joint,25,9,18,25,3,3,needs_review,,needs_review,no confident mapping rule,12.0,12.0
+Dance Studio,24,11,19,24,1,1,needs_review,,needs_review,no confident mapping rule,4.17,4.17
+Volleyball Court,24,4,9,23,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Board Shop,23,11,17,21,9,9,needs_review,,needs_review,no confident mapping rule,39.13,39.13
+Cafeteria,23,13,14,22,2,2,needs_review,,needs_review,no confident mapping rule,8.7,8.7
+Daycare,23,5,10,23,1,1,needs_review,,needs_review,no confident mapping rule,4.35,4.35
+Supermarket,21,9,7,20,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Butcher,20,9,18,19,7,7,needs_review,,needs_review,no confident mapping rule,35.0,35.0
+Video Game Store,20,11,13,19,2,2,needs_review,,needs_review,no confident mapping rule,10.0,10.0
+Football Stadium,19,5,13,18,2,2,needs_review,,needs_review,no confident mapping rule,10.53,10.53
+Motorcycle Shop,19,16,14,19,3,3,needs_review,,needs_review,no confident mapping rule,15.79,15.79
+Shop & Service,19,12,17,19,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Fish & Chips Shop,16,8,10,16,2,2,needs_review,,needs_review,no confident mapping rule,12.5,12.5
+Aquarium,14,5,10,14,6,6,needs_review,,needs_review,no confident mapping rule,42.86,42.86
+Brewery,14,3,8,12,10,10,needs_review,,needs_review,no confident mapping rule,71.43,71.43
+Candy Store,13,10,11,13,2,2,needs_review,,needs_review,no confident mapping rule,15.38,15.38
+Martial Arts Dojo,13,7,13,13,9,9,needs_review,,needs_review,no confident mapping rule,69.23,69.23
+Salad Place,13,9,11,13,5,5,needs_review,,needs_review,no confident mapping rule,38.46,38.46
+Veterinarian,13,5,11,13,1,1,needs_review,,needs_review,no confident mapping rule,7.69,7.69
+Thrift / Vintage Store,12,8,11,12,4,4,needs_review,,needs_review,no confident mapping rule,33.33,33.33
+Indonesian Meatball Place,11,7,7,11,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Fair,10,6,7,10,5,5,needs_review,,needs_review,no confident mapping rule,50.0,50.0
+Animal Shelter,9,6,7,9,2,2,needs_review,,needs_review,no confident mapping rule,22.22,22.22
+Sorority House,9,6,6,9,2,2,needs_review,,needs_review,no confident mapping rule,22.22,22.22
+Taco Place,9,6,9,9,2,2,needs_review,,needs_review,no confident mapping rule,22.22,22.22
+Farm,8,5,8,8,2,2,needs_review,,needs_review,no confident mapping rule,25.0,25.0
+Mac & Cheese Joint,8,6,8,8,2,2,needs_review,,needs_review,no confident mapping rule,25.0,25.0
+Ski Area,8,6,5,6,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Winery,8,3,7,8,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Burrito Place,7,6,7,7,1,1,needs_review,,needs_review,no confident mapping rule,14.29,14.29
+Sandwich Place,7,4,7,7,2,2,needs_review,,needs_review,no confident mapping rule,28.57,28.57
+Voting Booth,7,6,7,7,6,6,needs_review,,needs_review,no confident mapping rule,85.71,85.71
+Platform,6,4,3,6,2,2,needs_review,,needs_review,no confident mapping rule,33.33,33.33
+Recreation Center,6,1,6,6,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Tattoo Parlor,6,4,4,6,2,2,needs_review,,needs_review,no confident mapping rule,33.33,33.33
+Vineyard,6,2,5,6,5,5,needs_review,,needs_review,no confident mapping rule,83.33,83.33
+Well,6,6,6,6,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Buffet,5,2,5,5,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Financial or Legal Service,5,3,3,5,1,1,needs_review,,needs_review,no confident mapping rule,20.0,20.0
+Non-Profit,5,5,5,5,1,1,needs_review,,needs_review,no confident mapping rule,20.0,20.0
+Gourmet Shop,4,2,3,3,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Hot Dog Joint,4,4,4,4,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Liquor Store,4,2,2,4,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Castle,3,3,3,3,3,3,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Fruit & Vegetable Store,3,1,1,3,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Harbor / Marina,3,2,2,3,1,1,needs_review,,needs_review,no confident mapping rule,33.33,33.33
+Hunting Supply,3,1,3,3,3,3,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Street Fair,3,1,2,3,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Tourist Information Center,3,2,3,3,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Travel & Transport,3,3,3,3,2,2,needs_review,,needs_review,no confident mapping rule,66.67,66.67
+Baseball Stadium,2,2,2,2,2,2,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Community Center,2,1,2,2,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+IT Services,2,2,1,2,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Island,2,1,1,2,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Massage Studio,2,2,2,2,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Paintball Field,2,2,2,2,1,1,needs_review,,needs_review,no confident mapping rule,50.0,50.0
+Planetarium,2,2,2,2,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Storage Facility,2,2,2,2,1,1,needs_review,,needs_review,no confident mapping rule,50.0,50.0
+Surf Spot,2,2,2,2,2,2,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Wine Shop,2,2,2,2,1,1,needs_review,,needs_review,no confident mapping rule,50.0,50.0
+Bathing Area,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Cheese Shop,1,1,1,1,1,1,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Credit Union,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Distillery,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Fabric Shop,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Hockey Arena,1,1,1,1,1,1,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Hockey Field,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Indoor Play Area,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Medical Lab,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Opera House,1,1,1,1,1,1,needs_review,,needs_review,no confident mapping rule,100.0,100.0
+Outdoor Supply Store,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Outlet Store,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Photography Studio,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Pie Shop,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+River,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0
+Transportation Service,1,1,1,1,0,0,needs_review,,needs_review,no confident mapping rule,0.0,0.0

@@ -1,0 +1,127 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Sapa%20Syariah%20Pakuhaji%20Highland%20Eco-Resort%20-6.8272%2C107.5409"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Situ%20Citiwu%20Ciwidey%20-%20Vacation%20Home%20-7.1174%2C107.4419"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Situ%20Patenggang%20-7.1637%2C107.3577"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Situ%20Patenggang%20BKSDA%20-7.1637%2C107.3577"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Situ%20Patenggang%20Bandung%20Selatan%20-7.1637%2C107.3577"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Soli%20Deo%20Gloria%20-6.6295%2C107.5543"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Suarga%20Loka%20-6.8304%2C107.5526"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Suarga%20Loka%201%20-6.8304%2C107.5526"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Syariah%20Ciwidey%20Bandung%20Arreneuz%20View%20Kebun%20-7.1062%2C107.4262"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Syariah%20Teras%20Danoe%20-7.1945%2C107.5451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Tagar%20Hidayah%20-7.0858%2C107.4482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Tagar%20Hidayah%20Ciwidey%20-7.0858%2C107.4482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Tepi%20Bukit%20-6.7639%2C107.0594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Tibra%20-6.8251%2C107.5545"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Tinamboo%20brings%20happiness%20at%20Ciwidey%20-7.1161%2C107.4448"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20Venetys%20Lembang%20by%20BWB%20-6.8247%2C107.6401"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20With%20Private%20Jacuzzi%20%2C%20Damar%20Ningrum%203%20-6.8304%2C107.5526"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20buah%2011%20homestay%20-7.1869%2C107.5554"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20by%20Wayang%20Dairy%20Farm%20-7.1942%2C107.5423"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20hegar%20by%20Kavastay%20-6.8693961%2C107.5700901"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20kartoon%20-6.812%2C107.145"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20kota%20bunga%20at%20puncak%20bogor%20with%20privat%20pool%20-6.8119%2C107.1456"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20minimalis%20nyaman%20beraih%20rapih%20-6.812%2C107.1452"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20osaka%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20pataya%20kota%20bunga%203%20kamar%20tidur%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20puncak%20bogor%20at%20kota%20bunga%20ada%20karoke%20AC%20-6.8115%2C107.1452"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20puncak%20bogor%20at%20kota%20bunga%20with%20pool%20privat%20-6.8118%2C107.1454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20rian%20-7.131%2C107.5132"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20roseane%20-6.8162%2C107.5579"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20with%20Jacuzzi%2C%20Damar%20Ningrum%204%20-6.8299%2C107.5538"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20with%20jacuzzi%2C%20Damar%20Ningrum%205%20-6.8216%2C107.5555"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Villa%20zann%20kaktus%20-7.1278%2C107.4193"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wakeqi%20Villa%20-6.8712092%2C107.5417894"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Yama%20Onsen%20Villa%20-6.8759%2C107.6236"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zann%20Villa%20Ciwidey%20-7.1199%2C107.4319"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=disewakan%20villa%20puncak%20kota%20bunga%20new%20year%20-6.812%2C107.1451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=dr%20stable%20villa%20-6.8118%2C107.1451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20Camsal%20Boock%20H%2010%20No3%20-6.813%2C107.1296"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20arjuna%2060%20-6.8119%2C107.1452"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=villa%20kota%20Bunga%20little%20indian%20-6.8139%2C107.1315"
+        }
+    ]
+}

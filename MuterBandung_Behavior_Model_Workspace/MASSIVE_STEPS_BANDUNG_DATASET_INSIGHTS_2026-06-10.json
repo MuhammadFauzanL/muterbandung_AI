@@ -1,0 +1,558 @@
+{
+  "splits": {
+    "default_train": {
+      "rows": 38732,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ]
+    },
+    "default_validation": {
+      "rows": 5534,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ]
+    },
+    "default_test": {
+      "rows": 11067,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ]
+    },
+    "tabular_train": {
+      "rows": 113058,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ]
+    },
+    "tabular_validation": {
+      "rows": 16018,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ]
+    },
+    "tabular_test": {
+      "rows": 32208,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ]
+    }
+  },
+  "tabular_all": {
+    "rows": 161284,
+    "users": 3377,
+    "trails": 55333,
+    "venues": 26559,
+    "categories": 421,
+    "time_min": "2012-04-03 18:01:00",
+    "time_max": "2018-10-19 09:06:00",
+    "missing_latitude": 37937,
+    "missing_latitude_pct": 23.52,
+    "missing_name": 37937,
+    "missing_name_pct": 23.52,
+    "missing_address": 42654,
+    "missing_address_pct": 26.45
+  },
+  "category_top30": [
+    {
+      "venue_category": "Home (private)",
+      "count": 18844
+    },
+    {
+      "venue_category": "Shopping Mall",
+      "count": 17021
+    },
+    {
+      "venue_category": "High School",
+      "count": 5647
+    },
+    {
+      "venue_category": "Road",
+      "count": 5342
+    },
+    {
+      "venue_category": "Café",
+      "count": 4390
+    },
+    {
+      "venue_category": "Indonesian Restaurant",
+      "count": 3925
+    },
+    {
+      "venue_category": "Multiplex",
+      "count": 3444
+    },
+    {
+      "venue_category": "College Classroom",
+      "count": 3102
+    },
+    {
+      "venue_category": "Food Truck",
+      "count": 2300
+    },
+    {
+      "venue_category": "Office",
+      "count": 2294
+    },
+    {
+      "venue_category": "Middle School",
+      "count": 2230
+    },
+    {
+      "venue_category": "Asian Restaurant",
+      "count": 2148
+    },
+    {
+      "venue_category": "University",
+      "count": 2135
+    },
+    {
+      "venue_category": "General College & University",
+      "count": 2120
+    },
+    {
+      "venue_category": "Coffee Shop",
+      "count": 2086
+    },
+    {
+      "venue_category": "Bookstore",
+      "count": 2067
+    },
+    {
+      "venue_category": "Restaurant",
+      "count": 2057
+    },
+    {
+      "venue_category": "Food Court",
+      "count": 1963
+    },
+    {
+      "venue_category": "Grocery Store",
+      "count": 1954
+    },
+    {
+      "venue_category": "Department Store",
+      "count": 1872
+    },
+    {
+      "venue_category": "Mosque",
+      "count": 1859
+    },
+    {
+      "venue_category": "Hospital",
+      "count": 1824
+    },
+    {
+      "venue_category": "Clothing Store",
+      "count": 1815
+    },
+    {
+      "venue_category": "Japanese Restaurant",
+      "count": 1750
+    },
+    {
+      "venue_category": "Hotel",
+      "count": 1736
+    },
+    {
+      "venue_category": "Ramen Restaurant",
+      "count": 1730
+    },
+    {
+      "venue_category": "Fried Chicken Joint",
+      "count": 1724
+    },
+    {
+      "venue_category": "Bakery",
+      "count": 1662
+    },
+    {
+      "venue_category": "Arcade",
+      "count": 1474
+    },
+    {
+      "venue_category": "Student Center",
+      "count": 1462
+    }
+  ],
+  "tourism_like_categories": [
+    {
+      "venue_category": "Shopping Mall",
+      "count": 17021
+    },
+    {
+      "venue_category": "Indonesian Restaurant",
+      "count": 3925
+    },
+    {
+      "venue_category": "Asian Restaurant",
+      "count": 2148
+    },
+    {
+      "venue_category": "Restaurant",
+      "count": 2057
+    },
+    {
+      "venue_category": "Department Store",
+      "count": 1872
+    },
+    {
+      "venue_category": "Mosque",
+      "count": 1859
+    },
+    {
+      "venue_category": "Japanese Restaurant",
+      "count": 1750
+    },
+    {
+      "venue_category": "Ramen Restaurant",
+      "count": 1730
+    },
+    {
+      "venue_category": "Fast Food Restaurant",
+      "count": 1331
+    },
+    {
+      "venue_category": "Church",
+      "count": 1043
+    },
+    {
+      "venue_category": "Residential Building (Apartment / Condo)",
+      "count": 840
+    },
+    {
+      "venue_category": "Chinese Restaurant",
+      "count": 796
+    },
+    {
+      "venue_category": "Sushi Restaurant",
+      "count": 740
+    },
+    {
+      "venue_category": "Seafood Restaurant",
+      "count": 684
+    },
+    {
+      "venue_category": "Park",
+      "count": 455
+    },
+    {
+      "venue_category": "Italian Restaurant",
+      "count": 403
+    },
+    {
+      "venue_category": "Theme Park",
+      "count": 363
+    },
+    {
+      "venue_category": "Art Gallery",
+      "count": 348
+    },
+    {
+      "venue_category": "American Restaurant",
+      "count": 319
+    },
+    {
+      "venue_category": "Tech Startup",
+      "count": 291
+    },
+    {
+      "venue_category": "Eastern European Restaurant",
+      "count": 280
+    },
+    {
+      "venue_category": "Dim Sum Restaurant",
+      "count": 189
+    },
+    {
+      "venue_category": "Museum",
+      "count": 161
+    },
+    {
+      "venue_category": "Parking",
+      "count": 151
+    },
+    {
+      "venue_category": "Performing Arts Venue",
+      "count": 133
+    },
+    {
+      "venue_category": "Water Park",
+      "count": 131
+    },
+    {
+      "venue_category": "Korean Restaurant",
+      "count": 125
+    },
+    {
+      "venue_category": "Thai Restaurant",
+      "count": 120
+    },
+    {
+      "venue_category": "French Restaurant",
+      "count": 118
+    },
+    {
+      "venue_category": "Scenic Lookout",
+      "count": 103
+    },
+    {
+      "venue_category": "Vegetarian / Vegan Restaurant",
+      "count": 98
+    },
+    {
+      "venue_category": "Beer Garden",
+      "count": 89
+    },
+    {
+      "venue_category": "College Arts Building",
+      "count": 81
+    },
+    {
+      "venue_category": "Garden",
+      "count": 78
+    },
+    {
+      "venue_category": "Resort",
+      "count": 75
+    },
+    {
+      "venue_category": "Arts & Crafts Store",
+      "count": 75
+    },
+    {
+      "venue_category": "Historic Site",
+      "count": 67
+    },
+    {
+      "venue_category": "Malay Restaurant",
+      "count": 66
+    },
+    {
+      "venue_category": "Monument / Landmark",
+      "count": 60
+    },
+    {
+      "venue_category": "Sculpture Garden",
+      "count": 59
+    },
+    {
+      "venue_category": "Zoo",
+      "count": 54
+    },
+    {
+      "venue_category": "Dumpling Restaurant",
+      "count": 52
+    },
+    {
+      "venue_category": "History Museum",
+      "count": 44
+    },
+    {
+      "venue_category": "Spanish Restaurant",
+      "count": 43
+    },
+    {
+      "venue_category": "Middle Eastern Restaurant",
+      "count": 42
+    },
+    {
+      "venue_category": "Trail",
+      "count": 35
+    },
+    {
+      "venue_category": "German Restaurant",
+      "count": 25
+    },
+    {
+      "venue_category": "Mountain",
+      "count": 21
+    },
+    {
+      "venue_category": "Turkish Restaurant",
+      "count": 17
+    },
+    {
+      "venue_category": "Garden Center",
+      "count": 16
+    },
+    {
+      "venue_category": "Padangnese Restaurant",
+      "count": 15
+    },
+    {
+      "venue_category": "Skate Park",
+      "count": 15
+    },
+    {
+      "venue_category": "Lake",
+      "count": 13
+    },
+    {
+      "venue_category": "Martial Arts Dojo",
+      "count": 13
+    },
+    {
+      "venue_category": "Sundanese Restaurant",
+      "count": 12
+    },
+    {
+      "venue_category": "Beach",
+      "count": 12
+    },
+    {
+      "venue_category": "Mexican Restaurant",
+      "count": 12
+    },
+    {
+      "venue_category": "Temple",
+      "count": 9
+    },
+    {
+      "venue_category": "Indian Restaurant",
+      "count": 8
+    },
+    {
+      "venue_category": "African Restaurant",
+      "count": 8
+    },
+    {
+      "venue_category": "Beach Bar",
+      "count": 8
+    },
+    {
+      "venue_category": "Mediterranean Restaurant",
+      "count": 8
+    },
+    {
+      "venue_category": "Caribbean Restaurant",
+      "count": 7
+    },
+    {
+      "venue_category": "Molecular Gastronomy Restaurant",
+      "count": 6
+    },
+    {
+      "venue_category": "Public Art",
+      "count": 5
+    },
+    {
+      "venue_category": "Comfort Food Restaurant",
+      "count": 4
+    },
+    {
+      "venue_category": "Udon Restaurant",
+      "count": 4
+    },
+    {
+      "venue_category": "Australian Restaurant",
+      "count": 4
+    },
+    {
+      "venue_category": "Arepa Restaurant",
+      "count": 3
+    },
+    {
+      "venue_category": "Science Museum",
+      "count": 3
+    },
+    {
+      "venue_category": "Tourist Information Center",
+      "count": 3
+    },
+    {
+      "venue_category": "Southern / Soul Food Restaurant",
+      "count": 3
+    },
+    {
+      "venue_category": "Arts & Entertainment",
+      "count": 3
+    },
+    {
+      "venue_category": "Javanese Restaurant",
+      "count": 3
+    },
+    {
+      "venue_category": "Argentinian Restaurant",
+      "count": 2
+    },
+    {
+      "venue_category": "New American Restaurant",
+      "count": 2
+    },
+    {
+      "venue_category": "Cuban Restaurant",
+      "count": 2
+    },
+    {
+      "venue_category": "Vietnamese Restaurant",
+      "count": 2
+    },
+    {
+      "venue_category": "Acehnese Restaurant",
+      "count": 2
+    },
+    {
+      "venue_category": "Scandinavian Restaurant",
+      "count": 2
+    }
+  ],
+  "sequence_length": {
+    "min": 2,
+    "p25": 2.0,
+    "median": 2.0,
+    "p75": 3.0,
+    "max": 181,
+    "mean": 2.91
+  }
+}

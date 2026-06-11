@@ -1,0 +1,31 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Southland%20Camp&query_place_id=ChIJFSz2XYeMaC4RbgKFXmvIVVA",
+        "https://www.google.com/maps/search/?api=1&query=Sudut%20Pandang%20Bandung&query_place_id=ChIJg5aI7frhaC4REqh7jx3_LZM",
+        "https://www.google.com/maps/search/?api=1&query=TOKO%20GOBERZ%20AUDIO%20MOBIL%2097&query_place_id=ChIJZ4oPAbXnaC4ReIbiUW7xtu0",
+        "https://www.google.com/maps/search/?api=1&query=Tafso%20Barn&query_place_id=ChIJR4j-ndXgaC4R7nY8HM89Ico",
+        "https://www.google.com/maps/search/?api=1&query=Tahura%20Gunung%20Kunci&query_place_id=ChIJcVwN9hfRaC4RDogyRPU6Rvk",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Alun-Alun%20Kota%20Cimahi&query_place_id=ChIJpcO0o0PkaC4RlDN0zejOQ3Y",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Dewi%20Sartika&query_place_id=ChIJFViNADrmaC4RlxbBEqA5yHA",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Endog&query_place_id=ChIJ1cP5YznRaC4R9B4AmCPxP9Q",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Kartini&query_place_id=ChIJKw_b6VLkaC4Rto93Y25YDb0",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Lembah%20DEWATA&query_place_id=ChIJn8abk-LgaC4RMKBFBngt5Jo",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Love%20Soreang&query_place_id=ChIJBUW2Wr3taC4RHSWxQw75mmM",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Maluku&query_place_id=ChIJOzv_eTbmaC4R5PHL5afLZv4",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Panatayuda&query_place_id=ChIJh8jB403maC4RESUYKkBElxw",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Pramuka&query_place_id=ChIJm9ICwcvnaC4Rm_a-5ecbrhg",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Rusa&query_place_id=ChIJrWZznw-UaC4RUsHRjUQY_-0",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Sejarah%20Bandung&query_place_id=ChIJ64KigjfmaC4RYmNYyYqAV0k",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Vanda&query_place_id=ChIJ4_mfmDDmaC4RjZ5NPgO9_PI",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20Wisata%20Bougenville&query_place_id=ChIJYX4zEsGUaC4RdHx2FeOpGQQ",
+        "https://www.google.com/maps/search/?api=1&query=Taman%20musik&query_place_id=ChIJW8s5UeTnaC4RLbN8TK31LKE",
+        "https://www.google.com/maps/search/?api=1&query=Tebing%20Karaton&query_place_id=ChIJwX3fcSHnaC4RRwqIfgJdkC8"
+    ]
+}

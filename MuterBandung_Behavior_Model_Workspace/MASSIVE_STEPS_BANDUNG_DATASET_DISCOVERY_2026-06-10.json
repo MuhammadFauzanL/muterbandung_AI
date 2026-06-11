@@ -1,0 +1,708 @@
+{
+  "files": {
+    "default_train": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\data_train-00000-of-00001.parquet",
+      "rows": 38732,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "dtypes": {
+        "user_id": "object",
+        "trail_id": "object",
+        "inputs": "object",
+        "targets": "object"
+      },
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    "tabular_train": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\tabular_train-00000-of-00001.parquet",
+      "rows": 113058,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "dtypes": {
+        "trail_id": "object",
+        "user_id": "int64",
+        "venue_id": "int64",
+        "latitude": "float64",
+        "longitude": "float64",
+        "name": "object",
+        "address": "object",
+        "venue_category": "object",
+        "venue_category_id": "object",
+        "venue_category_id_code": "int64",
+        "venue_city": "object",
+        "venue_city_latitude": "float64",
+        "venue_city_longitude": "float64",
+        "venue_country": "object",
+        "timestamp": "object"
+      },
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 26534,
+        "longitude": 26534,
+        "name": 26534,
+        "address": 29846,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    },
+    "default_validation": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\data_validation-00000-of-00001.parquet",
+      "rows": 5534,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "dtypes": {
+        "user_id": "object",
+        "trail_id": "object",
+        "inputs": "object",
+        "targets": "object"
+      },
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    "tabular_validation": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\tabular_validation-00000-of-00001.parquet",
+      "rows": 16018,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "dtypes": {
+        "trail_id": "object",
+        "user_id": "int64",
+        "venue_id": "int64",
+        "latitude": "float64",
+        "longitude": "float64",
+        "name": "object",
+        "address": "object",
+        "venue_category": "object",
+        "venue_category_id": "object",
+        "venue_category_id_code": "int64",
+        "venue_city": "object",
+        "venue_city_latitude": "float64",
+        "venue_city_longitude": "float64",
+        "venue_country": "object",
+        "timestamp": "object"
+      },
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 3836,
+        "longitude": 3836,
+        "name": 3836,
+        "address": 4278,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    },
+    "default_test": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\data_test-00000-of-00001.parquet",
+      "rows": 11067,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "dtypes": {
+        "user_id": "object",
+        "trail_id": "object",
+        "inputs": "object",
+        "targets": "object"
+      },
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    "tabular_test": {
+      "path": "MuterBandung_Behavior_Model_Workspace\\01_Raw_Data\\massive_steps_bandung\\tabular_test-00000-of-00001.parquet",
+      "rows": 32208,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "dtypes": {
+        "trail_id": "object",
+        "user_id": "int64",
+        "venue_id": "int64",
+        "latitude": "float64",
+        "longitude": "float64",
+        "name": "object",
+        "address": "object",
+        "venue_category": "object",
+        "venue_category_id": "object",
+        "venue_category_id_code": "int64",
+        "venue_city": "object",
+        "venue_city_latitude": "float64",
+        "venue_city_longitude": "float64",
+        "venue_country": "object",
+        "timestamp": "object"
+      },
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 7567,
+        "longitude": 7567,
+        "name": 7567,
+        "address": 8530,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    }
+  },
+  "samples": {
+    "default_train": [
+      {
+        "user_id": "16053",
+        "trail_id": "2013_409784",
+        "inputs": "The following data is a trajectory of user 16053: At 2012-12-16 00:49:00, user 16053 visited POI id 2357 which is a Church, at Bandung, ID. Given the data, At 2012-12-16 07:33:00, Which POI id will user 16053 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2012-12-16 07:33:00, user 16053 will visit POI id 15602."
+      },
+      {
+        "user_id": "60054",
+        "trail_id": "2013_1377333",
+        "inputs": "The following data is a trajectory of user 60054: At 2013-02-13 05:11:00, user 60054 visited POI id 72 which is a University, at Bandung, ID. Given the data, At 2013-02-13 06:25:00, Which POI id will user 60054 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-02-13 06:25:00, user 60054 will visit POI id 6107."
+      },
+      {
+        "user_id": "23373",
+        "trail_id": "2013_586368",
+        "inputs": "The following data is a trajectory of user 23373: At 2013-09-01 12:15:00, user 23373 visited POI id 4910 which is a Shopping Mall, at Bandung, ID. Given the data, At 2013-09-01 13:03:00, Which POI id will user 23373 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-09-01 13:03:00, user 23373 will visit POI id 1328."
+      }
+    ],
+    "tabular_train": [
+      {
+        "trail_id": "2013_1049",
+        "user_id": "21",
+        "venue_id": "7846",
+        "latitude": "nan",
+        "longitude": "nan",
+        "name": "None",
+        "address": "None",
+        "venue_category": "Café",
+        "venue_category_id": "4bf58dd8d48988d16d941735",
+        "venue_category_id_code": "145",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-04-08 06:14:00"
+      },
+      {
+        "trail_id": "2013_1049",
+        "user_id": "21",
+        "venue_id": "1571",
+        "latitude": "-6.901822746392037",
+        "longitude": "107.59714088606188",
+        "name": "Anata Salon",
+        "address": "Jl. Pasirkaliki No. 179",
+        "venue_category": "Salon / Barbershop",
+        "venue_category_id": "4bf58dd8d48988d110951735",
+        "venue_category_id_code": "31",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-04-08 08:14:00"
+      },
+      {
+        "trail_id": "2013_1049",
+        "user_id": "21",
+        "venue_id": "16204",
+        "latitude": "-6.882032130490735",
+        "longitude": "107.6158814232524",
+        "name": "CloudNine 254",
+        "address": "Dago 254",
+        "venue_category": "Café",
+        "venue_category_id": "4bf58dd8d48988d16d941735",
+        "venue_category_id_code": "145",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-04-08 14:19:00"
+      }
+    ],
+    "default_validation": [
+      {
+        "user_id": "171631",
+        "trail_id": "2013_3209124",
+        "inputs": "The following data is a trajectory of user 171631: At 2013-01-17 08:11:00, user 171631 visited POI id 12581 which is a Burger Joint, at Bandung, ID. Given the data, At 2013-01-17 08:57:00, Which POI id will user 171631 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-01-17 08:57:00, user 171631 will visit POI id 23."
+      },
+      {
+        "user_id": "195441",
+        "trail_id": "2013_4119075",
+        "inputs": "The following data is a trajectory of user 195441: At 2013-01-26 14:23:00, user 195441 visited POI id 4430 which is a Office, at Bandung, ID. At 2013-01-26 14:27:00, user 195441 visited POI id 1514 which is a Road, at Bandung, ID. Given the data, At 2013-01-26 14:30:00, Which POI id will user 195441 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-01-26 14:30:00, user 195441 will visit POI id 12818."
+      },
+      {
+        "user_id": "178148",
+        "trail_id": "2013_3326731",
+        "inputs": "The following data is a trajectory of user 178148: At 2013-02-13 06:29:00, user 178148 visited POI id 18444 which is a Salon / Barbershop, at Bandung, ID. At 2013-02-13 06:37:00, user 178148 visited POI id 10661 which is a Bus Station, at Bandung, ID. At 2013-02-13 07:29:00, user 178148 visited POI id 1814 which is a Field, at Bandung, ID. At 2013-02-13 08:30:00, user 178148 visited POI id 5245 which is a Arcade, at Bandung, ID. At 2013-02-13 08:54:00, user 178148 visited POI id 10790 which is a Drugstore, at Bandung, ID. At 2013-02-13 08:56:00, user 178148 visited POI id 3711 which is a Drugstore, at Bandung, ID. At 2013-02-13 09:29:00, user 178148 visited POI id 5244 which is a Wings Joint, at Bandung, ID. At 2013-02-13 10:32:00, user 178148 visited POI id 12842 which is a Japanese Restaurant, at Bandung, ID. At 2013-02-13 14:20:00, user 178148 visited POI id 19405 which is a Asian Restaurant, at Bandung, ID. At 2013-02-13 14:29:00, user 178148 visited POI id 18385 which is a Karaoke Bar, at Bandung, ID. Given the data, At 2013-02-13 15:29:00, Which POI id will user 178148 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-02-13 15:29:00, user 178148 will visit POI id 9251."
+      }
+    ],
+    "tabular_validation": [
+      {
+        "trail_id": "2013_1059",
+        "user_id": "21",
+        "venue_id": "2327",
+        "latitude": "-6.900130223021084",
+        "longitude": "107.61137083909966",
+        "name": "9'Square Bar & Resto",
+        "address": "Jl. Sulanjana No. 9",
+        "venue_category": "Bar",
+        "venue_category_id": "4bf58dd8d48988d116941735",
+        "venue_category_id_code": "41",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2013-02-12 18:31:00"
+      },
+      {
+        "trail_id": "2013_1059",
+        "user_id": "21",
+        "venue_id": "353",
+        "latitude": "-6.885035507043604",
+        "longitude": "107.61360624830832",
+        "name": "McDonald's / McCafé",
+        "address": "Jl. Ir. H. Djuanda No. 181",
+        "venue_category": "Burger Joint",
+        "venue_category_id": "4bf58dd8d48988d16c941735",
+        "venue_category_id_code": "144",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2013-02-12 18:33:00"
+      },
+      {
+        "trail_id": "2013_2717",
+        "user_id": "82",
+        "venue_id": "17048",
+        "latitude": "nan",
+        "longitude": "nan",
+        "name": "None",
+        "address": "None",
+        "venue_category": "Road",
+        "venue_category_id": "4bf58dd8d48988d1f9931735",
+        "venue_category_id_code": "287",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-05-19 08:22:00"
+      }
+    ],
+    "default_test": [
+      {
+        "user_id": "100570",
+        "trail_id": "2013_2123005",
+        "inputs": "The following data is a trajectory of user 100570: At 2012-05-05 03:16:00, user 100570 visited POI id 17679 which is a Home (private), at Bandung, ID. At 2012-05-05 03:38:00, user 100570 visited POI id 17568 which is a Road, at Bandung, ID. At 2012-05-05 03:45:00, user 100570 visited POI id 13620 which is a Bank, at Bandung, ID. Given the data, At 2012-05-05 04:25:00, Which POI id will user 100570 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2012-05-05 04:25:00, user 100570 will visit POI id 780."
+      },
+      {
+        "user_id": "115501",
+        "trail_id": "2013_2374102",
+        "inputs": "The following data is a trajectory of user 115501: At 2012-10-28 05:29:00, user 115501 visited POI id 25 which is a Photography Lab, at Bandung, ID. At 2012-10-28 06:27:00, user 115501 visited POI id 2697 which is a Mosque, at Bandung, ID. At 2012-10-28 08:28:00, user 115501 visited POI id 24 which is a Mobile Phone Shop, at Bandung, ID. At 2012-10-28 09:21:00, user 115501 visited POI id 1284 which is a Grocery Store, at Bandung, ID. Given the data, At 2012-10-28 12:17:00, Which POI id will user 115501 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2012-10-28 12:17:00, user 115501 will visit POI id 21673."
+      },
+      {
+        "user_id": "20143",
+        "trail_id": "2013_509306",
+        "inputs": "The following data is a trajectory of user 20143: At 2013-07-26 12:16:00, user 20143 visited POI id 2156 which is a Asian Restaurant, at Bandung, ID. Given the data, At 2013-07-26 14:02:00, Which POI id will user 20143 visit? Note that POI id is an integer in the range from 0 to 29024.",
+        "targets": "At 2013-07-26 14:02:00, user 20143 will visit POI id 3097."
+      }
+    ],
+    "tabular_test": [
+      {
+        "trail_id": "2013_1055",
+        "user_id": "21",
+        "venue_id": "16",
+        "latitude": "-6.895564010644942",
+        "longitude": "107.5888619086364",
+        "name": "RSU Hermina Pasteur",
+        "address": "Jl. Dr. Djundjunan No. 107",
+        "venue_category": "Hospital",
+        "venue_category_id": "4bf58dd8d48988d196941735",
+        "venue_category_id_code": "179",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-05-16 15:59:00"
+      },
+      {
+        "trail_id": "2013_1055",
+        "user_id": "21",
+        "venue_id": "643",
+        "latitude": "-6.890503060198401",
+        "longitude": "107.5995656196847",
+        "name": "Pasar Sederhana",
+        "address": "Jalan Sederhana",
+        "venue_category": "Market",
+        "venue_category_id": "50be8ee891d4fa8dcc7199a7",
+        "venue_category_id_code": "386",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-05-16 17:42:00"
+      },
+      {
+        "trail_id": "2013_1056",
+        "user_id": "21",
+        "venue_id": "1710",
+        "latitude": "-6.903264384272144",
+        "longitude": "107.57720905665312",
+        "name": "Husein Sastranegara International Airport (BDO)",
+        "address": "Jalan Pajajaran No. 156",
+        "venue_category": "Airport",
+        "venue_category_id": "4bf58dd8d48988d1ed931735",
+        "venue_category_id_code": "265",
+        "venue_city": "Bandung",
+        "venue_city_latitude": "-6.92222",
+        "venue_city_longitude": "107.60694",
+        "venue_country": "ID",
+        "timestamp": "2012-06-03 07:58:00"
+      }
+    ]
+  },
+  "tabular_category_top20": [
+    {
+      "category": "Home (private)",
+      "count": 13206
+    },
+    {
+      "category": "Shopping Mall",
+      "count": 12060
+    },
+    {
+      "category": "High School",
+      "count": 3990
+    },
+    {
+      "category": "Road",
+      "count": 3729
+    },
+    {
+      "category": "Café",
+      "count": 3096
+    },
+    {
+      "category": "Indonesian Restaurant",
+      "count": 2736
+    },
+    {
+      "category": "Multiplex",
+      "count": 2409
+    },
+    {
+      "category": "College Classroom",
+      "count": 2184
+    },
+    {
+      "category": "Office",
+      "count": 1611
+    },
+    {
+      "category": "Food Truck",
+      "count": 1587
+    },
+    {
+      "category": "Middle School",
+      "count": 1558
+    },
+    {
+      "category": "General College & University",
+      "count": 1515
+    },
+    {
+      "category": "Asian Restaurant",
+      "count": 1511
+    },
+    {
+      "category": "Bookstore",
+      "count": 1486
+    },
+    {
+      "category": "University",
+      "count": 1484
+    },
+    {
+      "category": "Coffee Shop",
+      "count": 1443
+    },
+    {
+      "category": "Restaurant",
+      "count": 1424
+    },
+    {
+      "category": "Grocery Store",
+      "count": 1389
+    },
+    {
+      "category": "Food Court",
+      "count": 1375
+    },
+    {
+      "category": "Clothing Store",
+      "count": 1305
+    }
+  ],
+  "tabular_unique_counts_train": {
+    "users": 3374,
+    "trails": 38732,
+    "venues": 22058,
+    "categories": 408
+  },
+  "split_summary": [
+    {
+      "name": "default_train",
+      "rows": 38732,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    {
+      "name": "tabular_train",
+      "rows": 113058,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 26534,
+        "longitude": 26534,
+        "name": 26534,
+        "address": 29846,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "default_validation",
+      "rows": 5534,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    {
+      "name": "tabular_validation",
+      "rows": 16018,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 3836,
+        "longitude": 3836,
+        "name": 3836,
+        "address": 4278,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    },
+    {
+      "name": "default_test",
+      "rows": 11067,
+      "columns": [
+        "user_id",
+        "trail_id",
+        "inputs",
+        "targets"
+      ],
+      "missing": {
+        "user_id": 0,
+        "trail_id": 0,
+        "inputs": 0,
+        "targets": 0
+      }
+    },
+    {
+      "name": "tabular_test",
+      "rows": 32208,
+      "columns": [
+        "trail_id",
+        "user_id",
+        "venue_id",
+        "latitude",
+        "longitude",
+        "name",
+        "address",
+        "venue_category",
+        "venue_category_id",
+        "venue_category_id_code",
+        "venue_city",
+        "venue_city_latitude",
+        "venue_city_longitude",
+        "venue_country",
+        "timestamp"
+      ],
+      "missing": {
+        "trail_id": 0,
+        "user_id": 0,
+        "venue_id": 0,
+        "latitude": 7567,
+        "longitude": 7567,
+        "name": 7567,
+        "address": 8530,
+        "venue_category": 0,
+        "venue_category_id": 0,
+        "venue_category_id_code": 0,
+        "venue_city": 0,
+        "venue_city_latitude": 0,
+        "venue_city_longitude": 0,
+        "venue_country": 0,
+        "timestamp": 0
+      }
+    }
+  ]
+}

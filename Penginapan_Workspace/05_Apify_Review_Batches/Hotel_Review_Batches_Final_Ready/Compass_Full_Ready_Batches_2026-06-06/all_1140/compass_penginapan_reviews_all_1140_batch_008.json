@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20Nakasya%20Burangrang%20-6.9299%2C107.6179"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20Newton%20Riau%20Bandung%20-6.9148%2C107.6299"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20One%20Family%20Maribaya%20-6.8214%2C107.6355"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20Pondok%20Kurnia%20Cijagra%20Bandung%20-6.9452%2C107.6267"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20Utari%20-6.9008%2C107.6126"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Hotel%20Vara%20Stay%20%40%20Soekarno%20Hatta%20Bandung%20by%20RedDoorz%20-6.9479%2C107.6018"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20MJ%20House%20Syariah%20Bandung%20-6.9417%2C107.6638"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Maribaya%20Lembang%20Bandung%20-6.825%2C107.6378"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=V%20Hotel%20%26%20Residence%20-6.8819%2C107.5847"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=VIO%20Hotel%20Westhoff%20-6.9009%2C107.598"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Valore%20Hotel%20Cimahi%20-6.8977855%2C107.5370591"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Valore%20Hotel%20Cimahi%20-6.8978%2C107.5371"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vasaka%20Maison%20Bandung%20-6.9207%2C107.6071"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Verona%20Palace%20Hotel%20-6.8892%2C107.5822"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vi%20Hotel%20Bandung%20-6.9304%2C107.6265"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vio%20Hotel%20Cihampelas%20-6.8985%2C107.6044"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vio%20Hotel%20Pasteur%20-6.8921%2C107.5822"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vio%20Hotel%20Surapati%20-6.899%2C107.6197"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vio%20Hotel%20Veteran%20-6.9193%2C107.6149"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vue%20Palace%2C%20ARTOTEL%20Curated%20-6.913%2C107.6051"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=WHITE%20HOUSE%20B%20%26%20B%20BANDUNG%20-6.8638%2C107.6348"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=WISMA%20KOMANDO2%20-6.8738017%2C107.5612968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=West%20Point%20Hotel%20Bandung%20-6.9125%2C107.5781"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Asia%20Busindo%20Syari%27ah%20Bandung%20-6.9285%2C107.6266"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Dago%20Hotel%20-6.8944%2C107.612"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Dharma%20Bakti%20-6.9153%2C107.6172"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Gasibu%20-6.8975%2C107.6209"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20Wanita%20-6.9072%2C107.6226"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=YELLO%20Hotel%20Paskal%20-%20Bandung%20-6.9156%2C107.5951"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=YOKOTEL%20CITY%20-6.9038%2C107.5982"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Yokotel%20-6.9163%2C107.6017"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zest%20Sukajadi%20Bandung%20by%20Swiss-Belhotel%20International%20-6.8954%2C107.5975"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zodiak%20-6.9123%2C107.5994"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zodiak%20-%20Taurus%20-6.9115%2C107.5982"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zodiak%20Asia%20Afrika%20Hotel%20Bandung%20-6.9211%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zodiak%20Kebonjati%20Hotel%20Bandung%20-6.9159%2C107.6009"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zodiak%20Sutami%20Hotel%20Bandung%20-6.8794%2C107.5839"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zona%20Bobo%20%7C%20Muslim%20Friendly%20%7C%20by%20Belgareti%20-6.8631%2C107.504"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=butternut%20tree%20townhomes%20-6.8685%2C107.5709"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=d%27primahotel%20Bandung%20-6.8862%2C107.5962"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=dPalma%20Hotel%20-6.9224%2C107.6205"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=de%20Braga%20by%20ARTOTEL%20-6.9204%2C107.6101"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=de%20Java%20Hotel%20-6.8889%2C107.5971"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=evano%20house%20-6.8575216%2C107.5730259"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=favehotel%20Braga%20Bandung%20-6.9171%2C107.6084"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=favehotel%20Premier%20-%20Cihampelas%20-6.8962%2C107.6034"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=hotel%20tirtasari%20-6.8753955%2C107.5749747"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=youre.at%20-%20Ciumbuleuit%201%20-6.8809%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=youre.at%20-%20Majesty%20-6.8834%2C107.5811"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=%C3%A9L%20Hotel%20Bandung%20-6.9161%2C107.6106"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ALI1%20Pondok%20Orange%201%20Ciwidey%20-7.1462%2C107.3891"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ALIFA%20SHAKILLA%20HOUSE%203%20SYARIAH%20LIMBANGAN%20CIANJUR%20-6.8236%2C107.1221"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ALLIKA%20SHAKILLA%20HOUSE%203%20SYARIAH%20LIMBANGAN%20CIANJUR%20-6.8235%2C107.1219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ALLIKA%20SHAKILLA%20HOUSE%203%20SYARIAH%20LIMBANGAN%20CIANJUR%20-6.8233%2C107.1218"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ace%20Inn%20at%20KBP%20near%20IKEA%20Wahoo%20Yogya%20Junction%20KBP%20-6.8659%2C107.4565"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aira%20Glamping%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aira%20Glamping%20-%20Tent%20-6.8035%2C107.5471"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alifa%20Shakilla%20House%203%20Syariah%20Limbangansari%20-6.8235%2C107.1219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alkasturi%20syariah%20Cottage%20Ciwidey%20Bandung%20-7.1033%2C107.4324"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Allika%20Shakilla%20House%203%20Limbangansari%20Syariah%20-6.8236%2C107.1219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amarillo%202%20Lembang%20-6.825%2C107.6378"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amarillo%20Lembang%20-6.8272%2C107.6396"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amazing%20Comfy%20House%20in%20Bandung%20-6.8647%2C107.4558"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Anori%20by%20Kozystay%20-%20Bandung%20-6.8693%2C107.6408"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aqilla%20Shakilla%20House%203%20Syariah%20Limbanagnsari%20-6.8235%2C107.1219"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Argapuri%20Resort%20-7.1128%2C107.4585"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arjuna%20-7.1113%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arjuna%20cottage%20rafting%20-%20Tent%20-7.1897%2C107.5519"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arumnala%20with%20butler%20and%20Breakfast%20at%20KBP%20-6.8636%2C107.4573"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arumnala%20with%20butler%20and%20Breakfast%20at%20KBP%20-6.8646%2C107.4569"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Azalea%201%20-%20Private%20Glamping%20-6.8042%2C107.5481"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Baladewa%20-7.1114%2C107.4969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bandung%20Scenic%20View%20W%20Pool%20-6.8833%2C107.5812"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bandung%20Scenic%20View%20W%20Pool%20-6.8837%2C107.5811"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Belle%20Vue%20by%20Kozystay%20-%20Dago%20-6.8552%2C107.6478"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bima%20-7.1113%2C107.4969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bisma%20-7.1114%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Blessing%20House%20-%20SS%20447%20-6.883%2C107.5835"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bobocabin%20Kawah%20Ciwidey%20Bandung%20-7.1775%2C107.3946"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Buana%20Glamping%20-7.191%2C107.5794"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Buana%20Glamping%20-%20Tent%20-7.1912%2C107.5791"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumi%20Castle%20Luxury%20Living%20di%20Kota%20Baru%20Parahyangan%20-6.8678%2C107.4542"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumi%20Castle%20Luxury%20Living%20di%20Kota%20Baru%20Parahyangan%20-6.8681%2C107.4545"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumi%20Saddam%20Palayangan%20Cottage%201%20-7.1893%2C107.5485"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bumina%20EENK%20-7.233%2C107.5215"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cabin%2097%20-7.0877%2C107.4778"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cairora%20by%20Kozystay%20-%20Bandung%20-6.9093%2C107.6102"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Camping%20Pines%20singkur%20reverside%20-%20Tent%20-7.1854%2C107.5475"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Camping%20hutan%20pinus%20rahong%20-%20Tent%20-7.1821%2C107.5449"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Camping%20hutan%20pinus%20singkur%20rahong%20-%20Tent%20-7.1848%2C107.5474"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Camping%20hutan%20pinus%20singkur%20rahong%20-%20Tent%20-7.1854%2C107.5475"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Casa%20Miera%20-6.8687%2C107.454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Casa%20de%20Jingga%20-%20KBP%20-6.8731%2C107.4732"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cibodas%20Get%20Away%20in%20West%20Java%20-6.84%2C107.1601"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Hills%20%26%20Wetland%20Family%202%20-7.1228%2C107.4218"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Valley%20-7.135%2C107.4159"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Clamitan%20House%20Padalarang%20-6.8495%2C107.4728"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Collection%20O%203130%20D%27Valley%20View%20-%20Family%20Suite%20-6.8221%2C107.6093"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cove%20Vaia%20-6.8925%2C107.5841"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Haven%20with%20Jacuzzi%2C%20Rooftop%20-6.8444%2C107.6051"
+        }
+    ]
+}

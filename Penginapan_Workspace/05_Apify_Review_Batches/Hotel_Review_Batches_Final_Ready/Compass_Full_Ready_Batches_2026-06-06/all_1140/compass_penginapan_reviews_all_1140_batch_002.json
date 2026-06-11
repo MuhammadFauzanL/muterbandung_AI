@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094155%20Gateway%20Pasteur%20Apartment%20By%20Goodtime%20-6.8911577%2C107.5665668"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094158%20Gateway%20Pasteur%20Apartment%20By%20Iyan%20-6.8911577%2C107.5665668"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2092774%20The%20Edge%20Apartment%20By%20My%20Home%20-6.8840567%2C107.5413244"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2093097%20Apartemen%20Gateway%20Pasteur%20-6.8898608%2C107.5663423"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=One%20Bedroom%20Apartement%20-6.906%2C107.6048"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ouma%20Gateway%20Pasteur%20Apartment%20-6.8911488%2C107.5665687"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Perfect%20Stay%20Apartement%20The%20Suites%20Metro%20Bandung%20By%20Sultan%20Property%20-6.9381%2C107.6594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Platinum%201010%20Studio%20Tera%20Apartemen%20Bandung%20City%20View%20-6.9164%2C107.6116"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Platinum%201012%20Studio%20Tera%20Apartemen%20Bandung%20City%20View%20-6.9164%2C107.6121"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Prime%20and%20Comfy%20Studio%20at%20Tamansari%20La%20Grande%20Apartment%20By%20Travelio%20-6.9093%2C107.6097"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Private%20and%20Spacious%20Studio%20Room%20at%20Skyland%20City%20Jatinangor%20By%20Travelio%20-6.9327%2C107.7797"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Apartment%20%40%20Jarrdin%20Cihampelas%20-6.8922%2C107.6052"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Near%20Trans%20Studio%20Mall%203%20-6.9241%2C107.6249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Trans%20Studio%20Bandung%203%20-6.9303%2C107.6394"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20near%20Trans%20Studio%20Mall%20Bongo%20Residence%20-6.94%2C107.6332"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedLiving%20Apartemen%20Tamansari%20Panoramic%20-%20Anwar%20Rental%20-6.9374%2C107.6816"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedLiving%20Apartemen%20Tamansari%20Panoramic%20-%20Santuy%20Agency%20-6.9372%2C107.6815"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Reddoorz%20Near%20Trans%20Studio%20Mall%202%20-6.9314%2C107.6243"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Redliving%20Apartement%20gateway%20Pasteur-TN%20Hospitality%20Tower%20Topaz%20C%20Bs%2001%20-6.8905%2C107.5662"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Relaxing%20Studio%20Room%20at%20Suites%20%40Metro%20By%20Travelio%20-6.9392%2C107.659"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sewa%20Apartemen%20Bandung%20-6.8911488%2C107.5665687"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Simply%20Bright%20Studio%20Gateway%20Pasteur%20By%20Travelio%20-6.8894%2C107.5675"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Simply%20Executive%20Studio%20At%20Pinewood%20Apartment%20-6.9355%2C107.7719"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Chic%20Studio%20Room%20Apartment%20At%20Gateway%20Pasteur%20-6.889491081%2C107.5683441"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Chic%20Studio%20Room%20Apartment%20at%20Gateway%20Pasteur%20By%20Travelio%20-6.890330791%2C107.5656509"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Apartment%20at%20Jarrdin%20Cihampelas%20-6.8923%2C107.6052"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Apartment%20at%20Jarrdin%20Cihampelas%20By%20Travelio%20-6.8925%2C107.6044"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Gateway%20Ahmad%20Yani%20By%20Travelio%20-6.9069%2C107.6451"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Jarrdin%20Cihampelas%20Apt%20By%20Travelio%20-6.8925%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Mekarwangi%20Square%20Apt%20By%20Travelio%20-6.9551%2C107.5933"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Room%20At%20Mekarwangi%20Square%20Cibaduyut%20Apartment%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Room%20at%20Gateway%20Pasteur%20Apartment%20near%20Exit%20Toll%20Pasteur%20By%20Travelio%20-6.889890194%2C107.5667267"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20Room%20at%20Mekarwangi%20Square%20Cibaduyut%20Apartment%20By%20Travelio%20-6.956%2C107.593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20The%20Edge%20Bandung%20Apartment%20-6.8962%2C107.5368"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20The%20Edge%20Bandung%20Apartment%20By%20Travelio%20-6.8971%2C107.5373"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20The%20Edge%20Bandung%20By%20Travelio%20-6.8971%2C107.5373"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Spacious%20Studio%20at%20Gateway%20Ahmad%20Yani%20Cicadas%20Apartment%20By%20Travelio%20-6.9074%2C107.6446"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Strategic%20%26%20Stylish%20Studio%20Gateway%20Pasteur%20Apartment%20near%20Pasteur%20Exit%20Toll%20-6.889575958%2C107.5659561"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Strategic%20%26%20Stylish%20Studio%20Gateway%20Pasteur%20Apartment%20near%20Pasteur%20Exit%20Toll%20By%20Travelio%20-6.889279842%2C107.565773"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Strategic%20and%20Comfy%20Studio%20at%20Skyland%20City%20Jatinangor%20Apartment%20By%20Travelio%20-6.9327%2C107.7797"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Strategic%20and%20Nice%20Studio%20Apartment%20at%20Suites%20%40Metro%20By%20Travelio%20-6.9379%2C107.6592"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%2033%20Premium%20Room%20by%20Tempat%20Singgah%20-6.9%2C107.6045"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Apartment%20-%20The%20Jarrdin%20-%205%20Minutes%20from%20Ciwalk%20-6.8919%2C107.6053"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Gateway%20Pasteur%20By%20Kevin%20Property%20Diamond%20-6.8903%2C107.5664"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Gateway%20Pasteur%20By%20Kevin%20Property%20Topaz%20A%20-6.8893%2C107.5664"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Gateway%20Pasteur%20By%20Kevin%20Property%20Topaz%20B%20-6.8903%2C107.5661"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Sudirman%20Suite%20Bandung%20By%20Kevin%20Property%205A%20-6.9179%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Sudirman%20Suites%20Bandung%20By%20Kevin%20Property12%20-6.9178%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Sudirman%20Suites%20Bandung%20By%20Kevin%20Property17%20-6.9176%2C107.5812"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio%20Sudirman%20Suites%20Bandung%20By%20Kevin%20Property17%20-6.9179%2C107.5813"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Studio28%20at%20Clove%20Garden%20-6.8731%2C107.642"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Edge%20By%20Orin%20-6.897546%2C107.5372759"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Edge%20by%20Lia%20-6.8974%2C107.5366"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Edge%20oleh%20Orin%20-6.8975%2C107.5373"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Jarrdin%20Apartemen%20Cihampelas%20A20%20by%20NEMUI%20ROOM%20-6.9059%2C107.6049"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Jarrdin%20Apartment%20Hotels%20by%20Ironman%20-6.8923%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Jarrdin%20Cihampelas%20By%20Odeline%20Property%20-6.9063%2C107.6047"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Suite%20Metro%20Apartment%20by%20King%20Official%20-6.9392%2C107.6591"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Suites%20Metro%20Apartment%20-%20King%20Property%20-6.938%2C107.6592"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Suites%20Metro%20Apartment%20by%20Desta%20Farispro%20-6.9379%2C107.6593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Suites%20Metro%20Apartment%20by%20NFO%20Property%20-6.938%2C107.6592"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=apartemen%20jardin%20cihampelas%20-6.8921%2C107.605"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=apartemen%20jarrdin%20Cihampelas%20by%20partyroom%20-6.9175%2C107.6191"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=apartemen%20jarrdin%20Cihampelas%20byParty%20Room%20-6.8929%2C107.6042"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ADS%20House%20Padalarang%20-%20Guesthouse%20Aesthetic%20-6.8495%2C107.4725"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ALONICA%20guesthouse%20-6.8569713%2C107.5745009"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alma%20Strawberry%20%28%20Home%20stay%20%29%20-7.1323%2C107.4169"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Are%20You%20and%20I%20-%20Bed%20%26%20Breakfast%20Bandung%20-6.8858%2C107.6496"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bajorah%20Homestay%20-6.8221%2C107.6289"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bali%20Puspa%20Guest%20House%20-6.8823214%2C107.5686666"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Guest%20House%20Alun-alun%20Bandung%20-6.932%2C107.6065"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Guesthouse%20Trans%20-6.9304%2C107.6393"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Baraya%20Homestay%20-7.1842%2C107.5617"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Buminanienie%20Family%20Guest%20House%20-6.9045%2C107.6144"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=CIMAHI%20GUEST%20HOUSE%20-6.8982028%2C107.561256"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Calda%20Homestay%20Syariah%20-6.8685%2C107.5728"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Homestay%204%20Bedroom%20-7.133%2C107.4216"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Homestay%204%20Bedroom%20-7.1327%2C107.4215"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ciwidey%20Homestay%206%20Bedroom%20-7.1229%2C107.424"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cluster%20Harris%20Home%20Stay%20%26%20Kos%20-6.8953136%2C107.538659"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cottonwood%20Bed%20%26%20Breakfast%20House%20Bandung%20-6.8863181%2C107.577594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Cozy%20Homestay%20-6.8896%2C107.5849"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=D%27Lily%20Guest%20House%20Syariah%20-7.088%2C107.4775"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=D%27Lily%20Guest%20House%20Syariah%20-7.0877%2C107.4778"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dagope%20Homestay%20-6.8266%2C107.6715"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Danapati%20Homestay%20-6.8558%2C107.4809"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=De%20Halimun%20Guest%20House%20-6.9264%2C107.6214"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=FAJAR%20GUESTHOUSE%20-6.9073%2C107.5931"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Family%20Guest%20House%20Lembang%20RedPartner%20-6.8182%2C107.6306"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Fatih%20Homestay%20-6.9613%2C107.6409"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Fiori%20Bed%20%26%20Breakfast%20-6.8831%2C107.5844"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Frank%20House%20Guest%20House%20Korean%20Style%20-6.8769236%2C107.5668186"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=G10%20Guest%20House%20-6.9295%2C107.6151"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=G10%20Guest%20House%20Near%20Asia%20Afrika%20Bandung%20-6.9296%2C107.6152"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grania%20Homestay%20Syariah%202%20Superior%20208%20AC%20-6.974%2C107.6516"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Grania%20Homestay%20Syariah%20Tipe%20Deluxe%20AC%20-6.9688%2C107.658"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Guest%20House%20Jabu%20Rosmina%20-6.8658788%2C107.5383544"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Guest%20House%20Mallea%20-6.9023%2C107.6281"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Guest%20House%20Omah%20Ningrat%20Bandung%20-6.9274%2C107.6832"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Guest%20House%20Omah%20Ningrat%20Bandung%20-6.9275%2C107.6835"
+        }
+    ]
+}

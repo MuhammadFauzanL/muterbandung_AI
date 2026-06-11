@@ -1,0 +1,37 @@
+﻿{
+    "created_at":  "2026-06-10T08:18:57",
+    "input_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_2026-06-10.csv",
+    "output_file":  ".\\OlehOleh_Workspace\\03_Curated\\OLEH_OLEH_BASELINE_SCORING_MANUAL_ADJUSTED_TEST_QUERIES_2026-06-10.csv",
+    "query_count":  4,
+    "result_rows":  16,
+    "excluded_from_main":  [
+                               {
+                                   "name":  "Kangsule Kampoeng Susu Lembang",
+                                   "manual_recommendation_status":  "needs_review",
+                                   "manual_recommendation_note":  "Masih perlu cek ringan sebelum masuk rekomendasi utama."
+                               },
+                               {
+                                   "name":  "Pabrik Tahu Sibungsu",
+                                   "manual_recommendation_status":  "held_manual",
+                                   "manual_recommendation_note":  "Ditahan dari rekomendasi utama karena hasil cek manual lebih terasa seperti pabrik biasa, bukan toko oleh-oleh utama."
+                               }
+                           ],
+    "query_result_counts":  [
+                                {
+                                    "query_id":  "OO-MANUAL-Q01",
+                                    "count":  4
+                                },
+                                {
+                                    "query_id":  "OO-MANUAL-Q02",
+                                    "count":  5
+                                },
+                                {
+                                    "query_id":  "OO-MANUAL-Q03",
+                                    "count":  2
+                                },
+                                {
+                                    "query_id":  "OO-MANUAL-Q04",
+                                    "count":  5
+                                }
+                            ]
+}

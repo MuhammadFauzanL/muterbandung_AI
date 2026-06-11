@@ -1,0 +1,14 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Wisata%20keindahan%20alam%20hutan%20cimanggu&query_place_id=ChIJI7O87ruBby4RuTcKo9t4tH0",
+        "https://www.google.com/maps/search/?api=1&query=curug%20nyalangkadar&query_place_id=ChIJPW-mTAD5aC4RmYLHQiUbTXI",
+        "https://www.google.com/maps/search/?api=1&query=wisata%20hutan%20pinus%20pal%2016%20cikole%20lembang&query_place_id=ChIJq6qqqkbgaC4RwfR8FyQyfuo"
+    ]
+}

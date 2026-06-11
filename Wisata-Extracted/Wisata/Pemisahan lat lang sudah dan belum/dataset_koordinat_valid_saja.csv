@@ -1,0 +1,98 @@
+location_id,location_name,latitude,longitude,price_min,price_max,price_type,category,subcategory,coordinate_status,coordinate_source
+LOC-001,23 Paskal Shopping Center,-6.9153879,107.5943024,,,,Tempat Belanja,Mall,Found & Validated (In Bounds),Nominatim OSM
+LOC-003,Alun-Alun Kota Bandung,-6.9216776,107.607151,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-004,Alun-Alun Sumedang,-6.8598337,107.9207486,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-006,Bandung Carnival Land,-6.8783006,107.5951986,,,,Rekreasi Keluarga,Taman hiburan,Found & Validated (In Bounds),Nominatim OSM
+LOC-007,Bandung Indah Plaza,-6.908338,107.6112548,,,,Tempat Belanja,Pusat belanja,Found & Validated (In Bounds),Nominatim OSM
+LOC-008,Bandung Science Center,-6.8773023,107.5947081,,,,Tempat Belajar,Science center,Found & Validated (In Bounds),Nominatim OSM
+LOC-009,Bendungan Jatigede,-6.8567725,108.091126,,,,Wisata Alam,Bendungan,Found & Validated (In Bounds),Nominatim OSM
+LOC-010,Braga Citywalk,-6.917113,107.6084023,,,,Tempat Belanja,Citywalk,Found & Validated (In Bounds),Nominatim OSM
+LOC-012,Bukit Moko Bandung,-6.8580436,107.7113868,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-015,Cadas Pangeran Sumedang,-6.8836255,107.8525821,,,,Tempat Sejarah,Situs sejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-016,Chinatown Bandung,-6.91723,107.5927742,,,,Tempat Budaya,Kawasan budaya tematik,Found & Validated (In Bounds),Nominatim OSM
+LOC-017,Cihampelas Walk,-6.8938202,107.6055658,,,,Tempat Belanja,Mall,Found & Validated (In Bounds),Nominatim OSM
+LOC-018,Cimahi Mall,-6.8785093,107.5395646,,,,Tempat Belanja,Pusat belanja,Found & Validated (In Bounds),Nominatim OSM
+LOC-023,Curug Malela,-7.0115741,107.2056616,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-024,Curug Maribaya,-6.8343728,107.6580337,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-025,Curug Pelangi,-6.7991735,107.5781113,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-027,Dago Dreampark,-6.8476037,107.6254233,,,,Rekreasi Keluarga,Taman rekreasi tematik,Found & Validated (In Bounds),Nominatim OSM
+LOC-029,Dusun Bambu,-6.7899841,107.5786457,,,,Rekreasi Keluarga,Kawasan rekreasi keluarga,Found & Validated (In Bounds),Nominatim OSM
+LOC-031,Floating Market Lembang,-6.8188283,107.6180313,,,,Rekreasi Keluarga,Taman rekreasi tematik,Found & Validated (In Bounds),Nominatim OSM
+LOC-032,Gantolle Paralayang Singajaya Cihampelas,-6.9589027,107.471356,,,,Wisata Petualangan,Aktivitas petualangan,Found & Validated (In Bounds),Nominatim OSM
+LOC-033,Gedung Merdeka,-6.9210059,107.6092288,,,,Tempat Sejarah,Gedung bersejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-034,Gedung Sate,-6.9019107,107.6173031,,,,Tempat Sejarah,Gedung bersejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-037,Gn. Tampomas,-6.6127757,106.7561147,,,,Rekreasi Keluarga,Kawasan rekreasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-040,Gunung Bohong,-6.876389,107.519722,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-041,Gunung Puntang,-7.0851134,107.5650472,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-042,Gunung Putri Lembang,-6.795833,107.6338052,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-050,Kawah Putih,-7.1661181,107.4022669,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-052,Kebun Binatang Bandung,-6.8911349,107.6069218,,,,Wisata Satwa,Wisata satwa,Found & Validated (In Bounds),Nominatim OSM
+LOC-053,Lembang Park & Zoo,-6.8054528,107.5913571,,,,Wisata Satwa,Wisata satwa,Found & Validated (In Bounds),Nominatim OSM
+LOC-056,Masjid Agung Bandung,-6.9218735,107.6062926,,,,Tempat Ibadah,Tempat ibadah,Found & Validated (In Bounds),Nominatim OSM
+LOC-057,Masjid Agung Sumedang,-6.8596686,107.9197322,,,,Tempat Ibadah,Tempat ibadah,Found & Validated (In Bounds),Nominatim OSM
+LOC-059,Mata Air Cikandung,-6.7918289,107.9242987,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-060,Museum Geologi Bandung,-6.9003424,107.620961,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-061,Museum Konferensi Asia Afrika,-6.9210729,107.6096452,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-062,Museum Pos Indonesia,-6.9020925,107.6198013,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-063,Museum Sri Baduga,-6.9377186,107.6035761,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-065,Orchid Forest Cikole,-6.7801991,107.6379318,,,,Wisata Alam,Hutan wisata,Found & Validated (In Bounds),Nominatim OSM
+LOC-068,Pasar Cimindi,-6.8980198,107.5562295,,,,Tempat Belanja,Pusat belanja,Found & Validated (In Bounds),Nominatim OSM
+LOC-075,Sanghyang Heuleut,-6.8764679,107.341682,,,,Wisata Alam,Danau alami,Found & Validated (In Bounds),Nominatim OSM
+LOC-076,Sanghyang Kenit,-6.8598247,107.3478097,,,,Wisata Alam,Sungai dan tebing,Found & Validated (In Bounds),Nominatim OSM
+LOC-077,Saung Angklung Udjo,-6.8982695,107.6552971,,,,Tempat Seni,Seni pertunjukan,Found & Validated (In Bounds),Nominatim OSM
+LOC-078,Selasar Sunaryo Art Space,-6.8586315,107.6365204,,,,Tempat Seni,Galeri seni,Found & Validated (In Bounds),Nominatim OSM
+LOC-080,Situ Cisanti,-7.2093913,107.6574773,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-084,Sunrise Point Cukul,-7.2337053,107.5342649,,,,Wisata Alam,Titik panorama,Found & Validated (In Bounds),Nominatim OSM
+LOC-088,Taman Endog,-6.8477316,107.9243381,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-089,Taman Film,-6.8985088,107.6077767,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-090,Taman Foto Bandung,-6.9134767,107.6271878,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-092,Taman Jomblo,-6.8981221,107.6092198,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-093,Taman Kartini,-6.8885628,107.5367513,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-096,Taman Lansia,-6.8975989,107.6312048,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-097,Taman Lembah Dewata,-6.8115695,107.6428718,,,,Rekreasi Keluarga,Taman rekreasi alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-098,Taman Musik,-6.9119444,107.6159987,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-099,Taman Superhero,-6.9107448,107.6306343,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-102,Terminal Wisata Grafika Cikole,-6.7850486,107.6516285,,,,Rekreasi Keluarga,Kawasan rekreasi keluarga,Found & Validated (In Bounds),Nominatim OSM
+LOC-105,The Lodge Maribaya,-6.8288811,107.688434,,,,Rekreasi Keluarga,Kawasan rekreasi alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-108,Trans Studio Bandung,-6.9247021,107.6360969,,,,Rekreasi Keluarga,Taman hiburan indoor,Found & Validated (In Bounds),Nominatim OSM
+LOC-109,Trans Studio Mall Bandung,-6.9256414,107.6367469,,,,Tempat Belanja,Pusat belanja,Found & Validated (In Bounds),Nominatim OSM
+LOC-117,Kiara Artha Park,-6.916458,107.6422474,,,,Rekreasi Keluarga,Taman rekreasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-118,Forest Walk Babakan Siliwangi,-6.8847634,107.6103979,,,,Wisata Alam,Hutan kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-120,Rumah Guguk,-6.8469616,107.5955585,,,,Wisata Satwa,Wisata hewan peliharaan,Found & Validated (In Bounds),Nominatim OSM
+LOC-121,NuArt Sculpture Park,-6.8772419,107.5724908,,,,Tempat Seni,Taman patung,Found & Validated (In Bounds),Nominatim OSM
+LOC-122,Peta Park,-6.9317342,107.5883194,,,,Rekreasi Keluarga,Taman rekreasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-123,Museum Pendidikan Nasional UPI,-6.8597725,107.5941677,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-124,Museum Barli,-6.8783934,107.5875219,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-125,Wot Batu,-6.8585391,107.6366148,,,,Tempat Seni,Instalasi seni,Found & Validated (In Bounds),Nominatim OSM
+LOC-126,Lawangwangi Creative Space,-6.8476429,107.6275129,,,,Tempat Seni,Ruang kreatif,Found & Validated (In Bounds),Nominatim OSM
+LOC-128,Observatorium Bosscha,-6.8244765,107.61602,,,,Tempat Belajar,Observatorium,Found & Validated (In Bounds),Nominatim OSM
+LOC-129,Curug Dago,-6.8654924,107.6181817,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-130,Fairy Garden by The Lodge,-6.8233175,107.6886132,,,,Rekreasi Keluarga,Taman rekreasi tematik,Found & Validated (In Bounds),Nominatim OSM
+LOC-137,Rumah Belanda,-6.780124,107.7075748,,,,Tempat Budaya,Rumah tematik budaya,Found & Validated (In Bounds),Nominatim OSM
+LOC-145,Palalangon Park,-7.1107391,107.4956463,,,,Rekreasi Keluarga,Taman rekreasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-147,Victory Waterpark Soreang,-7.0316564,107.5072181,,,,Wahana Air,Wahana air buatan,Found & Validated (In Bounds),Nominatim OSM
+LOC-149,Taman Wisata Alam Cimanggu,-7.1453684,107.3912258,,,,Wisata Alam,Taman wisata alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-152,Kebun Teh Rancabali,-7.111493,107.4152189,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-155,Curug Panganten,-7.2337718,108.3038555,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-156,Gunung Artapela,-7.178754,107.6492849,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-159,Penangkaran Rusa Kertamanah,-7.1902358,107.6106834,,,,Wisata Satwa,Penangkaran rusa,Found & Validated (In Bounds),Nominatim OSM
+LOC-169,Dago Bakery Punclut,-6.8423415,107.6228747,,,,Tempat Kuliner,Bakery wisata,Found & Validated (In Bounds),Nominatim OSM
+LOC-177,Wahoo Waterworld,-6.8599638,107.4630882,,,,Wahana Air,Waterworld,Found & Validated (In Bounds),Nominatim OSM
+LOC-188,Curug Bugbrug,-6.7975673,107.5783554,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM
+LOC-193,Sanghyang Poek,-6.868449,107.3472266,,,,Wisata Alam,Gua dan sungai,Found & Validated (In Bounds),Nominatim OSM
+LOC-194,Sanghyang Tikoro,-6.8638417,107.348877,,,,Wisata Alam,Gua dan sungai,Found & Validated (In Bounds),Nominatim OSM
+LOC-199,Taman Buru Gunung Masigit Kareumbi,-6.9413427,107.9378767,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-203,Masjid Raya Al-Jabbar,-6.9480938,107.703504,,,,Tempat Ibadah,Tempat ibadah,Found & Validated (In Bounds),Nominatim OSM
+LOC-205,Lapangan Gasibu,-6.901132,107.6199289,,,,Taman Kota,Ruang publik,Found & Validated (In Bounds),Nominatim OSM
+LOC-206,Monumen Perjuangan Rakyat Jawa Barat,-6.8934346,107.6185412,,,,Tempat Sejarah,Situs sejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-208,Museum Kota Bandung,-6.910008,107.6095212,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-209,Museum Mandala Wangsit Siliwangi,-6.9173055,107.6111041,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-210,Taman Sejarah Bandung,-6.910367,107.6103563,,,,Tempat Sejarah,Taman sejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-211,Taman Vanda,-6.9140617,107.6100689,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-212,Taman Maluku,-6.9093784,107.6151634,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-213,Taman Cibeunying,-6.9052183,107.6244498,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-214,Taman Panatayuda,-6.8979724,107.6157428,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-215,Taman Pramuka Bandung,-6.9101779,107.626927,,,,Taman Kota,Ruang publik kota,Found & Validated (In Bounds),Nominatim OSM
+LOC-218,Gedung Indonesia Menggugat,-6.9133816,107.6079413,,,,Tempat Sejarah,Gedung bersejarah,Found & Validated (In Bounds),Nominatim OSM
+LOC-219,Museum Inggit Garnasih,-6.9314629,107.6024885,,,,Tempat Belajar,Tempat edukasi,Found & Validated (In Bounds),Nominatim OSM
+LOC-227,Puncak Mega Gunung Puntang,-7.1213917,107.6212909,,,,Wisata Alam,Daya tarik alam,Found & Validated (In Bounds),Nominatim OSM

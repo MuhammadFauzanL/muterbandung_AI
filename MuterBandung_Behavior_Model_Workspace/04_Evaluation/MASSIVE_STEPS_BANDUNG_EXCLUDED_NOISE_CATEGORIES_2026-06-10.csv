@@ -1,0 +1,90 @@
+﻿venue_category,checkin_count,unique_venues,unique_users,unique_trails,missing_name,missing_latitude,mapping_status,muterbandung_label,mapping_group,rule_reason,missing_name_pct,missing_latitude_pct
+Home (private),18844,3816,1697,14548,18754,18754,excluded_noise,,noise,matched exclude rule: private_residential,99.52,99.52
+High School,5647,229,952,5166,234,234,excluded_noise,,noise,matched exclude rule: education_daily,4.14,4.14
+Road,5342,928,1051,3697,1240,1240,excluded_noise,,noise,matched exclude rule: infrastructure_transport,23.21,23.21
+College Classroom,3102,992,714,2815,1470,1470,excluded_noise,,noise,matched exclude rule: education_daily,47.39,47.39
+Office,2294,600,649,1986,197,197,excluded_noise,,noise,matched exclude rule: work_office,8.59,8.59
+Middle School,2230,55,403,2076,66,66,excluded_noise,,noise,matched exclude rule: education_daily,2.96,2.96
+University,2135,147,715,1993,167,167,excluded_noise,,noise,matched exclude rule: education_daily,7.82,7.82
+General College & University,2120,148,543,2028,112,112,excluded_noise,,noise,matched exclude rule: education_daily,5.28,5.28
+Hospital,1824,265,854,1644,260,260,excluded_noise,,noise,matched exclude rule: health_public_service,14.25,14.25
+Student Center,1462,245,411,1383,236,236,excluded_noise,,noise,matched exclude rule: education_daily,16.14,16.14
+College Academic Building,1330,232,427,1267,223,223,excluded_noise,,noise,matched exclude rule: education_daily,16.77,16.77
+Building,1326,526,640,1257,450,450,excluded_noise,,noise,matched exclude rule: work_office,33.94,33.94
+Bank,1319,373,594,1190,292,292,excluded_noise,,noise,matched exclude rule: health_public_service,22.14,22.14
+Salon / Barbershop,1034,321,610,991,203,203,excluded_noise,,noise,matched exclude rule: personal_service,19.63,19.63
+Residential Building (Apartment / Condo),840,250,263,735,453,453,excluded_noise,,noise,matched exclude rule: private_residential,53.93,53.93
+College Auditorium,825,113,446,808,43,43,excluded_noise,,noise,matched exclude rule: education_daily,5.21,5.21
+Train Station,718,22,375,661,23,23,excluded_noise,,noise,matched exclude rule: infrastructure_transport,3.2,3.2
+Automotive Shop,666,306,343,640,103,103,excluded_noise,,noise,matched exclude rule: personal_service,15.47,15.47
+Gym,591,52,143,576,55,55,excluded_noise,,noise,matched exclude rule: personal_service,9.31,9.31
+Government Building,588,134,345,561,121,121,excluded_noise,,noise,matched exclude rule: work_office,20.58,20.58
+Airport,558,19,403,526,22,22,excluded_noise,,noise,matched exclude rule: infrastructure_transport,3.94,3.94
+Housing Development,548,171,188,519,261,261,excluded_noise,,noise,matched exclude rule: private_residential,47.63,47.63
+College Lab,541,177,239,514,188,188,excluded_noise,,noise,matched exclude rule: education_daily,34.75,34.75
+College Cafeteria,482,104,215,462,71,71,excluded_noise,,noise,matched exclude rule: education_daily,14.73,14.73
+School,440,112,206,433,68,68,excluded_noise,,noise,matched exclude rule: education_daily,15.45,15.45
+Community College,401,85,159,391,53,53,excluded_noise,,noise,matched exclude rule: education_daily,13.22,13.22
+Bus Station,384,54,243,360,41,41,excluded_noise,,noise,matched exclude rule: infrastructure_transport,10.68,10.68
+Gym / Fitness Center,377,31,101,371,65,65,excluded_noise,,noise,matched exclude rule: personal_service,17.24,17.24
+Gas Station,361,135,209,355,108,108,excluded_noise,,noise,matched exclude rule: infrastructure_transport,29.92,29.92
+College Library,342,88,193,335,34,34,excluded_noise,,noise,matched exclude rule: education_daily,9.94,9.94
+Coworking Space,281,86,142,268,43,43,excluded_noise,,noise,matched exclude rule: work_office,15.3,15.3
+College Administrative Building,279,58,86,249,35,35,excluded_noise,,noise,matched exclude rule: education_daily,12.54,12.54
+Dentist's Office,278,120,151,261,34,34,excluded_noise,,noise,matched exclude rule: work_office,12.23,12.23
+College Stadium,219,17,138,219,19,19,excluded_noise,,noise,matched exclude rule: education_daily,8.68,8.68
+Doctor's Office,213,119,140,209,46,46,excluded_noise,,noise,matched exclude rule: work_office,21.6,21.6
+College Residence Hall,209,23,45,187,3,3,excluded_noise,,noise,matched exclude rule: education_daily,1.44,1.44
+Neighborhood,209,33,89,198,106,106,excluded_noise,,noise,matched exclude rule: private_residential,50.72,50.72
+Post Office,204,56,124,197,27,27,excluded_noise,,noise,matched exclude rule: work_office,13.24,13.24
+Bridge,203,29,127,194,35,35,excluded_noise,,noise,matched exclude rule: infrastructure_transport,17.24,17.24
+Spa,201,82,138,191,74,74,excluded_noise,,noise,matched exclude rule: personal_service,36.82,36.82
+Capitol Building,162,55,92,160,37,37,excluded_noise,,noise,matched exclude rule: work_office,22.84,22.84
+College Technology Building,162,50,61,154,19,19,excluded_noise,,noise,matched exclude rule: education_daily,11.73,11.73
+Law School,158,29,67,149,18,18,excluded_noise,,noise,matched exclude rule: education_daily,11.39,11.39
+Parking,151,64,81,148,10,10,excluded_noise,,noise,matched exclude rule: infrastructure_transport,6.62,6.62
+College Gym,145,37,82,143,23,23,excluded_noise,,noise,matched exclude rule: education_daily,15.86,15.86
+Meeting Room,142,47,71,136,41,41,excluded_noise,,noise,matched exclude rule: work_office,28.87,28.87
+Taxi,134,42,43,127,34,34,excluded_noise,,noise,matched exclude rule: infrastructure_transport,25.37,25.37
+College Engineering Building,131,35,64,116,3,3,excluded_noise,,noise,matched exclude rule: education_daily,2.29,2.29
+College Science Building,125,50,57,117,35,35,excluded_noise,,noise,matched exclude rule: education_daily,28.0,28.0
+College Communications Building,112,12,48,112,4,4,excluded_noise,,noise,matched exclude rule: education_daily,3.57,3.57
+Police Station,112,32,81,107,4,4,excluded_noise,,noise,matched exclude rule: health_public_service,3.57,3.57
+Music School,98,16,33,97,17,17,excluded_noise,,noise,matched exclude rule: education_daily,17.35,17.35
+Trade School,96,30,43,95,48,48,excluded_noise,,noise,matched exclude rule: education_daily,50.0,50.0
+Paper / Office Supplies Store,94,46,71,91,25,25,excluded_noise,,noise,matched exclude rule: work_office,26.6,26.6
+Car Wash,81,43,62,81,14,14,excluded_noise,,noise,matched exclude rule: personal_service,17.28,17.28
+College Arts Building,81,26,37,79,6,6,excluded_noise,,noise,matched exclude rule: education_daily,7.41,7.41
+Conference Room,78,41,52,76,4,4,excluded_noise,,noise,matched exclude rule: work_office,5.13,5.13
+Laundry Service,78,36,46,78,6,6,excluded_noise,,noise,matched exclude rule: personal_service,7.69,7.69
+Elementary School,74,25,35,71,23,23,excluded_noise,,noise,matched exclude rule: education_daily,31.08,31.08
+College & University,67,19,27,67,10,10,excluded_noise,,noise,matched exclude rule: education_daily,14.93,14.93
+Factory,66,30,36,60,19,19,excluded_noise,,noise,matched exclude rule: work_office,28.79,28.79
+College Basketball Court,62,14,29,61,19,19,excluded_noise,,noise,matched exclude rule: education_daily,30.65,30.65
+College Quad,59,25,31,56,10,10,excluded_noise,,noise,matched exclude rule: education_daily,16.95,16.95
+Campaign Office,54,21,25,52,5,5,excluded_noise,,noise,matched exclude rule: work_office,9.26,9.26
+Gym Pool,49,8,37,49,5,5,excluded_noise,,noise,matched exclude rule: personal_service,10.2,10.2
+Medical School,49,25,26,49,9,9,excluded_noise,,noise,matched exclude rule: education_daily,18.37,18.37
+College Bookstore,44,17,23,41,13,13,excluded_noise,,noise,matched exclude rule: education_daily,29.55,29.55
+Airport Terminal,36,12,32,34,10,10,excluded_noise,,noise,matched exclude rule: infrastructure_transport,27.78,27.78
+College Football Field,35,3,15,34,10,10,excluded_noise,,noise,matched exclude rule: education_daily,28.57,28.57
+College Math Building,34,11,16,34,1,1,excluded_noise,,noise,matched exclude rule: education_daily,2.94,2.94
+Airport Gate,25,4,23,24,2,2,excluded_noise,,noise,matched exclude rule: infrastructure_transport,8.0,8.0
+Nail Salon,23,13,20,23,7,7,excluded_noise,,noise,matched exclude rule: personal_service,30.43,30.43
+College Theater,20,9,12,20,6,6,excluded_noise,,noise,matched exclude rule: education_daily,30.0,30.0
+Tanning Salon,17,7,11,17,2,2,excluded_noise,,noise,matched exclude rule: personal_service,11.76,11.76
+College Rec Center,14,9,10,14,4,4,excluded_noise,,noise,matched exclude rule: education_daily,28.57,28.57
+Airport Lounge,13,3,11,13,0,0,excluded_noise,,noise,matched exclude rule: infrastructure_transport,0.0,0.0
+College Soccer Field,13,4,9,13,0,0,excluded_noise,,noise,matched exclude rule: education_daily,0.0,0.0
+College Track,11,5,10,10,7,7,excluded_noise,,noise,matched exclude rule: education_daily,63.64,63.64
+Boarding House,7,2,2,6,0,0,excluded_noise,,noise,matched exclude rule: private_residential,0.0,0.0
+Tailor Shop,6,6,6,6,0,0,excluded_noise,,noise,matched exclude rule: personal_service,0.0,0.0
+College History Building,5,3,5,5,2,2,excluded_noise,,noise,matched exclude rule: education_daily,40.0,40.0
+Intersection,5,2,4,5,0,0,excluded_noise,,noise,matched exclude rule: infrastructure_transport,0.0,0.0
+College Baseball Diamond,3,1,1,3,0,0,excluded_noise,,noise,matched exclude rule: education_daily,0.0,0.0
+Nursery School,3,3,2,3,2,2,excluded_noise,,noise,matched exclude rule: education_daily,66.67,66.67
+Airport Food Court,2,2,2,2,1,1,excluded_noise,,noise,matched exclude rule: infrastructure_transport,50.0,50.0
+Embassy / Consulate,2,2,2,2,0,0,excluded_noise,,noise,matched exclude rule: health_public_service,0.0,0.0
+Fire Station,2,1,2,2,0,0,excluded_noise,,noise,matched exclude rule: health_public_service,0.0,0.0
+Pharmacy,2,2,2,2,0,0,excluded_noise,,noise,matched exclude rule: health_public_service,0.0,0.0
+College Tennis Court,1,1,1,1,1,1,excluded_noise,,noise,matched exclude rule: education_daily,100.0,100.0

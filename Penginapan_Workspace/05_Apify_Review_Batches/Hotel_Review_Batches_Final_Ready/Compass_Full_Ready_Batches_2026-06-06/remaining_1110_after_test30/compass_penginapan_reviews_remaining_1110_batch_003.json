@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kartika%20Guest%20House%20Cianjur%20-6.8285%2C107.1307"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kost%20Flores%20-6.9082%2C107.618"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kost%20Gerlong%20Hilir%20-6.8676139%2C107.5795974"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kost%20Griya%20Mas%20BCI%20A%2039%20A%20-6.8648641%2C107.526176"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kost%20Sakgan48%20-6.9262%2C107.61"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kost%20harian/penginapan%20peri%20-6.9446%2C107.5953"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kostel%20Syariah%20%40House%20-6.8833958%2C107.5503171"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lavin%20Soka%20Homestay%20-%20Tent%20-6.7204%2C107.3809"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Light%20Home%20Kost%20-6.8892346%2C107.5798251"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mila%27s%20Homestay%20-6.7979%2C107.1674"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=My%20Family%20Guest%20House%20-6.9021%2C107.6133"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nabila%20Syar%27i%20Guest%20House%20-6.8566%2C107.5164"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nabila%20Syar%27i%20Guest%20House%20-6.8654%2C107.5183"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nabila%20Syar%27i%20Guest%20House%20-6.8654494%2C107.5182602"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%202442%20Windrisari%20Homestay%20-6.8588681%2C107.5777343"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2090815%20Guest%20House%20Putri%20Sariwangi%20Syariah%20-6.861946%2C107.5763083"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2090892%20My%20Guest%20House%20Syariah%20-6.9004%2C107.5225"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2092726%20Geulis%20Guest%20House%20Syariah%20-6.8637%2C107.5021"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094030%20Ar%20Guest%20House%20Syariah%20-7.0344%2C107.5457"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094118%20Homestayque%20Syariah%20-6.8723355%2C107.5332578"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%2094325%20Cibogo%20Guesthouse%20-6.8895188%2C107.5797228"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=OYO%20Life%2092685%20Kost%20Arimbi%20-6.9296%2C107.6063"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ouma%20Guest%20House%20-6.902%2C107.5962"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Padasuka%20Kost%20%26%20Homestay%20-6.8759999%2C107.5251134"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Palagan%20Joglo%20Boutique%20Guest%20House%20-6.85%2C107.5904"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pangalengan%20Homestay%20By%20Lunam%20-7.1793%2C107.5703"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Peony%20Guest%20House%20-6.9077%2C107.5914"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Radio%20Backpacker%20Guesthouse%20RBG%20SYARIAH%20-6.8914%2C107.5665"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Plus%20%40%20Doorman%20Guest%20House%20-6.9175%2C107.5997"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=RedDoorz%20Syariah%20%40%20Sultana%20Guest%20House%20-6.858%2C107.6089"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Regina%27s%20Home%20Guesthouse%20-6.8864523%2C107.5699031"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Ebo%20Guesthouse%20-6.8923%2C107.6152"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rumah%20Nenekoe%20Guest%20House%20-6.9345%2C107.6213"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Salsabila%20Guest%20House%20-6.8871632%2C107.5223337"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Salsabilla%20Guest%20House%20Syariah%20by%20Oyo%20-6.8871%2C107.5225"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sapadia%20Guesthouse%20Ciwidey%20Bandung%20-7.1141%2C107.4437"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sekararum%20Butik%20Syariah%20Guesthouse%20-6.8874%2C107.5798"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Selaras%20Guest%20House%20%26%20Restaurant%20-6.9048%2C107.6237"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Seven%20Homestay%20-6.8567287%2C107.5718447"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sukaraja%20Guest%20House%20Bandung%20-6.8917943%2C107.5694466"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Syariah%20Maribaya%20Family%20Guest%20House%20-6.8167%2C107.6273"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Cordyline%20Guesthouse%20-6.8629441%2C107.563801"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Victoria%20Luxurious%20Guesthouse%20-6.8789%2C107.5938"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tiara%20Guest%20House%20-6.7975%2C107.1724"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tirtasari%20Nice%202%20Guest%20House%20-6.8759%2C107.5744"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tirtasari%20Nice%20Guest%20House%20-6.875%2C107.5757"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tulip%20Guest%20House%20-6.9047%2C107.5907"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Unique%20Guesthouse%20-6.9187%2C107.5998"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Urbanview%20Daily%20Guest%20House%20Pasteur%20Bandung%20-6.8901%2C107.5817"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=VV%26V%20HomeStay%20-7.131%2C107.4208"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wildan%20Guesthouse%20-6.8017%2C107.0619"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zameena%20Guest%20House%20-6.8689136%2C107.5278444"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zatarana%20Guest%20House%20Syariah%20-6.8956%2C107.6198"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zoe%20Guest%20House%20Hotel%20Bandung%20-6.8827%2C107.5819"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ARTOTEL%20Suites%20Aquila%20Bandung%20-6.8954%2C107.5893"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=ASOKA%20INN%20-6.8808%2C107.5808"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Abadi%20Asri%20Hotel%20-6.8529%2C107.5957"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ahadiat%20Hotel%20%26%20Bungalow%20-6.8798%2C107.5884"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Asia%20Afrika%20Pangarang%2024%20Bandung%20-6.9242%2C107.61"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Braga%20Lembong%2021%20Bandung%20-6.9177%2C107.6125"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Cicendo%20Otten%206%20Bandung%20-6.9029%2C107.6008"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Cicendo%20Pasirkaliki%2053%20Bandung%20-6.9111%2C107.5976"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Eco%20Budi%20Cimahi%20-6.8905806%2C107.5587424"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Eco%20Cicendo%20-6.9051%2C107.5986"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Gasibu%20Aria%20Jipang%206%20Bandung%20-6.9001%2C107.6159"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Lengkong%20Buah%20Batu%20152%20Bandung%20-6.9378%2C107.6233"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Malabar%20Gatot%20Subroto%2062%20Bandung%20-6.9241%2C107.6249"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Pasteur%20Cassa%202%20Bandung%20-6.889622%2C107.5782089"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Regol%20Lengkong%20Besar%20145%20Bandung%20-6.9312%2C107.6129"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Sudirman%20Ence%20Aziz%2032%20Bandung%20-6.9187%2C107.5999"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Supratman%2023%20Bandung%20-6.9065%2C107.6294"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Airy%20Veteran%2030%20Bandung%20-6.9192%2C107.615"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alqueby%20Hotel%20-6.9119%2C107.6509"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amaris%20Hotel%20Cihampelas%20-6.8902%2C107.6037"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amaris%20Hotel%20Cimanuk%20-6.9044%2C107.6207"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amaris%20Hotel%20Setiabudhi%20Bandung%20-6.8735%2C107.5959"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amaroossa%20Hotel%20Bandung%20-6.9085%2C107.6185"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amellia%20Hotel%20Pasteur%20-6.8857%2C107.5786"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Amira%20Hotel%20-6.8844%2C107.5834"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Andalucia%20Lodge%20%26%20Brunch%20Bandung%20-6.8926%2C107.5745"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Andy%20-6.9281%2C107.6067"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ardan%20Hotel%20-6.8933%2C107.5991"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Ardellia%20Hotel%20-6.925%2C107.6189"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arsallya%20Hotel%20-6.9279%2C107.6212"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Art%20Deco%20Luxury%20Hotel%20-6.8699%2C107.6078"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Artana%202%20Chipsari%20by%20OYO%20-7.1933%2C107.545"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aryaduta%20Bandung%20-6.9093%2C107.6119"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Asmila%20Boutique%20Hotel%20-6.882%2C107.6001"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Asoka%20Hotel%20Bandung%20-6.928%2C107.6128"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Asthaloka%20-6.8939%2C107.5735"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aston%20Pasteur%20-6.8936%2C107.5872"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=BUMI%20LOKA%20residence%20-6.8669%2C107.4576"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bali%20World%20Hotel%20-6.9384%2C107.6632"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bandung%20City%20Center%20-6.9129%2C107.6048"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bangreng%20Inn%20-6.9376%2C107.6306"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Asia%20Afrika%20-6.926%2C107.6056"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Pasar%20Baru%20-6.9187%2C107.5999"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Bantal%20Guling%20Pasteur%20Bandung%20-6.8808067%2C107.5792086"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Premier%20La%20Grande%20-6.9093%2C107.6099"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Setiabudhi%20Bandung%20-6.8611%2C107.5952"
+        }
+    ]
+}

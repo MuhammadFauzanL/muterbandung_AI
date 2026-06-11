@@ -1,0 +1,307 @@
+{
+    "language": "id",
+    "maxReviews": 30,
+    "personalData": true,
+    "startUrls": [
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Skara%20by%20Kozystay%20-%20Bandung%20-6.9093%2C107.6101"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Skara%20by%20Kozystay%20-%20Bandung%20-6.9093%2C107.6102"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=SoraCai%20Riverside%20Campsite%20-%20Tent%20-7.1803%2C107.5455"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sorte%20by%20Kozystay%20-Dago%20-6.8558%2C107.6476"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Srikandi%20-7.1114%2C107.4968"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Suarga%20Loka%20-6.8304%2C107.5526"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Subali%20-7.1113%2C107.4965"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Suka%20Rasa%20Endah%20Cottage%20-7.0835%2C107.4828"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Sukha%20by%20Kozystay%20-%20Dago%20-6.8558%2C107.6476"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=SunMoon%20-6.9117%2C107.6026"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Svarga%20Glamping%20-6.8036%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=TROYA%20HOUSE%20-6.8565%2C107.4895"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tabgha%20by%20Kozystay%20-%20Dago%20-6.8548%2C107.6492"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Wisata%20Bougenville%20by%20Kozystay%20-7.111%2C107.6019"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Taman%20Wisata%20Bougenville%20by%20Kozystay%20-7.1108%2C107.602"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tanea%20by%20Kozystay%20-%20Braga%20-6.9167%2C107.6078"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Tenda%20Sederhana%2C%20Soreang%20River%20Side%20Ciwidey%20-7.0222%2C107.5003"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Cluster%20Harris%20-6.8948%2C107.53"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Dago%20View%20Bandung%20-6.8567%2C107.6446"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=The%20Suites%20Metro%20by%20Faris%20Property%20-6.9381%2C107.6593"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Twelve%20Stones%20at%20Wahoo%20KBP%20-6.8692%2C107.4562"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vila%20Bukit%20Endah%20-7.1693%2C107.5247"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vila%20Kopi%20Ciwidey%20-7.1202%2C107.4415"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vila%20Murah%20Di%20Lembang%20Vila%20malaika%20-6.8465%2C107.5449"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vila%20Refa-1%20type%20Cotage%20-6.7219%2C107.5313"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Vill%C3%A0%20mandala%20-7.186%2C107.5861"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=WABS%20Syariah%20-6.9296%2C107.6262"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wasabi%20House%2C%20Kota%20Baru%20Parahyangan%20-6.8667%2C107.4572"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=West%20Castle%20%40%205%20Minutes%20to%20KCIC%20Padalarang%20-6.8319%2C107.5182"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wisma%20812%20Khusus%20Putra%20-6.8945%2C107.6392"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wonderful%20dedicated%20room%20with%20garden%20-6.884%2C107.0839"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wulandari%20Camp%20Riverside%20-%20Tent%20-7.1834%2C107.5454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wulandari%20Camping%20ground%20Riverside%20-%20Tent%20-7.1834%2C107.5454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Wulandari%20Riverside%20-%20Tent%20-7.1834%2C107.5454"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Yudistira%20-7.1113%2C107.4969"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Zona%20Bobo%20Retro%20Blue%20Moslem%20Friendly%20By%20Belgareti%20-6.8631%2C107.504"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=datar%20pinus%20LUXURY%20-7.1837%2C107.5485"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=family%20only%20-7.1229%2C107.424"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=kusumanagara%201%20-6.8033%2C107.5484"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=pnd%20property%20-6.8133%2C107.6571"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=3%20Bed%20Villa%20The%20Dago%20View%20-6.8557%2C107.645"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aiko%20Villa%20Bandung%20-6.8592%2C107.6472"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alayam%20Villa%20Padalarang%20for%20family%20near%20whoosh%2C%20wahoo%20waterworld%20%26%20ikea%20-6.8486%2C107.4719"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Alayam%20villa%20-6.8486%2C107.4718"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Arreneuz%20Villa%20Syariah%20Ciwidey%20-7.1062%2C107.4262"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aubrey%20Villa%20Ciwidey%20-7.124%2C107.5054"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aubrey%20Villa%20Ciwidey%20-%20Chalet%20-7.124%2C107.5054"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Aubrey%20Villa%20Ciwidey%20-%20Tent%20-7.124%2C107.5054"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Calma%20Villa%20by%20Kozystay%20-%20Bandung%20-6.8314%2C107.629"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Casamora%20Villa%20Parahyangan%20Bandung%20-6.8229%2C107.5416"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Clamitan%20House%20-%20Villa%20-6.8495%2C107.4728"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Clamitan%20Villas%202%20-6.8492%2C107.473"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Dago%20Escape%20Villa%20by%20Kozystay%20-%20Bandung%20-6.856%2C107.6544"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Daily%20Home%20Villa%20Dago%20-6.8605%2C107.6524"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Diamond%20Villa%20Lembang%20%7C%20Hotel%20danVilla%20Murah%20untuk%20Rombongan%20%26%20Keluarga%E2%80%9D%20-6.8287%2C107.5954"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Double%20R%20Villa%20F11%20Dago%20Village%20-%20Villa%20-6.8547%2C107.6494"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Family%20Only%20Amazing%20City%20View%20Villa%20-%20De%20Reiz%20Firen%20Syariah%20-6.867%2C107.6394"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Fanara%20Villa%20-6.8449%2C107.5297"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Garden%20House%20Villa%2C%20Lembang%20-6.8262%2C107.6346"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gedung%20Serba%20Guna%20%26%20Villa%20Ambu%20-6.8577%2C107.6089"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Griya%20Keraton%20Villa%20by%20Kozystay%20-%20Bandung%20-6.8411%2C107.6594"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Gyuzel%20villa%20di%20lembang%20-6.8457%2C107.5482"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=HARVESTFARM%20VILLA%20-7.188%2C107.5397"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Harmony%20Hilltop%20City%20View%20Villa%204%20bedrooms%20with%20a%20private%20swimming%20pool%20-%20Villa%20with%20Private%20Pool%20-6.8623%2C107.6497"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Jasmine%20Cozy%20Villa%203%20Bedrooms%20With%20a%20Private%20Heated%20Swimming%20Pool%20and%20a%20Billiard%20Table%20-6.8674%2C107.6367"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Josh%20House%20KBP%20Villa%20-6.8694%2C107.4546"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=KM%20Heritage%20Villa%20-6.8097%2C107.1505"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kamala%20plantation%20view%20villa%2010%20bedrooms%20with%20a%20private%20heated%20Infinity%20pool%20and%20a%20billiard%20table%20-%20Villa%20with%20Private%20Pool%20-6.8625%2C107.6517"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kirei%20Mountain%20View%20Villa%207%20Bedrooms%20With%20a%20Private%20Swimming%20Pool%20-6.8581%2C107.6496"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Kuldesak%20Villa%20-6.8834%2C107.5906"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lazuardy%20Syariah%20Park%20and%20Villa%20-6.8161%2C107.5517"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lazuardy%20Syariah%20Park%20and%20Villa%20-6.8162%2C107.5525"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lioravilla21%20Kota%20Baru%20Parahyangan%20-%20Villa%20with%20Private%20Pool%20-6.8743%2C107.4722"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Lioravilla21%20Kota%20Baru%20Parahyangan%20-%20Villa%20with%20Private%20Pool%20-6.8743%2C107.4721"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Little%20Duck%20Villa%20-6.8216%2C107.5889"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mahitala%20Villa%20-6.8629%2C107.5961"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Mentari%20Hill%20View%20Villa%208%20Bedrooms%20With%20a%20Private%20Heated%20Swimming%20Pool%20and%20a%20Movie%20Room%20and%20a%20Billiard%20Table%20-%20Villa%20with%20Private%20Pool%20-6.8662%2C107.6356"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Morning%20Glory%20Mountain%20View%20Villa%204%20Bedrooms%20With%20a%20Private%20Heated%20Swimming%20Pool%20-6.8622%2C107.651"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Namdur%20Villa%20Sariwangi%20-6.8689497%2C107.5642848"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Naomi%20Home%20Villa%20Bandung%20near%20Wahoo%20%26%20Whoosh%20-6.8695%2C107.4571"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Naomi%20Jati%20Villa%20Bandung%20-6.8648%2C107.4566"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Naomi%20Nala%20Villa%20Bandung%20-6.8639%2C107.4572"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nata%20Villa%20Syariah%20close%20to%20Telkom%20-7.0024%2C107.6523"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nuansa%20Villa%20S-09A%20-6.8214%2C107.5888"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Nyaman%20Wangi%20Villa%20Kota%20Baru%20Parahyangan%20-6.8695%2C107.453"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Oemaja%20Villa%20Spacious%20Living%20Room%20KBP%20Bandung%20-6.8702%2C107.4531"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Paras%20Yogya%20With%20Private%20Pool%20Villa%20-6.8770069%2C107.5676807"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Perfect%20villa%20with%20city%20view%20for%20family%20gateaway%20-6.8485%2C107.4721"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Perfect%20villa%20with%20city%20view%20for%20family%20gateaway%20-6.8486%2C107.4719"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Pierdi%20Villa%20-7.1219%2C107.4299"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Platinum%20Yellow%20Bandung%20Villa%2024%20Pax%20Private%20Pool%20-6.8578%2C107.654"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Princess%20Villa%20-7.0791%2C107.4549"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Private%20Villa%20with%20infinity%20view%20of%20Lake%20Cileunca%20-7.2022%2C107.5462"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rehat%20at%20Villa%20Golf%20Island%20Dago%20Resort%20I%20-6.865%2C107.6483"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rehat%20at%20Villa%20Golf%20Island%20Dago%20Resort%20II%20-6.8656%2C107.6479"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rima%20Villa%20Ciwidey%20living%20-7.0871%2C107.4658"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rima%20Villa%20Ciwidey%20living%20-7.0872%2C107.4662"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Roemah%20Asri%20Villa%20-%20Resor%20Dago%20Pakar%20-6.8677%2C107.6465"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=Rossan%20Villa%20Hotel%20near%20Kampus%20UPI%20Setiabudhi%20-6.8498%2C107.5907"
+        },
+        {
+            "url": "https://www.google.com/maps/search/?api=1&query=SKYVAN%20Villa%20-6.8165%2C107.545"
+        }
+    ]
+}

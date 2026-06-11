@@ -1,0 +1,37 @@
+﻿{
+    "language":  "id",
+    "maxReviews":  30,
+    "personalData":  true,
+    "startUrls":  [
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Susu%20Murni%20KPSBU%20Lembang\u0026query_place_id=ChIJpWGYruPgaC4R48Cli7L63XA"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Donatsu%20-%20Donat%20Susu%20Lembang\u0026query_place_id=ChIJi7Sm-CHhaC4RXfVvX8XFJlE"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Serba%20Susu%20Lembang\u0026query_place_id=ChIJp4xDpuPgaC4RoSxpAbN-vF0"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Kartika%20Sari%20Lembang\u0026query_place_id=ChIJPwicKQDhaC4RwUyA9xRPnYc"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Kue%20Balok%20Jaya%20Giri\u0026query_place_id=ChIJ7X8gnwPhaC4RiMjk-9jNTSg"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Toko%20Kasohor%20Almond%20Crispy%20Cheese%20Bandung\u0026query_place_id=ChIJNTQTVMjnaC4RRRXvCGQt9MA"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Keripik%20Tempe%20Tembul\u0026query_place_id=ChIJfQAemwPhaC4R3GLivxb57Bc"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Bandung%20Miyucheeze\u0026query_place_id=ChIJidi1K5rhaC4R2QgIEbMZ-jg"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Pabrik%20Bolu%20Susu%20Lembang\u0026query_place_id=ChIJTW33ibbhaC4RsyNh0h7nzTE"
+                      },
+                      {
+                          "url":  "https://www.google.com/maps/search/?api=1\u0026query=Central%20Snack\u0026query_place_id=ChIJFX2RQR3haC4RZ8Po3YWrz3c"
+                      }
+                  ]
+}

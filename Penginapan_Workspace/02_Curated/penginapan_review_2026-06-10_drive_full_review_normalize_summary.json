@@ -1,0 +1,32 @@
+{
+  "generated_at": "2026-06-10T10:37:08.502816+00:00",
+  "raw_dir": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\google_maps_reviews_json\\drive_download_20260610T103243Z_3_001",
+  "raw_files": [
+    "dataset_Google-Maps-Reviews-Scraper_001.csv",
+    "dataset_Google-Maps-Reviews-Scraper_002.csv",
+    "dataset_Google-Maps-Reviews-Scraper_003.csv",
+    "dataset_Google-Maps-Reviews-Scraper_004.csv",
+    "dataset_Google-Maps-Reviews-Scraper_005.csv",
+    "dataset_Google-Maps-Reviews-Scraper_006.csv",
+    "dataset_Google-Maps-Reviews-Scraper_007.csv",
+    "dataset_Google-Maps-Reviews-Scraper_008.csv",
+    "dataset_Google-Maps-Reviews-Scraper_009.csv",
+    "dataset_Google-Maps-Reviews-Scraper_010.csv",
+    "dataset_Google-Maps-Reviews-Scraper_011.csv",
+    "dataset_Google-Maps-Reviews-Scraper_012.csv"
+  ],
+  "raw_file_count": 12,
+  "raw_rows_read": 20597,
+  "matched_rows_before_dedupe": 20597,
+  "matched_rows_after_dedupe": 20597,
+  "unmatched_rows": 0,
+  "unique_review_targets_matched": 618,
+  "unique_penginapan_matched": 618,
+  "rows_with_text": 13434,
+  "target_total_final_ready": 1140,
+  "outputs": {
+    "normalized": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_2026-06-10_DRIVE_FULL_REVIEW_NORMALIZED.csv",
+    "unmatched": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_2026-06-10_DRIVE_FULL_REVIEW_UNMATCHED.csv"
+  },
+  "decision": "Output ini hanya memakai raw review yang sudah ada lokal. Jika hasil full Apify belum masuk, coverage sentiment tetap terbatas."
+}

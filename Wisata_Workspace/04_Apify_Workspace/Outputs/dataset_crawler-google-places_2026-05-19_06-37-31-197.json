@@ -1,0 +1,85 @@
+[{
+  "title": "Alam Wisata Cimahi",
+  "totalScore": 4.3,
+  "reviewsCount": 5090,
+  "street": "No.157, Jl. Kolonel Masturi No.KM.4",
+  "city": "Kota Cimahi",
+  "state": "Jawa Barat",
+  "countryCode": "ID",
+  "phone": "+62 22 2700228",
+  "categories": [
+    "Hotel Resor",
+    "Tempat Bermain Paintball",
+    "Taman bermain",
+    "Restoran",
+    "Restoran Sunda",
+    "Kolam Renang",
+    "Tujuan Wisata",
+    "Gedung Pernikahan"
+  ],
+  "url": "https://www.google.com/maps/search/?api=1&query=Alam%20Wisata%20Cimahi&query_place_id=ChIJAbspL_PjaC4RGwfytELeq50",
+  "categoryName": "Hotel Resor"
+},
+{
+  "title": "23 PASKAL Shopping Center",
+  "totalScore": 4.6,
+  "reviewsCount": 37659,
+  "street": "Jl. Pasir Kaliki No.25-27",
+  "city": "Kota Bandung",
+  "state": "Jawa Barat",
+  "countryCode": "ID",
+  "website": "https://23paskal.id/",
+  "phone": "+62 22 86062942",
+  "categories": [
+    "Pusat Perbelanjaan"
+  ],
+  "url": "https://www.google.com/maps/search/?api=1&query=23%20PASKAL%20Shopping%20Center&query_place_id=ChIJY5o-gCXnaC4Reo4OMevT_Ic",
+  "categoryName": "Pusat Perbelanjaan"
+},
+{
+  "title": "Alun-Alun",
+  "totalScore": null,
+  "reviewsCount": null,
+  "street": null,
+  "city": null,
+  "state": null,
+  "countryCode": null,
+  "phone": "",
+  "categories": [],
+  "url": "https://www.google.com/maps/search/?api=1&query=Alun-Alun&query_place_id=ChIJIfvr4C_RaC4RCBq4ogyDF-w",
+  "categoryName": null
+},
+{
+  "title": "Amazing Artgames",
+  "totalScore": 4.5,
+  "reviewsCount": 6159,
+  "street": "Jl. Dr. Setiabudi No.293-295",
+  "city": "Kota Bandung",
+  "state": "Jawa Barat",
+  "countryCode": "ID",
+  "website": "https://www.instagram.com/amazingartgames/",
+  "phone": "+62 812-2088-8325",
+  "categories": [
+    "Tujuan Wisata",
+    "Galeri Seni",
+    "Museum Seni",
+    "Lukisan"
+  ],
+  "url": "https://www.google.com/maps/search/?api=1&query=Amazing%20Artgames&query_place_id=ChIJJxuuu7fmaC4RJ3PO4pMZDwU",
+  "categoryName": "Tujuan Wisata"
+},
+{
+  "title": "Alun-alun Kota Bandung",
+  "totalScore": 4.6,
+  "reviewsCount": 118735,
+  "street": "Jl. Asia Afrika",
+  "city": "Kota Bandung",
+  "state": "Jawa Barat",
+  "countryCode": "ID",
+  "phone": "",
+  "categories": [
+    "Taman Kota"
+  ],
+  "url": "https://www.google.com/maps/search/?api=1&query=Alun-alun%20Kota%20Bandung&query_place_id=ChIJMcIOvp3oaC4RZdAMyaoSdBc",
+  "categoryName": "Taman Kota"
+}]

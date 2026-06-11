@@ -1,0 +1,5 @@
+review_target_id,name_target,property_type,google_maps_search_query,review_rows,text_rows,unique_place_titles,unique_place_ids,unique_cids,place_title_match_rows,avg_stars,place_title_match_rate
+PHREV-20260605-0036,Gateway Apartment Cicadas by DB Property,apartment,"Gateway Apartment Cicadas by DB Property -6.9067,107.6446",31,14,Gateway Apartment Cicadas by DB Property,2,2,31,3.613,1.0
+PHREV-20260605-0126,Apartemen Emerald Tower,apartment,"Apartemen Emerald Tower -6.9325,107.6643",30,26,Apartemen Emerald Tower,1,1,30,2.0,1.0
+PHREV-20260605-0161,High Livin Apartment Asia Afrika,apartment,"High Livin Apartment Asia Afrika -6.9239,107.6177",30,16,High Livin Apartment Asia Afrika,1,1,30,3.414,1.0
+PHREV-20260605-0331,Ibis Bandung Trans Studio Hotel,apartment,"Ibis Bandung Trans Studio Hotel -6.9273,107.6364",30,24,Ibis Bandung Trans Studio Hotel,1,1,30,4.833,1.0

@@ -1,0 +1,31 @@
+{
+    "language": "id",
+    "maxReviews": 100,
+    "maxCrawledPlacesPerSearch": 1,
+    "reviewsSort": "newest",
+    "scrapePlaceDetailPage": false,
+    "includeWebResults": false,
+    "skipClosedPlaces": false,
+    "searchStringsArray": [
+        "https://www.google.com/maps/search/?api=1&query=Inggit%20Garnasih%20Historic%20House&query_place_id=ChIJlylSiZ7oaC4Rlh8q-k79Tso",
+        "https://www.google.com/maps/search/?api=1&query=Jendela%20Alam&query_place_id=ChIJG2FOuWzhaC4Ri9rRVo6onlQ",
+        "https://www.google.com/maps/search/?api=1&query=Kampung%20Buyut%20Cipageran%20(Kabuci)%20Asih%20Putera&query_place_id=ChIJAVEWnorjaC4RUXdsl6tMukc",
+        "https://www.google.com/maps/search/?api=1&query=Kampung%20Cireundeu&query_place_id=ChIJ5Rrrf2flaC4RRjRvESawz60",
+        "https://www.google.com/maps/search/?api=1&query=Kampung%20Wisata%20Pangjugjugan&query_place_id=ChIJX6RTDK3aaC4RxJxrbszp9no",
+        "https://www.google.com/maps/search/?api=1&query=Kampung%20Toga%20Sumedang%20Jawa%20Barat",
+        "https://www.google.com/maps/search/?api=1&query=Kawasan%20Konservasi%20Taman%20Buru%20G.%20Masigit%20Kareumbi&query_place_id=ChIJx94b2lbOaC4RHifp2g8RnEE",
+        "https://www.google.com/maps/search/?api=1&query=Kebun%20Teh%20Malabar&query_place_id=ChIJ8z7hDUiXaC4RUR7zwMtms1c",
+        "https://www.google.com/maps/search/?api=1&query=Kolam%20Renang%20Karang%20Setra&query_place_id=ChIJDUtfgjLmaC4RkRl7uYg0y0c",
+        "https://www.google.com/maps/search/?api=1&query=MUARA%20RAHONG%20HILL'S&query_place_id=ChIJqXGKqYGRaC4R57bOSsGogx4",
+        "https://www.google.com/maps/search/?api=1&query=Masjid%20Jami'%20Al%20Baakhirah&query_place_id=ChIJTaNiObblaC4R81ETLxRqxoQ",
+        "https://www.google.com/maps/search/?api=1&query=Masjid%20Raya%20Al-Jabbar&query_place_id=ChIJrzqDO4vDaC4RF1JS9zpMGfo",
+        "https://www.google.com/maps/search/?api=1&query=Mata%20Air%20Cikandung&query_place_id=ChIJF566MV_WaC4R1qY3bY8QGOw",
+        "https://www.google.com/maps/search/?api=1&query=MiniMania%20Lembang&query_place_id=ChIJVcuI5GrhaC4RWBNP1nEobMA",
+        "https://www.google.com/maps/search/?api=1&query=Monumen%20Bandung%20Lautan%20Api&query_place_id=ChIJ0Qbi6JvoaC4RLqQcvco4Gj8",
+        "https://www.google.com/maps/search/?api=1&query=Monumen%20Perjuangan%20Rakyat%20Jawa%20Barat&query_place_id=ChIJXRdECE3maC4Rg1r76u45BqI",
+        "https://www.google.com/maps/search/?api=1&query=Museum%20Barli&query_place_id=ChIJu3wt5o_maC4RcGMgJN_0k00",
+        "https://www.google.com/maps/search/?api=1&query=Museum%20Kota%20Bandung&query_place_id=ChIJxyE0KjjmaC4RBnHNchYMFsE",
+        "https://www.google.com/maps/search/?api=1&query=Museum%20Mandala%20Wangsit%20Siliwangi&query_place_id=ChIJlZsgIzDmaC4R6TWGDMXP3js",
+        "https://www.google.com/maps/search/?api=1&query=Museum%20Pendidikan%20Nasional%20Universitas%20Pendidikan%20Indonesia&query_place_id=ChIJq9MNBbnmaC4R2_v1rPo1CbY"
+    ]
+}

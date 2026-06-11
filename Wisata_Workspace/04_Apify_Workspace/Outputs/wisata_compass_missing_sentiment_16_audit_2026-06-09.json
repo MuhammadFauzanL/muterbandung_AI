@@ -1,0 +1,22 @@
+{
+  "raw_file": "D:/File/file/Fauzan Lubada/PIJAK/dataset_Google-Maps-Reviews-Scraper_2026-06-09_01-55-17-270.json",
+  "index_file": "D:/File/file/Fauzan Lubada/PIJAK/Wisata_Workspace/04_Apify_Workspace/Inputs/compass_wisata_missing_sentiment_16_2026-06-09_index.csv",
+  "target_count": 16,
+  "raw_review_rows": 311,
+  "unique_search_strings": 10,
+  "targets_with_rows": 10,
+  "missing_targets": 6,
+  "total_text_rows": 153,
+  "unique_review_ids_total": 311,
+  "duplicate_review_id_count": 0,
+  "unique_place_ids_total": 11,
+  "unique_titles_total": 11,
+  "match_status_counts": {
+    "missing": 6,
+    "review_match": 5,
+    "needs_manual_check": 3,
+    "strong_match": 2
+  },
+  "targets_with_multiple_titles": 1,
+  "targets_with_multiple_place_ids": 1
+}

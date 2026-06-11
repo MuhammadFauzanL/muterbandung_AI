@@ -1,0 +1,20 @@
+{
+  "generated_at": "2026-06-10T10:42:41.400285+00:00",
+  "review_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_2026-06-10_DRIVE_FULL_REVIEW_NORMALIZED.csv",
+  "target_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_TARGETS_FINAL_READY_2026-06-05.csv",
+  "target_total": 1140,
+  "review_rows": 20597,
+  "target_with_any_scrape": 618,
+  "target_with_text_review": 609,
+  "target_missing_from_batch": 522,
+  "review_batch_status_counts": {
+    "scraped_with_text": 609,
+    "missing_from_review_batch": 522,
+    "scraped_star_only": 9
+  },
+  "outputs": {
+    "per_target_audit": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_2026-06-10_DRIVE_FULL_REVIEW_PER_TARGET_AUDIT.csv",
+    "missing_targets": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_2026-06-10_DRIVE_FULL_REVIEW_MISSING_TARGETS.csv"
+  },
+  "decision": "Batch diterima untuk sentiment baseline hotel. Target yang belum masuk batch disimpan sebagai next scraping queue."
+}

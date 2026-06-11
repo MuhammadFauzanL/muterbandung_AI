@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-06-02T08:25:22.493022Z",
+  "json_source_count": 18,
+  "json_processed_count": 17,
+  "json_duplicate_file_count": 1,
+  "raw_master_csv_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\generated_raw_csv\\HOTEL_GOOGLE_SEARCH_RAW_MASTER_2026-06-02.csv",
+  "source_inventory_csv_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\01_Raw_Data\\generated_raw_csv\\HOTEL_GOOGLE_SEARCH_JSON_SOURCE_INVENTORY_2026-06-02.csv",
+  "raw_records": 2840,
+  "raw_unique_names": 1377,
+  "raw_unique_property_tokens": 1519,
+  "source_bucket_counts": {
+    "properties": 2768,
+    "ads": 72
+  },
+  "raw_type_counts": {
+    "hotel": 682,
+    "vacation rental": 2086,
+    "": 72
+  },
+  "property_segment_counts": {
+    "hotel": 677,
+    "apartment": 415,
+    "guest_house": 212,
+    "villa": 822,
+    "vacation_rental": 615,
+    "room_level_listing": 99
+  },
+  "query_area_counts": {
+    "Kota Bandung": 609,
+    "Kabupaten Bandung": 511,
+    "Cililin, Kabupaten Bandung Barat": 151,
+    "Saguling, Kabupaten Bandung Barat": 82,
+    "Cipongkor, Kabupaten Bandung Barat": 83,
+    "Gununghalu, Kabupaten Bandung Barat": 115,
+    "Rongga, Kabupaten Bandung Barat": 211,
+    "Sindangkerta, Kabupaten Bandung Barat": 118,
+    "Padalarang, Kabupaten Bandung Barat": 83,
+    "Ngamprah, Kabupaten Bandung Barat": 14,
+    "Batujajar, Kabupaten Bandung Barat": 26,
+    "Cipatat, Kabupaten Bandung Barat": 78,
+    "Cipeundeuy, Kabupaten Bandung Barat": 164,
+    "Cikalongwetan, Kabupaten Bandung Barat": 186,
+    "Pangalengan, Kabupaten Bandung": 106,
+    "Pasirjambu, Kabupaten Bandung": 94,
+    "West Bandung Regency": 209
+  },
+  "quality_flags": {
+    "coordinate_available": 2839,
+    "rating_available": 1528,
+    "price_available": 1712,
+    "amenities_available": 2706,
+    "image_available": 2763,
+    "source_link_available": 2203
+  },
+  "duplicate_files": [
+    {
+      "source_file": "dataset_google-hotels-search-scraper_2026-06-02_06-11-36-200.json",
+      "duplicate_of": "dataset_google-hotels-search-scraper_2026-06-02_06-11-36-200 (1).json",
+      "source_file_sha256": "17B74FD281DF8B4D8BF2D4D18E51091C0278B60384BE2B6AAEEACF055FD11712"
+    }
+  ]
+}
