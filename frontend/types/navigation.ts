@@ -1,9 +1,3 @@
-/**
- * Navigation Types
- *
- * Type definitions for navigation and footer links.
- */
-
 export interface NavigationItem {
   key: 'home' | 'explore' | 'planner';
   label: string;

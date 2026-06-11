@@ -1,9 +1,3 @@
-/**
- * Location Icon Component
- *
- * Reusable SVG icon for location/map pin indicators.
- */
-
 interface LocationIconProps {
   className?: string;
   size?: number;

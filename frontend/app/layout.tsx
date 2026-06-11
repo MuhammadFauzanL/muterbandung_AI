@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ChatbotWidget } from "@/components";
 
 export const metadata: Metadata = {
   title: "MuterBandung - Jelajahi Bandung dengan AI",
   description: "Temukan destinasi wisata, kuliner, dan penginapan terbaik di Bandung dengan panduan kecerdasan buatan yang berbudaya. Sampurasun!",
 };
-
-import { ChatbotWidget } from "@/components/ui/ChatbotWidget";
 
 export default function RootLayout({
   children,

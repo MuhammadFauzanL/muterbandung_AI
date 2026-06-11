@@ -1,9 +1,3 @@
-/**
- * Category Highlights Section Component
- *
- * Displays a mosaic grid of destination categories.
- * Uses CategoryCard for each category item.
- */
 import { CATEGORY_HIGHLIGHTS } from '@/constants';
 import { CategoryCard } from '@/components/ui/cards';
 

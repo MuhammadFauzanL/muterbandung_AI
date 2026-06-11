@@ -1,40 +1,19 @@
-# MuterBandung / PIJAK local reproducibility baseline.
-# Audited on Python 3.13.2, Windows, 2026-05-25.
+# Core
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
 
-# Web runtime
-Flask==3.1.1
-python-dotenv==1.2.2
-requests==2.32.5
+# Database
+sqlalchemy==2.0.35
+psycopg2-binary==2.9.9
+alembic==1.13.2
 
-# Data processing
-pandas==2.3.3
-numpy==2.3.1
-openpyxl==3.1.5
+# Configuration
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
 
-# Recommendation and NLP runtime
-torch==2.9.1
-sentence-transformers==5.2.0
-transformers==4.57.3
-scikit-learn==1.8.0
-scipy==1.16.0
-joblib==1.5.3
-huggingface-hub==0.36.0
-tokenizers==0.22.1
-safetensors==0.7.0
-tqdm==4.67.1
+# Security (prepared for Phase 2)
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
 
-# Legacy/experimental sentiment and NLP scripts
-tensorflow==2.20.0
-tf-keras==2.20.1
-Sastrawi==1.0.1
-
-# Scraping and enrichment helpers
-beautifulsoup4==4.14.3
-
-# Notebook and analysis helpers
-nbformat==5.10.4
-ipython==9.8.0
-jupyter==1.1.1
-ipykernel==7.1.0
-matplotlib==3.10.8
-seaborn==0.13.2
+# Utilities
+python-multipart==0.0.9

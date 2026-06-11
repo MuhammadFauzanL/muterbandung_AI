@@ -1,8 +1,3 @@
-/**
- * Star Badge Component
- *
- * Reusable badge for displaying rating values with a star icon.
- */
 import { StarIcon } from '@/components/ui/icons';
 
 interface StarBadgeProps {

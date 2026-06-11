@@ -1,8 +1,3 @@
-/**
- * Landing Page Constants
- *
- * Static data for the landing/splash page sections.
- */
 import type { Destination, Category } from '@/types';
 
 export const POPULAR_DESTINATIONS: readonly Destination[] = [
@@ -28,7 +23,7 @@ export const POPULAR_DESTINATIONS: readonly Destination[] = [
     image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=800&auto=format&fit=crop',
   },
   {
-    title: 'TransStudio',
+    title: 'Trans Studio',
     location: 'Buah Batu, Bandung',
     price: 'Rp 28.000',
     rating: '4.5',
@@ -58,7 +53,7 @@ export const CATEGORY_HIGHLIGHTS: readonly Category[] = [
     image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
   },
   {
-    title: 'Instragramable',
+    title: 'Instagramable',
     description: 'Sudut nongkrong nyaman untuk santai dan mengabadikan momen.',
     image: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=800&auto=format&fit=crop',
   },

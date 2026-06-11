@@ -1,9 +1,3 @@
-/**
- * Star Icon Component
- *
- * Reusable SVG icon for ratings and favorites.
- */
-
 interface StarIconProps {
   className?: string;
   size?: number;

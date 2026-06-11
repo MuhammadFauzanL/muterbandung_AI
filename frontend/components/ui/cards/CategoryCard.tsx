@@ -1,9 +1,3 @@
-/**
- * Category Card Component
- *
- * Displays a destination category with overlay text on an image.
- * Used in the Category Highlights section of the landing page.
- */
 import Image from 'next/image';
 import type { Category } from '@/types';
 

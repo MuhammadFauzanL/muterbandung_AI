@@ -1,9 +1,3 @@
-/**
- * Hero Section Component
- *
- * Main landing page hero with Bandung backdrop and mascot panel.
- * Includes call-to-action buttons for user engagement.
- */
 import Image from 'next/image';
 
 export function HeroSection() {
