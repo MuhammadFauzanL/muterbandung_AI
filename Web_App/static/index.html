@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MuterBandung | Smart AI Itinerary</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">MuterBandung<span>AI</span></div>
+            <p>Smart Travel Recommendation Engine</p>
+        </header>
+
+        <main>
+            <!-- STAGE 1: CONTEXT INPUT -->
+            <section class="glass-panel input-section">
+                <h2>Langkah 1: Tentukan Kondisi Anda</h2>
+                <form id="context-form">
+                    <div class="form-group">
+                        <label for="current_category">📍 Anda Baru Keluar Dari?</label>
+                        <select id="current_category" required>
+                            <option value="Penginapan">Penginapan (Hotel/Villa)</option>
+                            <option value="Kuliner">Kuliner (Kafe/Resto)</option>
+                            <option value="Belanja">Belanja (Mall/FO)</option>
+                            <option value="Alam">Wisata Alam</option>
+                            <option value="Hiburan">Hiburan Malam</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time_context">⏰ Waktu Saat Ini</label>
+                        <select id="time_context" required>
+                            <option value="Pagi">Pagi Hari (Sarapan/Fresh)</option>
+                            <option value="Siang">Siang Hari (Terik)</option>
+                            <option value="Sore">Sore Hari (Golden Hour)</option>
+                            <option value="Malam">Malam Hari (City Lights)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user_persona">👤 Kepribadian Anda</label>
+                        <select id="user_persona" required>
+                            <option value="Nature Seeker">Nature Seeker (Pecinta Alam & Ketenangan)</option>
+                            <option value="Urban Casual">Urban Casual (Suka Nongkrong & Belanja)</option>
+                            <option value="Culture Learner">Culture Learner (Suka Sejarah & Budaya)</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="glow-btn">Analisis Perilaku AI 🧠</button>
+                </form>
+            </section>
+
+            <section id="loading-predict" class="glass-panel hidden text-center">
+                <div class="spinner"></div>
+                <h3>Hybrid Engine Memprediksi Perilaku...</h3>
+            </section>
+
+            <!-- STAGE 2: PREDICTION & SEMANTIC SEARCH -->
+            <section id="prediction-section" class="glass-panel hidden">
+                <div class="badge">Tahap 1: AI Behaviour Engine</div>
+                <h3>Rekomendasi Kategori Selanjutnya</h3>
+                <p class="text-muted mb-4">Pilih salah satu dari tebakan rute di bawah ini, atau gunakan kolom pencarian untuk mengetik keinginan spesifik Anda.</p>
+                
+                <div id="chips-container" class="chips-container">
+                    <!-- Chips di-render via JS -->
+                </div>
+
+                <div class="divider"><span>ATAU</span></div>
+
+                <form id="search-form">
+                    <div class="form-group">
+                        <label for="search_query">Pencarian Teks Bebas (Semantic Search)</label>
+                        <div class="search-wrapper">
+                            <input type="text" id="search_query" placeholder="Cari: Tempat galau malam hari yang sejuk..." autocomplete="off">
+                            <button type="submit" class="search-btn">🔍 Cari</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section id="loading-search" class="glass-panel hidden text-center">
+                <div class="spinner"></div>
+                <h3>MiniLM Mencari Kecocokan Semantik...</h3>
+            </section>
+
+            <!-- STAGE 3: RESULTS -->
+            <section id="result-section" class="hidden">
+                <h2 class="section-title">Destinasi Paling Cocok Untuk Anda</h2>
+                <div id="places-container" class="cards-grid">
+                    <!-- Cards will be injected here via JS -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

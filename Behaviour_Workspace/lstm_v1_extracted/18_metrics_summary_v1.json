@@ -1,0 +1,12 @@
+{
+    "validation_loss": 0.9916034936904907,
+    "validation_accuracy": 0.6786389350891113,
+    "manual_accuracy": 0.6786389413988658,
+    "validation_top3_accuracy": 0.9413988590240479,
+    "manual_top3_accuracy": 0.941398865784499,
+    "validation_macro_f1": 0.25217050702730803,
+    "validation_weighted_f1": 0.5769821300669127,
+    "sequence_length": 5,
+    "collapse_consecutive_duplicates": true,
+    "class_weight_mode": "sqrt_balanced_weight"
+}

@@ -1,0 +1,12 @@
+               precision    recall  f1-score   support
+
+      Belanja       0.64      0.75      0.70       694
+      Hiburan       0.00      0.00      0.00       432
+Hiburan Malam       0.00      0.00      0.00        78
+      Kuliner       0.69      1.00      0.82      1276
+       Religi       0.00      0.00      0.00        74
+       Santai       0.00      0.00      0.00        91
+
+     accuracy                           0.68      2645
+    macro avg       0.22      0.29      0.25      2645
+ weighted avg       0.50      0.68      0.58      2645

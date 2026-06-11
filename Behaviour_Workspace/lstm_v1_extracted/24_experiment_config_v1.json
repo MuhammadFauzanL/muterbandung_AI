@@ -1,0 +1,27 @@
+{
+    "experiment_name": "behaviour_lstm_v1_baseline",
+    "dataset_path": "/kaggle/input/datasets/muhammadfauzanlubada/muterbandungdataset/muterbandung_clean_47k.csv",
+    "output_dir": "/kaggle/working/behaviour_lstm_v1_baseline",
+    "seed": 42,
+    "sequence_length": 5,
+    "collapse_consecutive_duplicates": true,
+    "class_weight_mode": "sqrt_balanced_weight",
+    "model_type": "LSTM + Time Context",
+    "embedding_dim_category": 32,
+    "embedding_dim_time": 4,
+    "lstm_units": 64,
+    "dense_layers": [
+        64,
+        32
+    ],
+    "dropout": [
+        0.3,
+        0.2
+    ],
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "batch_size": 64,
+    "max_epochs": 40,
+    "early_stopping_monitor": "val_loss",
+    "checkpoint_monitor": "val_top3_accuracy"
+}

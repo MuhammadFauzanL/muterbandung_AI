@@ -1,0 +1,16 @@
+{
+    "collapse_consecutive_duplicates": true,
+    "sequence_length": 5,
+    "total_sequence": 13288,
+    "X_cat_shape": [
+        13288,
+        5
+    ],
+    "X_time_shape": [
+        13288,
+        1
+    ],
+    "y_shape": [
+        13288
+    ]
+}

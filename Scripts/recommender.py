@@ -671,6 +671,51 @@ class MuterBandungRecommender:
         text = re.sub(r'\s+', ' ', text).strip()
         return text
 
+    def _expand_query(self, query):
+        """Inject additional context keywords into short prompts for better semantic capture."""
+        if not query:
+            return ""
+            
+        expansion_map = {
+            "ngopi": "minum kopi kafe nongkrong tempat santai",
+            "kopi": "minum kopi kafe nongkrong",
+            "healing": "healing santai tenang alam pemandangan rileks",
+            "foto": "spot foto instagramable pemandangan view bagus",
+            "anak": "ramah anak keluarga bermain balita",
+            "bocah": "ramah anak keluarga bermain balita",
+            "keluarga": "rekreasi keluarga wisata bersama anak",
+            "pacar": "kencan romantis berdua pemandangan",
+            "alam": "pemandangan alam terbuka sejuk pohon",
+            "sejuk": "udara sejuk dingin segar alam pohon",
+            "dingin": "udara sejuk dingin segar alam pohon",
+            "murah": "harga murah gratis terjangkau",
+            "gratis": "harga murah gratis tanpa bayar",
+            "makan": "kuliner restoran makanan makan enak",
+            "laper": "kuliner restoran makanan makan enak",
+            "lapar": "kuliner restoran makanan makan enak",
+            "belanja": "belanja mall oleh-oleh fashion pusat perbelanjaan",
+            "baju": "belanja mall fashion factory outlet pakaian",
+            "jalan-jalan": "jalan jalan santai wisata",
+            "jalan jalan": "jalan jalan santai wisata"
+        }
+        
+        expanded_query = query
+        words = query.split()
+        for word in words:
+            if word in expansion_map:
+                # Append the expansion context to the end of the query
+                expanded_query += " " + expansion_map[word]
+                
+        # Remove duplicates while preserving some order
+        seen = set()
+        final_words = []
+        for w in expanded_query.split():
+            if w not in seen:
+                seen.add(w)
+                final_words.append(w)
+                
+        return " ".join(final_words)
+
     def _query_has_keyword(self, query, keywords):
         """Case-insensitive phrase/keyword match on raw and normalized query text."""
         if not isinstance(query, str) or not query.strip():
@@ -1218,7 +1263,7 @@ class MuterBandungRecommender:
         return "none"
 
     def _build_corpus(self):
-        """Build text corpus as a natural narrative to maximize Transformer semantic matching."""
+        """Build text corpus as a high-density keyword format to maximize Transformer semantic matching."""
         corpus = []
         for _, row in self.df.iterrows():
             name = str(row.get('location_name', ''))
@@ -1231,8 +1276,7 @@ class MuterBandungRecommender:
             secondary_labels = row.get('secondary_labels_parsed', [])
             labels_str = ", ".join(row.get('display_labels_parsed', []))
             
-            # Natural narrative: NO avoid_labels, NO technical format
-            # This prevents SentenceTransformer from matching negative keywords
+            # High-density extraction: NO boilerplate, NO avoid_labels
             label_parts = []
             if core_labels:
                 label_parts.append(", ".join(core_labels))
@@ -1240,12 +1284,9 @@ class MuterBandungRecommender:
                 label_parts.append(", ".join(secondary_labels))
             all_labels = ", ".join(label_parts) if label_parts else ""
             
-            doc = (
-                f"{name} adalah {cat} ({subcat}) yang sangat cocok untuk {labels_str}. "
-                f"Suasana dan aktivitas: {all_labels}. "
-                f"Fasilitas yang tersedia meliputi {tags}. "
-                f"{desc}"
-            )
+            # Format baru yang sangat padat kata kunci tanpa kata hubung yang mendilusi makna
+            doc = f"{name}. {cat}. {subcat}. {labels_str}. {all_labels}. {tags}. {desc}"
+            
             cleaned_doc = self._preprocess_text(doc)
             corpus.append(cleaned_doc)
         return corpus
@@ -1400,13 +1441,15 @@ class MuterBandungRecommender:
     def _compute_similarity(self, query, candidate_indices):
         """Langkah B: Compute Dense Cosine Similarity for candidates using SentenceTransformer."""
         cleaned_query = self._preprocess_text(query)
-        if not cleaned_query:
+        expanded_query = self._expand_query(cleaned_query) # <-- QUERY EXPANSION INJECTED
+        
+        if not expanded_query:
             return {idx: 0.0 for idx in candidate_indices}
             
         if not candidate_indices:
             return {}
             
-        query_embedding = self.model.encode(cleaned_query, convert_to_tensor=True)
+        query_embedding = self.model.encode(expanded_query, convert_to_tensor=True)
         candidate_embeddings = self.corpus_embeddings[candidate_indices]
         
         sim_matrix = util.cos_sim(query_embedding, candidate_embeddings)
@@ -1466,6 +1509,20 @@ class MuterBandungRecommender:
             if similarity_adjustment:
                 sim_score = max(-1.0, min(1.0, sim_score + similarity_adjustment))
 
+            # EXACT-MATCH BOOST: If query contains the exact location name or category, boost it strongly!
+            if query:
+                cleaned_q = self._preprocess_text(query)
+                loc_name = str(row.get('location_name', '')).lower()
+                cat_name = str(row.get('category', '')).lower()
+                
+                # Check if exact location name is in the query (for explicit queries like "kawah putih")
+                if loc_name and len(loc_name) > 3 and loc_name in cleaned_q:
+                    sim_score = min(1.0, sim_score + 0.30) # Massive boost for exact place name
+                    matched_intents.append("exact_name_match")
+                # Check if category is explicitly in query (for queries like "taman kota")
+                elif cat_name and len(cat_name) > 3 and cat_name in cleaned_q:
+                    sim_score = min(1.0, sim_score + 0.15) # Strong boost for category
+                    matched_intents.append("exact_category_match")
 
             sentiment_metadata = self._get_sentiment_metadata(row)
             raw_sent_score = sentiment_metadata["sentiment_score"]

@@ -1,0 +1,107 @@
+[
+    {
+        "history": [
+            "Santai",
+            "Belanja"
+        ],
+        "time_context": "Pagi",
+        "recommendations": [
+            {
+                "category": "Kuliner",
+                "probability": 0.47051864862442017
+            },
+            {
+                "category": "Hiburan",
+                "probability": 0.25273963809013367
+            },
+            {
+                "category": "Religi",
+                "probability": 0.09842321276664734
+            }
+        ]
+    },
+    {
+        "history": [
+            "Belanja",
+            "Kuliner"
+        ],
+        "time_context": "Siang",
+        "recommendations": [
+            {
+                "category": "Belanja",
+                "probability": 0.3905130624771118
+            },
+            {
+                "category": "Hiburan",
+                "probability": 0.29090389609336853
+            },
+            {
+                "category": "Hiburan Malam",
+                "probability": 0.12195740640163422
+            }
+        ]
+    },
+    {
+        "history": [
+            "Kuliner",
+            "Hiburan"
+        ],
+        "time_context": "Malam",
+        "recommendations": [
+            {
+                "category": "Kuliner",
+                "probability": 0.4616701304912567
+            },
+            {
+                "category": "Belanja",
+                "probability": 0.36634090542793274
+            },
+            {
+                "category": "Religi",
+                "probability": 0.05193289741873741
+            }
+        ]
+    },
+    {
+        "history": [
+            "Religi",
+            "Kuliner"
+        ],
+        "time_context": "Sore",
+        "recommendations": [
+            {
+                "category": "Belanja",
+                "probability": 0.38622960448265076
+            },
+            {
+                "category": "Hiburan",
+                "probability": 0.18953022360801697
+            },
+            {
+                "category": "Santai",
+                "probability": 0.16247981786727905
+            }
+        ]
+    },
+    {
+        "history": [
+            "Hiburan Malam",
+            "Kuliner"
+        ],
+        "time_context": "Malam",
+        "recommendations": [
+            {
+                "category": "Belanja",
+                "probability": 0.4192289113998413
+            },
+            {
+                "category": "Hiburan",
+                "probability": 0.21523302793502808
+            },
+            {
+                "category": "Santai",
+                "probability": 0.13719449937343597
+            }
+        ]
+    }
+]
