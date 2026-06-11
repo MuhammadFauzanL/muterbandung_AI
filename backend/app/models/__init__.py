@@ -5,6 +5,9 @@ Import all models here so Alembic can detect them via Base.metadata.
 
 from app.models.user import User  # noqa: F401
 
-# Phase 3+: Import additional models as they are created, e.g.:
-# from app.models.destination import Destination
+# Destination domain models (Phase 2)
+from app.models.destination import Destination  # noqa: F401
+from app.models.destination_media import DestinationMedia  # noqa: F401
+from app.models.destination_label import DestinationLabel  # noqa: F401
+from app.models.destination_facility import DestinationFacility  # noqa: F401
 
