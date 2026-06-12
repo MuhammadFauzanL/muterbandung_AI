@@ -53,16 +53,9 @@ app = FastAPI(
 
 
 # ── CORS ─────────────────────────────────────────────────
-_allowed_origins = [settings.frontend_url]
-
-# In development, add common local origins for convenience
-if settings.is_development:
-    _dev_origins = {"http://localhost:3000", "http://127.0.0.1:3000"}
-    _allowed_origins = list(set(_allowed_origins) | _dev_origins)
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_allowed_origins,
+    allow_origins=settings.allowed_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allow_headers=[

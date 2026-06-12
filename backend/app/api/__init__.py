@@ -7,6 +7,7 @@ from fastapi import APIRouter
 
 from app.api.health import router as health_router
 from app.api.auth import router as auth_router
+from app.api.destinations import router as destinations_router
 
 # ── Root API router ──────────────────────────────────────
 api_router = APIRouter()
@@ -14,8 +15,4 @@ api_router = APIRouter()
 # Register sub-routers
 api_router.include_router(health_router, tags=["Health"])
 api_router.include_router(auth_router, prefix="/auth", tags=["Auth"])
-
-# Phase 3+: add more routers here, e.g.:
-# from app.api.destinations import router as destinations_router
-# api_router.include_router(destinations_router, prefix="/destinations", tags=["Destinations"])
-
+api_router.include_router(destinations_router, tags=["Destinations"])
