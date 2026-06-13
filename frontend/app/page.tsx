@@ -1,10 +1,15 @@
+"use client";
+
 import {
-  Header,
   HeroSection,
+  CategoryTags,
+  PersonalizedDestinationsSection,
   PopularDestinationsSection,
+  FeaturesSection,
+  AIChatPromoSection,
   CategoryHighlightsSection,
-  Footer,
 } from '@/components';
+import { useAuth } from '@/context/AuthContext';
 
 /**
  * Home Page - MuterBandung Splash Screen
@@ -12,24 +17,21 @@ import {
  * This is the landing page for MuterBandung AI application.
  * It displays a hero section with call-to-action buttons for users
  * to start exploring Bandung destinations.
- *
- * Components:
- * - Header: Top navigation bar with logo and menu
- * - HeroSection: Main hero section with heading, description, and CTA buttons
- * - PopularDestinationsSection: Grid of popular tourist spots
- * - CategoryHighlightsSection: Mosaic of destination categories
- * - Footer: Footer with copyright and links
  */
 export default function Home() {
+  const { isLoggedIn } = useAuth();
+
   return (
-    <div className="relative min-h-screen overflow-hidden bg-white text-slate-950">
-      <Header />
+    <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <HeroSection />
+        <CategoryTags />
+        {isLoggedIn && <PersonalizedDestinationsSection />}
         <PopularDestinationsSection />
+        <FeaturesSection />
         <CategoryHighlightsSection />
+        <AIChatPromoSection />
       </main>
-      <Footer />
     </div>
   );
 }

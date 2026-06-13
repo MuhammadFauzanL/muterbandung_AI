@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 function SendIcon() {
   return (
@@ -46,6 +47,18 @@ function ChatIcon() {
 
 export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('open-chat', handleOpenChat);
+    return () => window.removeEventListener('open-chat', handleOpenChat);
+  }, []);
+
+  // Hide chatbot on auth pages
+  if (pathname === '/register' || pathname === '/login') {
+    return null;
+  }
 
   return (
     <>

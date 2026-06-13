@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { DESTINATION_DETAILS } from '@/constants';
-import { DestinationDetailPageContent, Header } from '@/components';
+import { DestinationDetailPageContent } from '@/components';
 
 interface DestinationDetailPageProps {
   params: Promise<{
@@ -50,9 +50,10 @@ export default async function DestinationDetailPage({
   }
 
   return (
-    <div className="min-h-screen bg-[#F3F8FC] text-slate-950">
-      <Header activeItem="explore" />
-      <DestinationDetailPageContent destination={destination} />
+    <div className="min-h-screen bg-[#F3F8FC] text-slate-950 flex flex-col">
+      <div className="flex-1">
+        <DestinationDetailPageContent destination={destination} />
+      </div>
     </div>
   );
 }

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
 
 import { ChatbotWidget } from "@/components/ui/ChatbotWidget";
 
+import { PlannerProvider } from "@/context/PlannerContext";
+import { AuthProvider } from "@/context/AuthContext";
+import { ToastProvider } from "@/context/ToastContext";
+import { ClientLayoutWrapper } from "@/components/layout/ClientLayoutWrapper";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,9 +20,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className="h-full antialiased scroll-smooth">
-      <body className="min-h-full flex flex-col font-sans">
-        {children}
-        <ChatbotWidget />
+      <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
+        <ToastProvider>
+          <AuthProvider>
+            <PlannerProvider>
+              <ClientLayoutWrapper>
+                {children}
+              </ClientLayoutWrapper>
+              <ChatbotWidget />
+            </PlannerProvider>
+          </AuthProvider>
+        </ToastProvider>
       </body>
     </html>
   );

@@ -9,8 +9,16 @@ import { CategoryCard } from '@/components/ui/cards';
 
 export function CategoryHighlightsSection() {
   return (
-    <section className="bg-[#F8FBFE] pb-20 pt-3">
+    <section className="bg-[#F8FBFE] pb-20 pt-16">
       <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+        <div className="mb-8">
+          <h2 className="text-[24px] sm:text-[28px] font-bold text-[#14528E] mb-1">
+            Temukan Tempat lainnya
+          </h2>
+          <p className="text-[15px] text-slate-500">
+            Cari dan temukan tempat lainnya yang ada di Bandung
+          </p>
+        </div>
         <div className="grid gap-5 lg:grid-cols-[1.05fr_1fr]">
           <CategoryCard
             {...CATEGORY_HIGHLIGHTS[0]}

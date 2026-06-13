@@ -1,410 +1,332 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { LocationIcon } from '@/components/ui/icons';
-import type { DestinationDetail, DetailMetric } from '@/types';
+import { usePlanner } from '@/context/PlannerContext';
+import { useToast } from '@/context/ToastContext';
+import { ArrowLeft, MapPin, Ticket, Clock, Sparkles, Star, Car, Droplets, Book, Utensils, Camera, Accessibility, Heart, Share2, Building } from 'lucide-react';
+import type { DestinationDetail } from '@/types';
+import { useState } from 'react';
 
-function BackIcon() {
+export function DestinationDetailPageContent({ destination }: { destination: DestinationDetail }) {
+  const { addDestination } = usePlanner();
+  const { showToast } = useToast();
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleAddTrip = () => {
+    addDestination({ id: destination.id, title: destination.title });
+    showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
+  };
+
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M15 18 9 12l6-6"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
-function CalendarIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M7 3v4M17 3v4M4.5 9h15M6 5h12a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
-
-function StarIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="m12 3.7 2.42 4.9 5.4.79-3.91 3.81.92 5.38L12 16.04l-4.83 2.54.92-5.38-3.91-3.81 5.4-.79L12 3.7Z" />
-    </svg>
-  );
-}
-
-function CheckIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="m5 12.5 4.2 4.2L19 7"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="2"
-      />
-    </svg>
-  );
-}
-
-function metricIcon(tone: DetailMetric['tone']) {
-  if (tone === 'price') {
-    return <span className="text-[18px] font-bold leading-none">Rp</span>;
-  }
-
-  if (tone === 'rating') {
-    return <StarIcon />;
-  }
-
-  return <CalendarIcon />;
-}
-
-function DetailHero({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="relative overflow-hidden rounded-[18px] bg-slate-900">
-      <div className="relative h-[360px] sm:h-[430px]">
-        <Image
-          src={destination.heroImage}
-          alt={destination.title}
-          fill
-          preload
-          sizes="(min-width: 1180px) 1180px, 100vw"
-          className="object-cover object-[center_58%] sm:object-center"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.06)_0%,rgba(15,23,42,0.2)_42%,rgba(15,23,42,0.78)_100%)]" />
-      </div>
-
-      <div className="absolute inset-x-0 bottom-0 px-5 pb-20 text-white sm:px-8">
-        <Link
-          href="/explore"
-          className="mb-7 inline-flex items-center gap-2 rounded-full bg-white/92 px-4 py-2 text-sm font-semibold text-[#0E75BC] shadow-sm transition-colors hover:bg-white"
-        >
-          <BackIcon />
-          Kembali
-        </Link>
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#D8EFFB]">
-          {destination.category}
-        </p>
-        <h1 className="mt-3 max-w-[620px] text-[40px] font-semibold leading-[1.05] sm:text-[54px]">
-          {destination.title}
-        </h1>
-        <div className="mt-4 flex items-center gap-2 text-sm font-medium text-white/88">
-          <LocationIcon className="h-4 w-4 text-white" />
-          <span>{destination.location}</span>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function MetricBar({ metrics }: { metrics: DestinationDetail['metrics'] }) {
-  return (
-    <section className="relative z-10 mx-4 -mt-12 grid gap-3 rounded-2xl border border-[#D9E8F3] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.14)] sm:mx-8 sm:grid-cols-3">
-      {metrics.map((metric) => (
-        <div
-          key={metric.label}
-          className="flex items-center gap-3 rounded-xl bg-[#F8FBFE] px-4 py-3"
-        >
-          <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#EAF6FC] text-[#0E75BC]">
-            {metricIcon(metric.tone)}
+    <>
+      <main className="mx-auto max-w-[1180px] px-4 py-6 sm:px-8 pb-32">
+        {/* HERO SECTION */}
+        <section className="relative overflow-hidden rounded-[24px] bg-slate-900 h-[450px]">
+          <Image
+            src={destination.heroImage}
+            alt={destination.title}
+            fill
+            sizes="100vw"
+            className="object-cover object-center opacity-90"
+            priority
+          />
+          {/* Gradient Overlay for Text Visibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+          
+          {/* Top Left Back Button */}
+          <div className="absolute top-6 left-6 z-10">
+            <Link
+              href="/explore"
+              className="inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-2.5 text-[13px] font-bold text-[#0E75BC] shadow-sm transition-colors hover:bg-white"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Kembali ke Explore
+            </Link>
           </div>
-          <div>
-            <p className="text-xs font-medium uppercase text-slate-500">
-              {metric.label}
-            </p>
-            <p className="mt-1 text-sm font-semibold text-slate-950">
-              {metric.value}
-            </p>
-          </div>
-        </div>
-      ))}
-    </section>
-  );
-}
 
-function AiReason({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="rounded-2xl border border-[#CFE5F2] bg-[#EAF6FC] p-5">
-      <p className="text-sm font-semibold text-[#0E75BC]">
-        Kenapa Cepot AI Merekomendasikan Ini?
-      </p>
-      <p className="mt-2 text-sm leading-7 text-[#426F87]">
-        {destination.aiReason}
-      </p>
-    </section>
-  );
-}
-
-function DestinationStory({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="rounded-2xl border border-[#D9E8F3] bg-white p-5 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
-      <h2 className="text-[22px] font-semibold text-slate-950">
-        Tentang Destinasi
-      </h2>
-      <p className="mt-3 text-sm leading-7 text-slate-600">
-        {destination.description}
-      </p>
-    </section>
-  );
-}
-
-function Gallery({ images }: { images: DestinationDetail['gallery'] }) {
-  return (
-    <section className="rounded-2xl border border-[#D9E8F3] bg-white p-5 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
-      <h2 className="text-[22px] font-semibold text-slate-950">Galeri Foto</h2>
-      <div className="mt-4 grid h-[360px] gap-3 sm:grid-cols-[1.1fr_0.9fr_0.9fr] sm:grid-rows-2">
-        {images.map((image, index) => (
-          <div
-            key={image}
-            className={`relative overflow-hidden rounded-2xl ${
-              index === 0 ? 'sm:row-span-2' : ''
-            }`}
-          >
-            <Image
-              src={image}
-              alt={`Galeri destinasi ${index + 1}`}
-              fill
-              sizes="(min-width: 768px) 360px, 100vw"
-              className="object-cover"
-            />
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-function Facilities({ facilities }: { facilities: DestinationDetail['facilities'] }) {
-  return (
-    <section className="rounded-2xl border border-[#D9E8F3] bg-white p-5 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
-      <h2 className="text-[22px] font-semibold text-slate-950">Fasilitas</h2>
-      <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {facilities.map((facility) => (
-          <div
-            key={facility}
-            className="flex items-center gap-3 rounded-xl border border-[#E1EEF6] bg-[#F8FBFE] px-4 py-3 text-sm font-semibold text-slate-700"
-          >
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#EAF6FC] text-[#0E75BC]">
-              <CheckIcon />
+          {/* Bottom Left Content */}
+          <div className="absolute bottom-16 left-6 sm:left-10 z-10 text-white">
+            <span className="inline-block rounded-full bg-[#0E75BC] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white shadow-sm mb-3">
+              {destination.category}
             </span>
-            {facility}
+            <h1 className="text-4xl sm:text-5xl font-black leading-tight drop-shadow-md">
+              {destination.title}
+            </h1>
           </div>
-        ))}
-      </div>
-    </section>
-  );
-}
+        </section>
 
-function Reviews({ reviews }: { reviews: DestinationDetail['reviews'] }) {
-  return (
-    <section className="rounded-2xl border border-[#D9E8F3] bg-white p-5 shadow-[0_12px_28px_rgba(15,23,42,0.05)]">
-      <div className="flex items-center justify-between gap-4">
-        <h2 className="text-[22px] font-semibold text-slate-950">
-          Ulasan Pengunjung
-        </h2>
-        <a
-          href="#reviews"
-          className="text-sm font-semibold text-[#0E75BC] hover:text-[#095f99]"
-        >
-          Lihat Semua
-        </a>
-      </div>
-      <div id="reviews" className="mt-4 grid gap-3 md:grid-cols-3">
-        {reviews.map((review) => (
-          <article
-            key={review.name}
-            className="rounded-2xl border border-[#E1EEF6] bg-[#F8FBFE] p-4"
-          >
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <h3 className="text-sm font-semibold text-slate-950">
-                  {review.name}
-                </h3>
-                <p className="text-xs text-slate-500">{review.role}</p>
+        {/* METRIC BAR (Overlapping Hero) */}
+        <section className="relative z-20 mx-4 sm:mx-10 -mt-8 flex flex-wrap items-center justify-between rounded-[20px] bg-white px-8 py-5 shadow-[0_12px_24px_rgba(0,0,0,0.06)] border border-slate-100">
+          <div className="flex items-center gap-4 py-2 flex-1 min-w-[200px]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#FFF4ED] text-[#F97316]">
+              <Star className="h-5 w-5 fill-current" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Rating</p>
+              <p className="text-[15px] font-bold text-slate-900">{destination.rating} / 5.0</p>
+            </div>
+          </div>
+          
+          <div className="hidden sm:block w-px h-10 bg-slate-200" />
+          
+          <div className="flex items-center gap-4 py-2 flex-1 min-w-[200px] sm:pl-8">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#EAF6FC] text-[#0E75BC]">
+              <MapPin className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Lokasi</p>
+              <p className="text-[15px] font-bold text-slate-900">{destination.location}</p>
+            </div>
+          </div>
+
+          <div className="hidden lg:block w-px h-10 bg-slate-200" />
+
+          <div className="flex items-center gap-4 py-2 flex-1 min-w-[200px] lg:pl-8">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#EAF6FC] text-[#10B981]">
+              <Ticket className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Tiket</p>
+              <p className="text-[15px] font-bold text-slate-900">{destination.price}</p>
+            </div>
+          </div>
+
+          <div className="hidden lg:block w-px h-10 bg-slate-200" />
+
+          <div className="flex items-center gap-4 py-2 flex-1 min-w-[200px] lg:pl-8">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#EAF6FC] text-[#6366F1]">
+              <Clock className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">Jam Buka</p>
+              <p className="text-[15px] font-bold text-slate-900">07:00 - 17:00</p>
+            </div>
+          </div>
+        </section>
+
+        {/* MAIN LAYOUT (Left Content + Right Sidebar) */}
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_360px] items-start">
+          
+          {/* KOLOM KIRI */}
+          <div className="space-y-12">
+            
+            {/* AI Insight */}
+            <section className="relative overflow-hidden rounded-[20px] bg-[#EAF6FC] border border-[#CDE3F3] p-6">
+              <div className="flex items-start gap-4 relative z-10">
+                <Sparkles className="h-6 w-6 text-[#0E75BC] shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="text-[14px] font-bold text-[#0E75BC] uppercase tracking-wide">Mengapa Cepot AI Merekomendasikan Ini?</h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-[#0A415C]">
+                    {destination.aiReason}
+                  </p>
+                </div>
               </div>
-              <span className="inline-flex items-center gap-1 rounded-full bg-[#FFF3E2] px-2.5 py-1 text-xs font-semibold text-[#A96916]">
-                <StarIcon />
-                {review.rating}
-              </span>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              {review.comment}
-            </p>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
+            </section>
 
-function WeatherCard({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="overflow-hidden rounded-2xl border border-[#D9E8F3] bg-white shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
-      <div className="relative h-36">
-        <Image
-          src={destination.gallery[1] ?? destination.image}
-          alt="Cuaca destinasi"
-          fill
-          sizes="320px"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(13,93,145,0.12)_0%,rgba(13,93,145,0.76)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 p-4 text-white">
-          <p className="text-sm font-semibold">Cuaca</p>
-          <div className="mt-1 flex items-end justify-between">
-            <p className="text-[36px] font-semibold leading-none">
-              {destination.weather.temperature}
-            </p>
-            <p className="text-sm font-medium">{destination.weather.condition}</p>
+            {/* Tentang Destinasi */}
+            <section>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Tentang Destinasi</h2>
+              <div className="text-[15px] leading-relaxed text-slate-600 space-y-4 whitespace-pre-line">
+                {destination.description}
+              </div>
+            </section>
+
+            {/* Galeri Foto */}
+            <section>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Galeri Foto</h2>
+              <div className="grid grid-cols-2 gap-3 h-[400px]">
+                <div className="grid grid-rows-2 gap-3">
+                  <div className="relative rounded-2xl overflow-hidden bg-slate-100">
+                    <Image src={destination.gallery[0] || destination.heroImage} alt="Gallery 1" fill className="object-cover" />
+                  </div>
+                  <div className="relative rounded-2xl overflow-hidden bg-slate-100">
+                    <Image src={destination.gallery[1] || destination.heroImage} alt="Gallery 2" fill className="object-cover" />
+                  </div>
+                </div>
+                <div className="relative rounded-2xl overflow-hidden bg-slate-100">
+                  <div className="absolute inset-0 grid grid-rows-2 gap-3 p-0">
+                     <div className="relative bg-slate-200 rounded-2xl overflow-hidden"><Image src={destination.gallery[2] || destination.heroImage} alt="Gallery 3" fill className="object-cover" /></div>
+                     <div className="relative bg-slate-300 rounded-2xl overflow-hidden"><Image src={destination.gallery[3] || destination.heroImage} alt="Gallery 4" fill className="object-cover" /></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Fasilitas */}
+            <section>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">Fasilitas</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                {destination.facilities.map((facility) => {
+                  let Icon = Book; // fallback
+                  if (facility.toLowerCase().includes('parkir')) Icon = Car;
+                  else if (facility.toLowerCase().includes('toilet')) Icon = Droplets;
+                  else if (facility.toLowerCase().includes('mushola')) Icon = Book;
+                  else if (facility.toLowerCase().includes('makan') || facility.toLowerCase().includes('cafe') || facility.toLowerCase().includes('resto') || facility.toLowerCase().includes('warung')) Icon = Utensils;
+                  else if (facility.toLowerCase().includes('foto')) Icon = Camera;
+                  else if (facility.toLowerCase().includes('difabel')) Icon = Accessibility;
+                  else Icon = Star;
+
+                  return (
+                    <div key={facility} className="flex items-center gap-3 bg-white border border-slate-200 rounded-xl px-4 py-3 shadow-sm">
+                      <Icon className="h-5 w-5 text-[#0E75BC]" />
+                      <span className="text-[13px] font-bold text-slate-700">{facility}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Ulasan Pengunjung */}
+            <section>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-2xl font-bold text-slate-900">Ulasan Pengunjung</h2>
+                <button className="text-[13px] font-bold text-[#0E75BC] hover:underline">Lihat Semua &gt;</button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {destination.reviews.slice(0, 3).map((rev, i) => (
+                  <div key={i} className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-5">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="h-10 w-10 rounded-full bg-slate-300 overflow-hidden bg-gradient-to-br from-blue-200 to-orange-200" />
+                      <div>
+                        <p className="text-[13px] font-bold text-slate-900">{rev.name}</p>
+                        <div className="flex items-center text-[#F97316]">
+                          {[...Array(5)].map((_, j) => (
+                            <Star key={j} className={`h-3 w-3 ${j < Number(rev.rating) ? 'fill-current' : 'text-slate-300'}`} />
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                    <p className="text-[13px] text-slate-600 leading-relaxed italic">&quot;{rev.comment}&quot;</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
           </div>
-        </div>
-      </div>
-      <p className="p-4 text-sm leading-6 text-slate-600">
-        {destination.weather.note}
-      </p>
-    </section>
-  );
-}
 
-function NearbyStays({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="rounded-2xl border border-[#D9E8F3] bg-white p-5 shadow-[0_12px_28px_rgba(15,23,42,0.06)]">
-      <div className="flex items-center justify-between gap-3">
-        <h2 className="text-lg font-semibold text-slate-950">
-          Penginapan Terdekat
-        </h2>
-        <a
-          href="#hotels"
-          className="text-sm font-semibold text-[#0E75BC] hover:text-[#095f99]"
-        >
-          Lihat
-        </a>
-      </div>
-      <div id="hotels" className="mt-4 space-y-3">
-        {destination.nearbyStays.map((stay) => (
-          <article
-            key={stay.name}
-            className="grid grid-cols-[86px_minmax(0,1fr)] gap-3 rounded-2xl border border-[#E1EEF6] bg-[#F8FBFE] p-2.5"
-          >
-            <div className="relative h-20 overflow-hidden rounded-xl">
-              <Image
-                src={stay.image}
-                alt={stay.name}
-                fill
-                sizes="86px"
-                className="object-cover"
-              />
-            </div>
-            <div className="min-w-0 py-1">
-              <h3 className="truncate text-sm font-semibold text-slate-950">
-                {stay.name}
-              </h3>
-              <p className="mt-1 text-xs text-slate-500">{stay.location}</p>
-              <p className="mt-2 text-xs font-semibold text-[#E54545]">
-                {stay.price}
+          {/* KOLOM KANAN (Sidebar) */}
+          <div className="space-y-8 lg:sticky lg:top-24">
+            
+            {/* Lokasi */}
+            <section className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+              <h2 className="text-[16px] font-bold text-slate-900 mb-4">Lokasi</h2>
+              <div className="w-full h-[180px] bg-slate-200 rounded-xl overflow-hidden relative mb-4">
+                {/* Mock Map Image */}
+                <Image src="/images/background.png" alt="Map Route" fill className="object-cover opacity-70" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="h-10 w-10 bg-white rounded-full flex items-center justify-center shadow-lg text-[#E94B35]">
+                    <MapPin className="h-6 w-6" />
+                  </div>
+                </div>
+              </div>
+              <p className="text-[13px] text-slate-600 leading-relaxed mb-5">
+                {destination.location}
               </p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-  );
-}
+              <button className="w-full bg-[#EAF6FC] text-[#0E75BC] font-bold text-[13px] py-3 rounded-xl transition-colors hover:bg-[#d6eefb] flex items-center justify-center gap-2">
+                <Share2 className="h-4 w-4" /> Lihat Rute
+              </button>
+            </section>
 
-function PlanCard({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="rounded-2xl border border-[#CFE5F2] bg-[#EAF6FC] p-5">
-      <h2 className="text-lg font-semibold text-slate-950">
-        Rencana Cepat Cepot AI
-      </h2>
-      <ol className="mt-4 space-y-3 text-sm text-slate-600">
-        <li className="rounded-xl bg-white px-4 py-3">
-          08.00 - Berangkat menuju {destination.location}
-        </li>
-        <li className="rounded-xl bg-white px-4 py-3">
-          10.00 - Eksplor area utama dan galeri foto
-        </li>
-        <li className="rounded-xl bg-white px-4 py-3">
-          12.30 - Istirahat dan lanjut ke destinasi sekitar
-        </li>
-      </ol>
-    </section>
-  );
-}
+            {/* Penginapan Terdekat */}
+            <section>
+              <h2 className="text-[16px] font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <Building className="h-5 w-5 text-[#E94B35]" /> Penginapan Terdekat
+              </h2>
+              <div className="space-y-3">
+                {destination.nearbyStays.slice(0, 3).map((stay, idx) => (
+                  <div key={idx} className="bg-white border border-slate-200 rounded-2xl p-3 flex gap-4 items-center shadow-sm hover:border-[#0E75BC] transition-colors cursor-pointer">
+                    <div className="relative h-16 w-16 rounded-xl overflow-hidden shrink-0">
+                      <Image src={stay.image} alt={stay.name} fill className="object-cover" />
+                    </div>
+                    <div>
+                      <h4 className="text-[14px] font-bold text-slate-900">{stay.name}</h4>
+                      <p className="text-[11px] text-slate-500 mt-0.5">{stay.location}</p>
+                      <p className="text-[13px] font-bold text-[#0E75BC] mt-1">{stay.price}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
 
-function BottomActions({ destination }: { destination: DestinationDetail }) {
-  return (
-    <section className="mt-8 rounded-2xl border border-[#D9E8F3] bg-white p-3 shadow-[0_18px_40px_rgba(15,23,42,0.12)]">
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end sm:pr-16">
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-xl border border-[#0E75BC] px-5 py-3 text-sm font-semibold text-[#0E75BC] transition-colors hover:bg-[#EEF7FD]"
-        >
-          Tambahkan ke Perjalanan
-        </button>
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-xl bg-[#E54545] px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#CF3B3B]"
-        >
-          Pesan {destination.title}
-        </button>
-      </div>
-    </section>
-  );
-}
+          </div>
 
-export function DestinationDetailPageContent({
-  destination,
-}: {
-  destination: DestinationDetail;
-}) {
-  return (
-    <main className="mx-auto max-w-[1180px] px-4 py-6 sm:px-8">
-      <DetailHero destination={destination} />
-      <MetricBar metrics={destination.metrics} />
-
-      <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px]">
-        <div className="space-y-6">
-          <AiReason destination={destination} />
-          <DestinationStory destination={destination} />
-          <Gallery images={destination.gallery} />
-          <Facilities facilities={destination.facilities} />
-          <Reviews reviews={destination.reviews} />
         </div>
 
-        <aside className="space-y-6 lg:sticky lg:top-6 lg:self-start">
-          <WeatherCard destination={destination} />
-          <NearbyStays destination={destination} />
-          <PlanCard destination={destination} />
-        </aside>
-      </div>
+        {/* ACTION BAR (Above Apa Selanjutnya) */}
+        <section className="mt-12 mb-8 bg-white border border-slate-200 shadow-sm rounded-2xl px-6 py-5">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="flex items-center gap-5">
+              <div className="hidden sm:flex h-12 w-12 rounded-full bg-[#333333] items-center justify-center text-white font-bold text-xl">
+                N
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">TIKET MASUK MULAI</span>
+                <div className="flex items-end gap-1">
+                  <span className="text-xl sm:text-2xl font-black text-[#0B5C73] leading-none">{destination.price}</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex w-full sm:w-auto items-center gap-3">
+              <button 
+                onClick={() => setIsFavorite(!isFavorite)}
+                className={`flex-1 sm:flex-none flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl text-[13px] font-bold transition-all border-2 ${
+                  isFavorite 
+                    ? 'bg-[#EAF6FC] border-[#0E75BC] text-[#0E75BC]' 
+                    : 'bg-white border-slate-300 text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
+                }`}
+              >
+                <Heart className={`h-4 w-4 ${isFavorite ? 'fill-current' : ''}`} />
+                Simpan ke Favorit
+              </button>
+              <button 
+                onClick={handleAddTrip}
+                className="flex-1 sm:flex-none px-8 py-3.5 rounded-xl bg-[#E94B35] text-white text-[13px] font-bold shadow-md transition-colors hover:bg-[#d6412e]"
+              >
+                Tambah ke Perjalanan
+              </button>
+            </div>
+          </div>
+        </section>
 
-      <BottomActions destination={destination} />
-    </main>
+        {/* APA SELANJUTNYA? Section */}
+        <section className="mt-8 border-t border-slate-200 pt-16 mb-10">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl font-bold text-[#0E75BC]">Apa Selanjutnya?</h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center max-w-[900px] mx-auto">
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-16 bg-[#4F46E5] text-white rounded-full flex items-center justify-center mb-4 shadow-lg shadow-indigo-200">
+                <MapPin className="h-7 w-7" />
+              </div>
+              <h4 className="text-[14px] font-bold text-slate-900">1. Tambahkan ke perjalanan</h4>
+              <p className="text-[12px] text-slate-500 mt-1">Pilih destinasi lainnya untuk mulai menyusun rencana.</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-16 bg-[#10B981] text-white rounded-full flex items-center justify-center mb-4 shadow-lg shadow-emerald-200">
+                <Sparkles className="h-7 w-7" />
+              </div>
+              <h4 className="text-[14px] font-bold text-slate-900">2. Rekomendasi AI</h4>
+              <p className="text-[12px] text-slate-500 mt-1">Cepot AI menyarankan tempat menarik dari di sekitar.</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-16 bg-[#F97316] text-white rounded-full flex items-center justify-center mb-4 shadow-lg shadow-orange-200">
+                <Building className="h-7 w-7" />
+              </div>
+              <h4 className="text-[14px] font-bold text-slate-900">3. Pilih Penginapan</h4>
+              <p className="text-[12px] text-slate-500 mt-1">Dapatkan pilihan hotel dan villa terbaik sesuai budget.</p>
+            </div>
+            <div className="flex flex-col items-center">
+              <div className="h-16 w-16 bg-[#0E75BC] text-white rounded-full flex items-center justify-center mb-4 shadow-lg shadow-blue-200">
+                <Share2 className="h-7 w-7" />
+              </div>
+              <h4 className="text-[14px] font-bold text-slate-900">4. Itinerary Personal</h4>
+              <p className="text-[12px] text-slate-500 mt-1">Jadwal perjalanan lengkap dibuat otomatis untukmu.</p>
+            </div>
+          </div>
+        </section>
+
+      </main>
+    </>
   );
 }

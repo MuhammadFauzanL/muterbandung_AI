@@ -6,8 +6,8 @@
  */
 import Image from 'next/image';
 import type { Destination } from '@/types';
-import { LocationIcon, HeartIcon } from '@/components/ui/icons';
 import { StarBadge } from '@/components/ui/badges';
+import { MapPin, Heart } from 'lucide-react';
 
 export function DestinationCard({
   title,
@@ -33,7 +33,7 @@ export function DestinationCard({
 
       <div className="space-y-2 px-4 pb-4 pt-3.5">
         <div className="flex items-center gap-1.5 text-[12px] font-medium text-[#0E75BC]">
-          <LocationIcon />
+          <MapPin className="h-3.5 w-3.5" />
           <span>{location}</span>
         </div>
 
@@ -50,7 +50,7 @@ export function DestinationCard({
             aria-label={`Simpan ${title}`}
             className="inline-flex h-9 w-9 items-center justify-center rounded-full transition-colors hover:bg-slate-100"
           >
-            <HeartIcon />
+            <Heart className="h-5 w-5" />
           </button>
         </div>
       </div>

@@ -1,5 +1,10 @@
+"use client";
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePlanner } from '@/context/PlannerContext';
+import { useToast } from '@/context/ToastContext';
+import { MapPin as PinIcon, Clock as ClockIcon, Wallet as WalletIcon, Building as BuildingIcon, Compass as TravelIcon, X as CloseIcon } from 'lucide-react';
 
 type PlannerDestination = {
   title: string;
@@ -58,166 +63,74 @@ const SIMILAR_DESTINATIONS: readonly SimilarDestination[] = [
   },
 ] as const;
 
-function PinIcon({ className = 'h-4 w-4' }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={className}
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <circle cx="12" cy="10" r="2.4" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
+type NearbyHotel = {
+  name: string;
+  type: string;
+  distance: string;
+  price: string;
+  rating: string;
+  image: string;
+};
 
-function ClockIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
-      fill="none"
-      aria-hidden="true"
-    >
-      <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="1.8" />
-      <path
-        d="M12 7.8v4.7l3.2 1.9"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
+const NEARBY_HOTELS: readonly NearbyHotel[] = [
+  {
+    name: 'Bobocabin Ranca Upas',
+    type: 'Cabin Alam',
+    distance: '2.4 km dari Kawah Putih',
+    price: 'Rp520.000',
+    rating: '4.8',
+    image: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=900&auto=format&fit=crop',
+  },
+  {
+    name: 'Patuha Resort Ciwidey',
+    type: 'Resort Keluarga',
+    distance: '4.8 km dari Kawah Putih',
+    price: 'Rp680.000',
+    rating: '4.7',
+    image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop',
+  },
+] as const;
 
-function WalletIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-3.5 w-3.5"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M4.5 7.5h13.8a2.2 2.2 0 0 1 2.2 2.2v6.8a2.2 2.2 0 0 1-2.2 2.2H5.8a2.3 2.3 0 0 1-2.3-2.3V7.2a2 2 0 0 1 2-2h11"
-        stroke="currentColor"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M16.5 13h4"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
 
-function BuildingIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M5 21V5.8C5 4.8 5.8 4 6.8 4h10.4c1 0 1.8.8 1.8 1.8V21M3.5 21h17"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M8.5 8h1.2M14.3 8h1.2M8.5 11.5h1.2M14.3 11.5h1.2M8.5 15h1.2M14.3 15h1.2"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
 
-function TravelIcon() {
+function NearbyHotels() {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M5.5 20h13M8 20l2.4-11.5M14 20l-2.4-11.5M7 8.5h10"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.8"
-      />
-      <path
-        d="M8.5 8.5 12 4l3.5 4.5"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-4 w-4"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="m7 7 10 10M17 7 7 17"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth="1.8"
-      />
-    </svg>
-  );
-}
-
-function SuccessBanner() {
-  return (
-    <section className="relative overflow-hidden rounded-[10px] border border-[#DCEBF3] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(17,73,112,0.05)]">
-      <div className="absolute left-0 top-4 h-12 w-1 rounded-r-full bg-[#129ED0]" />
-      <div className="flex items-start gap-3 pr-8">
-        <div className="relative mt-0.5 h-8 w-8 overflow-hidden rounded-full bg-[#EAF6FC]">
-          <Image
-            src="/destinations/kawah-putih.svg"
-            alt=""
-            fill
-            loading="eager"
-            sizes="32px"
-            className="object-cover"
-          />
-        </div>
-        <div>
-          <h1 className="text-[14px] font-semibold leading-5 text-[#202B37]">
-            Kawah Putih berhasil ditambahkan ke perjalananmu.
-          </h1>
-          <p className="mt-0.5 text-[12px] leading-5 text-[#6E7F8E]">
-            Cepot AI menambahkan destinasi lain yang sering dikunjungi dalam
-            satu perjalanan.
-          </p>
-        </div>
+    <section>
+      <div className="mb-3 flex items-center gap-2 text-[#202B37]">
+        <span className="text-[#0E75BC]">
+          <BuildingIcon />
+        </span>
+        <h2 className="text-[16px] font-semibold leading-6">
+          Penginapan Terdekat
+        </h2>
       </div>
-      <button
-        type="button"
-        aria-label="Tutup notifikasi"
-        className="absolute right-4 top-4 text-[#8C9BA8] transition-colors hover:text-[#445463]"
-      >
-        <CloseIcon />
-      </button>
+      <div className="space-y-3">
+        {NEARBY_HOTELS.map((hotel) => (
+          <article key={hotel.name} className="flex gap-4 rounded-[12px] border border-[#DDEAF2] bg-white p-3 shadow-[0_8px_22px_rgba(17,73,112,0.05)]">
+            <div className="relative h-[100px] w-[140px] shrink-0 overflow-hidden rounded-[8px]">
+              <Image src={hotel.image} alt={hotel.name} fill className="object-cover" sizes="140px" />
+            </div>
+            <div className="flex min-w-0 flex-1 flex-col justify-between py-1">
+              <div>
+                <h3 className="text-[14px] font-semibold text-[#202B37] truncate">{hotel.name}</h3>
+                <p className="text-[12px] text-[#6A7E8E]">{hotel.distance}</p>
+              </div>
+              <div className="flex items-center justify-between mt-2">
+                <div>
+                  <p className="text-[10px] text-[#80909D]">Mulai dari</p>
+                  <p className="text-[14px] font-bold text-[#0E75BC]">{hotel.price}</p>
+                </div>
+                <Link
+                  href="/planner/penginapan"
+                  className="rounded-[8px] bg-[#EAF6FC] px-3 py-1.5 text-[11px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#DDEAF2]"
+                >
+                  Lihat Detail
+                </Link>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }
@@ -257,6 +170,9 @@ function DestinationRecommendationCard({
 }: {
   destination: PlannerDestination;
 }) {
+  const { addDestination } = usePlanner();
+  const { showToast } = useToast();
+
   return (
     <article className="grid overflow-hidden rounded-[12px] border border-[#DDEAF2] bg-white shadow-[0_8px_22px_rgba(17,73,112,0.05)] sm:grid-cols-[178px_minmax(0,1fr)]">
       <div className="relative min-h-[150px] sm:min-h-0">
@@ -303,6 +219,10 @@ function DestinationRecommendationCard({
             </span>
           </div>
           <button
+            onClick={() => {
+              addDestination({ id: destination.title, title: destination.title });
+              showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
+            }}
             type="button"
             className="inline-flex h-8 items-center justify-center rounded-[8px] bg-[#0E75BC] px-4 text-[11px] font-semibold text-white transition-colors hover:bg-[#095f99]"
           >
@@ -379,6 +299,14 @@ function SimilarDestinations() {
 }
 
 function TripSummary() {
+  const { destinations, accommodations, removeDestination, removeAccommodation } = usePlanner();
+
+  // Hitung jumlah destinasi (maksimal per hari misal 5)
+  const destCount = destinations.length;
+  // Hitung estimasi harga
+  const totalAccommodationCost = accommodations.reduce((sum, acc) => sum + acc.totalPrice, 0);
+  const totalCost = (destCount * 25000) + totalAccommodationCost;
+
   return (
     <aside className="rounded-[16px] border border-[#DCEAF3] bg-white p-5 shadow-[0_10px_28px_rgba(17,73,112,0.07)]">
       <h2 className="text-[15px] font-semibold text-[#202B37]">
@@ -386,45 +314,95 @@ function TripSummary() {
       </h2>
 
       <div className="mt-4 space-y-2.5">
-        <div className="flex items-center gap-2 rounded-[10px] bg-[#EAF8FB] px-3 py-2.5 text-[12px] font-semibold text-[#246983]">
-          <PinIcon className="h-4 w-4 text-[#0E75BC]" />
-          Kawah Putih
-        </div>
-        <div className="flex items-center gap-2 rounded-[10px] border border-[#E3EEF4] bg-white px-3 py-2.5 text-[12px] text-[#97A5B1]">
-          <PinIcon className="h-4 w-4" />
-          Pilih destinasi selanjutnya...
-        </div>
+        {destinations.map((dest) => (
+          <div key={dest.id} className="flex items-center gap-2 rounded-[10px] bg-[#EAF8FB] px-3 py-2.5 text-[12px] font-semibold text-[#246983]">
+            <PinIcon className="h-4 w-4 text-[#0E75BC]" />
+            <span className="flex-1">{dest.title}</span>
+            <button onClick={() => removeDestination(dest.id)} className="text-red-400 hover:text-red-600">
+              <CloseIcon />
+            </button>
+          </div>
+        ))}
+        {destinations.length === 0 && (
+          <div className="flex items-center gap-2 rounded-[10px] border border-[#E3EEF4] bg-white px-3 py-2.5 text-[12px] text-[#97A5B1]">
+            <PinIcon className="h-4 w-4" />
+            <span className="flex-1">Pilih destinasi...</span>
+          </div>
+        )}
+
+        {accommodations.length > 0 ? (
+          accommodations.map((acc) => (
+            <div key={acc.name} className="flex items-center gap-2 rounded-[10px] bg-[#EAF8FB] px-3 py-2.5 text-[12px] font-semibold text-[#246983]">
+              <BuildingIcon />
+              <span className="flex-1">{acc.name}</span>
+              <button onClick={() => removeAccommodation(acc.name)} className="text-red-400 hover:text-red-600">
+                <CloseIcon />
+              </button>
+            </div>
+          ))
+        ) : (
+          <div className="flex items-center gap-2 rounded-[10px] border border-[#E3EEF4] bg-white px-3 py-2.5 text-[12px] text-[#97A5B1]">
+            <BuildingIcon />
+            <span className="flex-1">Pilih penginapan...</span>
+          </div>
+        )}
       </div>
 
       <dl className="mt-5 space-y-2.5 border-t border-[#EDF4F8] pt-4 text-[12px]">
         <div className="flex items-center justify-between gap-4">
           <dt className="text-[#7B8B99]">Destinasi Dipilih</dt>
-          <dd className="font-semibold text-[#202B37]">1/5 Destinasi</dd>
+          <dd className="font-semibold text-[#202B37]">{destCount}/5 Destinasi</dd>
         </div>
-        <div className="flex items-center justify-between gap-4">
-          <dt className="text-[#7B8B99]">Estimasi Durasi</dt>
-          <dd className="font-semibold text-[#202B37]">2-3 Jam</dd>
-        </div>
+        {accommodations.length > 0 && (
+          <div className="flex items-center justify-between gap-4">
+            <dt className="text-[#7B8B99]">Penginapan Dipilih</dt>
+            <dd className="font-semibold text-[#202B37]">{accommodations.length} Hotel</dd>
+          </div>
+        )}
         <div className="flex items-center justify-between gap-4">
           <dt className="text-[#7B8B99]">Estimasi Biaya</dt>
-          <dd className="font-semibold text-[#0E75BC]">Rp50.000</dd>
+          <dd className="font-semibold text-[#0E75BC]">Rp{totalCost.toLocaleString('id-ID')}</dd>
         </div>
       </dl>
 
       <div className="mt-5 space-y-3">
-        <Link
-          href="/planner/penginapan"
-          className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] bg-[#0E75BC] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#095f99]"
-        >
-          <BuildingIcon />
-          Lanjut Pilih Penginapan
-        </Link>
+        {accommodations.length === 0 ? (
+          <Link
+            href="/planner/penginapan"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] bg-[#0E75BC] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#095f99]"
+          >
+            Lanjut Pilih Penginapan
+          </Link>
+        ) : (
+          <Link
+            href="/planner/penginapan"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] border border-[#0E75BC] bg-white px-4 text-[13px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#F2FAFE]"
+          >
+            Pilih Penginapan Lain
+          </Link>
+        )}
         <Link
           href="/explore"
           className="inline-flex h-11 w-full items-center justify-center rounded-[10px] border border-[#0E75BC] bg-white px-4 text-[13px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#F2FAFE]"
         >
           Cari Destinasi Lain
         </Link>
+        {accommodations.length > 0 || destinations.length > 0 ? (
+          <Link
+            href="/planner/itinerary"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] bg-[#E54545] px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#d43b3b] shadow-md"
+          >
+            Buat Itinerary Saya
+          </Link>
+        ) : (
+          <button
+            disabled
+            type="button"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-[10px] bg-slate-200 px-4 text-[13px] font-semibold text-slate-400 cursor-not-allowed"
+          >
+            Buat Itinerary Saya
+          </button>
+        )}
       </div>
 
       <div className="mt-5 flex gap-3 rounded-[12px] bg-[#F0F7FC] px-4 py-3">
@@ -447,6 +425,7 @@ function PlannerChatPrompt() {
         <p>Butuh bantuan menyusun Perjalanan?</p>
         <button
           type="button"
+          onClick={() => window.dispatchEvent(new Event('open-chat'))}
           className="mt-1 font-semibold text-[#0E75BC] hover:text-[#095f99]"
         >
           Tanya Cepot AI
@@ -468,12 +447,11 @@ function PlannerChatPrompt() {
 export function PlannerPageContent() {
   return (
     <main className="mx-auto max-w-[1180px] px-4 py-6 sm:px-8">
-      <SuccessBanner />
-
       <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_340px]">
         <div className="min-w-0 space-y-6">
           <InsightCard />
           <RecommendationList />
+          <NearbyHotels />
           <SimilarDestinations />
         </div>
 

@@ -1,3 +1,5 @@
+"use client";
+
 /**
  * Hero Section Component
  *
@@ -5,8 +7,11 @@
  * Includes call-to-action buttons for user engagement.
  */
 import Image from 'next/image';
+import { useAuth } from '@/context/AuthContext';
 
 export function HeroSection() {
+  const { isLoggedIn } = useAuth();
+
   return (
     <section
       id="home"
@@ -26,59 +31,50 @@ export function HeroSection() {
       <div className="relative mx-auto flex min-h-[calc(100svh-68px)] max-w-[1180px] flex-col justify-between px-4 pb-14 pt-8 sm:px-8 sm:pb-20 sm:pt-10 lg:px-8">
         <div className="grid flex-1 items-center gap-7 sm:gap-8 lg:grid-cols-[minmax(0,1fr)_470px]">
           <div className="min-w-0 max-w-[560px] text-white">
-            <h1 className="text-[39px] font-bold leading-[1.1] sm:text-[48px]">
-              <span className="block text-white">Jelajahi Bandung</span>
-              <span className="mt-1 block text-[#4A7EF8]">
-                Bersama MuterBandung
+            <h1 className="text-[32px] font-bold leading-[1.15] md:text-[48px]">
+              <span className="block text-white">Wilujeng Sumping</span>
+              <span className="mt-1 block text-[#4FC4FF]">
+                Di Muter Bandung
               </span>
             </h1>
 
-            <p className="mt-5 max-w-[520px] text-[18px] font-normal leading-[1.55] text-white/92">
-              Temukan destinasi wisata, kuliner, dan penginapan terbaik sesuai
-              gaya perjalananmu dengan panduan kecerdasan buatan yang berbudaya.
+            <p className="mt-5 max-w-[520px] text-[16px] font-normal leading-[1.55] text-white/90">
+              Cepot akan menyiapkan rekomendasi destinasi berdasarkan preferensi wisata yang kamu pilih. Masuk/Daftar untuk membuat rekomendasi sesuai kesukaan dan pencarianmu.
             </p>
 
             <div className="mt-8 flex flex-col gap-4 sm:mt-9 sm:flex-row">
               <a
-                href="#planner"
-                className="inline-flex items-center justify-center rounded-full bg-[#E54545] px-7 py-[14px] text-[17px] font-medium text-white transition-transform hover:-translate-y-0.5"
+                href={isLoggedIn ? "#foryou" : "#explore"}
+                className="inline-flex items-center justify-center rounded-full bg-[#2C6E7E]/80 backdrop-blur-[6px] border border-[#5CA4B5]/60 px-5 py-3 md:px-7 md:py-[14px] text-[15px] md:text-[17px] font-medium text-white transition-transform hover:-translate-y-0.5"
               >
-                Mulai Menjelajah
-                <span className="ml-2 text-xl leading-none">→</span>
+                {isLoggedIn ? 'Lihat Destinasi Untukmu' : 'Lihat Destinasi Populer'}
               </a>
               <a
-                href="#explore"
-                className="inline-flex items-center justify-center rounded-full bg-[#2C6E7E]/80 backdrop-blur-[6px] border border-[#5CA4B5]/60 px-7 py-[14px] text-[17px] font-medium text-white transition-transform hover:-translate-y-0.5"
+                href="/explore"
+                className="inline-flex items-center justify-center rounded-full bg-[#E54545] px-5 py-3 md:px-7 md:py-[14px] text-[15px] md:text-[17px] font-medium text-white transition-transform hover:-translate-y-0.5"
               >
-                Lihat Destinasi Populer
+                Mulai Menjelajah
+                <span className="ml-2 text-xl leading-none">↗</span>
               </a>
             </div>
           </div>
 
-          <div
-            id="planner"
-            className="mx-auto flex w-full max-w-[340px] items-center justify-center rounded-[28px] border border-[#4FC4FF]/35 bg-[linear-gradient(180deg,rgba(157,206,255,0.22)_0%,rgba(120,190,255,0.12)_100%)] p-4 backdrop-blur-[6px] sm:max-w-[470px] sm:rounded-[40px] sm:p-6"
-          >
-            <div className="relative w-full max-w-[250px] sm:max-w-[340px]">
-              <Image
-                src="/images/welcome-cepot.png"
-                alt="Maskot MuterBandung"
-                width={340}
-                height={382}
-                preload
-                sizes="(min-width: 640px) 340px, 250px"
-                className="drop-shadow-[0_24px_30px_rgba(0,0,0,0.24)]"
-                style={{ width: '100%', height: 'auto' }}
-              />
-            </div>
+          <div className="relative w-full max-w-[340px] mx-auto flex items-center justify-center pt-8 sm:pt-0 group">
+            {/* Soft glowing aura behind the mascot to make it pop and look professional */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] h-[280px] bg-[#4FC4FF]/25 rounded-full blur-[70px] pointer-events-none transition-all duration-700 group-hover:bg-[#4FC4FF]/40 group-hover:w-[300px] group-hover:h-[300px]" />
+            
+            {/* Floating mascot image */}
+            <Image
+              src="/images/welcome-cepot.png"
+              alt="Maskot MuterBandung"
+              width={340}
+              height={382}
+              preload
+              sizes="(min-width: 640px) 340px, 250px"
+              className="relative drop-shadow-[0_24px_30px_rgba(0,0,0,0.3)] object-contain animate-float transition-transform duration-500 group-hover:scale-105"
+              style={{ width: '100%', height: 'auto' }}
+            />
           </div>
-        </div>
-
-        <div className="absolute bottom-14 left-1/2 hidden -translate-x-1/2 flex-col items-center text-center text-white/72 sm:flex">
-          <span className="text-sm font-medium">
-            Jelajahi Destinasi Populer
-          </span>
-          <span className="mt-1 text-xl leading-none">⌄</span>
         </div>
       </div>
     </section>

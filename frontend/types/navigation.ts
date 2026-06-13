@@ -5,7 +5,7 @@
  */
 
 export interface NavigationItem {
-  key: 'home' | 'explore' | 'planner';
+  key: 'home' | 'explore' | 'planner' | 'favorite' | 'profile';
   label: string;
   href: string;
 }
