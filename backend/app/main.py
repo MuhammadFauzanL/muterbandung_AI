@@ -29,12 +29,12 @@ logger = logging.getLogger(__name__)
 async def lifespan(_app: FastAPI):
     """Application startup and shutdown events."""
     # Startup
-    logger.info("🚀  %s starting …", settings.app_name)
-    logger.info("📦  Environment : %s", settings.app_env)
-    logger.info("🗄️  Database    : %s", settings.database_url.rsplit("@", 1)[-1])
+    logger.info("  %s starting …", settings.app_name)
+    logger.info("  Environment : %s", settings.app_env)
+    logger.info("  Database    : %s", settings.database_url.rsplit("@", 1)[-1])
     yield
     # Shutdown
-    logger.info("🛑  %s shutting down …", settings.app_name)
+    logger.info(" %s shutting down …", settings.app_name)
 
 
 # ── App Factory ──────────────────────────────────────────
