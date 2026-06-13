@@ -15,19 +15,34 @@ try:
 except ImportError:
     pass
 
-# Ensure services is importable
-sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "services"))
+# Ensure services package is importable both as a script and as backend.app.main.
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+if CURRENT_DIR not in sys.path:
+    sys.path.append(CURRENT_DIR)
+SERVICES_DIR = os.path.join(CURRENT_DIR, "services")
+if SERVICES_DIR not in sys.path:
+    sys.path.append(SERVICES_DIR)
 
-from services.recommender import MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
+from services.recommender import CATEGORY_MAPPING, MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
 from services.oleh_oleh_recommender import OlehOlehRecommender, DEFAULT_OLEH_OLEH_DATASET_PATH
 from services.llm_evidence_pack import build_llm_evidence_pack, build_oleh_oleh_evidence_pack
 from services.llm_guard import build_llm_prompt_guard, validate_llm_output
+from services.hybrid_engine import HybridBehaviourEngine
+from services.chatbot_rag import ChatbotRAG
+from services.llm_query_parser import LLMQueryParser
 
 app = Flask(
     __name__,
     template_folder=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend", "templates"),
     static_folder=os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "frontend", "static")
 )
+
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+    return response
 
 API_SCHEMA_VERSION = "muterbandung.api.recommend.v1"
 OLEH_OLEH_API_SCHEMA_VERSION = "muterbandung.api.oleh_oleh.recommend.v1"
@@ -279,6 +294,55 @@ def _parse_recommend_payload(data):
 
     return parsed, errors
 
+
+def _has_explicit_payload_value(data, field):
+    value = data.get(field)
+    if value is None or value == "":
+        return False
+    if isinstance(value, list):
+        return any(str(item).strip() for item in value)
+    return True
+
+
+def _apply_llm_query_parser(data, parsed):
+    original_query = parsed.get("query")
+    parser_result = query_parser.parse(original_query) if query_parser is not None else None
+    if parser_result is None:
+        return {
+            "llm_parser_used": False,
+            "parser_source": "lexical_fallback",
+            "parser_error": "query_parser_unavailable",
+            "extracted": {},
+            "applied": {},
+            "original_query": original_query,
+        }
+
+    metadata = parser_result.to_metadata()
+    applied = {}
+    if parser_result.ok:
+        if parser_result.semantic_query:
+            parsed["query"] = parser_result.semantic_query
+            applied["semantic_query"] = parser_result.semantic_query
+        if parser_result.categories and not _has_explicit_payload_value(data, "categories"):
+            parsed["categories"] = parser_result.categories
+            applied["categories"] = parser_result.categories
+        if parser_result.max_price is not None and not _has_explicit_payload_value(data, "max_price"):
+            parsed["max_price"] = parser_result.max_price
+            applied["max_price"] = parser_result.max_price
+        if parser_result.free_only is not None and not _has_explicit_payload_value(data, "free_only"):
+            parsed["free_only"] = parser_result.free_only
+            applied["free_only"] = parser_result.free_only
+        if parser_result.open_at_hour and not _has_explicit_payload_value(data, "open_at_hour"):
+            parsed["open_at_hour"] = parser_result.open_at_hour
+            if not parsed.get("day_type"):
+                parsed["day_type"] = "weekday"
+            applied["open_at_hour"] = parser_result.open_at_hour
+
+    metadata["applied"] = applied
+    metadata["original_query"] = original_query
+    metadata["effective_query"] = parsed.get("query")
+    return metadata
+
 # Initialize the recommender engine
 # Note: In production, consider lazy loading or application context
 print("Initializing MuterBandungRecommender...")
@@ -296,6 +360,54 @@ try:
 except Exception as e:
     print(f"Error initializing oleh-oleh engine: {e}")
     oleh_oleh_engine = None
+
+print("Initializing HybridBehaviourEngine...")
+try:
+    behaviour_engine = HybridBehaviourEngine()
+    print("Behaviour engine initialized successfully.")
+except Exception as e:
+    print(f"Error initializing behaviour engine: {e}")
+    behaviour_engine = None
+
+query_parser = LLMQueryParser(valid_categories=CATEGORY_MAPPING.keys(), max_price=MAX_PRICE)
+
+@app.route('/api/predict-behaviour', methods=['POST'])
+def predict_behaviour_api():
+    """Predict next travel category using Hybrid Behaviour Engine."""
+    metadata = _response_metadata()
+    if behaviour_engine is None:
+        return _error_response(
+            "Behaviour engine failed to initialize.",
+            ["Behaviour engine failed to initialize."],
+            status_code=500,
+            metadata=metadata,
+        )
+
+    data, json_errors = _load_json_body()
+    if json_errors:
+        return _error_response("Invalid request body.", json_errors, status_code=400, metadata=metadata)
+
+    errors = []
+    current_category = _parse_optional_text(data, "current_category", errors, 64) or "Penginapan"
+    time_context = _parse_optional_text(data, "time_context", errors, 32) or "Pagi"
+    user_persona = _parse_optional_text(data, "user_persona", errors, 64) or "Urban Casual"
+
+    if errors:
+        return _error_response("Invalid parameters.", errors, status_code=400, metadata=metadata)
+
+    try:
+        result = behaviour_engine.predict_next(
+            current_category=current_category,
+            time_context=time_context,
+            user_persona=user_persona
+        )
+        result.update(metadata)
+        return jsonify(result)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return _error_response("Behaviour prediction failed.", [str(e)], status_code=500, metadata=metadata)
+
 
 @app.route('/')
 def index():
@@ -321,6 +433,7 @@ def recommend_api():
     parsed, validation_errors = _parse_recommend_payload(data)
     if validation_errors:
         return _error_response("Invalid request parameters.", validation_errors, status_code=400, metadata=metadata)
+    query_parser_metadata = _apply_llm_query_parser(data, parsed)
 
     try:
         # Run recommendation
@@ -343,6 +456,7 @@ def recommend_api():
         evidence_pack = build_llm_evidence_pack(results)
         results["llm_evidence_pack"] = evidence_pack
         results["llm_prompt_guard"] = build_llm_prompt_guard(evidence_pack)
+        results["query_parser"] = query_parser_metadata
         results.update(metadata)
         return jsonify(results)
     except Exception as e:
@@ -417,6 +531,41 @@ def validate_llm_api():
     result = validate_llm_output(llm_output, evidence_pack)
     result.update(metadata)
     return jsonify(result), 200 if result.get("valid") else 422
+
+
+# --- Chatbot RAG ---
+chatbot = None
+try:
+    print("Initializing ChatbotRAG...")
+    chatbot = ChatbotRAG(engine)
+    print("ChatbotRAG initialized successfully.")
+except Exception as e:
+    print(f"Error initializing ChatbotRAG: {e}")
+
+
+@app.route('/api/chat', methods=['POST', 'OPTIONS'])
+def chat_api():
+    """Chatbot RAG endpoint — menerima pesan pengguna dan mengembalikan jawaban AI."""
+    if request.method == 'OPTIONS':
+        return '', 200
+
+    if chatbot is None:
+        return jsonify({"error": "Chatbot belum terinisialisasi."}), 503
+
+    data, json_errors = _load_json_body()
+    if json_errors:
+        return jsonify({"error": "Request body tidak valid.", "details": json_errors}), 400
+
+    user_message = (data.get("message") or "").strip()
+    if not user_message:
+        return jsonify({"error": "Field 'message' tidak boleh kosong."}), 400
+
+    if len(user_message) > 500:
+        return jsonify({"error": "Pesan terlalu panjang (maksimal 500 karakter)."}), 400
+
+    result = chatbot.chat(user_message)
+    return jsonify(result), 200
+
 
 if __name__ == '__main__':
     # Run server

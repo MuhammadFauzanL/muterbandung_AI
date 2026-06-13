@@ -1,0 +1,38 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_WITH_REFINED_ATTENTION_2026-06-12.csv",
+  "row_count": 1602,
+  "policy_status_counts": {
+    "primary_candidate": 953,
+    "secondary_apartment_unit": 227,
+    "secondary_large_unit": 121,
+    "needs_parent_child_validation": 116,
+    "secondary_apartment_property": 83,
+    "held_child_room_level": 48,
+    "primary_low_content_confidence": 21,
+    "hold_low_quality_manual_completion": 20,
+    "needs_price_type_validation": 13
+  },
+  "primary_candidate_count": 974,
+  "secondary_option_count": 431,
+  "manual_validation_count": 149,
+  "price_type_validation_count": 13,
+  "manual_validation_topic_counts": {
+    "parent_child_validation": 116,
+    "low_quality_core_completion": 20,
+    "price_type_validation": 13
+  },
+  "validator_priority_counts": {
+    "P3": 116,
+    "P2": 20,
+    "P1": 13
+  },
+  "outputs": {
+    "policy_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_2026-06-12.csv",
+    "primary_candidate": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_CANDIDATE_AFTER_LISTING_POLICY_2026-06-12.csv",
+    "secondary_option": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_SECONDARY_OPTION_AFTER_LISTING_POLICY_2026-06-12.csv",
+    "held_detail_listing": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_HELD_DETAIL_LISTING_AFTER_POLICY_2026-06-12.csv",
+    "manual_validation_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_MANUAL_VALIDATION_QUEUE_AFTER_POLICY_2026-06-12.csv",
+    "price_type_validation_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRICE_TYPE_VALIDATION_QUEUE_2026-06-12.csv",
+    "validator_tasks_priority": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_VALIDATOR_TASKS_PRIORITY_2026-06-12.csv"
+  }
+}

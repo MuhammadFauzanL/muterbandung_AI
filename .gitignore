@@ -41,6 +41,7 @@ dataset_google-hotels-search-scraper_*.json
 Salinan dataset_google-hotels-search-scraper_*.json
 dataset_crawler-google-places_*.csv
 Penginapan_Workspace/01_Raw_Data/
+Penginapan_Workspace/05_Apify_Review_Batches/
 OlehOleh_Workspace/01_Raw_Data/
 OlehOleh_Workspace/05_Review_Scraping/raw_outputs/
 

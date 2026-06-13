@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate LLM API Tester (Gemini, OpenAI, Cloudflare)</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #f8fafc;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        /* Ambient glowing orbs */
+        .orb-1, .orb-2 {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            opacity: 0.5;
+        }
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: #3b82f6;
+            top: -100px;
+            left: -100px;
+            animation: float 8s infinite alternate ease-in-out;
+        }
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: #8b5cf6;
+            bottom: -50px;
+            right: -50px;
+            animation: float 10s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 50px); }
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            z-index: 1;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(to right, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #cbd5e1;
+            margin-bottom: 8px;
+        }
+
+        input[type="password"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: #f8fafc;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            background: #475569;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 16px;
+            min-height: 100px;
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            white-space: pre-wrap;
+            display: none;
+        }
+
+        .success { color: #4ade80 !important; }
+        .error { color: #f87171 !important; }
+
+        .spinner {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+            display: none;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="orb-1"></div>
+    <div class="orb-2"></div>
+
+    <div class="glass-card">
+        <div class="header">
+            <h1>Ultimate LLM Tester</h1>
+            <p>Validasi API Key Anda dengan aman langsung dari browser</p>
+        </div>
+
+        <div class="form-group">
+            <label for="provider">Pilih Provider AI</label>
+            <select id="provider">
+                <option value="gemini">Google Gemini (AI Studio)</option>
+                <option value="cloudflare">Cloudflare Workers AI (Llama-3, dll)</option>
+                <option value="https://api.openai.com/v1/chat/completions">OpenAI (ChatGPT)</option>
+                <option value="https://api.groq.com/openai/v1/chat/completions">Groq API</option>
+                <option value="custom">Custom Endpoint...</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="customEndpointGroup" style="display: none;">
+            <label for="customEndpoint">Custom API Endpoint</label>
+            <input type="text" id="customEndpoint" placeholder="https://api.namaprovider.com/v1/chat/completions">
+        </div>
+
+        <div class="form-group" id="cfAccountGroup" style="display: none;">
+            <label for="cfAccount">Cloudflare Account ID</label>
+            <input type="text" id="cfAccount" placeholder="Misal: d3a9b1... (Lihat di dashboard Cloudflare)">
+        </div>
+
+        <div class="form-group">
+            <label for="model">Nama Model</label>
+            <input type="text" id="model" value="gemini-2.5-flash" placeholder="gemini-2.5-flash / @cf/meta/llama-3.1-8b-instruct">
+        </div>
+
+        <div class="form-group">
+            <label for="apiKey">API Key / Token</label>
+            <input type="password" id="apiKey" placeholder="Masukkan token rahasia..." autocomplete="off">
+        </div>
+
+        <button id="testBtn">
+            <span class="spinner" id="spinner"></span>
+            <span id="btnText">Test API Key</span>
+        </button>
+
+        <div class="result-box" id="resultBox"></div>
+    </div>
+
+    <script>
+        const providerSelect = document.getElementById('provider');
+        const customEndpointGroup = document.getElementById('customEndpointGroup');
+        const cfAccountGroup = document.getElementById('cfAccountGroup');
+        const customEndpoint = document.getElementById('customEndpoint');
+        const cfAccount = document.getElementById('cfAccount');
+        const modelInput = document.getElementById('model');
+        const apiKeyInput = document.getElementById('apiKey');
+        const testBtn = document.getElementById('testBtn');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.getElementById('btnText');
+        const resultBox = document.getElementById('resultBox');
+
+        // Toggle inputs based on provider
+        providerSelect.addEventListener('change', (e) => {
+            const val = e.target.value;
+            
+            customEndpointGroup.style.display = val === 'custom' ? 'block' : 'none';
+            cfAccountGroup.style.display = val === 'cloudflare' ? 'block' : 'none';
+
+            // Auto-fill common models
+            if (val === 'gemini') {
+                modelInput.value = 'gemini-2.5-flash';
+            } else if (val === 'cloudflare') {
+                modelInput.value = '@cf/meta/llama-3.1-8b-instruct'; // Llama-3.1 gratis di Cloudflare
+            } else if (val.includes('groq')) {
+                modelInput.value = 'llama3-8b-8192';
+            } else if (val.includes('openai')) {
+                modelInput.value = 'gpt-3.5-turbo';
+            }
+        });
+
+        testBtn.addEventListener('click', async () => {
+            const apiKey = apiKeyInput.value.trim();
+            const model = modelInput.value.trim();
+            let endpoint = providerSelect.value;
+
+            if (endpoint === 'custom') {
+                endpoint = customEndpoint.value.trim();
+            }
+
+            if (!apiKey) {
+                showResult("⚠️ API Key tidak boleh kosong!", false);
+                return;
+            }
+
+            if (endpoint === 'cloudflare' && !cfAccount.value.trim()) {
+                showResult("⚠️ Untuk Cloudflare, Account ID tidak boleh kosong!", false);
+                return;
+            }
+
+            // Set Loading state
+            testBtn.disabled = true;
+            spinner.style.display = 'inline-block';
+            btnText.innerText = 'Menguji Koneksi...';
+            resultBox.style.display = 'none';
+            resultBox.className = 'result-box';
+
+            try {
+                let response, data, reply;
+
+                // --- 1. JALUR GOOGLE GEMINI ---
+                if (endpoint === 'gemini') {
+                    const geminiUrl = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+                    
+                    response = await fetch(geminiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{ text: 'Katakan "Halo, API Key Gemini berhasil beroperasi!" dalam bahasa Indonesia singkat.' }]
+                            }]
+                        })
+                    });
+                    
+                    data = await response.json();
+                    
+                    if (response.ok) {
+                        reply = data.candidates[0].content.parts[0].text;
+                        showResult(`✅ SUCCESS! Gemini API Key Valid.\n\nResponse LLM:\n"${reply}"`, true);
+                    } else {
+                        showResult(`❌ GAGAL (Error ${response.status})\n\nPesan Error:\n${data.error?.message || JSON.stringify(data)}`, false);
+                    }
+
+                // --- 2. JALUR CLOUDFLARE WORKERS AI ---
+                } else if (endpoint === 'cloudflare') {
+                    const accountId = cfAccount.value.trim();
+                    const cfUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${model}`;
+                    
+                    response = await fetch(cfUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': `Bearer ${apiKey}`,
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            messages: [{ role: 'user', content: 'Katakan "Halo, API Key Cloudflare berhasil beroperasi!" dalam bahasa Indonesia singkat.' }]
+                        })
+                    });
+
+                    data = await response.json();
+
+                    if (response.ok && data.success) {
+                        reply = data.result.response;
+                        showResult(`✅ SUCCESS! Cloudflare AI Token Valid.\n\nResponse Llama-3.1:\n"${reply}"`, true);
+                    } else {
+                        const errorMsg = data.errors && data.errors.length > 0 ? data.errors[0].message : JSON.stringify(data);
+                        showResult(`❌ GAGAL (Error ${response.status})\n\nPesan Error:\n${errorMsg}`, false);
+                    }
+
+                // --- 3. JALUR SISTEM OPENAI/GROQ ---
+                } else {
+                    response = await fetch(endpoint, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${apiKey}`
+                        },
+                        body: JSON.stringify({
+                            model: model,
+                            messages: [{ role: 'user', content: 'Katakan "Halo, API Key berhasil beroperasi!" dalam bahasa Indonesia.' }],
+                            max_tokens: 50,
+                            temperature: 0.7
+                        })
+                    });
+
+                    data = await response.json();
+
+                    if (response.ok) {
+                        reply = data.choices[0].message.content;
+                        showResult(`✅ SUCCESS! API Key Valid.\n\nResponse LLM:\n"${reply}"`, true);
+                    } else {
+                        showResult(`❌ GAGAL (Error ${response.status})\n\nPesan Error:\n${data.error?.message || JSON.stringify(data)}`, false);
+                    }
+                }
+
+            } catch (error) {
+                showResult(`❌ GAGAL (Koneksi Error)\n\nPesan:\n${error.message}\n\nPastikan komputer terkoneksi internet dan endpoint/model benar.`, false);
+            } finally {
+                // Reset Loading state
+                testBtn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.innerText = 'Test API Key';
+            }
+        });
+
+        function showResult(message, isSuccess) {
+            resultBox.style.display = 'block';
+            resultBox.textContent = message;
+            if (isSuccess) {
+                resultBox.classList.add('success');
+            } else {
+                resultBox.classList.add('error');
+            }
+        }
+    </script>
+</body>
+</html>

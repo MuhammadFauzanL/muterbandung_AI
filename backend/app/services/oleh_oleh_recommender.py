@@ -9,7 +9,6 @@ DEFAULT_OLEH_OLEH_DATASET_PATH = os.getenv(
     "MUTERBANDUNG_OLEH_OLEH_DATASET_PATH",
     os.path.join(
         os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))),
-        "ai_workspace",
         "OlehOleh_Workspace",
         "03_Curated",
         "OLEH_OLEH_BASELINE_UI_ENRICHED_WITH_MANUAL_PRODUCT_PRICE_2026-06-10.csv",

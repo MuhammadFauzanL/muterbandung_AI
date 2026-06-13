@@ -1,0 +1,52 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_WITH_ATTENTION_2026-06-12.csv",
+  "row_count": 1602,
+  "outputs": {
+    "refined_dataset": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_WITH_REFINED_ATTENTION_2026-06-12.csv",
+    "price_outlier_refined": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRICE_OUTLIER_REFINED_AUDIT_2026-06-12.csv",
+    "low_quality_refined": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LOW_DATA_QUALITY_REFINED_AUDIT_2026-06-12.csv",
+    "detail_listing_refined": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DETAIL_LISTING_REFINED_AUDIT_2026-06-12.csv",
+    "detail_listing_high_priority": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DETAIL_LISTING_HIGH_PRIORITY_REVIEW_2026-06-12.csv",
+    "detail_listing_original_high_attention": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DETAIL_LISTING_ORIGINAL_HIGH_ATTENTION_2026-06-12.csv"
+  },
+  "price_outlier_count": 42,
+  "price_outlier_status_counts": {
+    "likely_valid_large_unit_price": 17,
+    "secondary_high_price_unit": 9,
+    "property_type_or_unit_size_review": 8,
+    "verify_price_source": 5,
+    "price_outlier_keep_with_caution": 3
+  },
+  "low_quality_count": 44,
+  "low_quality_status_counts": {
+    "content_completion_needed": 23,
+    "hold_until_source_available": 12,
+    "core_fields_missing": 8,
+    "low_quality_detail_listing": 1
+  },
+  "detail_listing_count": 514,
+  "detail_listing_group_counts": {
+    "apartment_unit_detail": 227,
+    "whole_house_or_large_unit": 122,
+    "villa_or_house_detail": 82,
+    "room_level_detail": 49,
+    "other_detail_listing": 34
+  },
+  "detail_listing_original_attention_counts": {
+    "high": 314,
+    "medium": 142,
+    "low": 58
+  },
+  "detail_listing_high_priority_count": 428,
+  "overall_refined_action_counts": {
+    "hold_or_secondary_detail_listing": 276,
+    "keep_secondary_or_review_parent_status": 122,
+    "review_parent_child_status": 116,
+    "complete_amenities_or_image_if_needed": 23,
+    "manual_core_completion_before_primary_ranking": 20,
+    "verify_price_or_type": 11,
+    "keep_but_mark_high_price": 7,
+    "keep_but_lower_price_confidence": 3,
+    "keep_secondary_and_verify_if_top_ranked": 1
+  }
+}

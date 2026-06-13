@@ -18,12 +18,13 @@ except ImportError:
 # Ensure recommender is importable
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from recommender import MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
+from recommender import CATEGORY_MAPPING, MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
 from oleh_oleh_recommender import OlehOlehRecommender, DEFAULT_OLEH_OLEH_DATASET_PATH
 from penginapan_recommender import PenginapanRecommender, DEFAULT_PENGINAPAN_DATASET_PATH
 from llm_evidence_pack import build_llm_evidence_pack, build_oleh_oleh_evidence_pack
 from llm_service import generate_rag_summary
 from llm_guard import build_llm_prompt_guard, validate_llm_output
+from llm_query_parser import LLMQueryParser
 
 app = Flask(__name__)
 
@@ -331,6 +332,55 @@ def _parse_recommend_payload(data):
 
     return parsed, errors
 
+
+def _has_explicit_payload_value(data, field):
+    value = data.get(field)
+    if value is None or value == "":
+        return False
+    if isinstance(value, list):
+        return any(str(item).strip() for item in value)
+    return True
+
+
+def _apply_llm_query_parser(data, parsed):
+    original_query = parsed.get("query")
+    parser_result = query_parser.parse(original_query) if query_parser is not None else None
+    if parser_result is None:
+        return {
+            "llm_parser_used": False,
+            "parser_source": "lexical_fallback",
+            "parser_error": "query_parser_unavailable",
+            "extracted": {},
+            "applied": {},
+            "original_query": original_query,
+        }
+
+    metadata = parser_result.to_metadata()
+    applied = {}
+    if parser_result.ok:
+        if parser_result.semantic_query:
+            parsed["query"] = parser_result.semantic_query
+            applied["semantic_query"] = parser_result.semantic_query
+        if parser_result.categories and not _has_explicit_payload_value(data, "categories"):
+            parsed["categories"] = parser_result.categories
+            applied["categories"] = parser_result.categories
+        if parser_result.max_price is not None and not _has_explicit_payload_value(data, "max_price"):
+            parsed["max_price"] = parser_result.max_price
+            applied["max_price"] = parser_result.max_price
+        if parser_result.free_only is not None and not _has_explicit_payload_value(data, "free_only"):
+            parsed["free_only"] = parser_result.free_only
+            applied["free_only"] = parser_result.free_only
+        if parser_result.open_at_hour and not _has_explicit_payload_value(data, "open_at_hour"):
+            parsed["open_at_hour"] = parser_result.open_at_hour
+            if not parsed.get("day_type"):
+                parsed["day_type"] = "weekday"
+            applied["open_at_hour"] = parser_result.open_at_hour
+
+    metadata["applied"] = applied
+    metadata["original_query"] = original_query
+    metadata["effective_query"] = parsed.get("query")
+    return metadata
+
 # Initialize the recommender engine
 # Note: In production, consider lazy loading or application context
 print("Initializing MuterBandungRecommender...")
@@ -356,6 +406,8 @@ try:
 except Exception as e:
     print(f"Error initializing penginapan engine: {e}")
     penginapan_engine = None
+
+query_parser = LLMQueryParser(valid_categories=CATEGORY_MAPPING.keys(), max_price=MAX_PRICE)
 
 def _generate_ai_summary(results, module="wisata"):
     """Rule-based text generator that summarizes recommendations naturally."""
@@ -429,6 +481,7 @@ def recommend_api():
     parsed, validation_errors = _parse_recommend_payload(data)
     if validation_errors:
         return _error_response("Invalid request parameters.", validation_errors, status_code=400, metadata=metadata)
+    query_parser_metadata = _apply_llm_query_parser(data, parsed)
 
     try:
         # Run recommendation
@@ -457,6 +510,7 @@ def recommend_api():
             results["ai_summary"] = rag_summary
         else:
             results["ai_summary"] = _generate_ai_summary(results, module="wisata")
+        results["query_parser"] = query_parser_metadata
         results.update(metadata)
         return jsonify(results)
     except Exception as e:

@@ -1,0 +1,43 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P1_DECISIONS_2026-06-12.csv",
+  "decision_count": 20,
+  "row_count": 1602,
+  "p2_validation_applied_count": 20,
+  "primary_candidate_after_p2_count": 977,
+  "secondary_option_after_p2_count": 451,
+  "held_after_p2_count": 169,
+  "dropped_after_p2_count": 5,
+  "remaining_manual_validation_count": 116,
+  "remaining_manual_validation_topic_counts": {
+    "parent_child_validation": 116
+  },
+  "p2_decision_counts": {
+    "secondary_low_quality_apartment": 10,
+    "hold_low_quality": 3,
+    "drop_low_quality_generic_name": 2,
+    "hold_low_quality_generic_name": 1,
+    "secondary_low_quality_villa": 1,
+    "drop_low_quality_incomplete_name": 1,
+    "secondary_low_quality_home": 1,
+    "drop_low_quality_suspicious_name": 1
+  },
+  "ranking_tier_after_p2_counts_for_decisions": {
+    "secondary_low_quality_apartment": 10,
+    "held_low_quality_no_core_fields": 3,
+    "dropped_low_quality_generic_name": 2,
+    "held_low_quality_generic_name": 1,
+    "secondary_low_quality_villa": 1,
+    "dropped_low_quality_incomplete_name": 1,
+    "secondary_low_quality_home": 1,
+    "dropped_low_quality_suspicious_name": 1
+  },
+  "outputs": {
+    "decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_LOW_QUALITY_DECISIONS_2026-06-12.csv",
+    "audit_with_p2_decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P2_DECISIONS_2026-06-12.csv",
+    "primary_after_p2": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_CANDIDATE_AFTER_P2_DECISIONS_2026-06-12.csv",
+    "secondary_after_p2": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_SECONDARY_OPTION_AFTER_P2_DECISIONS_2026-06-12.csv",
+    "held_after_p2": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_HELD_AFTER_P2_DECISIONS_2026-06-12.csv",
+    "dropped_after_p2": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DROPPED_AFTER_P2_DECISIONS_2026-06-12.csv",
+    "remaining_manual_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REMAINING_MANUAL_VALIDATION_QUEUE_AFTER_P2_2026-06-12.csv"
+  }
+}

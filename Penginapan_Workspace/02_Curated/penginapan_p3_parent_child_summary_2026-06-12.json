@@ -1,0 +1,47 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P2_DECISIONS_2026-06-12.csv",
+  "row_count": 1602,
+  "p3_input_count": 116,
+  "p3_validation_applied_count": 116,
+  "primary_candidate_after_p3_count": 977,
+  "secondary_option_after_p3_count": 527,
+  "held_after_p3_count": 76,
+  "dropped_after_p3_count": 22,
+  "remaining_manual_validation_count": 0,
+  "p3_decision_counts": {
+    "secondary_villa_unit": 42,
+    "hold_room_level_child": 22,
+    "secondary_apartment_unit": 18,
+    "drop_duplicate_detail_listing": 17,
+    "secondary_house_or_cabin_unit": 15,
+    "hold_generic_detail_listing": 1,
+    "secondary_large_unit": 1
+  },
+  "ranking_tier_after_p3_counts_for_decisions": {
+    "secondary_villa_unit": 42,
+    "held_room_level_child": 22,
+    "secondary_apartment_unit": 18,
+    "dropped_duplicate_detail_listing": 17,
+    "secondary_house_or_cabin_unit": 15,
+    "held_generic_detail_listing": 1,
+    "secondary_large_unit": 1
+  },
+  "property_type_final_after_p3_counts_for_decisions": {
+    "villa": 73,
+    "apartment": 23,
+    "vacation_rental": 13,
+    "guest_house": 5,
+    "hotel": 2
+  },
+  "exact_duplicate_detail_rows_dropped": 17,
+  "outputs": {
+    "decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P3_PARENT_CHILD_AUTO_DECISIONS_2026-06-12.csv",
+    "audit_with_p3_decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P3_DECISIONS_2026-06-12.csv",
+    "primary_after_p3": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_CANDIDATE_AFTER_P3_DECISIONS_2026-06-12.csv",
+    "secondary_after_p3": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_SECONDARY_OPTION_AFTER_P3_DECISIONS_2026-06-12.csv",
+    "held_after_p3": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_HELD_AFTER_P3_DECISIONS_2026-06-12.csv",
+    "dropped_after_p3": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DROPPED_AFTER_P3_DECISIONS_2026-06-12.csv",
+    "mapping_candidates": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_CHILD_MAPPING_CANDIDATE_AFTER_P3_2026-06-12.csv",
+    "remaining_manual_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REMAINING_MANUAL_VALIDATION_QUEUE_AFTER_P3_2026-06-12.csv"
+  }
+}

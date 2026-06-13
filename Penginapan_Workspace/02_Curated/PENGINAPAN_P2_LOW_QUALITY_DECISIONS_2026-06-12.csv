@@ -1,0 +1,21 @@
+﻿penginapan_id,p2_decision,ranking_tier_after_p2,primary_after_p2,secondary_after_p2,drop_after_p2,p2_note
+LODGE-00456,hold_low_quality,held_low_quality_no_core_fields,False,False,False,"Hotel/OYO tanpa rating, review, dan harga; tahan dari ranking."
+LODGE-00457,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00458,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00459,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00460,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00461,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00462,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00463,hold_low_quality,held_low_quality_no_core_fields,False,False,False,"Guest house tanpa rating, review, dan harga; tahan dari ranking."
+LODGE-00464,hold_low_quality_generic_name,held_low_quality_generic_name,False,False,False,Nama terlalu umum dan core fields kosong; tahan dari ranking.
+LODGE-00465,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00466,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00467,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-00468,drop_low_quality_generic_name,dropped_low_quality_generic_name,False,False,True,Nama terlalu umum: Sewa Apartemen Bandung; core fields kosong.
+LODGE-00469,secondary_low_quality_villa,secondary_low_quality_villa,False,True,False,Villa tanpa core fields; simpan sebagai secondary low confidence.
+LODGE-00470,drop_low_quality_incomplete_name,dropped_low_quality_incomplete_name,False,False,True,Nama tidak lengkap dan core fields kosong.
+LODGE-01651,drop_low_quality_generic_name,dropped_low_quality_generic_name,False,False,True,Nama terlalu umum: Andy; core fields kosong.
+LODGE-01652,secondary_low_quality_apartment,secondary_low_quality_apartment,False,True,False,Apartemen/OYO tanpa core fields; simpan hanya sebagai secondary low confidence.
+LODGE-01654,hold_low_quality,held_low_quality_no_core_fields,False,False,False,"Hotel/OYO tanpa rating, review, dan harga; tahan dari ranking."
+LODGE-01655,secondary_low_quality_home,secondary_low_quality_home,False,True,False,"Nama mengarah ke home, tetapi core fields kosong; simpan hanya sebagai secondary low confidence."
+LODGE-01656,drop_low_quality_suspicious_name,dropped_low_quality_suspicious_name,False,False,True,Nama mencurigakan dan core fields kosong.

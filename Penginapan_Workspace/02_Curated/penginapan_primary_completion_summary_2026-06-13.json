@@ -1,0 +1,47 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P3_DECISIONS_2026-06-12.csv",
+  "primary_count": 977,
+  "completion_queue_count": 752,
+  "complete_enough_count": 225,
+  "completion_priority_counts": {
+    "OK_complete_enough": 225,
+    "P1_price_missing": 212,
+    "P1_core_rating_price_missing": 190,
+    "P2_sentiment_missing": 154,
+    "P1_rating_reviews_missing": 106,
+    "P3_source_link_missing": 66,
+    "P3_content_missing": 24
+  },
+  "completion_flag_counts": {
+    "missing_rating_reviews": 296,
+    "missing_price": 402,
+    "missing_sentiment": 433,
+    "missing_amenities": 112,
+    "missing_image": 43,
+    "missing_source_link": 251,
+    "missing_coordinates": 0
+  },
+  "queue_by_property_type": {
+    "hotel": 275,
+    "vacation_rental": 217,
+    "villa": 154,
+    "guest_house": 106
+  },
+  "rating_price_queue_count": 508,
+  "review_sentiment_queue_count": 433,
+  "amenity_image_queue_count": 155,
+  "source_link_queue_count": 251,
+  "primary_duplicate_exact_name_group_count": 62,
+  "primary_duplicate_exact_name_row_count": 139,
+  "scrape_ready_count_in_queue": 752,
+  "manual_check_needed_count_in_queue": 431,
+  "outputs": {
+    "primary_completion_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_COMPLETION_AUDIT_2026-06-13.csv",
+    "primary_completion_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_COMPLETION_QUEUE_PRIORITY_2026-06-13.csv",
+    "rating_price_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_RATING_PRICE_COMPLETION_QUEUE_2026-06-13.csv",
+    "review_sentiment_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_REVIEW_SENTIMENT_COMPLETION_QUEUE_2026-06-13.csv",
+    "amenity_image_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_AMENITY_IMAGE_COMPLETION_QUEUE_2026-06-13.csv",
+    "source_link_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_SOURCE_LINK_COMPLETION_QUEUE_2026-06-13.csv",
+    "primary_duplicate_name_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DUPLICATE_NAME_AUDIT_2026-06-13.csv"
+  }
+}

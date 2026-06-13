@@ -1,0 +1,36 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_PRIMARY_DEDUPE_2026-06-13.csv",
+  "decision_count": 16,
+  "keep_separate_count": 6,
+  "drop_duplicate_count": 7,
+  "merge_fix_coordinate_count": 3,
+  "primary_count_after_far_resolution": 901,
+  "dropped_count_after_far_resolution": 98,
+  "completion_queue_after_far_resolution_count": 671,
+  "complete_enough_after_far_resolution_count": 230,
+  "completion_priority_after_far_resolution_counts": {
+    "OK_complete_enough": 230,
+    "P1_price_missing": 193,
+    "P1_core_rating_price_missing": 149,
+    "P2_sentiment_missing": 149,
+    "P1_rating_reviews_missing": 93,
+    "P3_source_link_missing": 64,
+    "P3_content_missing": 23
+  },
+  "completion_flag_after_far_resolution_counts": {
+    "missing_rating_reviews": 242,
+    "missing_price": 342,
+    "missing_sentiment": 366,
+    "missing_amenities": 101,
+    "missing_image": 27,
+    "missing_source_link": 231
+  },
+  "outputs": {
+    "decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_FAR_DUPLICATE_MANUAL_DECISIONS_2026-06-13.csv",
+    "full_with_resolution": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_PRIMARY_DEDUPE_RESOLVED_2026-06-13.csv",
+    "primary_resolved": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DEDUPED_RESOLVED_CANDIDATE_2026-06-13.csv",
+    "dropped_resolved": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_FAR_DUPLICATE_DROPPED_2026-06-13.csv",
+    "completion_audit_after_resolution": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_COMPLETION_AUDIT_AFTER_FAR_DUPLICATE_RESOLUTION_2026-06-13.csv",
+    "completion_queue_after_resolution": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_COMPLETION_QUEUE_AFTER_FAR_DUPLICATE_RESOLUTION_2026-06-13.csv"
+  }
+}

@@ -1,0 +1,17 @@
+﻿penginapan_id,manual_decision,merge_target_id,resolution_note
+LODGE-00006,keep_separate,,Kandidat utama area Bayabang/Cianjur dan memiliki harga.
+LODGE-00566,keep_separate,,Jarak sekitar 8 km dari LODGE-00006 dan memiliki harga unik; pertahankan terpisah.
+LODGE-00014,drop_duplicate,LODGE-00006,Duplikat lemah tanpa harga/rating.
+LODGE-00689,drop_duplicate,LODGE-00566,Duplikat lemah tanpa harga/rating.
+LODGE-00690,drop_duplicate,LODGE-00566,Duplikat lemah tanpa harga/rating.
+LODGE-00096,keep_separate,,Kandidat utama Nabila; koordinat paling akurat dan volume ulasan tertinggi.
+LODGE-00095,merge_fix_coordinate,LODGE-00096,Merge ke LODGE-00096; selisih sekitar 1 km adalah anomali pinning dari sumber OTA.
+LODGE-00369,drop_duplicate,LODGE-00096,Duplikat LODGE-00096 dengan perbedaan digit koordinat minor dan harga kosong.
+LODGE-00624,keep_separate,,Kandidat utama Saung Arjuna di area Ciwidey; rating dan ulasan tervalidasi.
+LODGE-01482,merge_fix_coordinate,LODGE-00624,Merge ke LODGE-00624; koordinat sumber salah dan harga dipakai untuk melengkapi target.
+LODGE-00716,drop_duplicate,LODGE-00624,Duplikat lemah tanpa kelengkapan data.
+LODGE-00139,keep_separate,,"Kandidat utama The Cluster Harris di Jl. H. Haris, Baros, Cimahi."
+LODGE-00176,merge_fix_coordinate,LODGE-00139,Merge ke LODGE-00139; koordinat bergeser sekitar 1 km dari lokasi faktual.
+LODGE-00382,drop_duplicate,LODGE-00139,Duplikat LODGE-00139; lokasi sama namun harga kosong.
+LODGE-00601,keep_separate,,Kandidat utama Villa Haposan; parameter harga tervalidasi.
+LODGE-00742,drop_duplicate,LODGE-00601,Duplikat LODGE-00601 dengan data pendukung kosong.

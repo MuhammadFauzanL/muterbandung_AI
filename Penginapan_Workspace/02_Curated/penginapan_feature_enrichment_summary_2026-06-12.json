@@ -1,0 +1,84 @@
+{
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_WITH_SENTIMENT_2026-06-10_DRIVE_FULL_REVIEW.csv",
+  "output_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_2026-06-12.csv",
+  "rows": 1602,
+  "amenity_flags": [
+    "has_wifi",
+    "has_parking",
+    "has_ac",
+    "has_pool",
+    "has_kitchen",
+    "has_breakfast",
+    "has_laundry",
+    "kid_friendly",
+    "pet_friendly",
+    "wheelchair_accessible",
+    "smoke_free",
+    "has_gym",
+    "has_hot_tub",
+    "has_balcony_or_terrace",
+    "has_elevator",
+    "has_airport_shuttle",
+    "has_cable_tv",
+    "has_iron",
+    "has_heater_or_fireplace"
+  ],
+  "amenities_text_available": 1449,
+  "amenity_boolean_nonzero": 1448,
+  "price_available": 989,
+  "price_missing": 613,
+  "price_confidence_counts": {
+    "high_price_confidence": 920,
+    "missing_price": 613,
+    "medium_price_confidence": 67,
+    "low_price_confidence": 2
+  },
+  "price_quantiles_by_type": {
+    "apartment": {
+      "q33": 352697.0,
+      "q66": 506700.16,
+      "count": 269
+    },
+    "guest_house": {
+      "q33": 206199.96,
+      "q66": 394935.0,
+      "count": 93
+    },
+    "hotel": {
+      "q33": 203790.32,
+      "q66": 344226.44,
+      "count": 333
+    },
+    "vacation_rental": {
+      "q33": 523875.0,
+      "q66": 1259833.4,
+      "count": 111
+    },
+    "villa": {
+      "q33": 1224503.76,
+      "q66": 3226560.88,
+      "count": 183
+    }
+  },
+  "capacity_confidence_counts": {
+    "low_capacity_confidence": 1096,
+    "high_capacity_confidence": 292,
+    "medium_capacity_confidence": 214
+  },
+  "capacity_reason_counts": {
+    "hotel_default_per_room": 475,
+    "villa_or_rental_default_no_capacity_source": 417,
+    "bedroom_count_name_pattern": 287,
+    "guest_house_default_per_room": 115,
+    "studio_name_pattern": 106,
+    "apartment_default_no_capacity_source": 89,
+    "double_or_standard_room_name_pattern": 63,
+    "family_room_name_pattern": 28,
+    "room_bedroom_name_pattern": 9,
+    "guest_count_name_pattern": 5,
+    "single_room_name_pattern": 5,
+    "triple_room_name_pattern": 3
+  },
+  "capacity_note": "Capacity is estimated from name/property_type because raw Google Hotels CSV/JSON does not provide explicit capacity fields.",
+  "decision": "Output is an enriched candidate dataset. It should be reviewed before replacing the runtime penginapan dataset."
+}

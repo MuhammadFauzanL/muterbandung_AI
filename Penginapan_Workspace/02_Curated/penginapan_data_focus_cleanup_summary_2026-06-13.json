@@ -1,0 +1,38 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_PRIMARY_DEDUPE_RESOLVED_2026-06-13.csv",
+  "pakuhaji_decision": {
+    "keep_id": "LODGE-00170",
+    "drop_id": "LODGE-00431",
+    "decision": "drop_duplicate_into_keep_id"
+  },
+  "primary_count_data_focus": 900,
+  "dropped_count_data_focus": 99,
+  "ordered_completion_queue_count": 583,
+  "completion_priority_data_focus_counts": {
+    "OK_complete_enough": 230,
+    "P1_price_missing": 193,
+    "P2_sentiment_missing": 149,
+    "P1_core_rating_price_missing": 148,
+    "P1_rating_reviews_missing": 93,
+    "P3_source_link_missing": 64,
+    "P3_content_missing": 23
+  },
+  "missing_counts": {
+    "rating_reviews": 241,
+    "price": 341,
+    "sentiment": 365,
+    "amenities": 100,
+    "image": 27,
+    "source_link": 231
+  },
+  "outputs": {
+    "full": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_DATA_FOCUS_2026-06-13.csv",
+    "primary": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_2026-06-13.csv",
+    "dropped": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_DROPPED_2026-06-13.csv",
+    "ordered_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_2026-06-13.csv",
+    "p1_price_missing": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_P1_PRICE_MISSING_2026-06-13.csv",
+    "p1_core_rating_price_missing": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_P1_CORE_RATING_PRICE_MISSING_2026-06-13.csv",
+    "p1_rating_reviews_missing": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_P1_RATING_REVIEWS_MISSING_2026-06-13.csv",
+    "p2_sentiment_missing": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_P2_SENTIMENT_MISSING_2026-06-13.csv"
+  }
+}

@@ -1,0 +1,14 @@
+﻿penginapan_id,manual_decision,manual_corrected_property_type,ranking_tier_after_p1,primary_after_p1,secondary_after_p1,drop_after_p1,manual_note
+LODGE-00004,hold_from_primary,,held_child_room_level,False,False,False,"Harga benar, tetapi ini unit kamar child, bukan properti utama."
+LODGE-00010,accept_high_price,,primary_high_price_validated,True,True,False,Harga Wildan Guesthouse sudah divalidasi benar.
+LODGE-00401,fix_property_type,vacation_rental,secondary_large_unit,False,True,False,"Rumah/villa 5 kamar berkapasitas besar, bukan hotel reguler."
+LODGE-00562,accept_high_price,,secondary_large_unit,False,True,False,Harga wajar untuk homestay 4 kamar/rumah besar.
+LODGE-00564,accept_high_price,,secondary_large_unit,False,True,False,"Harga benar, akomodasi disewakan sebagai rumah utuh/kapasitas besar."
+LODGE-00569,accept_high_price,,primary_high_price_validated,True,True,False,"Harga benar sesuai scrape OTA, meskipun nama mengandung kata murah."
+LODGE-00898,hold_from_primary,,secondary_large_unit,False,True,False,Unit besar 6 kamar; lebih tepat sebagai secondary large unit.
+LODGE-00919,drop_if_invalid,,dropped_duplicate,False,False,True,Duplikat Guest House Omah Ningrat Bandung; gunakan LODGE-01255.
+LODGE-01255,accept_high_price,,secondary_large_unit,False,True,False,"Harga wajar untuk rumah 3 kamar; gunakan data ini, bukan LODGE-00919."
+LODGE-01292,accept_high_price,,primary_high_price_validated,True,True,False,Harga Ouma Guest House sudah divalidasi benar.
+LODGE-01351,fix_property_type,vacation_rental,secondary_large_unit,False,True,False,"Cottage/house, bukan hotel reguler."
+LODGE-01396,fix_property_type,apartment,secondary_aparthotel,False,True,False,Aparthotel/apartment; jadikan opsi secondary.
+LODGE-01443,accept_high_price,,secondary_large_unit,False,True,False,Harga benar; faktanya rumah 3 kamar sehingga masuk akal sebagai large unit.

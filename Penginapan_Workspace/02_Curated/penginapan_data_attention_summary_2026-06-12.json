@@ -1,0 +1,40 @@
+{
+  "input_path": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_2026-06-12.csv",
+  "rows": 1602,
+  "attention_rows": 1370,
+  "attention_level_counts": {
+    "high": 513,
+    "medium": 430,
+    "low": 427
+  },
+  "attention_reason_counts": {
+    "missing_any_sentiment": 542,
+    "looks_like_detail_or_unit_listing": 514,
+    "capacity_low_confidence_for_unit_property": 506,
+    "missing_source_link": 459,
+    "missing_rating_and_price": 344,
+    "property_type_maybe_needs_review": 307,
+    "missing_rating_or_reviews": 305,
+    "missing_price": 269,
+    "missing_amenities": 153,
+    "missing_image": 50,
+    "low_data_quality": 44,
+    "price_outlier_for_type": 42
+  },
+  "attention_by_property_type": {
+    "apartment": 348,
+    "villa": 340,
+    "vacation_rental": 269,
+    "hotel": 262,
+    "guest_house": 151
+  },
+  "outputs": {
+    "audited_full_dataset": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PARENT_MASTER_FEATURE_ENRICHED_WITH_ATTENTION_2026-06-12.csv",
+    "queue": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_DATA_ATTENTION_QUEUE_2026-06-12.csv",
+    "detail_or_unit_listing": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_DETAIL_OR_UNIT_LISTING_ATTENTION_2026-06-12.csv",
+    "missing_core_fields": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_MISSING_CORE_FIELDS_ATTENTION_2026-06-12.csv",
+    "price_outlier": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRICE_OUTLIER_ATTENTION_2026-06-12.csv",
+    "property_type_attention": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\02_Curated\\PENGINAPAN_PROPERTY_TYPE_ATTENTION_2026-06-12.csv"
+  },
+  "decision": "This is a data-attention queue only. Do not replace runtime data from this file directly."
+}

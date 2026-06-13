@@ -1,0 +1,40 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_2026-06-12.csv",
+  "decision_count": 13,
+  "row_count": 1602,
+  "p1_validation_applied_count": 13,
+  "primary_candidate_after_p1_count": 977,
+  "secondary_option_after_p1_count": 439,
+  "dropped_after_p1_count": 1,
+  "remaining_manual_validation_count": 136,
+  "remaining_manual_validation_topic_counts": {
+    "parent_child_validation": 116,
+    "low_quality_core_completion": 20
+  },
+  "manual_decision_counts": {
+    "accept_high_price": 7,
+    "fix_property_type": 3,
+    "hold_from_primary": 2,
+    "drop_if_invalid": 1
+  },
+  "ranking_tier_after_p1_counts_for_decisions": {
+    "secondary_large_unit": 7,
+    "primary_high_price_validated": 3,
+    "held_child_room_level": 1,
+    "dropped_duplicate": 1,
+    "secondary_aparthotel": 1
+  },
+  "property_type_final_counts_for_decisions": {
+    "guest_house": 10,
+    "vacation_rental": 2,
+    "apartment": 1
+  },
+  "outputs": {
+    "decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P1_MANUAL_VALIDATION_DECISIONS_2026-06-12.csv",
+    "audit_with_p1_decisions": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_LISTING_POLICY_AUDIT_WITH_P1_DECISIONS_2026-06-12.csv",
+    "primary_after_p1": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_CANDIDATE_AFTER_P1_DECISIONS_2026-06-12.csv",
+    "secondary_after_p1": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_SECONDARY_OPTION_AFTER_P1_DECISIONS_2026-06-12.csv",
+    "dropped_after_p1": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_DROPPED_AFTER_P1_DECISIONS_2026-06-12.csv",
+    "remaining_manual_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REMAINING_MANUAL_VALIDATION_QUEUE_AFTER_P1_2026-06-12.csv"
+  }
+}
