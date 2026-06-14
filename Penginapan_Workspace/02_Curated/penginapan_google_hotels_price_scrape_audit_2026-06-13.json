@@ -1,0 +1,156 @@
+{
+  "created_at": "2026-06-13T11:08:44.142640+00:00",
+  "raw_pattern": "dataset_google-hotels-search-scraper_2026-06-13_10-*.json",
+  "raw_file_count": 10,
+  "unique_raw_file_count": 9,
+  "duplicate_files": [
+    {
+      "duplicate_file": "dataset_google-hotels-search-scraper_2026-06-13_10-57-07-934.json",
+      "same_as": "dataset_google-hotels-search-scraper_2026-06-13_10-57-07-934 (1).json",
+      "hash": "8cb622937de9b070875ed2c379af17c1"
+    }
+  ],
+  "page_query_summary": [
+    {
+      "query": "apartment in Bandung, Jawa Barat",
+      "vacation_rentals_query": true,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 360,
+      "total_results": 4436,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "guest house in Kota Bandung, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 400,
+      "total_results": 6210,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "hotel in Cimahi, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 19,
+      "property_rows": 343,
+      "total_results": 758,
+      "pagination_limit_reached": false
+    },
+    {
+      "query": "hotel in Kota Bandung, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 398,
+      "total_results": 1774,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "penginapan in Kabupaten Bandung Barat, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 398,
+      "total_results": 1826,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "penginapan in Kabupaten Bandung, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 400,
+      "total_results": 5903,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "penginapan murah in Bandung, Jawa Barat",
+      "vacation_rentals_query": false,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 398,
+      "total_results": 354,
+      "pagination_limit_reached": true
+    },
+    {
+      "query": "villa in Ciwidey, Kabupaten Bandung, Jawa Barat",
+      "vacation_rentals_query": true,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 7,
+      "property_rows": 112,
+      "total_results": 112,
+      "pagination_limit_reached": false
+    },
+    {
+      "query": "villa in Lembang, Kabupaten Bandung Barat, Jawa Barat",
+      "vacation_rentals_query": true,
+      "max_pages": 20,
+      "files": 1,
+      "pages": 20,
+      "property_rows": 360,
+      "total_results": 912,
+      "pagination_limit_reached": true
+    }
+  ],
+  "flattened_rows": 3169,
+  "unique_property_token_count": 1723,
+  "unique_name_count": 1635,
+  "type_counts": {
+    "hotel": 1848,
+    "vacation rental": 1321
+  },
+  "field_coverage": {
+    "price_lowest": 2637,
+    "overall_rating": 2407,
+    "reviews": 2407,
+    "coordinates": 3169,
+    "link": 2120
+  },
+  "price_stats": {
+    "count": 2637.0,
+    "mean": 1004859.55,
+    "std": 2734993.32,
+    "min": 24358.0,
+    "25%": 226153.0,
+    "50%": 349897.0,
+    "75%": 708855.0,
+    "max": 86718544.0
+  },
+  "match_rows": 638,
+  "matched_penginapan_ids": 498,
+  "fillable_match_rows": 40,
+  "safe_fill_candidate_rows": 34,
+  "safe_fill_candidate_ids": 34,
+  "safe_fill_price_ids": 31,
+  "safe_fill_rating_review_ids": 3,
+  "needs_review_candidate_rows": 0,
+  "needs_review_candidate_ids": 0,
+  "safe_candidate_priority_counts": {
+    "P1_price_missing": 29,
+    "P1_rating_reviews_missing": 3,
+    "P1_core_rating_price_missing": 2
+  },
+  "needs_review_priority_counts": {},
+  "outputs": {
+    "flattened": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_SCRAPE_FLATTENED_2026-06-13.csv",
+    "match_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_MATCH_AUDIT_2026-06-13.csv",
+    "safe_fill_candidates": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_SAFE_FILL_CANDIDATES_2026-06-13.csv",
+    "needs_review_candidates": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_NEEDS_REVIEW_CANDIDATES_2026-06-13.csv"
+  },
+  "decision_notes": [
+    "Audit ini belum mengubah master penginapan.",
+    "Safe candidate hanya exact normalized name dan jarak koordinat <= 100 meter.",
+    "Jika satu penginapan muncul berkali-kali, kandidat terbaik dipilih berdasarkan ada harga/rating, jarak terdekat, lalu harga termurah.",
+    "Needs review disimpan terpisah agar tidak auto-apply data yang koordinatnya kurang dekat."
+  ]
+}

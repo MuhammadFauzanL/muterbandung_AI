@@ -1,0 +1,64 @@
+{
+  "created_at": "2026-06-13T13:25:19.777708+00:00",
+  "input_primary": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_REVIEW_COMPLETED_2026-06-13.csv",
+  "safe_candidate_input": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_SAFE_FILL_CANDIDATES_2026-06-13.csv",
+  "primary_rows": 900,
+  "safe_candidate_rows": 34,
+  "applied_rows": 34,
+  "applied_status_counts": {
+    "applied_price": 31,
+    "applied_rating_reviews": 3
+  },
+  "before_priority_counts": {
+    "OK_complete_enough": 258,
+    "P1_price_missing": 194,
+    "P1_core_rating_price_missing": 147,
+    "P2_sentiment_missing": 103,
+    "P1_rating_reviews_missing": 93,
+    "P3_source_link_missing": 81,
+    "P3_content_missing": 24
+  },
+  "after_priority_counts": {
+    "OK_complete_enough": 266,
+    "P1_price_missing": 165,
+    "P1_core_rating_price_missing": 145,
+    "P2_sentiment_missing": 111,
+    "P1_rating_reviews_missing": 92,
+    "P3_source_link_missing": 84,
+    "P3_content_missing": 37
+  },
+  "before_flag_counts": {
+    "missing_price": 341,
+    "missing_rating_reviews": 240,
+    "missing_sentiment": 306,
+    "missing_source_link": 231,
+    "missing_amenities": 100,
+    "missing_image": 27
+  },
+  "after_flag_counts": {
+    "missing_price": 310,
+    "missing_rating_reviews": 237,
+    "missing_sentiment": 306,
+    "missing_source_link": 231,
+    "missing_amenities": 100,
+    "missing_image": 27
+  },
+  "price_missing_reduced_by": 31,
+  "rating_reviews_missing_reduced_by": 3,
+  "remaining_queue_count": 634,
+  "remaining_p1_p2_queue_count": 513,
+  "outputs": {
+    "primary_price_completed": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_PRICE_COMPLETED_2026-06-13.csv",
+    "completion_queue_price_completed": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_PRICE_COMPLETED_2026-06-13.csv",
+    "applied_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_PRICE_APPLIED_AUDIT_2026-06-13.csv",
+    "remaining_p1_price": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PRICE_APPLY_P1_PRICE_MISSING_2026-06-13.csv",
+    "remaining_p1_core": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PRICE_APPLY_P1_CORE_RATING_PRICE_MISSING_2026-06-13.csv",
+    "remaining_p1_rating": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PRICE_APPLY_P1_RATING_REVIEWS_MISSING_2026-06-13.csv",
+    "remaining_p2_sentiment": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PRICE_APPLY_P2_SENTIMENT_MISSING_2026-06-13.csv"
+  },
+  "decision_notes": [
+    "Hanya safe candidates dari audit Google Hotels yang di-apply.",
+    "Field diisi hanya jika field utama masih kosong.",
+    "Master lama tidak ditimpa; output dibuat sebagai candidate baru."
+  ]
+}

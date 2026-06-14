@@ -1,0 +1,117 @@
+{
+  "created_at": "2026-06-13T08:52:10.697940+00:00",
+  "input_primary": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_2026-06-13.csv",
+  "model_path": "Penginapan_Workspace\\07_Models\\model_sentimen_muterbandung.pkl",
+  "review_json_pattern": "dataset_Google-Maps-Reviews-Scraper_2026-06-12*.json",
+  "primary_rows": 900,
+  "normalize_summary": {
+    "raw_json_files": [
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_03-34-11-736.json",
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_03-42-18-404.json",
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_03-48-13-992.json",
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_03-54-09-705.json",
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_04-18-51-389.json",
+      "dataset_Google-Maps-Reviews-Scraper_2026-06-12_04-24-09-876.json"
+    ],
+    "raw_review_rows": 3699,
+    "match_status_counts": {
+      "accepted_exact_or_close": 1842,
+      "held_low_title_match": 965,
+      "held_non_id_country": 545,
+      "unmatched_to_primary": 305,
+      "held_far_place_location": 42
+    }
+  },
+  "accepted_review_rows": 1812,
+  "accepted_review_targets": 63,
+  "held_or_noisy_review_rows": 1856,
+  "held_or_noisy_target_groups": 48,
+  "sentiment_inference_rows": 1118,
+  "sentiment_aggregated_targets": 63,
+  "rating_reviews_filled_rows": 1,
+  "sentiment_filled_rows": 59,
+  "price_candidates_from_review_json_not_applied": 3,
+  "before_priority_counts": {
+    "OK_complete_enough": 230,
+    "P1_price_missing": 193,
+    "P2_sentiment_missing": 149,
+    "P1_core_rating_price_missing": 148,
+    "P1_rating_reviews_missing": 93,
+    "P3_source_link_missing": 64,
+    "P3_content_missing": 23
+  },
+  "after_priority_counts": {
+    "OK_complete_enough": 258,
+    "P1_price_missing": 194,
+    "P1_core_rating_price_missing": 147,
+    "P2_sentiment_missing": 103,
+    "P1_rating_reviews_missing": 93,
+    "P3_source_link_missing": 81,
+    "P3_content_missing": 24
+  },
+  "before_flag_counts": {
+    "missing_rating_reviews": 241,
+    "missing_price": 341,
+    "missing_sentiment": 365
+  },
+  "after_flag_counts": {
+    "missing_rating_reviews": 240,
+    "missing_price": 341,
+    "missing_sentiment": 306
+  },
+  "remaining_p1_p2_queue_count": 537,
+  "remaining_total_queue_count": 642,
+  "sentiment_classes": [
+    "Negatif",
+    "Netral",
+    "Positif"
+  ],
+  "model_load_warnings": [
+    "Trying to unpickle estimator TfidfTransformer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator TfidfVectorizer from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator SVC from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations",
+    "Trying to unpickle estimator Pipeline from version 1.6.1 when using version 1.8.0. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:\nhttps://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations"
+  ],
+  "match_status_counts": [
+    [
+      "accepted_exact_or_close",
+      1842
+    ],
+    [
+      "held_low_title_match",
+      965
+    ],
+    [
+      "held_non_id_country",
+      545
+    ],
+    [
+      "unmatched_to_primary",
+      305
+    ],
+    [
+      "held_far_place_location",
+      42
+    ]
+  ],
+  "outputs": {
+    "primary_review_completed": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_REVIEW_COMPLETED_2026-06-13.csv",
+    "completion_queue_review_completed": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_REVIEW_COMPLETED_2026-06-13.csv",
+    "accepted_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_COMPLETION_ACCEPTED_NORMALIZED_2026-06-13.csv",
+    "held_or_noisy_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_COMPLETION_HELD_OR_NOISY_2026-06-13.csv",
+    "per_target_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_COMPLETION_PER_TARGET_AUDIT_2026-06-13.csv",
+    "sentiment_inference": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_REVIEW_SENTIMENT_INFERENCE_2026-06-13_COMPLETION_ACCEPTED.csv",
+    "sentiment_aggregated": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_SENTIMENT_AGGREGATED_2026-06-13_COMPLETION_ACCEPTED.csv",
+    "price_candidates_needs_verification": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRICE_CANDIDATE_FROM_REVIEW_JSON_NEEDS_VERIFICATION_2026-06-13.csv",
+    "remaining_p1_price": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_P1_PRICE_MISSING_2026-06-13.csv",
+    "remaining_p1_core": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_P1_CORE_RATING_PRICE_MISSING_2026-06-13.csv",
+    "remaining_p1_rating": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_P1_RATING_REVIEWS_MISSING_2026-06-13.csv",
+    "remaining_p2_sentiment": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_P2_SENTIMENT_MISSING_2026-06-13.csv"
+  },
+  "decision_notes": [
+    "Review dipakai hanya jika match ke primary penginapan, country ID, jarak <= 2 km, dan nama sangat mirip; alias sedang hanya diterima bila jaraknya <= 50 meter.",
+    "Rating/reviews diisi dari totalScore/reviewsCount Google Maps hanya untuk baris yang masih kosong.",
+    "Sentiment diisi dari review text accepted menggunakan model lokal.",
+    "Price raw dari review JSON tidak di-apply otomatis karena currency/arti field belum cukup aman."
+  ]
+}

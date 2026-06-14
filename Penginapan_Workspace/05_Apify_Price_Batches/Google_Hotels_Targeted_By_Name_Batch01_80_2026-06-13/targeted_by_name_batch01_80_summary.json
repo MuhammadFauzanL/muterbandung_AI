@@ -1,0 +1,33 @@
+{
+  "queue_input": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_PRICE_COMPLETED_2026-06-13.csv",
+  "output_dir": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13",
+  "target_count": 80,
+  "batch_limit": 80,
+  "target_priorities": [
+    "P1_core_rating_price_missing",
+    "P1_rating_reviews_missing",
+    "P1_price_missing"
+  ],
+  "target_types": [
+    "hotel",
+    "guest_house"
+  ],
+  "config": {
+    "adults": 2,
+    "children": 0,
+    "check_in_date": "2026-07-11",
+    "check_out_date": "2026-07-13",
+    "currency": "IDR",
+    "gl": "id",
+    "hl": "id",
+    "max_pages": 3
+  },
+  "vacation_rentals": false,
+  "index_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\TARGETED_BY_NAME_BATCH01_80_INDEX.csv",
+  "decision_notes": [
+    "Batch pertama hanya hotel dan guest_house P1 agar biaya dan noise terkendali.",
+    "Satu JSON berisi satu q karena actor Google Hotels Search memakai satu query per run.",
+    "max_pages dibuat 3 karena query sudah exact name; jika hasil sering kosong, naikkan ke 5.",
+    "Villa/vacation_rental ditunda batch berikutnya karena harga lebih variatif."
+  ]
+}

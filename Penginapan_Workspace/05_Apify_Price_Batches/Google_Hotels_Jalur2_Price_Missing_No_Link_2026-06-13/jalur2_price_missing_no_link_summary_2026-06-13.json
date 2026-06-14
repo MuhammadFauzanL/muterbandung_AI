@@ -1,0 +1,51 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PLACES_RATING_APPLY_P1_PRICE_MISSING_2026-06-13.csv",
+  "output_folder": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Jalur2_Price_Missing_No_Link_2026-06-13",
+  "target_total_p1_price_missing_no_link": 83,
+  "bucket_counts": {
+    "cimahi": 36,
+    "hotel_bandung": 32,
+    "guest_house_bandung": 9,
+    "bandung_barat": 3,
+    "ciwidey_pangalengan": 3
+  },
+  "json_files": [
+    {
+      "file": "01_hotel_kota_bandung_price_missing_no_link.json",
+      "bucket": "hotel_bandung",
+      "query": "hotel in Kota Bandung, Jawa Barat",
+      "target_count_hint": 32,
+      "vacation_rentals": false
+    },
+    {
+      "file": "02_guest_house_kota_bandung_price_missing_no_link.json",
+      "bucket": "guest_house_bandung",
+      "query": "guest house in Kota Bandung, Jawa Barat",
+      "target_count_hint": 9,
+      "vacation_rentals": false
+    },
+    {
+      "file": "03_penginapan_cimahi_price_missing_no_link.json",
+      "bucket": "cimahi",
+      "query": "penginapan in Cimahi, Jawa Barat",
+      "target_count_hint": 36,
+      "vacation_rentals": false
+    },
+    {
+      "file": "04_penginapan_bandung_barat_lembang_padalarang_price_missing_no_link.json",
+      "bucket": "bandung_barat",
+      "query": "penginapan in Kabupaten Bandung Barat Lembang Padalarang, Jawa Barat",
+      "target_count_hint": 3,
+      "vacation_rentals": false
+    },
+    {
+      "file": "05_penginapan_ciwidey_pangalengan_price_missing_no_link.json",
+      "bucket": "ciwidey_pangalengan",
+      "query": "penginapan in Ciwidey Pangalengan Kabupaten Bandung, Jawa Barat",
+      "target_count_hint": 3,
+      "vacation_rentals": false
+    }
+  ],
+  "index_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Jalur2_Price_Missing_No_Link_2026-06-13\\JALUR2_PRICE_MISSING_NO_LINK_TARGET_INDEX_2026-06-13.csv",
+  "decision_note": "Jalur 2 memakai broad Google Hotels query per wilayah/tipe karena target belum punya source link."
+}

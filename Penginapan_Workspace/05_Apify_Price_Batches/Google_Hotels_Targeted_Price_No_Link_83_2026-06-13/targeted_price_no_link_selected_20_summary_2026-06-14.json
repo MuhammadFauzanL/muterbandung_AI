@@ -1,0 +1,38 @@
+{
+  "json_dir": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13\\json_one_by_one",
+  "original_json_count": 83,
+  "kept_json_count": 20,
+  "deleted_json_count": 63,
+  "selected_index": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13\\TARGETED_PRICE_NO_LINK_SELECTED_20_IMPORTANT_2026-06-14.csv",
+  "already_scraped_or_attempted_removed_ids": [
+    "LODGE-01532",
+    "LODGE-00200",
+    "LODGE-01537",
+    "LODGE-01541",
+    "LODGE-01519",
+    "LODGE-01520"
+  ],
+  "selection_rule": "Keep 20 important hotel/guest_house targets; exclude already attempted targets, Airy legacy-heavy targets, low-priority villa/vacation rental, and broad-query safe candidates already available.",
+  "kept_files": [
+    "006_LODGE-01558_wisma-dharma-bakti.json",
+    "007_LODGE-01534_emia-hotel.json",
+    "008_LODGE-01521_bantal-guling-asia-afrika.json",
+    "011_LODGE-01542_naraya-house.json",
+    "012_LODGE-01547_reddoorz-plus-near-bip.json",
+    "013_LODGE-01538_hotel-mitra-mutiara-inn.json",
+    "014_LODGE-01551_rhapsodic-stay-bed-and-breakfast-bandung.json",
+    "015_LODGE-01539_hotel-reddoorz-malabar-39.json",
+    "020_LODGE-01574_karang-setra-hotel-cottages.json",
+    "021_LODGE-01586_the-bougenvile-hotel.json",
+    "022_LODGE-01579_reddoorz-talaga-bodas.json",
+    "031_LODGE-00255_hotel-candra.json",
+    "033_LODGE-00263_hotel-tjimahi.json",
+    "034_LODGE-00264_karizma-residence.json",
+    "035_LODGE-00342_the-brick-house.json",
+    "037_LODGE-00403_rumah-bagus-bandung.json",
+    "041_LODGE-01637_rumah-the-priangan.json",
+    "042_LODGE-01638_the-wastoekentjana.json",
+    "054_LODGE-01540_hotel-sepuluh-candrawulan-guest-house.json",
+    "055_LODGE-01594_zatarana-guest-house-syariah.json"
+  ]
+}

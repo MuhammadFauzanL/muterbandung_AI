@@ -1,0 +1,84 @@
+﻿penginapan_id,name,property_type_final_after_p3,overall_rating,reviews,hotel_adjusted_sentiment_score,data_quality_score,latitude,longitude,jalur2_area_bucket
+LODGE-00199,Cluster Harris Home Stay & Kos,guest_house,4.3,349.0,,0.76,-6.8953136,107.538659,cimahi
+LODGE-01540,Hotel Sepuluh Candrawulan @ Guest House,guest_house,4.2,75.0,0.6560958418355545,0.75,-6.9446,107.6346,guest_house_bandung
+LODGE-01594,Zatarana Guest House Syariah,guest_house,4.1,76.0,0.5088774631293486,0.7,-6.8956,107.6198,guest_house_bandung
+LODGE-01582,Rumah Nenekoe Guest House,guest_house,4.6,68.0,0.6694373088086286,0.7,-6.9345,107.6213,guest_house_bandung
+LODGE-01567,Guest House Panyawangan,guest_house,4.2,43.0,0.5216832578789768,0.7,-6.9312,107.6244,guest_house_bandung
+LODGE-01568,Guest House Rumah Tawa 2,guest_house,4.5,34.0,0.6644478327691097,0.7,-6.9304,107.6219,guest_house_bandung
+LODGE-00343,The Cordyline Guesthouse,guest_house,4.3,149.0,0.5809986297799359,0.64,-6.8629441,107.563801,cimahi
+LODGE-00341,Sukaraja Guest House Bandung,guest_house,4.4,68.0,0.614392454224134,0.64,-6.8917943,107.5694466,cimahi
+LODGE-00346,Salsabila Guest House,guest_house,4.5,51.0,0.5619374412361974,0.62,-6.8871632,107.5223337,bandung_barat
+LODGE-00400,Padasuka Kost & Homestay,guest_house,4.3,106.0,0.6230549948776898,0.58,-6.8759999,107.5251134,bandung_barat
+LODGE-00394,Guest House Jabu Rosmina,guest_house,4.1,40.0,0.5591927281640686,0.58,-6.8658788,107.5383544,cimahi
+LODGE-00397,Light Home Kost,guest_house,4.5,28.0,0.656067244478423,0.58,-6.8892346,107.5798251,cimahi
+LODGE-01634,My Family Guest House,guest_house,4.4,7.0,,0.55,-6.9021,107.6133,guest_house_bandung
+LODGE-01632,Kost Flores,guest_house,5.0,6.0,,0.55,-6.9082,107.618,guest_house_bandung
+LODGE-01633,Kost Sakgan48,guest_house,4.8,4.0,0.6014091126765337,0.55,-6.9262,107.61,guest_house_bandung
+LODGE-01646,Javaretro kost 31,guest_house,4.0,5.0,,0.48,-6.8887677,107.5800253,guest_house_bandung
+LODGE-00442,Kost Gerlong Hilir,guest_house,4.4,68.0,0.6230068843268317,0.44,-6.8676139,107.5795974,cimahi
+LODGE-00437,Guest House TERAS WARUGA SYARIAH,guest_house,4.8,5.0,0.5974597920924052,0.44,-6.8614987,107.5765378,cimahi
+LODGE-00447,Regina's Home Guesthouse,guest_house,5.0,5.0,0.596285743871576,0.44,-6.8864523,107.5699031,cimahi
+LODGE-00433,ALONICA guesthouse,guest_house,3.0,2.0,,0.44,-6.8569713,107.5745009,cimahi
+LODGE-00439,Homestay,guest_house,5.0,1.0,0.6024622361871446,0.44,-6.8560156,107.5669553,cimahi
+LODGE-01532,D'Sovia Hotel Bandung,hotel,4.2,1229.0,,0.75,-6.9172,107.598,hotel_bandung
+LODGE-00200,Geowisata Inn,hotel,4.4,976.0,0.583331,0.75,-6.9175,107.5786,cimahi
+LODGE-01537,Hotel Flores Gallery,hotel,4.1,574.0,0.6308552608496429,0.75,-6.9081,107.618,hotel_bandung
+LODGE-01541,Kampioen Bed and Breakfast,hotel,4.3,525.0,0.5153818384139184,0.75,-6.9043,107.6017,hotel_bandung
+LODGE-01519,Ardellia Hotel,hotel,4.2,466.0,0.5952850112801863,0.75,-6.925,107.6189,hotel_bandung
+LODGE-01558,Wisma Dharma Bakti,hotel,4.4,428.0,0.6444999432175338,0.75,-6.9153,107.6172,hotel_bandung
+LODGE-01534,Emia Hotel,hotel,3.9,403.0,,0.75,-6.9241,107.6249,hotel_bandung
+LODGE-01521,Bantal Guling Asia Afrika,hotel,3.9,307.0,,0.75,-6.926,107.6056,hotel_bandung
+LODGE-01520,Arsallya Hotel,hotel,4.1,285.0,0.6373614220071068,0.75,-6.9279,107.6212,hotel_bandung
+LODGE-01515,Airy Gasibu Aria Jipang 6 Bandung,hotel,4.4,163.0,0.5983592198458655,0.75,-6.9001,107.6159,hotel_bandung
+LODGE-01542,Naraya house,hotel,4.1,160.0,0.600542,0.75,-6.9315,107.6193,hotel_bandung
+LODGE-01547,RedDoorz Plus Near BIP,hotel,4.6,133.0,0.6445543002309289,0.75,-6.9077,107.613,hotel_bandung
+LODGE-01538,Hotel Mitra Mutiara Inn,hotel,4.1,125.0,0.5944559982636063,0.75,-6.9354,107.6241,hotel_bandung
+LODGE-01551,Rhapsodic Stay Bed and Breakfast Bandung,hotel,4.3,65.0,0.6381192490648179,0.75,-6.8966,107.6213,hotel_bandung
+LODGE-01539,Hotel RedDoorz Malabar 39,hotel,4.4,63.0,0.5721247584576734,0.75,-6.9241,107.6249,hotel_bandung
+LODGE-01517,Airy Regol Lengkong Besar 145 Bandung,hotel,3.5,41.0,0.517716873654096,0.75,-6.9312,107.6129,hotel_bandung
+LODGE-01514,Airy Braga Lembong 21 Bandung,hotel,3.5,28.0,0.5330029333332668,0.75,-6.9177,107.6125,hotel_bandung
+LODGE-01516,Airy Lengkong Buah Batu 152 Bandung,hotel,3.6,8.0,0.592221253848325,0.75,-6.9378,107.6233,hotel_bandung
+LODGE-00214,Airy Eco Budi Cimahi,hotel,4.0,200.0,0.5754755050033531,0.74,-6.8905806,107.5587424,cimahi
+LODGE-01574,Karang Setra Hotel & Cottages,hotel,4.3,2619.0,0.6250056271122413,0.7,-6.8833,107.5956,hotel_bandung
+LODGE-01586,The Bougenvile Hotel,hotel,4.2,512.0,0.7037214422457442,0.7,-6.9295,107.6268,hotel_bandung
+LODGE-01579,RedDoorz @ Talaga Bodas,hotel,4.2,221.0,0.5932110808250808,0.7,-6.9282,107.6202,hotel_bandung
+LODGE-01564,Airy Veteran 30 Bandung,hotel,4.3,127.0,0.607053637788416,0.7,-6.9192,107.615,hotel_bandung
+LODGE-01559,Airy Asia Afrika Pangarang 24 Bandung,hotel,4.4,59.0,0.6623174981818206,0.7,-6.9242,107.61,hotel_bandung
+LODGE-01561,Airy Malabar Gatot Subroto 62 Bandung,hotel,3.7,25.0,0.5453632126773613,0.7,-6.9241,107.6249,hotel_bandung
+LODGE-01560,Airy Cicendo Pasirkaliki 53 Bandung,hotel,4.1,17.0,0.6412640002676114,0.7,-6.9111,107.5976,hotel_bandung
+LODGE-01563,Airy Supratman 23 Bandung,hotel,3.9,14.0,0.5773688196068475,0.7,-6.9065,107.6294,hotel_bandung
+LODGE-01572,Hotel at Lekong Besar 62,hotel,3.9,8.0,0.6011513668750722,0.7,-6.928,107.6128,hotel_bandung
+LODGE-01580,RedDoorz near Asia Afrika 2,hotel,4.6,5.0,0.6031819588121837,0.7,-6.9316,107.6193,hotel_bandung
+LODGE-01562,Airy Sudirman Ence Aziz 32 Bandung,hotel,3.0,2.0,0.5600209206703078,0.7,-6.9187,107.5999,hotel_bandung
+LODGE-00255,Hotel Candra,hotel,3.9,425.0,0.649474924551758,0.68,-6.8775542,107.5482844,cimahi
+LODGE-00252,Bantal Guling Pasteur Bandung,hotel,3.8,36.0,0.5405162799779615,0.68,-6.8808067,107.5792086,cimahi
+LODGE-00263,Hotel Tjimahi,hotel,3.9,761.0,0.5225017085686687,0.66,-6.877839,107.5485273,cimahi
+LODGE-00264,KARIZMA RESIDENCE,hotel,4.3,270.0,0.6656779060048701,0.66,-6.8896251,107.5791915,cimahi
+LODGE-00342,The Brick House,hotel,4.4,57.0,0.5477895367410681,0.64,-6.8801513,107.5619077,cimahi
+LODGE-00345,Cibogo 55,hotel,4.1,77.0,0.61546,0.62,-6.8872943,107.5791675,cimahi
+LODGE-00403,Rumah Bagus Bandung,hotel,4.7,76.0,0.6841702938192203,0.58,-6.8808909,107.5727895,cimahi
+LODGE-00399,OYO 2759 - Jend. Sudirman Cibeureum,hotel,3.9,69.0,0.5308906763063674,0.58,-6.9104534,107.5688898,cimahi
+LODGE-00405,evano house,hotel,4.7,35.0,,0.58,-6.8575216,107.5730259,cimahi
+LODGE-00398,Nida Rooms Sukajadi Bandung Railway Cass,hotel,3.0,1.0,0.5782903753040013,0.58,-6.8897002,107.5783523,cimahi
+LODGE-01637,Rumah The Priangan,hotel,4.7,35.0,0.6288021753196575,0.55,-6.926,107.6097,hotel_bandung
+LODGE-01638,The Wastoekentjana,hotel,4.9,34.0,0.6841836045574765,0.55,-6.9088,107.6083,hotel_bandung
+LODGE-01636,RedDoorz near Tegalega Park,hotel,4.5,16.0,0.629056,0.55,-6.9395,107.6049,hotel_bandung
+LODGE-00454,WISMA KOMANDO2,hotel,4.7,83.0,0.6669705464441422,0.44,-6.8738017,107.5612968,cimahi
+LODGE-00440,Imah Incu Inn,hotel,4.4,64.0,0.5939956340191701,0.44,-6.8565362,107.5689391,cimahi
+LODGE-00441,JK House Bandung,hotel,4.7,23.0,0.6316495659938545,0.44,-6.8604893,107.5701401,cimahi
+LODGE-00450,Tepas Paviliun,hotel,5.0,16.0,0.6495826227148892,0.44,-6.8679485,107.5796872,cimahi
+LODGE-00445,Oyo,hotel,2.3,3.0,0.181168485021713,0.44,-6.8982107,107.561465,cimahi
+LODGE-00448,Sentra Duta,hotel,5.0,3.0,,0.44,-6.8794165,107.5714681,cimahi
+LODGE-00436,Collection O By Boboin Baros Near Stasiun Cimahi,hotel,4.0,2.0,0.620391,0.44,-6.8974705,107.5369262,cimahi
+LODGE-00443,Mega raya,hotel,5.0,2.0,,0.44,-6.8937041,107.5701445,cimahi
+LODGE-00455,hotel tirtasari,hotel,4.0,2.0,,0.44,-6.8753955,107.5749747,cimahi
+LODGE-00627,Vila Kopi Ciwidey,vacation_rental,4.5317,41.0,,0.75,-7.1202,107.4415,ciwidey_pangalengan
+LODGE-00619,Glamping Gunung Bangku Ciwidey,vacation_rental,3.75,26.0,,0.75,-7.1415,107.3797,ciwidey_pangalengan
+LODGE-00625,Shakilla house Syariah,vacation_rental,4.4,21.0,,0.75,-6.8283,107.132,bandung_barat
+LODGE-00617,Bumi Saddam Palayangan Cottage 1,vacation_rental,4.5,2.0,0.7011652619172793,0.75,-7.1893,107.5485,ciwidey_pangalengan
+LODGE-00347,Villa Ouma Bandung,villa,4.7,35.0,0.6862234907729238,0.62,-6.8908826,107.573884,cimahi
+LODGE-01635,Nuansa Villa S-09A,villa,3.7,16.0,0.5910816681934354,0.55,-6.8214,107.5888,hotel_bandung
+LODGE-00451,Villa Roemi,villa,4.2,12.0,0.6228838460789203,0.44,-6.8464644,107.5759225,cimahi
+LODGE-00452,Villa Rumah Hijau Syariah,villa,4.8,12.0,0.6500017631844239,0.44,-6.8461427,107.578137,cimahi
+LODGE-00453,Villa hegar by Kavastay,villa,5.0,2.0,0.5962829481744077,0.44,-6.8693961,107.5700901,cimahi
+LODGE-00446,Paras Yogya With Private Pool Villa,villa,4.0,1.0,0.5805292265126879,0.44,-6.8770069,107.5676807,cimahi

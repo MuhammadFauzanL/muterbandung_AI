@@ -1,0 +1,24 @@
+{
+  "raw_file": "dataset_crawler-google-places_2026-06-13_14-59-28-211.json",
+  "raw_rows": 99,
+  "priority_targets": 27,
+  "targets_with_any_candidate": 27,
+  "targets_no_result": 0,
+  "candidate_status_counts": {
+    "noisy_candidate": 52,
+    "no_rating_candidate": 32,
+    "safe_candidate": 10,
+    "needs_review_candidate": 5
+  },
+  "best_status_counts": {
+    "safe_candidate": 10,
+    "noisy_candidate": 7,
+    "no_rating_candidate": 6,
+    "needs_review_candidate": 4
+  },
+  "score_non_null_rows": 67,
+  "reviews_non_null_rows": 67,
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_AUDIT_2026-06-13.csv",
+  "best_candidates_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_BEST_CANDIDATES_2026-06-13.csv",
+  "no_result_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_NO_RESULT_2026-06-13.csv"
+}

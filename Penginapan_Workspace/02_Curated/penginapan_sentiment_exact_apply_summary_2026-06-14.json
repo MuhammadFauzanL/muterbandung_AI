@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-06-14",
+  "primary_rows_initial": 900,
+  "primary_rows_final": 900,
+  "total_reviews_processed": 1186,
+  "target_properties_analyzed": 64,
+  "sentiment_coverage_before": 599,
+  "sentiment_coverage_after": 662,
+  "global_mean_score_used_for_shrinkage": 0.553380723619068,
+  "bayesian_k_shrinkage": 50.0
+}

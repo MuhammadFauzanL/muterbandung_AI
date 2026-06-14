@@ -1,0 +1,19 @@
+{
+  "raw_pages": 25,
+  "properties_rows": 500,
+  "unique_property_tokens": 357,
+  "with_price": 430,
+  "with_rating": 462,
+  "target_index_rows": 83,
+  "audit_candidates": 14,
+  "best_target_matches": 7,
+  "best_status_counts": {
+    "needs_review_price_candidate": 4,
+    "safe_price_candidate": 2,
+    "needs_review_name_distance": 1
+  },
+  "source_query": "hotel in Kota Bandung, Jawa Barat",
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_JALUR2_HOTEL_BANDUNG_PRICE_AUDIT_V2_2026-06-13.csv",
+  "best_candidates_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_JALUR2_HOTEL_BANDUNG_PRICE_BEST_CANDIDATES_V2_2026-06-13.csv",
+  "decision_note": "V2 uses stricter name containment length and token overlap; do not apply V1 loose matches."
+}

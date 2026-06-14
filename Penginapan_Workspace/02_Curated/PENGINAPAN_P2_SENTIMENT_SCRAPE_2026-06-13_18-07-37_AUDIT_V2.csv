@@ -1,0 +1,26 @@
+﻿target_penginapan_id,target_name,search_string,result_place_title,review_rows,review_text_rows,audit_status,audit_reason
+LODGE-00866,Aston Pasteur,"Aston Pasteur -6.8936,107.5872",Aston Pasteur,30,14,accepted_exact_name,nama place cocok dengan target
+LODGE-00392,C Family Hotel,"C Family Hotel -6.877606,107.548351",C Family Hotel,30,15,accepted_exact_name,nama place cocok dengan target
+LODGE-01234,Chara Hotel,"Chara Hotel -6.9225,107.6197",Chara Hotel,30,20,accepted_exact_name,nama place cocok dengan target
+LODGE-00884,Cherry Homes Hotel & Residence,"Cherry Homes Hotel & Residence -6.887,107.5843",Cherry Homes Hotel & Residence,30,20,accepted_exact_name,nama place cocok dengan target
+LODGE-00886,Cihampelas Hotel 1 - Bandung,"Cihampelas Hotel 1 - Bandung -6.889,107.6042",Cihampelas Hotel 1 - Bandung,30,26,accepted_exact_name,nama place cocok dengan target
+LODGE-00889,Clove Garden Hotel Bandung,"Clove Garden Hotel Bandung -6.8727,107.6426",Clove Garden Hotel Bandung,30,29,accepted_exact_name,nama place cocok dengan target
+LODGE-01433,Cove Vaia - Coliving Bandung,"Cove Vaia - Coliving Bandung -6.9366,107.6151",Cove Vaia - Coliving Bandung,30,19,accepted_exact_name,nama place cocok dengan target
+LODGE-01610,Favehotel Hyper Square,"Favehotel Hyper Square -6.9162,107.5946",Favehotel Hyper Square,30,9,accepted_exact_name,nama place cocok dengan target
+LODGE-00906,GH Universal Hotel,"GH Universal Hotel -6.8506,107.5981",GH Universal Hotel,30,25,accepted_exact_name,nama place cocok dengan target
+LODGE-00907,Geary Hotel,"Geary Hotel -6.9125,107.6033",Geary Hotel,30,18,accepted_exact_name,nama place cocok dengan target
+LODGE-00908,Gino Feruci Braga Hotel,"Gino Feruci Braga Hotel -6.9178,107.6091",Gino Feruci Braga Hotel,30,26,accepted_exact_name,nama place cocok dengan target
+LODGE-00909,Golden Flower Hotel,"Golden Flower Hotel -6.9204,107.6049",Golden Flower Hotel,30,17,accepted_exact_name,nama place cocok dengan target
+LODGE-01359,Graha Asri Hotel,"Graha Asri Hotel -6.8493,107.5978",Graha Asri Hotel,30,13,accepted_exact_name,nama place cocok dengan target
+LODGE-00912,Grand Dafam Braga Bandung,"Grand Dafam Braga Bandung -6.9168,107.609",Grand Dafam Braga Bandung,30,22,accepted_exact_name,nama place cocok dengan target
+LODGE-00913,Grand Hotel Preanger,"Grand Hotel Preanger -6.921,107.6119",Grand Hotel Preanger,30,15,accepted_exact_name,nama place cocok dengan target
+LODGE-00824,Grand Panorama Lembang,"Grand Panorama Lembang -6.8104,107.6249",Grand Panorama Lembang,30,22,accepted_exact_name,nama place cocok dengan target
+LODGE-01289,Mypodroom,"Mypodroom -6.9229,107.6093",Mypodroom,30,26,accepted_exact_name,nama place cocok dengan target
+LODGE-01013,RedDoorz near Telkom Corporate University,"RedDoorz near Telkom Corporate University -6.8724,107.5903",RedDoorz near Telkom Corporate University 2,30,17,accepted_exact_name,nama place cocok dengan target
+LODGE-00392,C Family Hotel,"C Family Hotel -6.877606,107.548351",Ayres Hotel Chino Hills - Ontario,30,19,held_foreign_result,hasil bukan Indonesia (US)
+LODGE-00392,C Family Hotel,"C Family Hotel -6.877606,107.548351",Fairfield by Marriott Inn & Suites Chino,30,19,held_foreign_result,hasil bukan Indonesia (US)
+LODGE-00915,Grand Pacific Hotel,"Grand Pacific Hotel -6.9088,107.5979",Grand Pacific Hotel,30,26,held_foreign_result,hasil bukan Indonesia (FJ)
+LODGE-00915,Grand Pacific Hotel,"Grand Pacific Hotel -6.9088,107.5979",Hotel Grand Pacific,30,17,held_foreign_result,hasil bukan Indonesia (CA)
+LODGE-01355,Feby Maisonatte by OYO Rooms,"Feby Maisonatte by OYO Rooms -6.8897,107.5826",Casa Feby Guest House & Kost,30,14,held_name_mismatch,nama hasil Maps tidak cocok dengan target
+LODGE-00993,RedDoorz Plus near Surapati Core,"RedDoorz Plus near Surapati Core -6.9017,107.652",RedDoorz Plus @ Surapati 2,30,16,needs_review_name_partial,"nama place sebagian mirip, perlu cek ringan"
+LODGE-01000,RedDoorz near Exit Toll Pasteur 5,"RedDoorz near Exit Toll Pasteur 5 -6.8862,107.5841",RedDoorz near Exit Toll Pasteur 4,30,18,needs_review_name_partial,"nama place sebagian mirip, perlu cek ringan"

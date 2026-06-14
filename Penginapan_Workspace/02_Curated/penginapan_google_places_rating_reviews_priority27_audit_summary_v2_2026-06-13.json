@@ -1,0 +1,24 @@
+{
+  "raw_rows": 99,
+  "priority_targets": 27,
+  "targets_with_any_candidate": 27,
+  "candidate_status_counts": {
+    "noisy_candidate": 53,
+    "no_rating_candidate": 32,
+    "safe_candidate": 9,
+    "needs_review_candidate": 5
+  },
+  "best_status_counts": {
+    "safe_candidate": 9,
+    "noisy_candidate": 8,
+    "no_rating_candidate": 6,
+    "needs_review_candidate": 4
+  },
+  "safe_target_count": 9,
+  "needs_review_target_count": 4,
+  "noisy_target_count": 8,
+  "no_rating_target_count": 6,
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_AUDIT_V2_2026-06-13.csv",
+  "best_candidates_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_BEST_CANDIDATES_V2_2026-06-13.csv",
+  "note": "V2 tightens name matching so short generic results like OYO are not auto-safe."
+}

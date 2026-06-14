@@ -1,0 +1,59 @@
+{
+  "primary_input": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_PRICE_COMPLETED_2026-06-13.csv",
+  "candidate_input": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_PRIORITY27_BEST_CANDIDATES_V2_2026-06-13.csv",
+  "safe_candidates_available": 9,
+  "safe_candidates_applied": 9,
+  "rating_filled": 9,
+  "reviews_filled": 9,
+  "link_filled": 0,
+  "priority_counts_before": {
+    "OK_complete_enough": 266,
+    "P1_price_missing": 165,
+    "P1_core_rating_price_missing": 145,
+    "P2_sentiment_missing": 111,
+    "P1_rating_reviews_missing": 92,
+    "P3_source_link_missing": 84,
+    "P3_content_missing": 37
+  },
+  "priority_counts_after": {
+    "OK_complete_enough": 267,
+    "P1_price_missing": 170,
+    "P1_core_rating_price_missing": 140,
+    "P2_sentiment_missing": 114,
+    "P1_rating_reviews_missing": 88,
+    "P3_source_link_missing": 84,
+    "P3_content_missing": 37
+  },
+  "flag_counts_before": {
+    "missing_price": 310,
+    "missing_rating_reviews": 237,
+    "missing_sentiment": 306,
+    "missing_source_link": 231,
+    "missing_amenities": 100,
+    "missing_image": 27
+  },
+  "flag_counts_after": {
+    "missing_price": 310,
+    "missing_rating_reviews": 228,
+    "missing_sentiment": 306,
+    "missing_source_link": 231,
+    "missing_amenities": 100,
+    "missing_image": 27
+  },
+  "missing_source_link_before": 231,
+  "missing_source_link_after": 231,
+  "queue_rows_before": 634,
+  "queue_rows_after": 633,
+  "queue_priority_after": {
+    "P1_price_missing": 170,
+    "P1_core_rating_price_missing": 140,
+    "P2_sentiment_missing": 114,
+    "P1_rating_reviews_missing": 88,
+    "P3_source_link_missing": 84,
+    "P3_content_missing": 37
+  },
+  "primary_output": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_FOCUS_CANDIDATE_PLACES_RATING_COMPLETED_2026-06-13.csv",
+  "queue_output": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_PLACES_RATING_COMPLETED_2026-06-13.csv",
+  "apply_audit_output": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_PLACES_RATING_REVIEWS_SAFE_APPLIED_AUDIT_2026-06-13.csv",
+  "decision_note": "Hanya safe_candidate dari audit Google Places yang diaplikasikan; noisy dan needs_review belum masuk dataset."
+}

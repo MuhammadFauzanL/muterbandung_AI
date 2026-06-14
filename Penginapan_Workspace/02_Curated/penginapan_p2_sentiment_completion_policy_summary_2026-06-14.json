@@ -1,0 +1,35 @@
+{
+  "target_count": 114,
+  "accepted_review_available_targets": 33,
+  "sentiment_unavailable_targets": 62,
+  "priority_exact_url_retry_targets": 19,
+  "accepted_review_rows_total": 885,
+  "accepted_review_text_rows_total": 589,
+  "policy_counts_by_type": {
+    "hotel": {
+      "accepted_review_available": 21,
+      "needs_exact_google_maps_url_retry": 17,
+      "sentiment_unavailable": 10
+    },
+    "guest_house": {
+      "accepted_review_available": 5,
+      "needs_exact_google_maps_url_retry": 2,
+      "sentiment_unavailable": 7
+    },
+    "villa": {
+      "accepted_review_available": 3,
+      "sentiment_unavailable": 22
+    },
+    "vacation_rental": {
+      "accepted_review_available": 4,
+      "sentiment_unavailable": 23
+    }
+  },
+  "outputs": {
+    "policy": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_COMPLETION_POLICY_2026-06-14.csv",
+    "accepted_targets": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_ACCEPTED_TARGETS_AFTER_SCRAPE_2026-06-14.csv",
+    "sentiment_unavailable": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_UNAVAILABLE_AFTER_SCRAPE_2026-06-14.csv",
+    "priority_exact_url_retry": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_PRIORITY_EXACT_URL_RETRY_2026-06-14.csv"
+  },
+  "decision": "Batch besar tidak dipaksa ulang. Target tanpa hasil aman diberi sentiment_unavailable, kecuali hotel/guest_house prioritas tinggi yang hanya boleh dicari ulang memakai exact Google Maps place URL."
+}

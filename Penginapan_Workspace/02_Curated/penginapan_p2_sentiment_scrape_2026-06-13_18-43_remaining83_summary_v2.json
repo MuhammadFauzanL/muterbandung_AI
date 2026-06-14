@@ -1,0 +1,32 @@
+{
+  "raw_file": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_P2_Sentiment_Remaining_83_2026-06-14\\dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-43-14-258.json",
+  "target_index": "Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_P2_Sentiment_Remaining_83_2026-06-14\\PENGINAPAN_P2_SENTIMENT_REMAINING_83_INDEX_2026-06-14.csv",
+  "total_target_index_rows": 83,
+  "total_review_rows": 822,
+  "reviews_with_text": 539,
+  "accepted_review_rows": 6,
+  "held_review_rows": 816,
+  "accepted_targets": 2,
+  "targets_seen_any_status": 13,
+  "missing_targets_from_this_file": 70,
+  "status_counts": {
+    "held_foreign_result": 505,
+    "held_name_mismatch": 60,
+    "needs_review_name_partial": 193,
+    "accepted_exact_name": 6,
+    "held_no_target_match": 58
+  },
+  "accepted_by_type": {
+    "hotel": 1,
+    "vacation_rental": 5
+  },
+  "held_by_status": {
+    "held_foreign_result": 505,
+    "held_name_mismatch": 60,
+    "needs_review_name_partial": 193,
+    "held_no_target_match": 58
+  },
+  "output_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-43_remaining83_AUDIT_V2.csv",
+  "output_accepted_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-43_remaining83_ACCEPTED_REVIEWS_V2.csv",
+  "output_held_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-43_remaining83_HELD_REVIEWS_V2.csv"
+}

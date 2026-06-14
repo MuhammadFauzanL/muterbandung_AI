@@ -1,0 +1,14 @@
+{
+  "attachment_file": "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\aa419b1f-10fc-405b-9969-1e8d2785968b\\pasted-text.txt",
+  "rows_audited": 57,
+  "queries": [
+    "Hotel Tjimahi Cimahi Jawa Barat Indonesia"
+  ],
+  "status_counts": {
+    "other_property_price_ignore": 49,
+    "other_no_price": 7,
+    "target_found_no_price": 1
+  },
+  "query_summary_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_HOTEL_TJIMAHI_QUERY_SUMMARY_2026-06-14.csv",
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_HOTEL_TJIMAHI_AUDIT_2026-06-14.csv"
+}

@@ -1,0 +1,19 @@
+{
+  "attachment_files": [
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\d8415a50-22dd-4975-aa9c-d1e812749ef0\\pasted-text.txt",
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\7ed47c55-833b-4c4a-8645-62e66cbe6054\\pasted-text.txt",
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\a2a249d2-3b54-4fa9-8caa-99ac09e93da8\\pasted-text.txt"
+  ],
+  "rows_audited": 180,
+  "queries": [
+    "Hotel RedDoorz Malabar 39 Kota Bandung Jawa Barat Indonesia",
+    "Rhapsodic Stay Bed and Breakfast Bandung Kota Bandung Jawa Barat Indonesia"
+  ],
+  "status_counts": {
+    "other_property_price_ignore": 155,
+    "other_no_price": 22,
+    "target_found_no_price": 3
+  },
+  "query_summary_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_ATTACHMENT_BATCH3_QUERY_SUMMARY_2026-06-14.csv",
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_ATTACHMENT_BATCH3_AUDIT_2026-06-14.csv"
+}

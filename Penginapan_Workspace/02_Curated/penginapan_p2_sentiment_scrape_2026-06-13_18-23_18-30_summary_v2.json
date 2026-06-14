@@ -1,0 +1,128 @@
+{
+  "files": [
+    "D:\\File\\file\\Fauzan Lubada\\PIJAK\\dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-23-57-821.json",
+    "D:\\File\\file\\Fauzan Lubada\\PIJAK\\dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-30-12-105.json"
+  ],
+  "total_review_rows": 1006,
+  "reviews_with_text": 691,
+  "accepted_review_rows": 339,
+  "held_review_rows": 667,
+  "accepted_targets": 13,
+  "targets_seen_any_status": 21,
+  "status_counts": {
+    "accepted_exact_name": 339,
+    "needs_review_name_partial": 163,
+    "held_foreign_result": 367,
+    "held_no_target_match": 58,
+    "held_name_mismatch": 79
+  },
+  "accepted_by_file": {
+    "dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-23-57-821.json": 300,
+    "dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-30-12-105.json": 39
+  },
+  "held_by_file": {
+    "dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-23-57-821.json": 272,
+    "dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-30-12-105.json": 395
+  },
+  "top_held_results": [
+    [
+      [
+        "TechieRoom Swift at Clove Garden Residence",
+        "The Clove Garden Indian Cuisine",
+        "held_foreign_result"
+      ],
+      30
+    ],
+    [
+      [
+        "TechieRoom Swift at Clove Garden Residence",
+        "TechieRoom Kotlin at Clove Garden Residence",
+        "needs_review_name_partial"
+      ],
+      30
+    ],
+    [
+      [
+        "Nice Guest House",
+        "The Guesthouse Hotel",
+        "held_foreign_result"
+      ],
+      30
+    ],
+    [
+      [
+        "Bobo inn Baros",
+        "BoboInn",
+        "held_name_mismatch"
+      ],
+      30
+    ],
+    [
+      [
+        "",
+        "Wildan's Guest House",
+        "held_no_target_match"
+      ],
+      30
+    ],
+    [
+      [
+        "Nice Guest House",
+        "Park Lane Guest House",
+        "held_foreign_result"
+      ],
+      30
+    ],
+    [
+      [
+        "Nice Guest House",
+        "Quiet, Clean and Comfortable Room ( Guesthouse)",
+        "held_foreign_result"
+      ],
+      30
+    ],
+    [
+      [
+        "Shakilla House 6B Syariah Cigalumpit Cianjur",
+        "Shakilla House 3 Syariah Cianjur",
+        "needs_review_name_partial"
+      ],
+      30
+    ],
+    [
+      [
+        "Shakilla House 6B Syariah Cigalumpit Cianjur",
+        "Shakilla House Syariah Cianjur",
+        "needs_review_name_partial"
+      ],
+      30
+    ],
+    [
+      [
+        "Shakilla House 6B Syariah Cigalumpit Cianjur",
+        "Shakilla House 4 Syariah Cianjur",
+        "needs_review_name_partial"
+      ],
+      30
+    ],
+    [
+      [
+        "Kuleum Camp And Cabin By ARBA",
+        "Scout Park",
+        "held_foreign_result"
+      ],
+      30
+    ],
+    [
+      [
+        "Kuleum Camp And Cabin By ARBA",
+        "Cher'ere Campground & RV Park",
+        "held_foreign_result"
+      ],
+      30
+    ]
+  ],
+  "output_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-23_18-30_AUDIT_V2.csv",
+  "output_accepted_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-23_18-30_ACCEPTED_REVIEWS_V2.csv",
+  "output_held_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-23_18-30_HELD_REVIEWS_V2.csv"
+}

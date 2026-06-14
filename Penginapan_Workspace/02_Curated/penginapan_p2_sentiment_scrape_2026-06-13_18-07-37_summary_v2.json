@@ -1,0 +1,20 @@
+{
+  "raw_file": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\dataset_Google-Maps-Reviews-Scraper_2026-06-13_18-07-37-402 (1).json",
+  "total_review_rows": 750,
+  "accepted_review_rows": 540,
+  "held_review_rows": 210,
+  "accepted_targets": 18,
+  "targets_seen_any_status": 22,
+  "missing_targets_from_this_file": 92,
+  "row_status_counts": {
+    "accepted_exact_name": 540,
+    "needs_review_name_partial": 60,
+    "held_foreign_result": 120,
+    "held_name_mismatch": 30
+  },
+  "accepted_unique_places": 18,
+  "held_unique_places": 7,
+  "output_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-07-37_AUDIT_V2.csv",
+  "output_accepted_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-07-37_ACCEPTED_REVIEWS_V2.csv",
+  "output_held_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_18-07-37_HELD_REVIEWS_V2.csv"
+}

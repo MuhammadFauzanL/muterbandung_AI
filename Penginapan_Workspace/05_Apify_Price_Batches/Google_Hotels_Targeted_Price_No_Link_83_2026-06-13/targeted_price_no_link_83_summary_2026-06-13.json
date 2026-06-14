@@ -1,0 +1,39 @@
+{
+  "input_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_COMPLETION_REMAINING_AFTER_PLACES_RATING_APPLY_P1_PRICE_MISSING_2026-06-13.csv",
+  "output_folder": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13",
+  "actor": "johnvc/google-hotels-search-scraper",
+  "target_count": 83,
+  "json_one_by_one_folder": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13\\json_one_by_one",
+  "index_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13\\TARGETED_PRICE_NO_LINK_83_INDEX_2026-06-13.csv",
+  "work_packet_folder": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_Price_No_Link_83_2026-06-13\\work_packets_5_groups",
+  "work_packets": [
+    {
+      "file": "TARGETED_PRICE_NO_LINK_83_PACKET_01_OF_05.json",
+      "target_count": 17
+    },
+    {
+      "file": "TARGETED_PRICE_NO_LINK_83_PACKET_02_OF_05.json",
+      "target_count": 17
+    },
+    {
+      "file": "TARGETED_PRICE_NO_LINK_83_PACKET_03_OF_05.json",
+      "target_count": 17
+    },
+    {
+      "file": "TARGETED_PRICE_NO_LINK_83_PACKET_04_OF_05.json",
+      "target_count": 17
+    },
+    {
+      "file": "TARGETED_PRICE_NO_LINK_83_PACKET_05_OF_05.json",
+      "target_count": 15
+    }
+  ],
+  "type_counts": {
+    "hotel": 52,
+    "guest_house": 21,
+    "villa": 6,
+    "vacation_rental": 4
+  },
+  "decision_note": "Presisi dibuat satu target satu q karena actor Google Hotels memakai satu q per run.",
+  "usage_note": "Upload/paste file dari json_one_by_one satu per satu ke actor Google Hotels Search Scraper."
+}

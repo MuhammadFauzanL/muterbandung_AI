@@ -1,0 +1,49 @@
+{
+  "batch_name": "Google_Hotels_Targeted_By_Name_Batch01_80_split_5x16",
+  "source_index": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\TARGETED_BY_NAME_BATCH01_80_INDEX.csv",
+  "batch_count": 5,
+  "batch_size": 16,
+  "usage_note": "File ini untuk membagi pekerjaan menjadi 5 gelombang. Jika actor hanya menerima satu q, jalankan payload tiap target di dalam batch secara berurutan.",
+  "batches": [
+    {
+      "part": 1,
+      "target_count": 16,
+      "first_batch_no": 1,
+      "last_batch_no": 16,
+      "json_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_01_of_05.json",
+      "csv_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_01_of_05.csv"
+    },
+    {
+      "part": 2,
+      "target_count": 16,
+      "first_batch_no": 17,
+      "last_batch_no": 32,
+      "json_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_02_of_05.json",
+      "csv_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_02_of_05.csv"
+    },
+    {
+      "part": 3,
+      "target_count": 16,
+      "first_batch_no": 33,
+      "last_batch_no": 48,
+      "json_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_03_of_05.json",
+      "csv_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_03_of_05.csv"
+    },
+    {
+      "part": 4,
+      "target_count": 16,
+      "first_batch_no": 49,
+      "last_batch_no": 64,
+      "json_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_04_of_05.json",
+      "csv_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_04_of_05.csv"
+    },
+    {
+      "part": 5,
+      "target_count": 16,
+      "first_batch_no": 65,
+      "last_batch_no": 80,
+      "json_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_05_of_05.json",
+      "csv_file": "Penginapan_Workspace\\05_Apify_Price_Batches\\Google_Hotels_Targeted_By_Name_Batch01_80_2026-06-13\\five_batches_16_each\\targeted_by_name_batch01_part_05_of_05.csv"
+    }
+  ]
+}

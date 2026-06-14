@@ -1,0 +1,31 @@
+{
+  "problem_in_previous_run": "0 places scraped because the actor geolocated Bandung Raya as a tiny 0km2 point and marked results as outOfLocation.",
+  "fix": "Use locationQuery Jawa Barat, remove coordinates from searchStringsArray, add area hints in text query, increase maxCrawledPlacesPerSearch to 5.",
+  "output_folder": "Penginapan_Workspace\\05_Apify_Places_Batches\\Google_Maps_Places_Targeted_Rating_Reviews_FIXED_WestJava_2026-06-13",
+  "recommended_first_file": "01_FIXED_PRIORITY_HOTEL_GUESTHOUSE_MISSING_RATING_REVIEWS_27.json",
+  "priority_count": 27,
+  "all_missing_count": 237,
+  "all_batch_files": [
+    {
+      "file": "FIXED_ALL_MISSING_RATING_REVIEWS_BATCH_01_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "FIXED_ALL_MISSING_RATING_REVIEWS_BATCH_02_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "FIXED_ALL_MISSING_RATING_REVIEWS_BATCH_03_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "FIXED_ALL_MISSING_RATING_REVIEWS_BATCH_04_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "FIXED_ALL_MISSING_RATING_REVIEWS_BATCH_05_OF_05.json",
+      "search_count": 45
+    }
+  ],
+  "index_file": "FIXED_GOOGLE_MAPS_PLACES_TARGETED_RATING_REVIEWS_INDEX_2026-06-13.csv"
+}

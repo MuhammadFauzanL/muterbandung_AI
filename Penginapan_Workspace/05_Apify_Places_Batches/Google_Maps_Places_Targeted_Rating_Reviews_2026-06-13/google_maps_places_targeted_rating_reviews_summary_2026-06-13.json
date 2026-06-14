@@ -1,0 +1,35 @@
+{
+  "input_queue": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_PRIMARY_DATA_COMPLETION_QUEUE_ORDERED_PRICE_COMPLETED_2026-06-13.csv",
+  "output_folder": "Penginapan_Workspace\\05_Apify_Places_Batches\\Google_Maps_Places_Targeted_Rating_Reviews_2026-06-13",
+  "priority_hotel_guesthouse_count": 27,
+  "all_missing_rating_reviews_count": 237,
+  "priority_file": "01_PRIORITY_HOTEL_GUESTHOUSE_MISSING_RATING_REVIEWS_27.json",
+  "all_batch_files": [
+    {
+      "file": "ALL_MISSING_RATING_REVIEWS_BATCH_01_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "ALL_MISSING_RATING_REVIEWS_BATCH_02_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "ALL_MISSING_RATING_REVIEWS_BATCH_03_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "ALL_MISSING_RATING_REVIEWS_BATCH_04_OF_05.json",
+      "search_count": 48
+    },
+    {
+      "file": "ALL_MISSING_RATING_REVIEWS_BATCH_05_OF_05.json",
+      "search_count": 45
+    }
+  ],
+  "actor_recommendation": "Gunakan Apify Google Maps / Places Scraper yang inputnya memakai searchStringsArray, bukan Google Hotels Search Scraper.",
+  "notes": [
+    "Actor ini dipakai untuk rating, jumlah review, koordinat, place URL, dan source link.",
+    "Actor ini tidak dipakai untuk harga hotel.",
+    "Mulai dari priority_file 27 data dulu agar noise dan biaya aman."
+  ]
+}

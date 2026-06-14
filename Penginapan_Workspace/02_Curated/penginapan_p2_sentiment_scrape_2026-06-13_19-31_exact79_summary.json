@@ -1,0 +1,28 @@
+{
+  "raw_file": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\dataset_Google-Maps-Reviews-Scraper_2026-06-13_19-31-35-414.json",
+  "target_index": "D:\\File\\file\\Fauzan Lubada\\PIJAK\\Penginapan_Workspace\\05_Apify_Review_Batches\\Hotel_Review_Batches_P2_Manual_Exact_URL_All_Missing_2026-06-14\\exact_url_scrape_ready_79_2026-06-14\\PENGINAPAN_P2_SENTIMENT_EXACT_URL_FILLED_79_INDEX_2026-06-14.csv",
+  "target_index_rows": 79,
+  "total_review_rows": 967,
+  "reviews_with_text": 597,
+  "reviews_with_stars": 967,
+  "accepted_review_rows": 967,
+  "held_review_rows": 0,
+  "accepted_targets": 34,
+  "targets_seen_any_status": 34,
+  "targets_not_returned": 45,
+  "status_counts": {
+    "accepted_exact_url": 967
+  },
+  "match_method_counts": {
+    "exact_url_containment": 967
+  },
+  "accepted_by_type": {
+    "vacation_rental": 39,
+    "guest_house": 207,
+    "villa": 34,
+    "hotel": 687
+  },
+  "output_audit": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_19-31_exact79_AUDIT.csv",
+  "output_accepted_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_19-31_exact79_ACCEPTED_REVIEWS.csv",
+  "output_held_reviews": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_SCRAPE_2026-06-13_19-31_exact79_HELD_REVIEWS.csv"
+}

@@ -1,0 +1,20 @@
+{
+  "attachment_files": [
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\1bd36058-7a11-4d67-a427-ea8952c4a58b\\pasted-text.txt",
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\0b43c9dc-3ded-417b-a33c-31accc71ab31\\pasted-text.txt",
+    "C:\\Users\\M Fauzan Lubada\\.codex\\attachments\\ce5b6252-75a7-46c9-91a9-a9ae7b6a58fe\\pasted-text.txt"
+  ],
+  "pages": 9,
+  "rows_audited": 180,
+  "queries": [
+    "Naraya house Kota Bandung Jawa Barat Indonesia",
+    "RedDoorz Plus Near BIP Kota Bandung Jawa Barat Indonesia"
+  ],
+  "status_counts": {
+    "other_property_price_ignore": 166,
+    "other_no_price": 11,
+    "target_found_no_price": 3
+  },
+  "query_summary_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_ATTACHMENT_BATCH2_QUERY_SUMMARY_2026-06-14.csv",
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_TARGETED_PRICE_ATTACHMENT_BATCH2_AUDIT_2026-06-14.csv"
+}

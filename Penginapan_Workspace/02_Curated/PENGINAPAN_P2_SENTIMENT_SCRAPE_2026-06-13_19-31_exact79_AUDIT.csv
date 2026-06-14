@@ -1,0 +1,35 @@
+﻿target_penginapan_id,target_name,result_place_title,review_rows,review_text_rows,audit_status,audit_reason,match_method
+LODGE-00085,Asthaloka,Asthaloka,30,18,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00222,Calda Homestay Syariah,Calda Homestay Syariah,30,19,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00770,Ciwidey Jungle Camp,Ciwidey Jungle Camp,30,21,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00890,Collection O Kebon Jeruk Near Paskal 23 Formerly Sentral Paskal,Collection O Kebon Jeruk Near Paskal 23 Formerly Sentral Paskal,30,18,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00895,Cozy Homestay,Cozy Homestay,30,17,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00897,Daun Residence,Daun Residence,30,24,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00901,Elephant Eleven Residence Buah Batu Kota Bandung,Elephant Eleven Residence Buah Batu Kota Bandung,30,24,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01355,Feby Maisonatte by OYO Rooms,Casa Feby Guest House & Kost,30,14,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01566,Gedung Serba Guna & Villa Ambu,Gedung Serba Guna & Villa Ambu,4,0,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00915,Grand Pacific Hotel,Grand Pacific Hotel,30,21,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00037,Homestay Budihouse,Homestay Budihouse,30,15,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00569,Homestay murah ciwidey,Homestay murah ciwidey,27,19,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01267,Hotel Kurnia,Hotel Kurnia,30,20,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00937,Hotel Sabang,Hotel Sabang,30,15,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00774,Hotel Soreang,Hotel Soreang,30,7,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01272,Hotel Victory,Hotel Victory,30,18,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00093,Imah Seuri,Imah Seuri by Kaya Rooms,30,12,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00950,Kollektiv,Kollektiv,30,15,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01576,MOONSTONE,MOONSTONE,30,19,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00956,Manta Living Bandung RedPartner,Manta Living Bandung RedPartner,30,22,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01383,Nice Guest House,Nice Guest House,30,21,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00778,PURNAMA,PURNAMA,30,18,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00993,RedDoorz Plus near Surapati Core,RedDoorz Plus near Surapati Core,30,25,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01000,RedDoorz near Exit Toll Pasteur 5,RedDoorz near Exit Toll Pasteur 5,30,23,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01183,Sartika Hotel,Sartika Hotel,30,23,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00449,Seven Homestay,Seven Homestay,30,13,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01319,Sukha by Kozystay - Dago,Sukha Villa by Kozystay,9,8,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01556,Teratai,Teratai,30,14,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01194,The Joglo Villa,The Joglo Villa,30,14,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00010,Wildan Guesthouse,Wildan's Guest House,30,17,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01086,Zodiak,Zodiak,30,25,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01087,Zodiak - Taurus,Zodiak - Taurus,30,20,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-00079,Zona Bobo | Muslim Friendly | by Belgareti,Zona Bobo | Muslim Friendly | by Belgareti,27,23,accepted_exact_url,URL manual match ke target,exact_url_containment
+LODGE-01094,youre.at - Ciumbuleuit 1,youre.at - Ciumbuleuit 1,30,15,accepted_exact_url,URL manual match ke target,exact_url_containment

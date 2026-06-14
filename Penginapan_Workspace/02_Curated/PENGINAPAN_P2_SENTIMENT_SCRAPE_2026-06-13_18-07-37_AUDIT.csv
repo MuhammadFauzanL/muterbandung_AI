@@ -1,0 +1,23 @@
+﻿search_string,target_penginapan_id,target_name,target_type,result_place_title,review_rows,review_text_rows,star_rows,name_similarity,city_top,state_top,country_top,audit_status,audit_reason
+"Aston Pasteur -6.8936,107.5872",LODGE-00866,Aston Pasteur,hotel,Aston Pasteur,30,14,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Chara Hotel -6.9225,107.6197",LODGE-01234,Chara Hotel,hotel,Chara Hotel,30,20,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Cherry Homes Hotel & Residence -6.887,107.5843",LODGE-00884,Cherry Homes Hotel & Residence,hotel,Cherry Homes Hotel & Residence,30,20,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Cihampelas Hotel 1 - Bandung -6.889,107.6042",LODGE-00886,Cihampelas Hotel 1 - Bandung,hotel,Cihampelas Hotel 1 - Bandung,30,26,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Clove Garden Hotel Bandung -6.8727,107.6426",LODGE-00889,Clove Garden Hotel Bandung,hotel,Clove Garden Hotel Bandung,30,29,30,1.0,Kabupaten Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Cove Vaia - Coliving Bandung -6.9366,107.6151",LODGE-01433,Cove Vaia - Coliving Bandung,hotel,Cove Vaia - Coliving Bandung,30,19,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Favehotel Hyper Square -6.9162,107.5946",LODGE-01610,Favehotel Hyper Square,hotel,Favehotel Hyper Square,30,9,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"GH Universal Hotel -6.8506,107.5981",LODGE-00906,GH Universal Hotel,hotel,GH Universal Hotel,30,25,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Geary Hotel -6.9125,107.6033",LODGE-00907,Geary Hotel,hotel,Geary Hotel,30,18,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Gino Feruci Braga Hotel -6.9178,107.6091",LODGE-00908,Gino Feruci Braga Hotel,hotel,Gino Feruci Braga Hotel,30,26,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Golden Flower Hotel -6.9204,107.6049",LODGE-00909,Golden Flower Hotel,hotel,Golden Flower Hotel,30,17,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Graha Asri Hotel -6.8493,107.5978",LODGE-01359,Graha Asri Hotel,hotel,Graha Asri Hotel,30,13,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Grand Dafam Braga Bandung -6.9168,107.609",LODGE-00912,Grand Dafam Braga Bandung,hotel,Grand Dafam Braga Bandung,30,22,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Grand Hotel Preanger -6.921,107.6119",LODGE-00913,Grand Hotel Preanger,hotel,Grand Hotel Preanger,30,15,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Grand Panorama Lembang -6.8104,107.6249",LODGE-00824,Grand Panorama Lembang,hotel,Grand Panorama Lembang,30,22,30,1.0,Kabupaten Bandung Barat,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"Mypodroom -6.9229,107.6093",LODGE-01289,Mypodroom,hotel,Mypodroom,30,26,30,1.0,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"RedDoorz near Telkom Corporate University -6.8724,107.5903",LODGE-01013,RedDoorz near Telkom Corporate University,hotel,RedDoorz near Telkom Corporate University 2,30,17,30,0.95,Kota Bandung,Jawa Barat,ID,accepted_exact_name,nama place cocok dengan target
+"C Family Hotel -6.877606,107.548351",LODGE-00392,C Family Hotel,hotel,Ayres Hotel Chino Hills - Ontario,90,53,90,0.143,Chino Hills,California,US,held_foreign_result,hasil bukan Indonesia (US)
+"Grand Pacific Hotel -6.9088,107.5979",LODGE-00915,Grand Pacific Hotel,hotel,Hotel Grand Pacific,60,43,60,1.0,Victoria,British Columbia,CA,held_foreign_result,hasil bukan Indonesia (CA)
+"Feby Maisonatte by OYO Rooms -6.8897,107.5826",LODGE-01355,Feby Maisonatte by OYO Rooms,hotel,Casa Feby Guest House & Kost,30,14,30,0.1,Kota Bandung,Jawa Barat,ID,held_name_mismatch,nama hasil Maps tidak cocok dengan target
+"RedDoorz Plus near Surapati Core -6.9017,107.652",LODGE-00993,RedDoorz Plus near Surapati Core,hotel,RedDoorz Plus @ Surapati 2,30,16,30,0.5,Kota Bandung,Jawa Barat,ID,needs_review_name_partial,"nama place sebagian mirip, perlu cek ringan"
+"RedDoorz near Exit Toll Pasteur 5 -6.8862,107.5841",LODGE-01000,RedDoorz near Exit Toll Pasteur 5,hotel,RedDoorz near Exit Toll Pasteur 4,30,18,30,0.714,West Bandung,Jawa Barat,ID,needs_review_name_partial,"nama place sebagian mirip, perlu cek ringan"

@@ -1,0 +1,22 @@
+{
+  "raw_pages": 25,
+  "properties_rows": 500,
+  "unique_property_tokens": 357,
+  "with_price": 430,
+  "with_rating": 462,
+  "target_index_rows": 83,
+  "audit_candidates": 45,
+  "best_target_matches": 18,
+  "best_status_counts": {
+    "needs_review_price_candidate": 9,
+    "safe_price_candidate": 8,
+    "needs_review_name_only": 1
+  },
+  "property_type_counts": {
+    "hotel": 408,
+    "vacation rental": 92
+  },
+  "source_query": "hotel in Kota Bandung, Jawa Barat",
+  "audit_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_JALUR2_HOTEL_BANDUNG_PRICE_AUDIT_2026-06-13.csv",
+  "best_candidates_file": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_GOOGLE_HOTELS_JALUR2_HOTEL_BANDUNG_PRICE_BEST_CANDIDATES_2026-06-13.csv"
+}

@@ -1,0 +1,11 @@
+{
+  "not_returned_count": 45,
+  "type_counts": {
+    "hotel": 3,
+    "guest_house": 2,
+    "villa": 19,
+    "vacation_rental": 21
+  },
+  "output_csv": "Penginapan_Workspace\\02_Curated\\PENGINAPAN_P2_SENTIMENT_EXACT_URL_NOT_RETURNED_45_2026-06-14.csv",
+  "note": "Target exact URL yang belum muncul pada hasil scrape 19-31. Jika mau dikejar, scrape ulang dalam batch kecil."
+}
