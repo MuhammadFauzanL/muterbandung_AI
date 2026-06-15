@@ -39,76 +39,76 @@ export function ProfilePageContent() {
 
   return (
     <>
-      <main className="mx-auto max-w-[1180px] px-4 py-8 sm:px-8 relative z-10">
+      <main className="mx-auto max-w-[1180px] px-4 py-4 sm:px-8 sm:py-8 relative z-10">
         {/* Top Profile Card */}
-        <section className="bg-white rounded-3xl border border-slate-200 p-8 flex flex-col sm:flex-row items-center justify-between shadow-sm mb-8">
-          <div className="flex items-center gap-6">
+        <section className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between shadow-sm mb-4 sm:mb-6">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-5 text-center sm:text-left">
             <div className="relative">
-              <div className="h-24 w-24 rounded-full border-[3px] border-[#E94B35] overflow-hidden bg-slate-100">
+              <div className="h-16 w-16 sm:h-20 sm:w-20 rounded-full border-2 sm:border-[3px] border-[#E94B35] overflow-hidden bg-slate-100">
                 <Image 
                   src="/images/welcome-cepot.png" 
                   alt="Profile Avatar" 
-                  width={96} 
-                  height={96} 
+                  width={80} 
+                  height={80} 
                   className="object-cover object-top"
                 />
               </div>
-              <button className="absolute bottom-0 right-0 h-8 w-8 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:bg-slate-50 text-[#0E75BC]">
-                <Camera className="h-4 w-4" />
+              <button className="absolute bottom-0 right-0 h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-white border border-slate-200 flex items-center justify-center shadow-sm hover:bg-slate-50 text-[#0E75BC]">
+                <Camera className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               </button>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-[#112F43]">dudung</h1>
-              <p className="text-sm text-slate-500 mt-1">Bergabung sejak 2025</p>
+              <h1 className="text-lg sm:text-xl font-bold text-[#112F43]">Dudung</h1>
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Bergabung sejak 2025</p>
             </div>
           </div>
           <button 
             onClick={() => setActiveModal('editProfile')}
-            className="mt-4 sm:mt-0 rounded-lg bg-[#0B5C73] px-6 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#084354] shadow-sm"
+            className="mt-3 sm:mt-0 rounded-lg sm:rounded-xl bg-[#0B5C73] px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-[13px] font-bold text-white transition-colors hover:bg-[#084354] shadow-sm w-full sm:w-auto"
           >
             Edit Profil
           </button>
         </section>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_2fr] items-start">
+        <div className="grid gap-4 sm:gap-6 lg:grid-cols-[1fr_2fr] items-start">
           {/* Kolom Kiri: Informasi Akun */}
           <section>
-            <h2 className="text-[15px] font-bold text-slate-500 mb-4 uppercase tracking-wide">Informasi Akun</h2>
-            <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
+            <h2 className="text-[12px] sm:text-[14px] font-bold text-slate-500 mb-2 sm:mb-3 uppercase tracking-wide">Informasi Akun</h2>
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-4 sm:p-5 shadow-sm">
               
-              <div className="space-y-5 mb-8">
+              <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                 {/* Username Field */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Username</label>
-                  <div className="flex items-center gap-3 bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 opacity-80 cursor-not-allowed">
-                    <span className="text-slate-400 font-bold">@</span>
-                    <input type="text" value="andiwj" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium" />
+                  <label className="block text-[10px] sm:text-[11px] font-bold text-slate-500 mb-1 sm:mb-1.5 uppercase tracking-wide">Username</label>
+                  <div className="flex items-center gap-2.5 sm:gap-3 bg-[#F8FAFC] border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 opacity-80 cursor-not-allowed">
+                    <span className="text-slate-400 font-bold text-xs sm:text-sm">@</span>
+                    <input type="text" value="dudung" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
                   </div>
                 </div>
 
                 {/* Email Field */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Email Address</label>
-                  <div className="flex items-center gap-3 bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3 opacity-80 cursor-not-allowed">
-                    <Mail className="h-4 w-4 text-slate-400" />
-                    <input type="email" value="andi.wijaya@example.com" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium" />
+                  <label className="block text-[10px] sm:text-[11px] font-bold text-slate-500 mb-1 sm:mb-1.5 uppercase tracking-wide">Email Address</label>
+                  <div className="flex items-center gap-2.5 sm:gap-3 bg-[#F8FAFC] border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 opacity-80 cursor-not-allowed">
+                    <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-400" />
+                    <input type="email" value="dudung@example.com" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
                   </div>
                 </div>
 
                 {/* Password Field */}
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Password</label>
-                  <div className="flex items-center gap-3 bg-[#F8FAFC] border border-slate-200 rounded-xl px-4 py-3">
-                    <Lock className="h-4 w-4 text-slate-400" />
-                    <input type="password" value="password123456" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium tracking-[0.2em]" />
-                    <button className="text-xs font-bold text-[#0E75BC] hover:underline">Lihat</button>
+                  <label className="block text-[10px] sm:text-[11px] font-bold text-slate-500 mb-1 sm:mb-1.5 uppercase tracking-wide">Password</label>
+                  <div className="flex items-center gap-2.5 sm:gap-3 bg-[#F8FAFC] border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5">
+                    <Lock className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-400" />
+                    <input type="password" value="password123456" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium tracking-[0.2em] text-xs sm:text-sm" />
+                    <button className="text-[10px] sm:text-xs font-bold text-[#0E75BC] hover:underline">Lihat</button>
                   </div>
                 </div>
               </div>
 
               <button 
                 onClick={() => setActiveModal('changePassword')}
-                className="w-full block text-center rounded-xl bg-[#D6EBF8] px-4 py-3.5 text-sm font-bold text-[#0B5C73] transition-colors hover:bg-[#c2e2f6]"
+                className="w-full block text-center rounded-lg sm:rounded-xl bg-[#D6EBF8] px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-[13px] font-bold text-[#0B5C73] transition-colors hover:bg-[#c2e2f6]"
               >
                 Ubah Password
               </button>
@@ -117,74 +117,74 @@ export function ProfilePageContent() {
 
           {/* Kolom Kanan: Preferensi Wisata & Statistik */}
           <section>
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-[15px] font-bold text-slate-500 uppercase tracking-wide">Preferensi Wisata</h2>
-              <button onClick={() => setActiveModal('editPreferences')} className="text-sm font-bold text-[#0B5C73] hover:underline">
+            <div className="flex justify-between items-center mb-2 sm:mb-3 mt-4 sm:mt-0">
+              <h2 className="text-[12px] sm:text-[14px] font-bold text-slate-500 uppercase tracking-wide">Preferensi Wisata</h2>
+              <button onClick={() => setActiveModal('editPreferences')} className="text-[11px] sm:text-xs font-bold text-[#0B5C73] hover:underline">
                 Edit Preferensi
               </button>
             </div>
 
             {/* Preferences Card */}
-            <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm mb-6">
-              <div className="grid grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-4 sm:p-5 shadow-sm mb-4 sm:mb-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 <div>
-                  <h3 className="text-xs font-bold text-slate-600 mb-3 flex items-center gap-2"><MapPin className="h-4 w-4 text-[#0B5C73]" /> Tipe Tempat</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Alam</span>
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Kuliner</span>
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Sejarah</span>
+                  <h3 className="text-[10px] sm:text-xs font-bold text-slate-600 mb-2 sm:mb-2.5 flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#0B5C73]" /> Tipe Tempat</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Alam</span>
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Kuliner</span>
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Sejarah</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-bold text-slate-600 mb-3 flex items-center gap-2"><UsersIcon className="h-4 w-4 text-[#0B5C73]" /> Target & Suasana</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Keluarga</span>
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Outdoor</span>
+                  <h3 className="text-[10px] sm:text-xs font-bold text-slate-600 mb-2 sm:mb-2.5 flex items-center gap-1.5"><UsersIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#0B5C73]" /> Target & Suasana</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Keluarga</span>
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Outdoor</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-bold text-slate-600 mb-3 flex items-center gap-2"><ActivityIcon className="h-4 w-4 text-[#0B5C73]" /> Aktivitas</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Healing</span>
-                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-4 py-1.5 rounded-full text-xs font-bold">Spot Foto</span>
+                  <h3 className="text-[10px] sm:text-xs font-bold text-slate-600 mb-2 sm:mb-2.5 flex items-center gap-1.5"><ActivityIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#0B5C73]" /> Aktivitas</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Healing</span>
+                    <span className="bg-[#7FE0F4] text-[#0B5C73] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Spot Foto</span>
                   </div>
                 </div>
 
                 <div>
-                  <h3 className="text-xs font-bold text-slate-600 mb-3 flex items-center gap-2"><WalletIcon className="h-4 w-4 text-[#0B5C73]" /> Budget Terpilih</h3>
-                  <div className="flex flex-wrap gap-2">
-                    <span className="bg-[#E8F3FB] text-[#0E75BC] border border-[#0E75BC] px-4 py-1.5 rounded-full text-xs font-bold">Gratis</span>
+                  <h3 className="text-[10px] sm:text-xs font-bold text-slate-600 mb-2 sm:mb-2.5 flex items-center gap-1.5"><WalletIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#0B5C73]" /> Budget Terpilih</h3>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    <span className="bg-[#E8F3FB] text-[#0E75BC] border border-[#0E75BC] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[9px] sm:text-[11px] font-bold">Gratis</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* 4 Stats Cards */}
-            <div className="grid grid-cols-4 gap-4">
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
-                <MapPin className="h-6 w-6 text-[#0B5C73] mb-3" />
-                <span className="text-2xl font-black text-[#112F43]">12</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Destinasi</span>
+            <div className="grid grid-cols-4 gap-2 sm:gap-4">
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-3 sm:p-5 flex flex-col items-center text-center shadow-sm">
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5 text-[#0B5C73] mb-1.5 sm:mb-2" />
+                <span className="text-lg sm:text-xl font-black text-[#112F43] leading-none mt-1 sm:mt-1.5">12</span>
+                <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Destinasi</span>
               </div>
               
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
-                <Heart className="h-6 w-6 text-[#E94B35] mb-3 fill-[#FCD3D1]" />
-                <span className="text-2xl font-black text-[#112F43]">8</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Wishlist</span>
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-3 sm:p-5 flex flex-col items-center text-center shadow-sm">
+                <Heart className="h-4 w-4 sm:h-5 sm:w-5 text-[#E94B35] mb-1.5 sm:mb-2 fill-[#FCD3D1]" />
+                <span className="text-lg sm:text-xl font-black text-[#112F43] leading-none mt-1 sm:mt-1.5">8</span>
+                <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Wishlist</span>
               </div>
 
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
-                <Map className="h-6 w-6 text-[#0B5C73] mb-3" />
-                <span className="text-2xl font-black text-[#112F43]">5</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Itinerary</span>
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-3 sm:p-5 flex flex-col items-center text-center shadow-sm">
+                <Map className="h-4 w-4 sm:h-5 sm:w-5 text-[#0B5C73] mb-1.5 sm:mb-2" />
+                <span className="text-lg sm:text-xl font-black text-[#112F43] leading-none mt-1 sm:mt-1.5">5</span>
+                <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Itinerary</span>
               </div>
 
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col items-center text-center shadow-sm">
-                <Building className="h-6 w-6 text-[#0B5C73] mb-3" />
-                <span className="text-2xl font-black text-[#112F43]">3</span>
-                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-1">Penginapan</span>
+              <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 p-3 sm:p-5 flex flex-col items-center text-center shadow-sm">
+                <Building className="h-4 w-4 sm:h-5 sm:w-5 text-[#0B5C73] mb-1.5 sm:mb-2" />
+                <span className="text-lg sm:text-xl font-black text-[#112F43] leading-none mt-1 sm:mt-1.5">3</span>
+                <span className="text-[8px] sm:text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Penginapan</span>
               </div>
             </div>
 
@@ -239,7 +239,7 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
             <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wide">Nama Lengkap</label>
             <input 
               type="text" 
-              defaultValue="Dudung Hermawan" 
+              defaultValue="Dudung" 
               className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-700 outline-none focus:border-[#0E75BC] focus:ring-1 focus:ring-[#0E75BC] font-medium" 
             />
           </div>
@@ -247,14 +247,14 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
             <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wide">Username</label>
             <div className="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 opacity-80 cursor-not-allowed">
               <span className="text-slate-400 font-bold">@</span>
-              <input type="text" value="andiwj" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium" />
+              <input type="text" value="dudung" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium" />
             </div>
           </div>
           <div>
             <label className="block text-xs font-bold text-slate-500 mb-1.5 uppercase tracking-wide">Email Address</label>
             <input 
               type="email" 
-              defaultValue="andi.wijaya@example.com" 
+              defaultValue="dudung@gmail.com" 
               className="w-full bg-white border border-slate-200 rounded-xl px-4 py-2.5 text-slate-700 outline-none focus:border-[#0E75BC] focus:ring-1 focus:ring-[#0E75BC] font-medium" 
             />
           </div>

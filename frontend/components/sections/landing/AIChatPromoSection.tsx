@@ -3,7 +3,7 @@ import { Send } from 'lucide-react';
 
 export function AIChatPromoSection() {
   return (
-    <section className="bg-[#F3F8FC] py-20 overflow-hidden relative">
+    <section className="bg-[#F3F8FC] py-6 overflow-hidden relative">
       {/* Decorative Blob */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#EAF6FC] rounded-full blur-3xl opacity-50 pointer-events-none" />
 
@@ -33,7 +33,7 @@ export function AIChatPromoSection() {
                 <div className="w-10 h-10 rounded-full bg-blue-300 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/background.png" alt="User 3" fill className="object-cover" /></div>
               </div>
               <p className="text-[13px] text-slate-500 font-medium">
-                Dibuat oleh AI, divalidasi oleh 10.000+ Traveler
+                Dibuat oleh AI, divalidasi oleh para Traveler
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ export function AIChatPromoSection() {
                 
                 {/* User Message */}
                 <div className="flex justify-end">
-                  <div className="bg-[#EEF7FD] text-[#14528E] rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] text-[14px] leading-relaxed shadow-sm border border-[#D9E8F3]">
+                  <div className="bg-[#EEF7FD] text-[#0A3D6B] font-medium rounded-2xl rounded-tr-sm px-4 py-3 max-w-[85%] text-[14px] leading-relaxed shadow-sm border border-[#D9E8F3]">
                     Halo Cepot! Mau jalan-jalan ke favorit wisatawan Bandung bareng temen kantor, ada saran?
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export function AIChatPromoSection() {
                   <input 
                     type="text" 
                     placeholder="Tulis pesan ke Cepot..." 
-                    className="w-full bg-[#F3F8FC] border border-[#D9E8F3] rounded-full pl-5 pr-12 py-3 text-[14px] outline-none focus:border-[#0E75BC] transition-colors"
+                    className="w-full bg-[#F3F8FC] border border-[#D9E8F3] rounded-full pl-5 pr-12 py-3 text-[14px] text-slate-900 placeholder:text-slate-500 font-medium outline-none focus:border-[#0E75BC] transition-colors"
                     readOnly
                   />
                   <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-[#14528E] text-white rounded-full hover:bg-[#0E75BC] transition-colors">

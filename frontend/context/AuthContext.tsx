@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 interface AuthContextType {
   isLoggedIn: boolean;
@@ -11,10 +11,26 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Default: not logged in
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const login = () => setIsLoggedIn(true);
-  const logout = () => setIsLoggedIn(false);
+  // Load state from localStorage on mount
+  useEffect(() => {
+    const stored = localStorage.getItem('muterbandung_auth');
+    if (stored === 'true') {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const login = () => {
+    setIsLoggedIn(true);
+    localStorage.setItem('muterbandung_auth', 'true');
+  };
+
+  const logout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem('muterbandung_auth');
+  };
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, login, logout }}>

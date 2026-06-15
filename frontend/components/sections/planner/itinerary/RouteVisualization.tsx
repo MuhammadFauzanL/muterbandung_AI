@@ -1,57 +1,28 @@
-import Image from 'next/image';
 import { Map } from 'lucide-react';
 
 export function RouteVisualization() {
   return (
-    <section className="mb-10">
-      <div className="flex items-center gap-2 mb-4 text-[#112F43]">
-        <Map className="h-5 w-5 text-[#0E75BC]" />
-        <h3 className="font-bold text-lg">Visualisasi Rute Perjalanan</h3>
+    <section className="mb-4 sm:mb-10">
+      <div className="flex items-center gap-2 mb-3 sm:mb-4 text-[#112F43]">
+        <Map className="h-4 w-4 sm:h-5 sm:w-5 text-[#0E75BC]" />
+        <h3 className="font-bold text-[15px] sm:text-lg">Visualisasi Rute Perjalanan</h3>
       </div>
       
-      {/* Wide Map Box */}
-      <div className="relative w-full h-[320px] rounded-[24px] bg-[#424A4D] overflow-hidden shadow-inner flex border border-slate-200">
-        <Image 
-          src="/images/background.png" 
-          alt="Map Background" 
-          fill 
-          className="object-cover opacity-30 mix-blend-overlay" 
+      {/* Real Maps Embed */}
+      <div className="relative w-full h-[250px] sm:h-[400px] rounded-[16px] sm:rounded-[24px] bg-slate-100 overflow-hidden shadow-sm border border-[#CFE5F2]">
+        <iframe 
+          src="https://www.openstreetmap.org/export/embed.html?bbox=107.3500%2C-7.2000%2C107.5000%2C-7.1000&layer=mapnik&marker=-7.1662%2C107.4021" 
+          width="100%" 
+          height="100%" 
+          style={{ border: 0 }} 
+          allowFullScreen={false} 
+          loading="lazy" 
+          className="absolute inset-0 grayscale-[20%] contrast-125"
         />
         
-        {/* Mock UI: Floating List on Left */}
-        <div className="absolute top-8 bottom-8 left-8 w-[240px] bg-[#F2F4F5] rounded-3xl p-6 shadow-xl flex flex-col justify-center">
-          <div className="relative border-l border-dashed border-slate-400 ml-3 space-y-8">
-            <div className="relative pl-6">
-              <span className="absolute -left-[6px] top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-[#112F43]" />
-              <p className="text-xs font-bold text-[#112F43]">Patuha Resort</p>
-            </div>
-            <div className="relative pl-6">
-              <span className="absolute -left-[6px] top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-[#0E75BC]" />
-              <p className="text-xs font-bold text-[#112F43]">Kawah Putih Area</p>
-            </div>
-            <div className="relative pl-6">
-              <span className="absolute -left-[6px] top-1/2 -translate-y-1/2 h-3 w-3 rounded-full bg-[#E94B35]" />
-              <p className="text-xs font-bold text-[#112F43]">Lembang (Opsional)</p>
-            </div>
-          </div>
-        </div>
-        
-        {/* Mobile Mockup Frame overlapping map */}
-        <div className="absolute left-1/2 top-4 bottom-[-40px] w-[300px] -translate-x-1/2 rounded-[2rem] border-[4px] border-[#556064] bg-[#556064] overflow-hidden shadow-2xl">
-          <div className="relative w-full h-full bg-[#3D474A]">
-             <Image 
-                src="/images/background.png" 
-                alt="Map Background" 
-                fill 
-                className="object-cover opacity-40 mix-blend-overlay" 
-              />
-              <svg className="absolute inset-0 w-full h-full" viewBox="0 0 300 500" style={{ pointerEvents: 'none' }}>
-                <path d="M 120 150 Q 180 250 150 350" fill="none" stroke="#7FE0F4" strokeWidth="3" />
-                <circle cx="120" cy="150" r="5" fill="#7FE0F4" stroke="white" strokeWidth="2"/>
-                <circle cx="180" cy="250" r="5" fill="#7FE0F4" stroke="white" strokeWidth="2"/>
-                <circle cx="150" cy="350" r="5" fill="#7FE0F4" stroke="white" strokeWidth="2"/>
-              </svg>
-          </div>
+        {/* Overlay Badge Optional */}
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md border border-slate-200 pointer-events-none">
+          <p className="text-[10px] sm:text-xs font-bold text-[#112F43]">📍 Rute Optimal</p>
         </div>
       </div>
     </section>

@@ -11,28 +11,28 @@ export const POPULAR_DESTINATIONS: readonly Destination[] = [
     location: 'Lembang',
     price: '',
     rating: '4.8',
-    image: 'https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=800&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no',
   },
   {
     title: 'Jalan Braga Heritage',
     location: 'Kota Bandung',
     price: '',
     rating: '4.6',
-    image: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=800&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHI21zGS9xyCZJeyKYA46sbK48R4C-qIP7PISWq899VnDPQjE0Ju6fVosMcdR22gL0V5ILEFW0M8vnRi4o_1fTgm7sKAwt9gb0qyXcloQXNrxGNtjj4080-pFj1xNKaiPNp-cdI=w408-h544-k-no',
   },
   {
     title: 'Cukul Tea Sunrise',
     location: 'Pangalengan',
     price: '',
     rating: '4.7',
-    image: 'https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?q=80&w=800&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAH4hnLrM3DpouTLj9y1e4yRzJ0YbExJ7GkwvB7F9jOuyFdYPMT4Z0bBwZy7Sjr0sNeVAHgwDUrnv2AjUETl2ua__0wF0mKcgXCsWM3MYIzJ0PNpBBVkBH_ah9P8rel5_qSv4kk=w427-h240-k-no',
   },
   {
     title: 'Masjid Al-Jabbar',
     location: 'Gedebage',
     price: '',
     rating: '5.0',
-    image: 'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?q=80&w=800&auto=format&fit=crop',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEgOgolRnHXere0lPbPK8QF1-B2DOXm-uaMyAJrnN6-1yCvyU5AeLdXAz8inPl8VsyZQdTTeP07HCunAHDUtgFueVAIXhgTMWNHizB8reDjeEkbKuherL0TAML0KaNct_hZrMNJ2g=w408-h307-k-no',
   },
 ] as const;
 

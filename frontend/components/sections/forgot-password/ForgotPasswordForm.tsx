@@ -5,25 +5,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/context/ToastContext';
-import { useAuth } from '@/context/AuthContext';
 
-export function RegisterForm() {
+export function ForgotPasswordForm() {
   const router = useRouter();
   const { showToast } = useToast();
-  const { login } = useAuth();
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
 
   const [formData, setFormData] = useState({
-    fullName: '',
     email: '',
-    password: '',
-    confirmPassword: '',
-    agreeToTerms: false,
   });
 
   const row1Ref = useRef<HTMLDivElement>(null);
@@ -47,10 +38,10 @@ export function RegisterForm() {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
+    const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: type === 'checkbox' ? checked : value,
+      [name]: value,
     }));
   };
 
@@ -58,40 +49,22 @@ export function RegisterForm() {
     e.preventDefault();
     setErrorMsg('');
     setSuccessMsg('');
-
-    // Validasi Frontend Dasar
-    if (formData.password !== formData.confirmPassword) {
-      const msg = 'Kata sandi dan konfirmasi kata sandi tidak cocok.';
-      setErrorMsg(msg);
-      return;
-    }
-
-    if (formData.password.length < 8) {
-      const msg = 'Kata sandi harus terdiri dari minimal 8 karakter.';
-      setErrorMsg(msg);
-      return;
-    }
-
     setIsLoading(true);
 
     try {
-      // Simulasi delay jaringan (1.5 detik)
+      // Simulasi API call
       await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      const successTxt = 'Registrasi berhasil! Mengarahkan ke halaman preferensi...';
-      setSuccessMsg(successTxt);
       
-      // Simulasikan login otomatis setelah daftar
-      login();
+      showToast('Tautan pemulihan telah dikirim ke email Anda!', 'success');
+      setSuccessMsg('Tautan pemulihan telah dikirim ke email Anda. Silakan periksa kotak masuk atau folder spam.');
       
-      // Redirect ke preferences after a short delay
-      setTimeout(() => {
-        router.push('/preferences');
-      }, 1000);
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
+      // Kosongkan form setelah sukses
+      setFormData({ email: '' });
+      
+    } catch (error: unknown) {
+      const err = error as Error;
       setErrorMsg(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
+      showToast(err.message || 'Gagal mengirim tautan pemulihan', 'error');
     } finally {
       setIsLoading(false);
     }
@@ -138,27 +111,13 @@ export function RegisterForm() {
 
       {/* PART 2: Form (Mobile: Middle, Desktop: Right Full Height) */}
       <div className="order-2 lg:col-start-2 lg:row-span-2 flex flex-col items-center justify-center bg-transparent lg:bg-[#ECF4FF] px-4 py-4 sm:py-10 sm:px-6 lg:px-8 relative z-20 shadow-[-10px_0_30px_rgba(0,0,0,0.02)]">
-        <div className="w-full max-w-[576px] rounded-[24px] bg-white p-6 sm:p-10 shadow-[0_4px_12px_0_rgba(10,34,51,0.06)] border border-slate-200/50">
-          {/* Tab Switcher */}
-          <div className="flex rounded-[12px] bg-[#E2EFFF] p-1 max-w-[280px] mx-auto mb-4">
-            <Link
-              href="/login"
-              className="flex flex-1 items-center justify-center rounded-[8px] py-2 text-[13px] font-medium text-[#40484D] transition-colors hover:text-[#00526E]"
-            >
-              Masuk
-            </Link>
-            <button
-              className="flex flex-1 items-center justify-center rounded-[8px] bg-white py-2 text-[13px] font-medium text-[#00526E] shadow-[0_1px_2px_0_rgba(0,0,0,0.05)] border border-white/10"
-            >
-              Daftar
-            </button>
-          </div>
-
+        <div className="w-full max-w-[500px] rounded-[24px] bg-white p-6 sm:p-10 shadow-[0_4px_12px_0_rgba(10,34,51,0.06)] border border-slate-200/50">
+          
           {/* Form Header */}
-          <div className="text-center">
-            <h2 className="text-[20px] leading-[28px] font-semibold text-[#051D2E]">Selamat Datang</h2>
+          <div className="text-center mb-6">
+            <h2 className="text-[20px] leading-[28px] font-semibold text-[#051D2E]">Lupa Kata Sandi?</h2>
             <p className="mt-1 text-[14px] leading-[20px] text-[#40484D]">
-              Daftar dan mulai jelajahi Bandung bersama MuterBandung.
+              Masukkan alamat email Anda yang terdaftar, dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi.
             </p>
           </div>
 
@@ -176,27 +135,10 @@ export function RegisterForm() {
 
           {/* Form */}
           <form className="mt-4 space-y-2" onSubmit={handleSubmit}>
-            {/* Input Nama */}
-            <div>
-              <label htmlFor="fullName" className="block text-[14px] font-medium text-[#40484D] mb-2">
-                Nama
-              </label>
-              <input
-                id="fullName"
-                name="fullName"
-                type="text"
-                required
-                value={formData.fullName}
-                onChange={handleChange}
-                placeholder="Masukkan nama"
-                className="w-full rounded-[12px] border border-[#BFC8CE] bg-white px-5 py-[10px] text-[15px] text-slate-800 placeholder-[#6B7280] outline-none transition-all focus:border-[#00526E] focus:ring-1 focus:ring-[#00526E]"
-              />
-            </div>
-
             {/* Input Email */}
             <div>
               <label htmlFor="email" className="block text-[14px] font-medium text-[#40484D] mb-2">
-                Email
+                Alamat Email
               </label>
               <input
                 id="email"
@@ -210,110 +152,20 @@ export function RegisterForm() {
               />
             </div>
 
-            {/* Input Kata Sandi */}
-            <div>
-              <label htmlFor="password" className="block text-[14px] font-medium text-[#40484D] mb-2">
-                Kata Sandi
-              </label>
-              <div className="relative">
-                <input
-                  id="password"
-                  name="password"
-                  type={showPassword ? 'text' : 'password'}
-                  required
-                  value={formData.password}
-                  onChange={handleChange}
-                  placeholder="Min. 8 karakter"
-                  className="w-full rounded-[12px] border border-[#BFC8CE] bg-white pl-5 pr-12 py-[10px] text-[15px] text-slate-800 placeholder-[#6B7280] tracking-widest outline-none transition-all focus:border-[#00526E] focus:ring-1 focus:ring-[#00526E]"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
-                >
-                  {showPassword ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Input Konfirmasi Kata Sandi */}
-            <div>
-              <label htmlFor="confirmPassword" className="block text-[14px] font-medium text-[#40484D] mb-2">
-                Konfirmasi Kata Sandi
-              </label>
-              <div className="relative">
-                <input
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  type={showConfirmPassword ? 'text' : 'password'}
-                  required
-                  value={formData.confirmPassword}
-                  onChange={handleChange}
-                  placeholder="Ulangi kata sandi"
-                  className="w-full rounded-[12px] border border-[#BFC8CE] bg-white pl-5 pr-12 py-[10px] text-[15px] text-slate-800 placeholder-[#6B7280] tracking-widest outline-none transition-all focus:border-[#00526E] focus:ring-1 focus:ring-[#00526E]"
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
-                >
-                  {showConfirmPassword ? (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
-                    </svg>
-                  ) : (
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* Checkbox Persetujuan */}
-            <div className="flex items-start pt-2">
-              <div className="flex h-5 items-center">
-                <input
-                  id="agreeToTerms"
-                  name="agreeToTerms"
-                  type="checkbox"
-                  required
-                  checked={formData.agreeToTerms}
-                  onChange={handleChange}
-                  className="h-5 w-5 rounded-[4px] border-[#BFC8CE] bg-white text-[#00526E] focus:ring-[#00526E]/20 transition-all cursor-pointer"
-                />
-              </div>
-              <div className="ml-3 text-[14px] font-medium leading-[20px] text-[#40484D]">
-                <label htmlFor="agreeToTerms" className="cursor-pointer">
-                  Saya menyetujui <button type="button" onClick={() => showToast('Halaman S&K segera hadir!', 'info')} className="text-[#40484D] hover:underline">Syarat &amp; Ketentuan</button> dan <button type="button" onClick={() => showToast('Halaman Kebijakan Privasi segera hadir!', 'info')} className="text-[#40484D] hover:underline">Kebijakan Privasi</button>
-                </label>
-              </div>
-            </div>
-
             <button
               type="submit"
               disabled={isLoading}
               className={`mt-4 w-full rounded-[12px] bg-[#00526E] py-[12px] text-[16px] font-semibold text-white shadow-[0_4px_12px_0_rgba(0,82,110,0.2)] transition-all hover:bg-[#003d52] hover:shadow-[0_6px_16px_0_rgba(0,82,110,0.3)] ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              {isLoading ? 'Sedang Memproses...' : 'Buat Akun MuterBandung'}
+              {isLoading ? 'Sedang Mengirim...' : 'Kirim Tautan Pemulihan'}
             </button>
           </form>
 
           {/* Footer Form */}
           <div className="mt-8 text-center text-[14px] text-[#62778C]">
-            Sudah punya akun?{' '}
+            Ingat kata sandi Anda?{' '}
             <Link href="/login" className="font-semibold text-[#0E75BC] hover:text-[#0A5F9E] hover:underline">
-              Masuk Sekarang
+              Kembali untuk Masuk
             </Link>
           </div>
         </div>

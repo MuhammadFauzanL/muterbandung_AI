@@ -23,22 +23,23 @@ export function Header({ activeItem = 'home' }: HeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-20 border-b border-slate-200 bg-white">
-      <div className="mx-auto flex h-[68px] max-w-[1180px] items-center justify-between px-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5 text-[#14528E]">
+    <header className="relative z-[9999] border-b border-slate-200 bg-white">
+      <div className="mx-auto flex h-[56px] sm:h-[68px] max-w-[1180px] items-center justify-between px-3 sm:px-6 lg:px-8">
+        <Link href="/" className="flex items-center gap-2 sm:gap-2.5 text-[#14528E]">
           <Image
             src="/images/logo.png"
             alt="Logo MuterBandung"
             width={42}
             height={42}
-            className="h-[42px] w-[42px] object-contain"
+            className="h-[32px] w-[32px] sm:h-[42px] sm:w-[42px] object-contain"
             preload
           />
-          <span className="text-[18px] font-semibold tracking-normal">
+          <span className="text-[16px] sm:text-[18px] font-semibold tracking-normal">
             MuterBandung
           </span>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-10 md:flex">
           {NAVIGATION_ITEMS.map((item) => (
             <Link
@@ -77,33 +78,35 @@ export function Header({ activeItem = 'home' }: HeaderProps) {
           </div>
         ) : (
           <div className="hidden md:flex items-center gap-3">
-            <button
-              onClick={login}
+            <Link
+              href="/login"
               className="rounded-full border border-[#0E75BC] px-6 py-2 text-sm font-semibold text-[#0E75BC] transition-colors hover:bg-[#EEF7FD]"
             >
               Masuk
-            </button>
-            <button
-              onClick={login}
+            </Link>
+            <Link
+              href="/register"
               className="rounded-full bg-[#0E75BC] px-6 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#095f99]"
             >
               Daftar
-            </button>
+            </Link>
           </div>
         )}
 
         {/* Mobile Menu Toggle Button */}
-        <button
-          className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-[#14528E] md:hidden"
-          onClick={() => setIsMobileMenuOpen(true)}
-          aria-label="Buka menu"
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+        {!isMobileMenuOpen && (
+          <button
+            className="relative z-[999] inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-[#14528E] md:hidden cursor-pointer"
+            onClick={() => setIsMobileMenuOpen(true)}
+            aria-label="Buka menu"
+          >
+            <Menu className="h-5 w-5 pointer-events-none" />
+          </button>
+        )}
 
         {/* Mobile Drawer Overlay */}
         {isMobileMenuOpen && (
-          <div className="fixed inset-0 z-[100] md:hidden">
+          <div className="fixed inset-0 z-[1000] md:hidden">
             {/* Backdrop */}
             <div 
               className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity"
@@ -131,18 +134,26 @@ export function Header({ activeItem = 'home' }: HeaderProps) {
                         <Image src="/images/welcome-cepot.png" alt="Avatar" width={40} height={40} className="object-cover object-top" />
                       </div>
                       <div>
-                        <p className="text-[14px] font-bold text-slate-800">Halo, Pengguna</p>
+                        <p className="text-[14px] font-bold text-slate-800">Halo, Dudung</p>
                         <Link href="/profile" onClick={() => setIsMobileMenuOpen(false)} className="text-[12px] font-medium text-[#0E75BC] hover:underline">Lihat Profil</Link>
                       </div>
                     </div>
                   ) : (
                     <div className="flex flex-col gap-3">
-                      <button
-                        onClick={() => { login(); setIsMobileMenuOpen(false); }}
-                        className="w-full rounded-full bg-[#0E75BC] px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#095f99]"
+                      <Link
+                        href="/login"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-full text-center rounded-full border border-[#0E75BC] bg-white px-6 py-2.5 text-sm font-bold text-[#0E75BC] shadow-sm transition-colors hover:bg-blue-50"
                       >
-                        Daftar / Masuk
-                      </button>
+                        Masuk
+                      </Link>
+                      <Link
+                        href="/register"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-full text-center rounded-full bg-[#0E75BC] px-6 py-2.5 text-sm font-bold text-white shadow-sm transition-colors hover:bg-[#095f99]"
+                      >
+                        Daftar
+                      </Link>
                     </div>
                   )}
                 </div>

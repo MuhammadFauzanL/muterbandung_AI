@@ -46,7 +46,7 @@ export const EXPLORE_DESTINATIONS: readonly ExploreDestination[] = [
     rating: '4.8',
     category: 'Alam',
     duration: '2-3 jam',
-    image: '/destinations/kawah-putih.svg',
+    image: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no',
   },
   {
     id: 'the-lodge-maribaya',
@@ -57,7 +57,7 @@ export const EXPLORE_DESTINATIONS: readonly ExploreDestination[] = [
     category: 'Keluarga',
     duration: '3-4 jam',
     image:
-      'https://images.unsplash.com/photo-1449158743715-0a90ebb6d2d8?q=80&w=900&auto=format&fit=crop',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGag0VLevHCsTHhDlK95tp5oz82x5jCeIof-xVau_rViiNgCFEcFPKsH1LZ5CM1HkFmRhMH1tTXEWkANtLa8sCda9DP7Whkcphpp9YjHym9mU77UzkIf7osXRG1f_BK9UTJd0x50Q=w408-h272-k-no',
   },
   {
     id: 'sudut-pandang',
@@ -68,7 +68,7 @@ export const EXPLORE_DESTINATIONS: readonly ExploreDestination[] = [
     category: 'Kuliner',
     duration: '1-2 jam',
     image:
-      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=900&auto=format&fit=crop',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAGB5A_jnvgXbWCpyJ1fPpXz6_5EEDTyyiBslNudJ3VsDF5UUyWXwiNRgNzLn5hpbZMg8jz8ci8hmMDS1v5Sp7RR5lmO1Sx_yChtHboP8vwpHWr8uu0qMSsAS5njXYDOyIl-rV1OVvAUpmZF=w408-h612-k-no',
   },
   {
     id: 'farmhouse-lembang',
@@ -79,14 +79,14 @@ export const EXPLORE_DESTINATIONS: readonly ExploreDestination[] = [
     category: 'Edukasi',
     duration: '2-3 jam',
     image:
-      'https://images.unsplash.com/photo-1518780664697-55e3ad937233?q=80&w=900&auto=format&fit=crop',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEOwm4L-_oDg37hoOpkgGYAx4r2e55VUnu2yhFM-9YPBlvrm_r9W7NqYazeiLvd8nNhOzOX8OYrS58ijbdXASjgOgftE210IJiO4q2Q15pYZP83QIyl6eSb-cgDTY3xXk_7TRPqFQ=w408-h306-k-no',
   },
 ] as const;
 
 export const DESTINATION_DETAILS: readonly DestinationDetail[] = [
   {
     ...EXPLORE_DESTINATIONS[0],
-    heroImage: '/destinations/kawah-putih.svg',
+    heroImage: 'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no',
     aiReason:
       'Kawah Putih cocok untuk itinerary alam setengah hari, punya spot foto ikonik, dan masih aman untuk rencana keluarga dengan budget terkontrol.',
     description:
@@ -97,11 +97,11 @@ export const DESTINATION_DETAILS: readonly DestinationDetail[] = [
       { label: 'Rating', value: '4.8/5', tone: 'rating' },
     ],
     gallery: [
-      '/destinations/kawah-putih.svg',
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800&auto=format&fit=crop',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHVY6eUFC9uWt0H1O4Ya4jvM86cHKdTJtCz9_6P3sD-U-dJC9IJuT_WOBfCT26Uo7-4DPoEjyByYBfYv_8aFDBlLkTMRT9lslSj_IJ0uPDD--XPYjdxFnc-kpi6PpQOxGvctl5w=w224-h398-k-no',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEw9YulVVbWWgZoIjoftnRLbPC3nGW0VlDQGW9tP3ERkOwD9OlLSm-SA83BVC-yol8jtG3O3-CXkLIlb7ONJLWn5oVDy2k_hgeBNijzl8vN-VBn40NLktdStaHvy-Qt-n-8zvM3SA=w529-h298-k-no',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFsAsjcB4KkTK263DcaFlX5HHIc8ixC7CexyD4rOZ-ZY0y4Lm8WdgjRGQ0Q8scKifr6myvS9RJZQEHkWMlOdKVR37GBA68-Mv7dSy8VeUR7IkkL9WK5xBfVRSdY02-ZqfF9K7NqxINIUzg=w224-h398-k-no',
+      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no',
     ],
     facilities: [
       'Parkir luas',
@@ -122,21 +122,21 @@ export const DESTINATION_DETAILS: readonly DestinationDetail[] = [
         location: 'Ciwidey',
         price: 'Mulai Rp 650.000',
         image:
-          'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=500&auto=format&fit=crop',
+          'https://lh3.googleusercontent.com/gps-proxy/ALd4DhFQNQ81Dicl74zu40V7aXYY50dw0TH-lPCwm_rFUokItvPcAB2TR0TclWJS-39WNWfCJ_04IFMGsytAfz0mjmiv_2ft5DRYmyE0tyFhO6Q8WM81wJqxKvqNiKtB-0VBqYxss31T3exO_FUzUlc3d9J0f-idvXZvvVAfRhO6qZKDrOa9ali32Kou7Q=w455-h240-k-no',
       },
       {
         name: 'Glamping Lakeside',
         location: 'Situ Patenggang',
         price: 'Mulai Rp 780.000',
         image:
-          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=500&auto=format&fit=crop',
+          'https://lh3.googleusercontent.com/gps-proxy/ALd4DhG4zvnpyhSwhsxDH6NhAELLszGnGdWxJq98Cm8xHBLL0dy-s-QcYoPq6c2ftf-GSGlzCQc80Vgidf5Km37Vyc2c427nSsuKAPDpPlBzzNHIrxYvvIDq55T25lMdbmnmG4Pk25Fl4CcR_ckRnGlJed_-_B5mtTecgra5UITD2iE1lsB7y3Tqm2-Zmw=w408-h300-k-no',
       },
       {
         name: 'Villa Patuha Resort',
         location: 'Rancabali',
         price: 'Mulai Rp 520.000',
         image:
-          'https://images.unsplash.com/photo-1510798831971-661eb04b3739?q=80&w=500&auto=format&fit=crop',
+          'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEINPwRItiBa-w5a0baJmuuVumrV1ITN9jwyT2p_96DgsCe35Dr2WyED9858FVbmDDGeJUrv6XUoVepQsIyDRLiAvtNCd4UAVn0xPqFRYuSGP18ysRAcxChgCiuIN1WNCALULfvPQ=w416-h240-k-no',
       },
     ],
     reviews: [
@@ -309,14 +309,14 @@ export const DESTINATION_DETAILS: readonly DestinationDetail[] = [
         location: 'Lembang',
         price: 'Mulai Rp 560.000',
         image:
-          'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=500&auto=format&fit=crop',
+          'https://lh3.googleusercontent.com/gps-proxy/ALd4DhGX8w9qk9j5Y_2xAGRr7S328EAuKfdOny3WGXiOhgMKLiL1rKwJillorzX3Zhwnss-PlbgBDu-wSkO4dJC3rj6Lx_7gVYfwgJectjQVvB3VVqc0pZMkZGDwn5yELBRYTM17e8Frtx4Kz2jGV13GeRZRajShfk8LT4iTWpmPkaJPex90ATaeLQwI=w408-h272-k-no',
       },
       {
         name: 'Puteri Gunung Hotel',
         location: 'Lembang',
         price: 'Mulai Rp 700.000',
         image:
-          'https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=500&auto=format&fit=crop',
+          'https://lh3.googleusercontent.com/gps-proxy/ALd4DhFmom7fwHALFdyh_mmOrATQaeNj3S7riiTmj54xTIuplAUWfhF75VTGHJNnYp0IEn7GgM4_M8LOk0WezJWjT5y8RIEFGxfFwhZgRQd6Pm2I9P302gtf5PW6P9t7LC_c2-x2HLHhdHV1U9F05yadXcHBqKdOor6b8lY8s17EVXbramT1EdzdpYoIyg=w472-h240-k-no',
       },
     ],
     reviews: [

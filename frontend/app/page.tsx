@@ -2,7 +2,6 @@
 
 import {
   HeroSection,
-  CategoryTags,
   PersonalizedDestinationsSection,
   PopularDestinationsSection,
   FeaturesSection,
@@ -25,12 +24,12 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <HeroSection />
-        <CategoryTags />
+        {/* Filter Tags (Dihapus sesuai permintaan pengguna) */}
         {isLoggedIn && <PersonalizedDestinationsSection />}
         <PopularDestinationsSection />
         <FeaturesSection />
-        <CategoryHighlightsSection />
         <AIChatPromoSection />
+        <CategoryHighlightsSection />
       </main>
     </div>
   );

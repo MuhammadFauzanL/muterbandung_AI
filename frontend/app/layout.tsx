@@ -13,13 +13,15 @@ import { AuthProvider } from "@/context/AuthContext";
 import { ToastProvider } from "@/context/ToastContext";
 import { ClientLayoutWrapper } from "@/components/layout/ClientLayoutWrapper";
 
+import Script from "next/script";
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="h-full antialiased scroll-smooth">
+    <html lang="id" translate="no" className="h-full antialiased scroll-smooth">
       <body className="min-h-full flex flex-col font-sans" suppressHydrationWarning>
         <ToastProvider>
           <AuthProvider>

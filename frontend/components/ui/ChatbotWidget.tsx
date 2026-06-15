@@ -125,9 +125,9 @@ export function ChatbotWidget() {
           type="button"
           onClick={() => setIsOpen(true)}
           aria-label="Buka Chatbot Cepot AI"
-          className="group fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-[#0E75BC] shadow-[0_16px_34px_rgba(15,23,42,0.22)] transition-transform active:scale-95 sm:bottom-6 sm:right-6 sm:hover:scale-105"
+          className="group fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-[#0E75BC] shadow-[0_16px_34px_rgba(15,23,42,0.22)] transition-transform active:scale-95 sm:bottom-6 sm:right-6 sm:hover:scale-105 cursor-pointer"
         >
-          <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+          <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
             <Image
               src="/images/welcome-cepot.png"
               alt="Cepot AI"
