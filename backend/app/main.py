@@ -19,9 +19,11 @@ except ImportError:
 sys.path.append(os.path.join(os.path.dirname(os.path.abspath(__file__)), "services"))
 
 from services.recommender import MuterBandungRecommender, RUNTIME_CANDIDATE_DB_PATH
-from services.oleh_oleh_recommender import OlehOlehRecommender, DEFAULT_OLEH_OLEH_DATASET_PATH
-from services.llm_evidence_pack import build_llm_evidence_pack, build_oleh_oleh_evidence_pack
+from services.chatbot_service import build_chat_response, build_rag_recommendation
+from services.llm_evidence_pack import build_llm_evidence_pack
 from services.llm_guard import build_llm_prompt_guard, validate_llm_output
+from services.penginapan_service import penginapan_service
+from services.llm_extractor import parse_intent_with_llm
 
 app = Flask(
     __name__,
@@ -30,7 +32,6 @@ app = Flask(
 )
 
 API_SCHEMA_VERSION = "muterbandung.api.recommend.v1"
-OLEH_OLEH_API_SCHEMA_VERSION = "muterbandung.api.oleh_oleh.recommend.v1"
 MAX_QUERY_LENGTH = 500
 MAX_CATEGORY_COUNT = 20
 MAX_CATEGORY_LENGTH = 64
@@ -43,10 +44,6 @@ DEFAULT_DATASET_PATH = (
     os.getenv("MUTERBANDUNG_DATASET_PATH")
     or os.getenv("MUTERBANDUNG_DB_PATH")
     or RUNTIME_CANDIDATE_DB_PATH
-)
-DEFAULT_OLEH_OLEH_PATH = (
-    os.getenv("MUTERBANDUNG_OLEH_OLEH_DATASET_PATH")
-    or DEFAULT_OLEH_OLEH_DATASET_PATH
 )
 
 
@@ -61,26 +58,10 @@ def _data_version():
     return f"{os.path.basename(path)}:{int(os.path.getmtime(path))}"
 
 
-def _oleh_oleh_data_version():
-    path = getattr(oleh_oleh_engine, "dataset_path", None) if oleh_oleh_engine is not None else None
-    if not path or not os.path.exists(path):
-        return "unknown"
-    return f"{os.path.basename(path)}:{int(os.path.getmtime(path))}"
-
-
 def _response_metadata(request_id=None):
     return {
         "api_schema_version": API_SCHEMA_VERSION,
         "data_version": _data_version(),
-        "request_id": request_id or str(uuid4()),
-        "generated_at": _utc_now_iso(),
-    }
-
-
-def _oleh_oleh_response_metadata(request_id=None):
-    return {
-        "api_schema_version": OLEH_OLEH_API_SCHEMA_VERSION,
-        "data_version": _oleh_oleh_data_version(),
         "request_id": request_id or str(uuid4()),
         "generated_at": _utc_now_iso(),
     }
@@ -268,6 +249,7 @@ def _parse_recommend_payload(data):
         "day_type": _parse_choice(data, "day_type", errors, VALID_DAY_TYPES),
         "open_at_hour": _parse_open_at_hour(data, errors),
         "top_k": _parse_int(data, "top_k", errors, default=5, min_value=1, max_value=MAX_TOP_K),
+        "history_prompts": data.get("history_prompts", []),
     }
 
     has_lat = parsed["user_lat"] is not None
@@ -289,13 +271,8 @@ except Exception as e:
     print(f"Error initializing engine: {e}")
     engine = None
 
-print("Initializing OlehOlehRecommender...")
-try:
-    oleh_oleh_engine = OlehOlehRecommender(dataset_path=DEFAULT_OLEH_OLEH_PATH)
-    print("Oleh-oleh engine initialized successfully.")
-except Exception as e:
-    print(f"Error initializing oleh-oleh engine: {e}")
-    oleh_oleh_engine = None
+# Simple in-memory cache for RAG to speed up repeated queries
+_rag_cache = {}
 
 @app.route('/')
 def index():
@@ -322,6 +299,26 @@ def recommend_api():
     if validation_errors:
         return _error_response("Invalid request parameters.", validation_errors, status_code=400, metadata=metadata)
 
+    # LAYER 1: LLM Translator (Heuristic Bypass)
+    # Jalankan intent extractor jika tidak ada kategori manual dari frontend
+    if not parsed["categories"] and parsed["query"]:
+        llm_intent = parse_intent_with_llm(parsed["query"])
+        if llm_intent:
+            if llm_intent.get("kategori"):
+                parsed["categories"] = llm_intent["kategori"]
+            if llm_intent.get("harga_maks") is not None and parsed["max_price"] is None:
+                parsed["max_price"] = llm_intent["harga_maks"]
+            if llm_intent.get("lokasi"):
+                # Pastikan lokasi juga masuk ke query agar TF-IDF/Radius menangkapnya
+                if str(llm_intent["lokasi"]).lower() not in parsed["query"].lower():
+                    parsed["query"] = f"{parsed['query']} {llm_intent['lokasi']}"
+            if llm_intent.get("ramah_anak"):
+                 parsed["categories"] = parsed["categories"] or []
+                 if "Keluarga" not in parsed["categories"]:
+                     parsed["categories"].append("Keluarga")
+            if llm_intent.get("gratis") and not parsed["free_only"]:
+                 parsed["free_only"] = True
+
     try:
         # Run recommendation
         results = engine.recommend(
@@ -343,6 +340,45 @@ def recommend_api():
         evidence_pack = build_llm_evidence_pack(results)
         results["llm_evidence_pack"] = evidence_pack
         results["llm_prompt_guard"] = build_llm_prompt_guard(evidence_pack)
+        
+        # Integrate RAG for non-empty queries
+        query_text = parsed.get("query")
+        if query_text and query_text.strip():
+            # Build cache key based on query and filters
+            cache_key = str({
+                "q": query_text.strip().lower(),
+                "c": sorted(parsed.get("categories") or []),
+                "p": parsed.get("max_price"),
+                "r": parsed.get("min_rating"),
+                "f": parsed.get("free_only"),
+                "o": parsed.get("open_now"),
+                "d": parsed.get("day_type"),
+                "h": parsed.get("open_at_hour"),
+                "s": parsed.get("sort_by")
+            })
+            
+            if cache_key in _rag_cache:
+                print(f"[RAG Cache] Hit for query: {query_text}")
+                cached_descriptions = _rag_cache[cache_key]
+                if "recommendations" in results:
+                    for rec in results["recommendations"]:
+                        dest_id = str(rec.get("location_id", ""))
+                        if dest_id in cached_descriptions:
+                            rec["alasan"] = cached_descriptions[dest_id]
+                results["llm_rag_used"] = True
+                results["llm_rag_cached"] = True
+            else:
+                print(f"[RAG] Processing query: {query_text}")
+                results = build_rag_recommendation(query_text, results)
+                # Save to cache
+                if results.get("llm_rag_used"):
+                    desc_map = {}
+                    if "recommendations" in results:
+                        for rec in results["recommendations"]:
+                            desc_map[str(rec.get("location_id", ""))] = rec.get("alasan", "")
+                    _rag_cache[cache_key] = desc_map
+                results["llm_rag_cached"] = False
+
         results.update(metadata)
         return jsonify(results)
     except Exception as e:
@@ -351,14 +387,16 @@ def recommend_api():
         return _error_response("Recommendation failed.", [str(e)], status_code=500, metadata=metadata)
 
 
-@app.route('/api/oleh-oleh/recommend', methods=['POST'])
-def oleh_oleh_recommend_api():
-    """API endpoint for oleh-oleh recommendations."""
-    metadata = _oleh_oleh_response_metadata()
-    if oleh_oleh_engine is None:
+
+
+@app.route('/api/chat', methods=['POST'])
+def chat_api():
+    """API endpoint for Cepot AI chatbot."""
+    metadata = _response_metadata()
+    if engine is None:
         return _error_response(
-            "Oleh-oleh recommender failed to initialize.",
-            ["Oleh-oleh recommender failed to initialize."],
+            "Recommender engine failed to initialize.",
+            ["Recommender engine failed to initialize."],
             status_code=500,
             metadata=metadata,
         )
@@ -367,30 +405,65 @@ def oleh_oleh_recommend_api():
     if json_errors:
         return _error_response("Invalid request body.", json_errors, status_code=400, metadata=metadata)
 
-    parsed, validation_errors = _parse_recommend_payload(data)
-    include_non_main = _parse_bool(data, "include_non_main", validation_errors, default=False)
-    if validation_errors:
-        return _error_response("Invalid request parameters.", validation_errors, status_code=400, metadata=metadata)
+    message = data.get("message")
+    if not message:
+        return _error_response("Missing 'message' field.", ["Missing 'message' field."], status_code=400, metadata=metadata)
+        
+    top_k = _parse_int(data, "top_k", [], default=5, min_value=1, max_value=MAX_TOP_K)
 
     try:
-        results = oleh_oleh_engine.recommend(
-            query=parsed["query"],
-            categories=parsed["categories"],
-            max_price=parsed["max_price"],
-            user_lat=parsed["user_lat"],
-            user_lon=parsed["user_lon"],
-            max_distance_km=parsed["max_distance_km"],
-            sort_by=parsed["sort_by"],
-            top_k=parsed["top_k"],
-            include_non_main=include_non_main,
-        )
-        results["llm_evidence_pack"] = build_oleh_oleh_evidence_pack(results)
-        results.update(metadata)
-        return jsonify(results)
+        response, status_code = build_chat_response(message, engine, top_k=top_k)
+        if isinstance(response, dict):
+            response.update(metadata)
+        return jsonify(response), status_code
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return _error_response("Oleh-oleh recommendation failed.", [str(e)], status_code=500, metadata=metadata)
+        return _error_response("Chatbot failed.", [str(e)], status_code=500, metadata=metadata)
+
+
+@app.route('/api/penginapan', methods=['GET'])
+def get_penginapan_api():
+    """API endpoint for fetching penginapan."""
+    try:
+        limit = int(request.args.get('limit', 20))
+        page = int(request.args.get('page', 1))
+        sentiment_filter = request.args.get('sentimentFilter', None)
+        category_filter = request.args.get('category', None)
+        
+        # Geolocation params
+        try:
+            lat = float(request.args.get('lat')) if request.args.get('lat') else None
+            lon = float(request.args.get('lon')) if request.args.get('lon') else None
+        except ValueError:
+            lat, lon = None, None
+            
+        results, total = penginapan_service.get_penginapans(
+            limit=limit, 
+            page=page, 
+            sentiment_filter=sentiment_filter,
+            lat=lat,
+            lon=lon,
+            category_filter=category_filter
+        )
+        
+        response = {
+            "status": "success",
+            "message": "Penginapan retrieved successfully",
+            "data": results,
+            "meta": {
+                "total": total,
+                "page": page,
+                "limit": limit,
+                "total_pages": math.ceil(total / limit) if limit > 0 else 0
+            }
+        }
+        return jsonify(response)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return _error_response("Failed to get penginapan.", [str(e)], status_code=500, metadata=_response_metadata())
+
 
 
 @app.route('/api/llm/validate', methods=['POST'])

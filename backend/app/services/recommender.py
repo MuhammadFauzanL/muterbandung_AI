@@ -28,21 +28,27 @@ CATEGORY_MAPPING = {
     "indoor": ["indoor", "dalam ruangan", "museum", "mall", "galeri"],
     "outdoor": ["outdoor", "luar ruangan", "alam terbuka", "taman", "camping"],
     "malam": ["malam", "night", "city light", "lampu kota", "buka malam"],
-    "gratis": ["gratis", "free", "tanpa bayar", "tiket gratis"]
+    "gratis": ["gratis", "free", "tanpa bayar", "tiket gratis"],
+    "penginapan": ["santai"],
+    "cinema": ["hiburan"]
 }
 
-INTENT_ABSOLUTE_THRESHOLD = 0.45
-INTENT_RELATIVE_MARGIN = 0.22
+INTENT_ABSOLUTE_THRESHOLD = 0.40
+INTENT_RELATIVE_MARGIN = 0.20
 DEFAULT_CHEAP_MAX_PRICE = 50000
 DISTANCE_SCORE_SCALE_KM = 10.0
-EMBEDDING_MODEL_NAME = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
+EMBEDDING_MODEL_NAME = 'firqaaa/indo-sentence-bert-base'
 SENTIMENT_MODEL_SOURCE = "tfidf_linearsvc"
 SENTIMENT_MODEL_VERSION = "run_nlp_pipeline_v2"
 SENTIMENT_UNAVAILABLE_SOURCE = "unavailable"
 SENTIMENT_SHRINKAGE_K = 50.0
 REVIEW_CONFIDENCE_LOW_MAX = 0.50
 REVIEW_CONFIDENCE_HIGH_MIN = 0.75
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 REVIEWED_DB_PATH = os.path.join(
+    PROJECT_ROOT,
     "ai_workspace",
     "Wisata_Workspace",
     "01_Dataset",
@@ -50,13 +56,15 @@ REVIEWED_DB_PATH = os.path.join(
     "DATABASE_WISATA_LABELED_V2_REVIEWED.csv",
 )
 RUNTIME_CANDIDATE_DB_PATH = os.path.join(
+    PROJECT_ROOT,
     "ai_workspace",
     "Wisata_Workspace",
     "01_Dataset",
     "3_Curated",
-    "DATABASE_WISATA_LABELED_V2_REVIEWED_MEDIA_SENTIMENT_RUNTIME_CANDIDATE_2026-06-09.csv",
+    "DATABASE_WISATA_CLEANED.csv",
 )
 LANDMARK_ALIAS_PATH = os.path.join(
+    PROJECT_ROOT,
     "ai_workspace",
     "Wisata_Workspace",
     "01_Dataset",
@@ -106,6 +114,14 @@ LEXICAL_INTENT_KEYWORDS = {
     "Edukasi": [
         "edukasi", "edukatif", "belajar", "museum", "sains", "science",
         "interaktif", "pengetahuan"
+    ],
+    "Penginapan": [
+        "hotel", "penginapan", "villa", "kost", "staycation", "guest house",
+        "losmen", "hostel", "resort", "motel", "penginap", "tempat tidur", "kamar"
+    ],
+    "Penginapan": [
+        "hotel", "penginapan", "villa", "kost", "staycation", "guest house",
+        "losmen", "hostel", "resort", "motel", "penginap", "tempat tidur", "kamar"
     ],
     "Kuliner": [
         "makan", "makannya", "makanan", "kuliner", "restoran", "warung",
@@ -695,6 +711,8 @@ class MuterBandungRecommender:
                     value *= 1000
                 return value
         if self._query_has_keyword(query, ["murah", "hemat", "budget", "low budget"]):
+            if any(k in raw_query for k in ["hotel", "penginapan", "villa", "kost", "staycation"]):
+                return 400000
             return DEFAULT_CHEAP_MAX_PRICE
         return None
 
@@ -719,6 +737,96 @@ class MuterBandungRecommender:
             return f"{hour:02d}:{minute:02d}"
         if self._query_has_keyword(query, ["malam"]):
             return "20:00"
+        return None
+
+    def _parse_location_intent(self, query):
+        """
+        Phase B: Parse location intent into a structured format.
+        Combines landmark detection and region extraction.
+        """
+        if not isinstance(query, str) or not query.strip():
+            return None
+
+        raw_query = query.lower()
+        normalized_query = self._preprocess_text(query)
+        
+        # 1. Check Landmark/Area aliases
+        if self.landmarks:
+            for landmark in self.landmarks:
+                for alias in landmark["aliases"]:
+                    pattern = r"\b" + re.escape(alias) + r"\b"
+                    if re.search(pattern, raw_query) or re.search(pattern, normalized_query):
+                        l_type = landmark.get("type", "landmark")
+                        radius = 15.0 if l_type == "area" else (25.0 if l_type == "region" else 8.0)
+                        
+                        landmark_name_lower = landmark.get("name", "").lower()
+                        fallback_reg = None
+                        if "lembang" in landmark_name_lower: fallback_reg = "Kabupaten Bandung Barat"
+                        elif "ciwidey" in landmark_name_lower or "pangalengan" in landmark_name_lower: fallback_reg = "Kabupaten Bandung"
+                        elif "jatinangor" in landmark_name_lower or "sumedang" in landmark_name_lower: fallback_reg = "Kabupaten Sumedang"
+                        elif "cimahi" in landmark_name_lower: fallback_reg = "Kota Cimahi"
+                        elif any(x in landmark_name_lower for x in ["bandung timur", "bandung selatan", "bandung utara"]): fallback_reg = ["Kota Bandung", "Kabupaten Bandung"]
+                        elif "bandung barat" in landmark_name_lower: fallback_reg = "Kabupaten Bandung Barat"
+                        else: fallback_reg = "Kota Bandung"
+                        
+                        return {
+                            "requested_location_text": alias,
+                            "location_type": l_type,
+                            "latitude": landmark["latitude"],
+                            "longitude": landmark["longitude"],
+                            "region": None,
+                            "fallback_region": fallback_reg,
+                            "default_radius_km": radius,
+                            "confidence": "high",
+                            "source": "landmark_aliases"
+                        }
+        
+        # 2. Region Fallback
+        q = raw_query
+        region = None
+        loc_text = None
+        
+        if "bandung barat" in q:
+            region, loc_text = "Kabupaten Bandung Barat", "bandung barat"
+        elif "kota bandung" in q:
+            region, loc_text = "Kota Bandung", "kota bandung"
+        elif "kabupaten bandung" in q:
+            region, loc_text = "Kabupaten Bandung", "kabupaten bandung"
+        elif "bandung timur" in q or "bandung selatan" in q or "bandung utara" in q:
+            region, loc_text = ["Kota Bandung", "Kabupaten Bandung"], "bandung"
+        elif "lembang" in q:
+            region, loc_text = ["Kabupaten Bandung Barat"], "lembang"
+        elif "ciwidey" in q or "pangalengan" in q:
+            region, loc_text = ["Kabupaten Bandung"], "ciwidey/pangalengan"
+        elif "jatinangor" in q:
+            region, loc_text = "Kabupaten Sumedang", "jatinangor"
+        elif "sumedang" in q:
+            region, loc_text = "Kabupaten Sumedang", "sumedang"
+        elif "cimahi" in q:
+            region, loc_text = "Kota Cimahi", "cimahi"
+        elif "purwakarta" in q:
+            region, loc_text = "Kabupaten Purwakarta", "purwakarta"
+        elif "subang" in q:
+            region, loc_text = "Kabupaten Subang", "subang"
+        elif "cianjur" in q:
+            region, loc_text = "Kabupaten Cianjur", "cianjur"
+        elif "sukabumi" in q:
+            region, loc_text = "Kabupaten Sukabumi", "sukabumi"
+        elif "bandung" in q:
+            region, loc_text = ["Kota Bandung", "Kabupaten Bandung Barat", "Kabupaten Bandung"], "bandung"
+            
+        if region:
+            return {
+                "requested_location_text": loc_text,
+                "location_type": "region",
+                "latitude": None,
+                "longitude": None,
+                "region": region,
+                "default_radius_km": None,
+                "confidence": "high",
+                "source": "region_fallback"
+            }
+            
         return None
 
     def _coerce_float(self, value):
@@ -748,23 +856,7 @@ class MuterBandungRecommender:
         """Detect explicit nearby intent in natural language."""
         return self._query_has_keyword(query, NEARBY_QUERY_KEYWORDS)
 
-    def _detect_landmark_location(self, query):
-        """Resolve nearby/area queries to known landmark coordinates."""
-        if not isinstance(query, str) or not query.strip() or not self.landmarks:
-            return None
 
-        raw_query = query.lower()
-        normalized_query = self._preprocess_text(query)
-        proximity_terms = ["dekat", "sekitar", "terdekat", "near", "dari", "di"]
-        if not any(re.search(r"\b" + re.escape(term) + r"\b", raw_query) for term in proximity_terms):
-            return None
-
-        for landmark in self.landmarks:
-            for alias in landmark["aliases"]:
-                pattern = r"\b" + re.escape(alias) + r"\b"
-                if re.search(pattern, raw_query) or re.search(pattern, normalized_query):
-                    return landmark
-        return None
 
     def _query_requests_night(self, query):
         """Detect queries where the night experience itself matters."""
@@ -776,6 +868,10 @@ class MuterBandungRecommender:
     def _query_requests_waterfall(self, query):
         """Detect explicit curug/air-terjun intent."""
         return self._query_has_keyword(query, WATERFALL_QUERY_KEYWORDS)
+
+    def _query_requests_kuliner(self, query):
+        """Detect explicit kuliner intent."""
+        return self._query_has_keyword(query, ["kuliner", "makan", "jajan", "kafe", "cafe", "restoran", "nongkrong"])
 
     def _query_requests_shopping(self, query):
         """Detect explicit shopping/mall/oleh-oleh intent."""
@@ -1263,11 +1359,121 @@ class MuterBandungRecommender:
                 return False
         return True
 
+    def _detect_search_intent(self, query):
+        """Langkah 1: Tentukan Kategori dan Place Type."""
+        if not query:
+            return {"intent": "general", "category_filter": None, "place_type_filter": None}
+        
+        query = query.lower()
+        result = {
+            "intent": "general",
+            "category_filter": None,
+            "place_type_filter": None
+        }
+        
+        # 1. Penginapan
+        if any(k in query for k in ["hotel", "penginapan", "villa", "kost", "staycation"]):
+            result.update({
+                "intent": "lodging_search",
+                "category_filter": ["Santai"],
+                "place_type_filter": ["hotel", "guest house", "villa", "hostel", "lodge"]
+            })
+            return result
+            
+        # 2. Cinema
+        if any(k in query for k in ["bioskop", "nonton film", "film terbaru", "cinema"]):
+            result.update({
+                "intent": "cinema_search",
+                "category_filter": ["Hiburan"],
+                "place_type_filter": ["cinema", "bioskop"]
+            })
+            return result
+            
+        return result
+
+    def _violates_hard_rule(self, query, row):
+        if not query:
+            return False
+        q = query.lower()
+        cat = str(row.get('category', '')).lower()
+        subcat = str(row.get('subcategory', '')).lower()
+        name = str(row.get('location_name', '')).lower()
+        
+        if any(k in q for k in ["hotel", "penginapan"]):
+            if "hotel" not in subcat and "guest house" not in subcat and "villa" not in subcat and "hostel" not in subcat and "lodge" not in subcat:
+                return True
+                
+        if any(k in q for k in ["bioskop", "cinema"]):
+            if "cinema" not in subcat and "bioskop" not in subcat:
+                return True
+                
+        return False
+
+    def _detect_search_intent(self, query):
+        """Langkah 1: Tentukan Kategori dan Place Type."""
+        if not query:
+            return {"intent": "general", "category_filter": None, "place_type_filter": None}
+        
+        query = query.lower()
+        result = {
+            "intent": "general",
+            "category_filter": None,
+            "place_type_filter": None
+        }
+        
+        # 1. Penginapan
+        if any(k in query for k in ["hotel", "penginapan", "villa", "kost", "staycation"]):
+            result.update({
+                "intent": "lodging_search",
+                "category_filter": ["Santai"],
+                "place_type_filter": ["hotel", "guest house", "villa", "hostel", "lodge"]
+            })
+            return result
+            
+        # 2. Cinema
+        if any(k in query for k in ["bioskop", "nonton film", "film terbaru", "cinema"]):
+            result.update({
+                "intent": "cinema_search",
+                "category_filter": ["Hiburan"],
+                "place_type_filter": ["cinema", "bioskop"]
+            })
+            return result
+            
+        return result
+
+    def _violates_hard_rule(self, query, row):
+        if not query:
+            return False
+        q = query.lower()
+        cat = str(row.get('category', '')).lower()
+        subcat = str(row.get('subcategory', '')).lower()
+        name = str(row.get('location_name', '')).lower()
+        
+        if any(k in q for k in ["hotel", "penginapan"]):
+            if "hotel" not in subcat and "guest house" not in subcat and "villa" not in subcat and "hostel" not in subcat and "lodge" not in subcat:
+                return True
+                
+        if any(k in q for k in ["bioskop", "cinema"]):
+            if "cinema" not in subcat and "bioskop" not in subcat:
+                return True
+                
+        return False
+
     def _apply_hard_filters(self, df, categories=None, max_price=None, min_rating=None, free_only=False,
                             day_type=None, open_at_hour=None, night_only=False,
-                            shopping_subtype=None, facility_filters=None):
+                            shopping_subtype=None, facility_filters=None, target_location=None):
         """Langkah A: Filter destinations deterministically based on user constraints."""
         filtered_df = df.copy()
+        
+        if target_location:
+            if isinstance(target_location, list):
+                mask_loc = filtered_df['kota_kabupaten'].isin(target_location)
+            else:
+                mask_loc = filtered_df['kota_kabupaten'] == target_location
+                
+            mask_unknown = filtered_df['kota_kabupaten'].str.lower() == 'unknown'
+            mask_missing = filtered_df['kota_kabupaten'].isna()
+            filtered_df = filtered_df[mask_loc | mask_unknown | mask_missing]
         
         # 1. Kategori (multi_labels + category match)
         if categories:
@@ -1276,7 +1482,9 @@ class MuterBandungRecommender:
             
         # 2. Harga Maksimum (price_max <= max_price)
         if max_price is not None:
-            filtered_df = filtered_df[filtered_df['price_max'] <= max_price]
+            mask_price = filtered_df['price_max'] <= max_price
+            mask_lodging_nan = filtered_df['price_max'].isna() & filtered_df['subcategory'].astype(str).str.lower().str.contains('hotel|villa|guest house|hostel|lodge|penginapan|glamping')
+            filtered_df = filtered_df[mask_price | mask_lodging_nan]
             
         # 3. Gratis Only (price_type is 'Gratis' or price_max == 0)
         if free_only:
@@ -1326,7 +1534,8 @@ class MuterBandungRecommender:
         if not candidate_indices:
             return {}
             
-        query_embedding = self.model.encode(cleaned_query, convert_to_tensor=True)
+        # SEMANTIC SEARCH CALCULATION
+        query_embedding = self.model.encode(query, convert_to_tensor=True)
         candidate_embeddings = self.corpus_embeddings[candidate_indices]
         
         sim_matrix = util.cos_sim(query_embedding, candidate_embeddings)
@@ -1339,15 +1548,15 @@ class MuterBandungRecommender:
 
     def _compute_final_score(self, df_filtered, similarity_scores, query=None, weights=None,
                              active_intents=None, sort_by="relevance", nearby_requested=False,
-                             shopping_requested=False):
+                             shopping_requested=False, kuliner_requested=False, malam_requested=False):
         """Langkah C: Compute final hybrid score and sort candidates."""
         if weights is None:
             if query and query.strip():
-                # 35% similarity, 35% sentiment, 20% rating, 10% confidence
-                weights = {'similarity': 0.35, 'sentiment': 0.35, 'rating': 0.20, 'confidence': 0.10}
+                # 65% similarity, 0% sentiment, 20% rating, 15% confidence
+                weights = {'similarity': 0.65, 'sentiment': 0.0, 'rating': 0.20, 'confidence': 0.15}
             else:
-                # 0% similarity, 55% sentiment, 30% rating, 15% confidence
-                weights = {'similarity': 0.0, 'sentiment': 0.55, 'rating': 0.30, 'confidence': 0.15}
+                # 0% similarity, 0% sentiment, 70% rating, 30% confidence
+                weights = {'similarity': 0.0, 'sentiment': 0.0, 'rating': 0.70, 'confidence': 0.30}
                 
         results = []
         active_intents = active_intents or []
@@ -1423,6 +1632,11 @@ class MuterBandungRecommender:
             if self._is_mall_destination(row) and not shopping_requested:
                 mall_penalty = MALL_NEARBY_GENERIC_PENALTY if nearby_requested else MALL_NON_SHOPPING_PENALTY
                 final_score *= mall_penalty
+            
+            if kuliner_requested and self._label_match_tier(row, "Kuliner") != "none":
+                final_score *= 1.3
+            if malam_requested and self._label_match_tier(row, "Malam") != "none":
+                final_score *= 1.3
             
             results.append({
                 'row': row,
@@ -1517,15 +1731,37 @@ class MuterBandungRecommender:
         Returns:
             dict containing success status, applied filters, and top K recommendation items.
         """
+        if query is None:
+            query = ""
+            
         actual_day_type = day_type
         actual_open_at_hour = open_at_hour
         parsed_user_lat = self._coerce_float(user_lat)
         parsed_user_lon = self._coerce_float(user_lon)
         parsed_max_distance_km = self._coerce_positive_float(max_distance_km)
-        landmark_context = self._detect_landmark_location(query)
+        location_intent = self._parse_location_intent(query)
+        landmark_context = None
+        target_location = None
+        fallback_region = None
+        
+        if location_intent:
+            if location_intent["latitude"] is not None:
+                landmark_context = {
+                    "name": location_intent["requested_location_text"].title(),
+                    "latitude": location_intent["latitude"],
+                    "longitude": location_intent["longitude"],
+                    "type": location_intent["location_type"]
+                }
+                fallback_region = location_intent.get("fallback_region")
+                if parsed_max_distance_km is None:
+                    parsed_max_distance_km = location_intent.get("default_radius_km")
+            if location_intent["region"] is not None:
+                target_location = location_intent["region"]
+
         if not self._has_valid_coordinates(parsed_user_lat, parsed_user_lon) and landmark_context:
             parsed_user_lat = landmark_context["latitude"]
             parsed_user_lon = landmark_context["longitude"]
+            
         has_user_location = self._has_valid_coordinates(parsed_user_lat, parsed_user_lon)
         nearby_requested = self._query_requests_nearby(query) or bool(landmark_context)
         night_requested = self._query_requests_night(query)
@@ -1533,6 +1769,8 @@ class MuterBandungRecommender:
         requested_shopping_subtype = self._query_requested_shopping_subtype(query)
         waterfall_requested = self._query_requests_waterfall(query)
         shopping_requested = self._query_requests_shopping(query) or bool(requested_shopping_subtype)
+        kuliner_requested = self._query_requests_kuliner(query)
+        # target_location already parsed above via _parse_location_intent
         low_crowd_requested = self._query_requests_low_crowd(query)
         facility_filters = self._query_facility_filters(query)
         location_context_payload = {
@@ -1544,7 +1782,9 @@ class MuterBandungRecommender:
             "nearby_query": nearby_requested,
             "max_distance_km": parsed_max_distance_km,
             "source": "landmark" if landmark_context else ("user" if has_user_location else None),
-            "landmark_name": landmark_context.get("name") if landmark_context else None
+            "landmark_name": landmark_context.get("name") if landmark_context else None,
+            "radius_km": None,
+            "fallback_used": False
         }
         
         # Handle open_now option
@@ -1735,7 +1975,8 @@ class MuterBandungRecommender:
             open_at_hour=actual_open_at_hour,
             night_only=night_requested,
             shopping_subtype=requested_shopping_subtype,
-            facility_filters=facility_filters
+            facility_filters=facility_filters,
+            target_location=target_location
         )
 
         waterfall_fallback_used = False
@@ -1761,7 +2002,8 @@ class MuterBandungRecommender:
                 open_at_hour=actual_open_at_hour,
                 night_only=night_requested,
                 shopping_subtype=requested_shopping_subtype,
-                facility_filters=facility_filters
+                facility_filters=facility_filters,
+                target_location=target_location
             )
             if waterfall_requested:
                 waterfall_df = filtered_df[filtered_df.apply(self._matches_waterfall_destination, axis=1)]
@@ -1769,12 +2011,46 @@ class MuterBandungRecommender:
                     filtered_df = waterfall_df
                     waterfall_fallback_used = len(waterfall_df) < min(top_k, 5)
             
-        filtered_df = self._attach_distance_columns(
-            filtered_df,
-            parsed_user_lat,
-            parsed_user_lon,
-            parsed_max_distance_km
-        )
+        base_filtered_df_for_radius = filtered_df.copy()
+        location_fallback_used = False
+        final_radius_used = parsed_max_distance_km
+
+        if has_user_location:
+            if landmark_context and fallback_region and location_intent.get("default_radius_km"):
+                relax_stages = [parsed_max_distance_km, 25.0, 40.0]
+                if max_distance_km is not None:
+                    relax_stages = [parsed_max_distance_km]
+                
+                best_df = None
+                for rad in relax_stages:
+                    temp_df = self._attach_distance_columns(base_filtered_df_for_radius, parsed_user_lat, parsed_user_lon, rad)
+                    temp_df = temp_df.dropna(subset=['__distance_km']) # Strict radius enforcement
+                    if len(temp_df) >= 5:
+                        best_df = temp_df
+                        final_radius_used = rad
+                        break
+                        
+                if best_df is None or len(best_df) < 5:
+                    location_fallback_used = True
+                    final_radius_used = None
+                    if isinstance(fallback_region, list):
+                        mask_loc = base_filtered_df_for_radius['kota_kabupaten'].isin(fallback_region)
+                    else:
+                        mask_loc = base_filtered_df_for_radius['kota_kabupaten'] == fallback_region
+                    
+                    filtered_df = base_filtered_df_for_radius[mask_loc].copy()
+                    filtered_df = self._attach_distance_columns(filtered_df, parsed_user_lat, parsed_user_lon, None)
+                else:
+                    filtered_df = best_df
+                    if final_radius_used > relax_stages[0]:
+                        location_fallback_used = True
+            else:
+                filtered_df = self._attach_distance_columns(filtered_df, parsed_user_lat, parsed_user_lon, parsed_max_distance_km)
+        else:
+            filtered_df = self._attach_distance_columns(filtered_df, None, None, None)
+            
+        location_context_payload["radius_km"] = final_radius_used
+        location_context_payload["fallback_used"] = location_fallback_used
 
         no_strong_specific_label = None
         no_strong_specific_reason = None
@@ -1855,6 +2131,12 @@ class MuterBandungRecommender:
             similarity_scores = {idx: 0.0 for idx in candidate_indices}
             
         # Step C: Weighted Scoring and Ranking
+        # Apply strict Intent Place Type Filtering
+        intent_info = self._detect_search_intent(query) if query else {}
+        if intent_info.get("place_type_filter"):
+            place_types = intent_info["place_type_filter"]
+            filtered_df = filtered_df[filtered_df['subcategory'].astype(str).str.lower().apply(lambda x: any(pt in x for pt in place_types))]
+
         scored_results = self._compute_final_score(
             filtered_df,
             similarity_scores,
@@ -1862,8 +2144,18 @@ class MuterBandungRecommender:
             active_intents=detected_intents,
             sort_by=ranking_mode,
             nearby_requested=nearby_requested,
-            shopping_requested=shopping_requested
+            shopping_requested=shopping_requested,
+            kuliner_requested=kuliner_requested,
+            malam_requested=night_requested
         )
+        
+        # Apply Hard Rule Penalties
+        for res in scored_results:
+            if query and self._violates_hard_rule(query, res['row']):
+                res['final_score'] *= 0.1
+                res['score_breakdown']['mall_penalty'] = 0.1
+        
+        scored_results.sort(key=lambda x: x['final_score'], reverse=True)
         
         # Slice top_k
         top_results = scored_results[:top_k]
@@ -1873,11 +2165,13 @@ class MuterBandungRecommender:
             row = res['row']
             
             # Format practical info
-            p_min = int(row['price_min'])
-            p_max = int(row['price_max'])
+            p_min = int(row['price_min']) if pd.notna(row['price_min']) else 0
+            p_max = int(row['price_max']) if pd.notna(row['price_max']) else 0
             p_type = str(row['price_type'])
             
-            if p_type.lower() == 'gratis' or p_max == 0:
+            if pd.isna(row['price_max']) and pd.isna(row['price_min']):
+                harga_str = "Harga belum tersedia"
+            elif p_type.lower() == 'gratis' or (p_max == 0 and p_min == 0):
                 harga_str = "Gratis"
             elif p_min == p_max:
                 harga_str = f"Rp {p_min:,}".replace(",", ".")

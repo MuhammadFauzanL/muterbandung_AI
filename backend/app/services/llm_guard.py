@@ -241,9 +241,6 @@ def _validate_summary(summary, candidate, errors, warnings, index):
     if _as_text(summary.get("destination_id")) != _as_text(candidate.get("destination_id")):
         errors.append(f"{path}.destination_id must match selected_destination_ids order.")
 
-    if summary.get("rank") != candidate.get("rank"):
-        errors.append(f"{path}.rank must match backend rank.")
-
     if _as_text(summary.get("name")) != _as_text(candidate.get("name")):
         errors.append(f"{path}.name must match evidence exactly.")
 
@@ -383,11 +380,65 @@ def build_llm_prompt_guard(evidence_pack):
     allowed_names = [_as_text(candidate.get("name")) for candidate in candidates if _as_text(candidate.get("name"))]
 
     system_prompt = (
-        "Anda adalah lapisan penjelasan MuterBandung. Jawab hanya memakai llm_evidence_pack. "
-        "Jangan membuat destinasi, harga, jarak, jam buka, rating, fasilitas, URL, atau gambar baru. "
-        "Pertahankan urutan ranking backend. Jika fakta tidak tersedia, tulis bahwa data belum tersedia atau belum terverifikasi. "
-        "Keluarkan JSON valid saja sesuai kontrak output."
+        "Anda adalah Cepot, asisten virtual lokal MuterBandung yang ramah, informatif, dan suka bergaya asyik (seperti guide lokal Sunda). "
+        "Jawab HANYA berdasarkan llm_evidence_pack yang diberikan. "
+        "Jangan membuat destinasi, harga, jarak, jam buka, rating, atau fasilitas baru. "
+        "Tugas Anda: tulis deskripsi singkat (field 'why') untuk tiap tempat yang menjelaskan *kenapa* tempat itu cocok dengan query user. "
+        "Gunakan bahasa natural, santai tapi profesional, dan JANGAN KAKU. Boleh pakai kata sapaan ringan (misal: 'Tempat ini pas banget buat kamu...', atau 'Cocok nih buat...'). "
+        "Tulis maksimal 3-4 kalimat per destinasi. "
+        "PASTIKAN semua JSON field dikembalikan dalam format yang diminta dan Anda BOLEH mengatur ulang urutan (rerank) destinasi sesuai pemahaman Anda tentang relevansinya."
     )
+
+    example_shape = {
+        "schema_version": OUTPUT_SCHEMA_VERSION,
+        "selected_destination_ids": ["LOC-123", "LOC-456"],
+        "destination_summaries": [
+            {
+                "destination_id": "LOC-123",
+                "rank": 1,
+                "name": "Kawah Putih Ciwidey",
+                "why": "Kawah Putih Ciwidey ini pas banget buat kamu yang lagi cari wisata alam dengan pemandangan magis. Banyak pengunjung yang terkesan dengan pesonanya (sentimen 89%), dan tempat ini juga punya rating tinggi lho!",
+                "price": "Rp 28.000 (Per Orang)",
+                "opening_hours": {
+                    "weekday": "07:00 - 17:00",
+                    "weekend": "07:00 - 17:00"
+                },
+                "distance_label": "35 km",
+                "sentiment_score": 0.89,
+                "adjusted_sentiment_score": 0.88,
+                "sentiment_model_source": "tfidf_linearsvc",
+                "review_confidence_label": "high_review_confidence",
+                "media": {
+                    "available": True,
+                    "image_url": "https://example.com/kawah_putih.jpg",
+                    "destination_url": "https://maps.google.com/?q=Kawah+Putih",
+                    "website": "https://kawahputih.com",
+                    "source": "google_maps_extractor"
+                },
+                "realworld_flags": {
+                    "is_active_verified": True,
+                    "price_verified": True,
+                    "coordinate_verified": True,
+                    "night_verified": False,
+                    "indoor_verified": False,
+                    "child_friendly_verified": True,
+                    "parking_verified": True,
+                    "wheelchair_accessible_verified": False,
+                    "toilet_verified": True,
+                    "mushola_verified": True,
+                    "pet_friendly_verified": False,
+                    "safety_verified": True,
+                    "open_24h_verified": False,
+                    "crowd_level": "unknown"
+                },
+                "limitations": [
+                    "Harga bersifat estimasi/kurasi dan dapat berubah."
+                ]
+            }
+        ],
+        "warnings": [],
+        "follow_up_question": "Mau cari tempat makan sekalian di dekat sana?"
+    }
 
     return {
         "schema_version": PROMPT_GUARD_SCHEMA_VERSION,
@@ -409,40 +460,7 @@ def build_llm_prompt_guard(evidence_pack):
             "required_top_level_fields": sorted(TOP_LEVEL_REQUIRED_FIELDS),
             "required_destination_summary_fields": sorted(SUMMARY_REQUIRED_FIELDS),
             "media_policy": "Media URLs may only be copied from candidate.media when media.available is true.",
-            "example_shape": {
-                "schema_version": OUTPUT_SCHEMA_VERSION,
-                "answer": "Ringkasan rekomendasi berdasarkan evidence pack.",
-                "selected_destination_ids": allowed_destination_ids[:3],
-                "destination_summaries": [
-                    {
-                        "destination_id": "copy_from_evidence",
-                        "rank": 1,
-                        "name": "copy_from_evidence",
-                        "why": "Explain using backend_reason and score_signals only.",
-                        "price": "copy_from_evidence",
-                        "opening_hours": {
-                            "weekday": "copy_from_evidence",
-                            "weekend": "copy_from_evidence",
-                        },
-                        "distance_label": "copy_from_evidence",
-                        "sentiment_score": "copy_from_evidence",
-                        "adjusted_sentiment_score": "copy_from_evidence",
-                        "sentiment_model_source": "copy_from_evidence",
-                        "review_confidence_label": "copy_from_evidence",
-                        "media": {
-                            "available": False,
-                            "image_url": "",
-                            "destination_url": "",
-                            "website": "",
-                            "source": "copy_from_evidence",
-                        },
-                        "realworld_flags": {},
-                        "limitations": [],
-                    }
-                ],
-                "warnings": [],
-                "follow_up_question": None,
-            },
+            "example_shape": example_shape
         },
     }
 
