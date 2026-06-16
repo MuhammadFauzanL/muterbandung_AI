@@ -1,3 +1,9 @@
+/**
+ * Category Card Component
+ *
+ * Displays a destination category with overlay text on an image.
+ * Used in the Category Highlights section of the landing page.
+ */
 import Image from 'next/image';
 import type { Category } from '@/types';
 
@@ -16,7 +22,7 @@ export function CategoryCard({
     <article
       className={`group relative overflow-hidden rounded-[26px] ${containerClassName ?? ''}`}
     >
-      <div className="relative h-full min-h-[236px] w-full lg:min-h-0">
+      <div className="relative h-full w-full">
         <Image
           src={image}
           alt={title}
@@ -27,10 +33,10 @@ export function CategoryCard({
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.03)_15%,rgba(15,23,42,0.72)_100%)]" />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-        <h3 className="text-[26px] font-medium leading-tight">{title}</h3>
+      <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-6 text-white">
+        <h3 className="text-[13px] sm:text-[26px] font-bold sm:font-medium leading-tight line-clamp-1">{title}</h3>
         {description ? (
-          <p className="mt-3 max-w-[88%] text-[15px] leading-7 text-white/82">
+          <p className="mt-0.5 sm:mt-3 max-w-[98%] sm:max-w-[88%] text-[9px] sm:text-[15px] leading-[1.3] sm:leading-7 text-white/90 line-clamp-2 sm:line-clamp-none">
             {description}
           </p>
         ) : null}

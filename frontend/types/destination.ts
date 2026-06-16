@@ -1,3 +1,9 @@
+/**
+ * Destination Types
+ *
+ * Type definitions for tourist destinations in Bandung.
+ */
+
 export interface Destination {
   title: string;
   location: string;

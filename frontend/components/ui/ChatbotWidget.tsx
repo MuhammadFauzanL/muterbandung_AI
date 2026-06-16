@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 function SendIcon() {
   return (
@@ -46,6 +47,18 @@ function ChatIcon() {
 
 export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleOpenChat = () => setIsOpen(true);
+    window.addEventListener('open-chat', handleOpenChat);
+    return () => window.removeEventListener('open-chat', handleOpenChat);
+  }, []);
+
+  // Hide chatbot on auth pages
+  if (pathname === '/register' || pathname === '/login') {
+    return null;
+  }
 
   return (
     <>
@@ -112,9 +125,9 @@ export function ChatbotWidget() {
           type="button"
           onClick={() => setIsOpen(true)}
           aria-label="Buka Chatbot Cepot AI"
-          className="group fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-[#0E75BC] shadow-[0_16px_34px_rgba(15,23,42,0.22)] transition-transform active:scale-95 sm:bottom-6 sm:right-6 sm:hover:scale-105"
+          className="group fixed bottom-4 right-4 z-40 flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border-4 border-white bg-[#0E75BC] shadow-[0_16px_34px_rgba(15,23,42,0.22)] transition-transform active:scale-95 sm:bottom-6 sm:right-6 sm:hover:scale-105 cursor-pointer"
         >
-          <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+          <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0 pointer-events-none">
             <Image
               src="/images/welcome-cepot.png"
               alt="Cepot AI"

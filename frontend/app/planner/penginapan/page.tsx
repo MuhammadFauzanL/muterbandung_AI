@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { AccommodationPageContent, PageShell } from '@/components';
+import { AccommodationPageContent } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Pilih Penginapan - MuterBandung AI',
@@ -9,12 +9,10 @@ export const metadata: Metadata = {
 
 export default function PlannerAccommodationPage() {
   return (
-    <PageShell
-      activeItem="planner"
-      backgroundClassName="bg-[#F5F8FC]"
-      footerVariant="compact"
-    >
-      <AccommodationPageContent />
-    </PageShell>
+    <div className="min-h-screen bg-[#F5F8FC] text-slate-950 flex flex-col">
+      <div className="flex-1">
+        <AccommodationPageContent />
+      </div>
+    </div>
   );
 }

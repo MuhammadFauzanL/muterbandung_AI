@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PageShell, PlannerPageContent } from '@/components';
+import { PlannerPageContent } from '@/components';
 
 export const metadata: Metadata = {
   title: 'AI Planner - MuterBandung AI',
@@ -9,12 +9,10 @@ export const metadata: Metadata = {
 
 export default function PlannerPage() {
   return (
-    <PageShell
-      activeItem="planner"
-      backgroundClassName="bg-[#F5F8FC]"
-      footerVariant="compact"
-    >
-      <PlannerPageContent />
-    </PageShell>
+    <div className="min-h-screen bg-[#F5F8FC] text-slate-950 flex flex-col">
+      <div className="flex-1">
+        <PlannerPageContent />
+      </div>
+    </div>
   );
 }

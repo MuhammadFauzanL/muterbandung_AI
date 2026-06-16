@@ -1,9 +1,15 @@
+/**
+ * Navigation Constants
+ *
+ * Static data for navigation bar and footer links.
+ */
 import type { NavigationItem, FooterLink } from '@/types';
 
 export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
   { key: 'home', label: 'Home', href: '/' },
   { key: 'explore', label: 'Explore', href: '/explore' },
   { key: 'planner', label: 'AI Planner', href: '/planner' },
+  { key: 'favorite', label: 'Favorite', href: '/favorite' },
 ] as const;
 
 export const FOOTER_LINKS: readonly FooterLink[] = [

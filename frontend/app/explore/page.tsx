@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { ExplorePageContent, PageShell } from '@/components';
+import { ExplorePageContent } from '@/components';
 
 export const metadata: Metadata = {
   title: 'Explore Bandung - MuterBandung AI',
@@ -9,12 +9,8 @@ export const metadata: Metadata = {
 
 export default function ExplorePage() {
   return (
-    <PageShell
-      activeItem="explore"
-      backgroundClassName="bg-[#F3F8FC]"
-      footerVariant="compact"
-    >
+    <div className="min-h-screen bg-[#F3F8FC] text-slate-950 flex flex-col">
       <ExplorePageContent />
-    </PageShell>
+    </div>
   );
 }
