@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 
+const apiUrl = (process.env.API_URL ?? process.env.NEXT_PUBLIC_API_URL)?.replace(/\/$/, "");
+const hasValidApiUrl = apiUrl?.startsWith("http://") || apiUrl?.startsWith("https://");
+
 const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
@@ -16,10 +19,14 @@ const nextConfig: NextConfig = {
   // Izinkan akses dari IP lokal untuk testing mobile
   allowedDevOrigins: ["192.168.1.11"],
   async rewrites() {
+    if (!apiUrl || !hasValidApiUrl) {
+      return [];
+    }
+
     return [
       {
         source: "/api/:path*",
-        destination: `${process.env.NEXT_PUBLIC_API_URL}/:path*`,
+        destination: `${apiUrl}/:path*`,
       },
     ];
   },
