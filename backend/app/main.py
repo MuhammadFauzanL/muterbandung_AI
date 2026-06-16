@@ -23,6 +23,9 @@ from services.chatbot_service import build_chat_response, build_rag_recommendati
 from services.llm_evidence_pack import build_llm_evidence_pack
 from services.llm_guard import build_llm_prompt_guard, validate_llm_output
 from services.penginapan_service import penginapan_service
+from services.persona_service import persona_service
+from services.behaviour_service import behaviour_service
+
 from services.llm_extractor import parse_intent_with_llm
 
 app = Flask(
@@ -497,3 +500,38 @@ if __name__ == '__main__':
     host = os.getenv('HOST', '0.0.0.0')
     port = int(os.getenv('PORT', '5000'))
     app.run(host=host, port=port, debug=debug_enabled)
+
+
+@app.route('/api/persona/home', methods=['POST'])
+def persona_home_api():
+    """API endpoint for homepage persona matching based on explicit rules."""
+    data, json_errors = _load_json_body()
+    if json_errors:
+        return _error_response("Invalid request body.", json_errors, status_code=400)
+
+    try:
+        response = persona_service.determine_home_persona(data)
+        return jsonify(response)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        # Fallback sesuai dokumen
+        fallback = persona_service._get_fallback_persona(str(e))
+        return jsonify(fallback)
+
+@app.route('/api/behaviour/next', methods=['POST'])
+def behaviour_next_api():
+    """API endpoint for suggesting the next category based on Markov Behaviour model."""
+    data, json_errors = _load_json_body()
+    if json_errors:
+        return _error_response("Invalid request body.", json_errors, status_code=400)
+
+    try:
+        response = behaviour_service.predict_next_category(data)
+        return jsonify(response)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        fallback = behaviour_service._get_fallback_response(str(e))
+        return jsonify(fallback)
+
