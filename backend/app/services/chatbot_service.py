@@ -5,6 +5,24 @@ from copy import deepcopy
 import requests
 
 from services.llm_evidence_pack import build_llm_evidence_pack
+
+# DAFTAR KEYWORD PENJAGA KONTEKS (Tourism-Related)
+TOURISM_CONTEXT_KEYWORDS = {
+    "wisata", "jalan-jalan", "liburan", "hotel", "penginapan", "villa", "guest house", 
+    "makan", "kuliner", "cafe", "museum", "taman", "curug", "gunung", "alam", "dago", 
+    "lembang", "bandung", "ciwidey", "tiket", "buka", "jarak", "rekomendasi", "cepot",
+    "pijak", "muterbandung", "rute", "itinerary", "pagi", "siang", "malam"
+}
+
+def _is_query_in_context(query):
+    """Memeriksa apakah kueri user setidaknya mengandung satu kata kunci pariwisata."""
+    if not query: return False
+    q = _as_text(query).lower()
+    # Izinkan sapaan pendek
+    if len(q.split()) <= 2 and any(k in q for k in ["halo", "hi", "hai", "pagi", "siang", "sore", "malam"]):
+        return True
+    return any(keyword in q for keyword in TOURISM_CONTEXT_KEYWORDS)
+
 from services.llm_guard import (
     OUTPUT_SCHEMA_VERSION,
     build_llm_prompt_guard,
@@ -140,6 +158,54 @@ def _extract_json_object(text):
     return parsed if isinstance(parsed, dict) else None
 
 
+
+def _call_cloudflare_ai(message, evidence_pack, prompt_guard):
+    account_id = _clean_env(os.getenv("CLOUDFLARE_ACCOUNT_ID"))
+    api_token = _clean_env(os.getenv("CLOUDFLARE_API_TOKEN"))
+    if not account_id or not api_token:
+        return None, "Cloudflare credentials not configured."
+    
+    url = f"https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+    headers = {"Authorization": f"Bearer {api_token}"}
+    
+    system_msg = prompt_guard.get("system_prompt", "") + "\nKembalikan JSON valid saja sesuai output_contract."
+    user_content = json.dumps({
+        "user_message": message,
+        "llm_evidence_pack": evidence_pack,
+        "output_contract": prompt_guard.get("output_contract"),
+    }, ensure_ascii=False)
+
+    payload = {
+        "messages": [
+            {"role": "system", "content": system_msg},
+            {"role": "user", "content": user_content}
+        ]
+    }
+    
+    try:
+        response = requests.post(url, headers=headers, json=payload, timeout=8)
+        if response.status_code == 200:
+            result = response.json()
+            raw_content = result.get("result", {}).get("response", "")
+            if isinstance(raw_content, dict): raw_content = json.dumps(raw_content)
+            return raw_content, None
+        return None, f"Cloudflare returned {response.status_code}"
+    except Exception as e:
+        return None, str(e)
+
+def _call_llm_with_failover(message, evidence_pack, prompt_guard):
+    # Try Cloudflare first
+    print("[LLM] Attempting Layer 1 (Cloudflare) for Chat/RAG...")
+    output, error = _call_cloudflare_ai(message, evidence_pack, prompt_guard)
+    
+    if output:
+        return output, None, "cloudflare"
+        
+    # Fallback to OpenRouter
+    print(f"[LLM] Layer 1 Failed ({error}). Switching to Layer 2 (OpenRouter)...")
+    output, error = _call_openrouter(message, evidence_pack, prompt_guard)
+    return output, error, "openrouter"
+
 def _call_openrouter(message, evidence_pack, prompt_guard):
     online_llm_enabled = _clean_env(os.getenv("MUTERBANDUNG_ENABLE_ONLINE_CHAT_LLM")).lower()
     if online_llm_enabled not in ENABLE_ONLINE_LLM_VALUES:
@@ -208,7 +274,23 @@ def _call_openrouter(message, evidence_pack, prompt_guard):
     return parsed, None
 
 
+
 def build_chat_response(message, engine, top_k=5):
+    message = _as_text(message)
+    
+    # --- HARD CONTEXT GUARDRAIL ---
+    if not _is_query_in_context(message):
+        print(f"[SECURITY] Query out of context blocked: {message}")
+        return {
+            "status": "success",
+            "message": message,
+            "answer": "Aduh hapunten pisan A/Teteh, Cepot mah cuma ngartos soal wisata sareng penginapan di MuterBandung wae euy. Tanya anu sanesna yuk!",
+            "recommendations": [],
+            "llm_rag_used": False,
+            "llm_rag_error": "Out of context query blocked by Backend Guardrail"
+        }, 200
+    # ------------------------------
+
     message = _as_text(message)
     if not message:
         return {
@@ -225,8 +307,8 @@ def build_chat_response(message, engine, top_k=5):
     evidence_pack = build_llm_evidence_pack(recommendation_response)
     prompt_guard = build_llm_prompt_guard(evidence_pack)
 
-    llm_output, llm_error = _call_openrouter(message, evidence_pack, prompt_guard)
-    parser_source = "openrouter"
+    llm_output, llm_error, parser_source = _call_llm_with_failover(message, evidence_pack, prompt_guard)
+    # parser_source handled by failover
     fallback_used = False
 
     if llm_output is None:
@@ -274,7 +356,7 @@ def build_rag_recommendation(message, recommendation_response):
     evidence_pack = build_llm_evidence_pack(recommendation_response)
     prompt_guard = build_llm_prompt_guard(evidence_pack)
 
-    llm_output, llm_error = _call_openrouter(message, evidence_pack, prompt_guard)
+    llm_output, llm_error, parser_source = _call_llm_with_failover(message, evidence_pack, prompt_guard)
     print(f"[RAG] OpenRouter returned: {llm_output}")
     print(f"[RAG] OpenRouter error: {llm_error}")
     fallback_used = False
