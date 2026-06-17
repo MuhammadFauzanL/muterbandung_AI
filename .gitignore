@@ -49,7 +49,7 @@ Codex_Backups/
 .playwright-mcp/
 
 # Large local model/artifact files
-Models/
+/Models/
 *.safetensors
 *.pt
 *.pth

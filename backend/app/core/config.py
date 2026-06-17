@@ -31,11 +31,34 @@ class Settings(BaseSettings):
 
     # ── CORS / Frontend ──────────────────────────────────
     frontend_url: str = "http://localhost:3000"
+    cors_origins: str = ""  # Comma-separated extra origins (e.g. ngrok URL)
 
     @property
     def is_development(self) -> bool:
         return self.app_env == "development"
 
+    @property
+    def allowed_origins(self) -> list[str]:
+        """Build the full list of allowed CORS origins."""
+        origins = {self.frontend_url}
+
+        # Parse extra origins from env
+        if self.cors_origins:
+            for origin in self.cors_origins.split(","):
+                origin = origin.strip()
+                if origin:
+                    origins.add(origin)
+
+        # Add common dev origins
+        if self.is_development:
+            origins.update({
+                "http://localhost:3000",
+                "http://127.0.0.1:3000",
+            })
+
+        return list(origins)
+
 
 # Singleton instance – import this wherever config is needed.
 settings = Settings()
+
