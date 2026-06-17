@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { DESTINATION_DETAILS } from '@/constants';
+import { destinationsService } from '@/services/destinations';
 import { DestinationDetailPageContent } from '@/components';
 
 interface DestinationDetailPageProps {
@@ -9,23 +9,25 @@ interface DestinationDetailPageProps {
   }>;
 }
 
-function getDestination(destinationId: string) {
-  return DESTINATION_DETAILS.find(
-    (destination) => destination.id === destinationId,
-  );
+async function getDestination(destinationId: string) {
+  try {
+    // Karena URL backend API menggunakan 'slug' dan Next.js menggunakan params 'destinationId',
+    // kita asumsikan destinationId == slug.
+    return await destinationsService.getBySlug(destinationId);
+  } catch (error) {
+    console.error(`Failed to fetch destination ${destinationId}:`, error);
+    return null;
+  }
 }
 
-export function generateStaticParams() {
-  return DESTINATION_DETAILS.map((destination) => ({
-    destinationId: destination.id,
-  }));
-}
+// Kita menghapus generateStaticParams() agar halaman ini bisa me-render dinamis 
+// (Server-Side Rendering) untuk setiap slug yang dipanggil, karena data di backend bisa bertambah sewaktu-waktu.
 
 export async function generateMetadata({
   params,
 }: DestinationDetailPageProps): Promise<Metadata> {
   const { destinationId } = await params;
-  const destination = getDestination(destinationId);
+  const destination = await getDestination(destinationId);
 
   if (!destination) {
     return {
@@ -35,7 +37,7 @@ export async function generateMetadata({
 
   return {
     title: `${destination.title} - MuterBandung AI`,
-    description: destination.description,
+    description: destination.description || `Jelajahi keindahan ${destination.title}`,
   };
 }
 
@@ -43,7 +45,7 @@ export default async function DestinationDetailPage({
   params,
 }: DestinationDetailPageProps) {
   const { destinationId } = await params;
-  const destination = getDestination(destinationId);
+  const destination = await getDestination(destinationId);
 
   if (!destination) {
     notFound();

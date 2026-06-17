@@ -8,6 +8,8 @@ export interface Category {
   title: string;
   description: string;
   image: string;
+  slug?: string;
+  count?: number;
   className?: string;
 }
 

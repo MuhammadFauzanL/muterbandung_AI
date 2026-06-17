@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
+import { authService } from '@/services/auth';
 
 export function RegisterForm() {
   const router = useRouter();
@@ -75,14 +76,15 @@ export function RegisterForm() {
     setIsLoading(true);
 
     try {
-      // Simulasi delay jaringan (1.5 detik)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      // Panggil API Register
+      await authService.register(formData.fullName, formData.email, formData.password);
 
-      const successTxt = 'Registrasi berhasil! Mengarahkan ke halaman preferensi...';
+      const successTxt = 'Registrasi berhasil! Memproses masuk...';
       setSuccessMsg(successTxt);
       
-      // Simulasikan login otomatis setelah daftar
-      login();
+      // Karena register biasanya tidak mengembalikan token, kita otomatis login menggunakan kredensial yang sama
+      const loginResponse = await authService.login(formData.email, formData.password);
+      login(loginResponse.access_token, loginResponse.user);
       
       // Redirect ke preferences after a short delay
       setTimeout(() => {
