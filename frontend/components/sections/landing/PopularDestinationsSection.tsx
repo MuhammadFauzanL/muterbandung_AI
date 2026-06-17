@@ -7,8 +7,8 @@
  * Uses DestinationCard for each destination item.
  */
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { destinationsService } from '@/services/destinations';
 import type { Destination } from '@/types';
 
@@ -113,17 +113,19 @@ function PopularDestinationCard({
   location,
   rating,
   image,
+  category,
 }: Destination) {
   return (
     <Link href={`/explore/${slug || ''}`} className="block shrink-0 snap-center group">
       <article className="relative h-[180px] sm:h-[320px] w-[240px] sm:w-[320px] overflow-hidden rounded-[16px] sm:rounded-2xl shadow-sm border border-slate-200 sm:border-0 cursor-pointer">
-        <Image
-        src={image}
-        alt={title}
-        fill
-        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 50vw"
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-      />
+        <SafeImage
+          src={image}
+          alt={title}
+          fill
+          sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 50vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          category={category}
+        />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(15,23,42,0.85)_100%)]" />
 
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 text-white">

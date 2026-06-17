@@ -4,7 +4,7 @@
  * Displays a destination category with overlay text on an image.
  * Used in the Category Highlights section of the landing page.
  */
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/SafeImage';
 import type { Category } from '@/types';
 
 interface CategoryCardProps extends Category {
@@ -23,12 +23,13 @@ export function CategoryCard({
       className={`group relative overflow-hidden rounded-[26px] ${containerClassName ?? ''}`}
     >
       <div className="relative h-full w-full">
-        <Image
+        <SafeImage
           src={image}
           alt={title}
           fill
           sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
           className="object-cover"
+          category={title}
         />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(15,23,42,0.03)_15%,rgba(15,23,42,0.72)_100%)]" />
       </div>
@@ -44,3 +45,4 @@ export function CategoryCard({
     </article>
   );
 }
+

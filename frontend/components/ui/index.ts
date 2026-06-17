@@ -6,3 +6,4 @@
 
 export * from './badges';
 export * from './cards';
+export { SafeImage } from './SafeImage';

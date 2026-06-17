@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/SafeImage';
 import { MapPin, ArrowLeft } from 'lucide-react';
 import { destinationsService } from '@/services/destinations';
 import type { Destination } from '@/types';
@@ -69,12 +69,13 @@ export function PopularPageContent() {
             {paginatedDestinations.map((destination) => (
               <Link key={destination.id || destination.title} href={`/explore/${destination.slug || ''}`} className="block group">
                 <article className="relative h-[240px] sm:h-[320px] w-full overflow-hidden rounded-[16px] sm:rounded-2xl shadow-sm border border-slate-200 sm:border-0">
-                <Image
+                <SafeImage
                   src={destination.image}
                   alt={destination.title}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  category={destination.category}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(15,23,42,0.85)_100%)]" />
 

@@ -4,7 +4,7 @@
  * Displays a tourist destination with image, location, price, and rating.
  * Used in the Popular Destinations section of the landing page.
  */
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/SafeImage';
 import type { Destination } from '@/types';
 import { StarBadge } from '@/components/ui/badges';
 import { MapPin, Heart } from 'lucide-react';
@@ -15,16 +15,18 @@ export function DestinationCard({
   price,
   rating,
   image,
+  category,
 }: Destination) {
   return (
     <article className="overflow-hidden rounded-[18px] border border-[#C8E1F0] bg-white shadow-[0_5px_10px_rgba(15,23,42,0.08)]">
       <div className="relative aspect-[1.32/1] overflow-hidden">
-        <Image
+        <SafeImage
           src={image}
           alt={title}
           fill
           sizes="(min-width: 1280px) 370px, (min-width: 768px) 50vw, 100vw"
           className="object-cover"
+          category={category}
         />
         <div className="absolute right-3 top-3">
           <StarBadge rating={rating} />

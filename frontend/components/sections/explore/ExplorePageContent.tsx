@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/SafeImage';
 import Link from 'next/link';
 import { usePlanner } from '@/context/PlannerContext';
 import {
@@ -22,7 +22,7 @@ function PlannerHero() {
   return (
     <section className="relative overflow-hidden rounded-[24px] px-5 py-6 sm:px-10 sm:py-14 text-white shadow-[0_18px_36px_rgba(31,90,145,0.18)]">
       {/* Mountain Background Image */}
-      <Image
+      <SafeImage
         src="https://images.unsplash.com/photo-1588668214407-6ea9a6d8c272?q=80&w=1200&auto=format&fit=crop"
         alt="Mountain background"
         fill
@@ -319,13 +319,14 @@ function DestinationCard({
       </div>
 
       <div className="relative h-[120px] sm:h-[200px] w-full overflow-hidden">
-        <Image
+        <SafeImage
           src={destination.image}
           alt={destination.title}
           fill
           loading={eagerImage ? 'eager' : 'lazy'}
           sizes="(min-width: 1024px) 390px, (min-width: 640px) 50vw, 100vw"
           className={`object-cover transition-transform duration-500 hover:scale-105 ${destination.id === 'sudut-pandang' ? 'object-bottom' : 'object-center'}`}
+          category={destination.category}
         />
         <div className="absolute left-2 top-2 sm:left-4 sm:top-4 rounded-full bg-white/95 px-2 py-0.5 sm:px-3 sm:py-1.5 text-[9px] sm:text-[12px] font-bold text-[#0E75BC] shadow-sm backdrop-blur-sm">
           {destination.category}

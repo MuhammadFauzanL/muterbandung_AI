@@ -5,6 +5,9 @@ const hasValidApiUrl = apiUrl?.startsWith("http://") || apiUrl?.startsWith("http
 
 const nextConfig: NextConfig = {
   images: {
+    // Bypass Next.js Image Optimization proxy to prevent 403
+    // from Google Maps Place Photos (signed URLs reject server proxying)
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",
@@ -13,6 +16,10 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "dynamic-media-cdn.tripadvisor.com",
       },
     ],
   },

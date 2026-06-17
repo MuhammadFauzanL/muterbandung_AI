@@ -1,6 +1,6 @@
 "use client";
 
-import Image from 'next/image';
+import { SafeImage } from '@/components/ui/SafeImage';
 import Link from 'next/link';
 import { usePlanner } from '@/context/PlannerContext';
 import { useToast } from '@/context/ToastContext';
@@ -23,13 +23,14 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
       <main className="mx-auto max-w-[1180px] px-4 py-4 sm:px-8 pb-6 sm:pb-12">
         {/* HERO SECTION */}
         <section className="relative overflow-hidden rounded-[20px] bg-slate-900 h-[260px] sm:h-[400px]">
-          <Image
+          <SafeImage
             src={destination.heroImage}
             alt={destination.title}
             fill
             sizes="100vw"
             className="object-cover object-center opacity-90"
             priority
+            category={destination.category}
           />
           {/* Gradient Overlay for Text Visibility */}
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
@@ -138,16 +139,16 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
               <div className="grid grid-cols-2 gap-2 sm:gap-3 h-[200px] sm:h-[400px]">
                 <div className="grid grid-rows-2 gap-2 sm:gap-3">
                   <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
-                    <Image src={destination.gallery[0] || destination.heroImage} alt="Gallery 1" fill className="object-cover" />
+                    <SafeImage src={destination.gallery[0] || destination.heroImage} alt="Gallery 1" fill className="object-cover" />
                   </div>
                   <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
-                    <Image src={destination.gallery[1] || destination.heroImage} alt="Gallery 2" fill className="object-cover" />
+                    <SafeImage src={destination.gallery[1] || destination.heroImage} alt="Gallery 2" fill className="object-cover" />
                   </div>
                 </div>
                 <div className="relative rounded-xl sm:rounded-2xl overflow-hidden bg-slate-100">
                   <div className="absolute inset-0 grid grid-rows-2 gap-2 sm:gap-3 p-0">
-                     <div className="relative bg-slate-200 rounded-xl sm:rounded-2xl overflow-hidden"><Image src={destination.gallery[2] || destination.heroImage} alt="Gallery 3" fill className="object-cover" /></div>
-                     <div className="relative bg-slate-300 rounded-xl sm:rounded-2xl overflow-hidden"><Image src={destination.gallery[3] || destination.heroImage} alt="Gallery 4" fill className="object-cover" /></div>
+                     <div className="relative bg-slate-200 rounded-xl sm:rounded-2xl overflow-hidden"><SafeImage src={destination.gallery[2] || destination.heroImage} alt="Gallery 3" fill className="object-cover" /></div>
+                     <div className="relative bg-slate-300 rounded-xl sm:rounded-2xl overflow-hidden"><SafeImage src={destination.gallery[3] || destination.heroImage} alt="Gallery 4" fill className="object-cover" /></div>
                   </div>
                 </div>
               </div>
@@ -213,7 +214,7 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
               <h2 className="text-[14px] sm:text-[16px] font-bold text-slate-900 mb-3 sm:mb-4">Lokasi</h2>
               <div className="w-full h-[120px] sm:h-[180px] bg-slate-200 rounded-lg sm:rounded-xl overflow-hidden relative mb-3 sm:mb-4">
                 {/* Mock Map Image */}
-                <Image src="/images/background.png" alt="Map Route" fill className="object-cover opacity-70" />
+                <SafeImage src="/images/background.png" alt="Map Route" fill className="object-cover opacity-70" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-8 w-8 sm:h-10 sm:w-10 bg-white rounded-full flex items-center justify-center shadow-lg text-[#E94B35]">
                     <MapPin className="h-4 w-4 sm:h-6 w-6" />
@@ -237,7 +238,7 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
                 {destination.nearbyStays.slice(0, 3).map((stay, idx) => (
                   <div key={idx} className="bg-white border border-slate-200 rounded-xl p-2.5 sm:p-3 flex gap-3 sm:gap-4 items-center shadow-sm hover:border-[#0E75BC] transition-colors cursor-pointer">
                     <div className="relative h-12 w-12 sm:h-16 w-16 rounded-lg sm:rounded-xl overflow-hidden shrink-0">
-                      <Image src={stay.image} alt={stay.name} fill className="object-cover" />
+                      <SafeImage src={stay.image} alt={stay.name} fill className="object-cover" />
                     </div>
                     <div>
                       <h4 className="text-[12px] sm:text-[14px] font-bold text-slate-900">{stay.name}</h4>
