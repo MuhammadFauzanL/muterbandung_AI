@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { Camera, Lock, Mail, MapPin, Heart, Map, Building, Eye, EyeOff, X, Mountain, Utensils, ShoppingBag, Landmark, Home, PawPrint, Castle, GraduationCap, Leaf, PersonStanding, Rocket, Users, Smile, TreePine, Moon } from 'lucide-react';
 import { useState } from 'react';
+import { useAuth } from '@/context/AuthContext';
 
 // --- CONSTANTS FOR PREFERENCES ---
 const FAVORITE_PLACES = [
@@ -35,6 +36,7 @@ const ATMOSPHERES = [
 ];
 
 export function ProfilePageContent() {
+  const { user } = useAuth();
   const [activeModal, setActiveModal] = useState<'editProfile' | 'changePassword' | 'editPreferences' | null>(null);
 
   return (
@@ -58,8 +60,8 @@ export function ProfilePageContent() {
               </button>
             </div>
             <div>
-              <h1 className="text-lg sm:text-xl font-bold text-[#112F43]">Dudung</h1>
-              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Bergabung sejak 2025</p>
+              <h1 className="text-lg sm:text-xl font-bold text-[#112F43]">{user?.name || 'Sobat Muter'}</h1>
+              <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Bergabung sejak {user?.created_at ? new Date(user.created_at).getFullYear() : '2025'}</p>
             </div>
           </div>
           <button 
@@ -82,7 +84,7 @@ export function ProfilePageContent() {
                   <label className="block text-[10px] sm:text-[11px] font-bold text-slate-500 mb-1 sm:mb-1.5 uppercase tracking-wide">Username</label>
                   <div className="flex items-center gap-2.5 sm:gap-3 bg-[#F8FAFC] border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 opacity-80 cursor-not-allowed">
                     <span className="text-slate-400 font-bold text-xs sm:text-sm">@</span>
-                    <input type="text" value="dudung" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
+                    <input type="text" value={user?.name?.toLowerCase().replace(/\s/g, '') || 'pengguna'} disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
                   </div>
                 </div>
 
@@ -91,7 +93,7 @@ export function ProfilePageContent() {
                   <label className="block text-[10px] sm:text-[11px] font-bold text-slate-500 mb-1 sm:mb-1.5 uppercase tracking-wide">Email Address</label>
                   <div className="flex items-center gap-2.5 sm:gap-3 bg-[#F8FAFC] border border-slate-200 rounded-lg sm:rounded-xl px-3 py-2 sm:px-4 sm:py-2.5 opacity-80 cursor-not-allowed">
                     <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-slate-400" />
-                    <input type="email" value="dudung@example.com" disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
+                    <input type="email" value={user?.email || 'email@example.com'} disabled className="bg-transparent border-none text-slate-700 w-full outline-none font-medium text-xs sm:text-sm" />
                   </div>
                 </div>
 

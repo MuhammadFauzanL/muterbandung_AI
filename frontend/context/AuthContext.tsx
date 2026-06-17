@@ -1,10 +1,13 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode, useCallback } from 'react';
+import { authService, User } from '@/services/auth';
 
 interface AuthContextType {
   isLoggedIn: boolean;
-  login: () => void;
+  user: User | null;
+  isLoading: boolean;
+  login: (token: string, userData?: User) => void;
   logout: () => void;
 }
 
@@ -12,28 +15,52 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Load state from localStorage on mount
-  useEffect(() => {
-    const stored = localStorage.getItem('muterbandung_auth');
-    if (stored === 'true') {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
+  const fetchUser = useCallback(async () => {
+    try {
+      const userData = await authService.getMe();
+      setUser(userData);
       setIsLoggedIn(true);
+    } catch (error) {
+      console.error('Gagal mengambil data user:', error);
+      // Jika token expired atau invalid, otomatis logout
+      logout();
+    } finally {
+      setIsLoading(false);
     }
   }, []);
 
-  const login = () => {
+  // Load state from localStorage on mount
+  useEffect(() => {
+    const token = localStorage.getItem('muterbandung_token');
+    if (token) {
+      fetchUser();
+    } else {
+      setIsLoading(false);
+    }
+  }, [fetchUser]);
+
+  const login = (token: string, userData?: User) => {
+    localStorage.setItem('muterbandung_token', token);
     setIsLoggedIn(true);
-    localStorage.setItem('muterbandung_auth', 'true');
+    if (userData) {
+      setUser(userData);
+    } else {
+      // Ambil data user jika belum disediakan saat login
+      fetchUser();
+    }
   };
 
   const logout = () => {
     setIsLoggedIn(false);
-    localStorage.removeItem('muterbandung_auth');
+    setUser(null);
+    localStorage.removeItem('muterbandung_token');
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, user, isLoading, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
+import { authService } from '@/services/auth';
 
 export function LoginForm() {
   const router = useRouter();
@@ -57,14 +58,13 @@ export function LoginForm() {
     setIsLoading(true);
 
     try {
-      // Simulasi delay jaringan (1.5 detik)
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await authService.login(formData.email, formData.password);
       
       const successTxt = 'Login berhasil! Mengarahkan ke halaman utama...';
       setSuccessMsg(successTxt);
       
-      // Simulasikan berhasil login di auth state
-      login();
+      // Update state login dan simpan token
+      login(response.access_token, response.user);
       
       // Redirect ke home after a short delay
       setTimeout(() => {

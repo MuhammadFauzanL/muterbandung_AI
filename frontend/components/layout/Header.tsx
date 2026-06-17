@@ -19,7 +19,7 @@ interface HeaderProps {
 }
 
 export function Header({ activeItem = 'home' }: HeaderProps) {
-  const { isLoggedIn, login, logout } = useAuth();
+  const { isLoggedIn, user, logout } = useAuth();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
@@ -134,7 +134,7 @@ export function Header({ activeItem = 'home' }: HeaderProps) {
                         <Image src="/images/welcome-cepot.png" alt="Avatar" width={40} height={40} className="object-cover object-top" />
                       </div>
                       <div>
-                        <p className="text-[14px] font-bold text-slate-800">Halo, Dudung</p>
+                        <p className="text-[14px] font-bold text-slate-800">Halo, {user?.name?.split(' ')[0] || 'Sobat'}</p>
                         <Link href="/profile" onClick={() => setIsMobileMenuOpen(false)} className="text-[12px] font-medium text-[#0E75BC] hover:underline">Lihat Profil</Link>
                       </div>
                     </div>
