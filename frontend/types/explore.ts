@@ -5,7 +5,7 @@ export interface ExploreDestination {
   price: string;
   rating: string;
   category: string;
-  duration: string;
+  duration?: string;
   image: string;
 }
 
@@ -33,10 +33,10 @@ export interface DestinationDetail extends ExploreDestination {
   heroImage: string;
   aiReason: string;
   description: string;
-  metrics: readonly DetailMetric[];
+  metrics?: readonly DetailMetric[];
   gallery: readonly string[];
   facilities: readonly string[];
-  weather: {
+  weather?: {
     condition: string;
     temperature: string;
     note: string;

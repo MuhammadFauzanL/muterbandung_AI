@@ -1,5 +1,5 @@
 import { apiFetch } from './api';
-import type { Destination } from '@/types';
+import type { Destination, DestinationDetail } from '@/types';
 
 // We might need to adjust the exact response type based on the backend
 export interface HighlightCategory {
@@ -57,7 +57,7 @@ export const destinationsService = {
   /**
    * Get full destination detail by slug
    */
-  async getBySlug(slug: string): Promise<Destination> {
+  async getBySlug(slug: string): Promise<DestinationDetail> {
     const res = await apiFetch<any>(`/destinations/${slug}`, {
       method: 'GET',
     });
@@ -85,6 +85,6 @@ export const destinationsService = {
         { name: "Villa Nyaman", location: typeof item.location === 'object' ? item.location?.label : item.location, image: item.heroImageUrl || item.imageUrl, price: "Rp 750.000" },
       ],
       price: item.ticket?.label || item.priceLabel || "Gratis",
-    } as any;
+    } as DestinationDetail;
   },
 };
