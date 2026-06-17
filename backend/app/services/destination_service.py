@@ -81,6 +81,11 @@ def _apply_sort(query, sort: str):
             Destination.total_reviews.desc().nullslast(),
             Destination.avg_rating.desc().nullslast(),
         ],
+        "quality": [
+            Destination.quality_score.desc().nullslast(),
+            Destination.avg_rating.desc().nullslast(),
+            Destination.total_reviews.desc().nullslast(),
+        ],
         "rating": [
             Destination.avg_rating.desc().nullslast(),
             Destination.total_reviews.desc().nullslast(),

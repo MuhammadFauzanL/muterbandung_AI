@@ -35,6 +35,12 @@ class Destination(Base):
             "display_status",
             "popular_score",
         ),
+        Index(
+            "ix_destinations_active_quality",
+            "curation_action",
+            "display_status",
+            "quality_score",
+        ),
     )
 
     # ── Identity ─────────────────────────────────────────
@@ -124,6 +130,10 @@ class Destination(Base):
     popular_score = Column(
         Float, index=True, nullable=True,
         comment="Calculated during CSV import (Phase 3)",
+    )
+    quality_score = Column(
+        Float, index=True, nullable=True,
+        comment="Quality-oriented ranking score for recommendations",
     )
 
     # ── Timestamps ───────────────────────────────────────

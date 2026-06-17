@@ -31,9 +31,11 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
 import re
 import sys
 import unicodedata
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -125,6 +127,28 @@ REQUIRED_COLUMNS: list[str] = [
 OPTIONAL_COLUMNS: list[str] = [
     "zona_wisata",
 ]
+
+FACILITY_SOURCE_COLUMNS: list[str] = [
+    "parking_verified",
+    "wheelchair_accessible_verified",
+    "toilet_verified",
+    "mushola_verified",
+    "pet_friendly_verified",
+    "open_24h_verified",
+    "child_friendly_verified",
+    "night_verified",
+    "indoor_verified",
+    "safety_verified",
+]
+
+
+@dataclass(frozen=True)
+class ImportScoringContext:
+    """Reusable calibration values for recommendation-oriented scoring."""
+
+    avg_rating_baseline: float
+    bayesian_min_reviews: int = 200
+    review_log_cap: int = 1000
 
 # =========================================================================
 # Transform helpers
@@ -272,6 +296,105 @@ def calculate_popular_score(
     )
 
 
+def build_scoring_context(rows: list[dict]) -> ImportScoringContext:
+    """
+    Build calibration values from the latest curated CSV snapshot.
+
+    The recommendation score uses a Bayesian rating baseline so that
+    destinations with a smaller review count are not punished too harshly.
+    """
+    ratings = [
+        rating
+        for row in rows
+        if (rating := safe_float(row.get("avg_rating"))) is not None
+    ]
+    avg_rating_baseline = sum(ratings) / len(ratings) if ratings else 4.0
+    return ImportScoringContext(avg_rating_baseline=avg_rating_baseline)
+
+
+def calculate_quality_score(
+    row: dict,
+    *,
+    total_reviews: int | None,
+    avg_rating: float | None,
+    sentiment_score: float | None,
+    avg_sentiment_score: float | None,
+    scoring_context: ImportScoringContext,
+) -> float:
+    """
+    Calculate a quality-oriented score for recommendation surfaces.
+
+    We intentionally separate this from popular_score:
+      - popular_score answers "what is currently popular?"
+      - quality_score answers "what is broadly strong for users?"
+    """
+    rating_value = avg_rating or 0.0
+    review_count = total_reviews or 0
+    sentiment_value = sentiment_score if sentiment_score is not None else (
+        avg_sentiment_score if avg_sentiment_score is not None else 0.0
+    )
+
+    bayes_m = scoring_context.bayesian_min_reviews
+    baseline = scoring_context.avg_rating_baseline
+    bayesian_rating = (
+        (review_count / (review_count + bayes_m)) * rating_value
+        + (bayes_m / (review_count + bayes_m)) * baseline
+        if (review_count + bayes_m) > 0
+        else baseline
+    )
+    bayesian_rating_norm = bayesian_rating / 5.0
+
+    review_confidence = min(
+        math.log1p(review_count) / math.log1p(scoring_context.review_log_cap),
+        1.0,
+    )
+
+    opening_hours_available = any(
+        [
+            safe_str(row.get("jam_buka")) and safe_str(row.get("jam_tutup")),
+            safe_str(row.get("jam_buka_weekday"))
+            and safe_str(row.get("jam_tutup_weekday")),
+            safe_str(row.get("jam_buka_weekend"))
+            and safe_str(row.get("jam_tutup_weekend")),
+        ],
+    )
+    completeness_checks = [
+        safe_str(row.get("deskripsi_google")) is not None,
+        safe_str(row.get("price_type")) is not None,
+        safe_int(row.get("estimasi_durasi_menit")) is not None,
+        safe_str(row.get("media_image_url")) is not None,
+        safe_str(row.get("media_destination_url")) is not None,
+        safe_str(row.get("final_primary_intent")) is not None,
+        safe_str(row.get("final_core_labels")) is not None,
+        opening_hours_available,
+    ]
+    data_completeness = sum(1 for ok in completeness_checks if ok) / len(
+        completeness_checks,
+    )
+
+    facility_values = [safe_bool(row.get(col)) for col in FACILITY_SOURCE_COLUMNS]
+    known_facility_values = [value for value in facility_values if value is not None]
+    facility_coverage = len(known_facility_values) / len(FACILITY_SOURCE_COLUMNS)
+    facility_positive_ratio = (
+        sum(1 for value in known_facility_values if value is True)
+        / len(known_facility_values)
+        if known_facility_values
+        else 0.0
+    )
+    facility_confidence = (
+        0.6 * facility_coverage + 0.4 * facility_positive_ratio
+    )
+
+    return round(
+        0.45 * bayesian_rating_norm
+        + 0.20 * sentiment_value
+        + 0.20 * review_confidence
+        + 0.10 * data_completeness
+        + 0.05 * facility_confidence,
+        6,
+    )
+
+
 def is_active_candidate(row: dict) -> bool:
     """
     MVP active data filter:
@@ -293,7 +416,11 @@ def is_active_candidate(row: dict) -> bool:
 # =========================================================================
 
 
-def build_destination_data(row: dict, slug: str) -> dict:
+def build_destination_data(
+    row: dict,
+    slug: str,
+    scoring_context: ImportScoringContext,
+) -> dict:
     """Transform a CSV row into Destination column values."""
     total_reviews = safe_int(row.get("total_ulasan"))
     avg_rating = safe_float(row.get("avg_rating"))
@@ -348,6 +475,14 @@ def build_destination_data(row: dict, slug: str) -> dict:
             avg_sentiment,
             media_avail,
             image_url,
+        ),
+        "quality_score": calculate_quality_score(
+            row,
+            total_reviews=total_reviews,
+            avg_rating=avg_rating,
+            sentiment_score=sentiment_sc,
+            avg_sentiment_score=avg_sentiment,
+            scoring_context=scoring_context,
         ),
     }
 
@@ -404,7 +539,12 @@ def build_facility_data(row: dict) -> dict:
 # =========================================================================
 
 
-def upsert_destination(db, row: dict, existing_slugs: set[str]) -> tuple[str, str]:
+def upsert_destination(
+    db,
+    row: dict,
+    existing_slugs: set[str],
+    scoring_context: ImportScoringContext,
+) -> tuple[str, str]:
     """
     Insert or update a single destination and its child records.
     Returns (external_id, 'inserted' | 'updated').
@@ -427,12 +567,12 @@ def upsert_destination(db, row: dict, existing_slugs: set[str]) -> tuple[str, st
             existing_slugs.discard(dest.slug)
             slug = generate_slug(name, ext_id, existing_slugs)
 
-        dest_data = build_destination_data(row, slug)
+        dest_data = build_destination_data(row, slug, scoring_context)
         for key, value in dest_data.items():
             setattr(dest, key, value)
     else:
         slug = generate_slug(name, ext_id, existing_slugs)
-        dest_data = build_destination_data(row, slug)
+        dest_data = build_destination_data(row, slug, scoring_context)
         dest = Destination(**dest_data)
         db.add(dest)
 
@@ -519,6 +659,14 @@ def run_import(
     total_rows = len(rows)
     print(f"📊 Total rows in CSV: {total_rows}")
 
+    scoring_rows = [r for r in rows if is_active_candidate(r)] or rows
+    scoring_context = build_scoring_context(scoring_rows)
+    print(
+        "🧮 Scoring baseline:"
+        f" avg_rating={scoring_context.avg_rating_baseline:.4f},"
+        f" bayes_m={scoring_context.bayesian_min_reviews}",
+    )
+
     # ── 3. Apply active filter ───────────────────────────
     if include_inactive:
         filtered_rows = rows
@@ -548,12 +696,13 @@ def run_import(
             ext_id = safe_str(row["location_id"])
             name = safe_str(row["location_name"])
             slug = generate_slug(name or "", ext_id or "", existing_slugs)
-            dest_data = build_destination_data(row, slug)
+            dest_data = build_destination_data(row, slug, scoring_context)
             print(f"  [{i + 1}] {ext_id}: {name}")
             print(f"      slug: {slug}")
             print(f"      category: {dest_data['category']}")
             print(f"      tourism_zone: {dest_data['tourism_zone']}")
             print(f"      popular_score: {dest_data['popular_score']}")
+            print(f"      quality_score: {dest_data['quality_score']}")
             print(f"      synthetic_tags: {dest_data['synthetic_tags']}")
             label_data = build_label_data(row)
             print(f"      primary_intent: {label_data['primary_intent']}")
@@ -597,7 +746,12 @@ def run_import(
         for i, row in enumerate(filtered_rows):
             ext_id = safe_str(row.get("location_id", f"row-{i}"))
             try:
-                _, action = upsert_destination(db, row, existing_slugs)
+                _, action = upsert_destination(
+                    db,
+                    row,
+                    existing_slugs,
+                    scoring_context,
+                )
                 if action == "inserted":
                     inserted += 1
                 else:

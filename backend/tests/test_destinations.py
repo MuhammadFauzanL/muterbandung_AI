@@ -115,7 +115,7 @@ class TestListDestinations:
             assert item["category"] == "Wisata Alam"
 
     def test_list_sort_options(self, client):
-        for sort_val in ["popular", "rating", "reviews", "newest", "price_low", "price_high"]:
+        for sort_val in ["popular", "quality", "rating", "reviews", "newest", "price_low", "price_high"]:
             resp = client.get(f"/destinations?sort={sort_val}&limit=1")
             assert resp.status_code == 200
 

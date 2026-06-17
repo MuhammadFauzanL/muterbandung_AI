@@ -78,7 +78,7 @@ def popular_destinations(
 # GET /destinations
 # =========================================================================
 
-_ALLOWED_SORTS = {"popular", "rating", "reviews", "newest", "price_low", "price_high"}
+_ALLOWED_SORTS = {"popular", "quality", "rating", "reviews", "newest", "price_low", "price_high"}
 
 
 @router.get("/destinations")
@@ -103,7 +103,7 @@ def list_destinations(
     """
     Paginated destination list with search, filters, and sorting.
 
-    **Allowed sorts:** popular, rating, reviews, newest, price_low, price_high
+    **Allowed sorts:** popular, quality, rating, reviews, newest, price_low, price_high
     """
     # Validate sort
     if sort not in _ALLOWED_SORTS:
