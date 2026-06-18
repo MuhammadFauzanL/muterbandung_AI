@@ -35,7 +35,10 @@ BACKEND_DELIVERY_RELEASE_V1/
    MUTERBANDUNG_ENABLE_ONLINE_CHAT_LLM=true
    OPENROUTER_API_KEY=your_key_here
    ```
-4. Pastikan file model lokal (seperti `.pkl` IndoBERT dan SentenceTransformer) sudah tersedia di environment server.
+4. **[PENTING] Penanganan Model Lokal (.pkl & Embeddings)**: 
+   - Sistem ini menggunakan model lokal yang berat (misal: `model_sentimen_muterbandung.pkl`).
+   - **JANGAN PERNAH** melakukan *push* file `.pkl` atau folder model berukuran besar ke dalam Git/GitHub.
+   - Pindahkan file model tersebut secara manual langsung ke server *production* (via FTP, SFTP, atau SCP) dan letakkan di struktur *path* yang sesuai dengan yang dibaca oleh kode.
 5. Jalankan pengujian server: `python app/main.py` atau `uvicorn app.main:app`.
 
 Sistem siap diintegrasikan dengan Frontend!
