@@ -14,7 +14,7 @@
       </a>
     </td>
     <td align="center">
-      <img width="128" height="128" alt="fotonazwa" src="https://github.com/user-attachments/assets/c4cf8fae-e5ee-48a7-93fa-87f4d9368269"alt="Nazwa"><br>
+      <img width="165" height="155" alt="image" src="https://github.com/user-attachments/assets/b1ba4110-3d4b-4ae9-aa63-6a6aa4e20e07" alt="Nazwa"><br>
       <a href="https://github.com/nazwaym">
         <img src="https://img.shields.io/badge/050-Nazwa%20Yulianti-blue" alt="050 Badge">
       </a>
