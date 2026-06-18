@@ -565,7 +565,15 @@ function DestinationCard({
 
   const handlePilih = () => {
     if (!isSelected) {
-      addDestination({ id: destination.id, title: destination.title });
+      addDestination({
+        id: destination.id,
+        title: destination.title,
+        slug: destination.slug,
+        category: destination.category,
+        primaryIntent: destination.primaryIntent,
+        image: destination.image,
+        distanceKm: destination.distanceKm,
+      });
       trackPlannerAdd(destination.id);
       setShowToast(true);
       window.setTimeout(() => setShowToast(false), 3000);

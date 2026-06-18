@@ -1,6 +1,49 @@
+"use client";
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { usePlanner } from '@/context/PlannerContext';
+import { apiFetch } from '@/services/api';
+
+interface InsightData {
+  text: string;
+  type: string;
+}
 
 export function InsightCard() {
+  const { destinations } = usePlanner();
+  const [insight, setInsight] = useState<InsightData | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let active = true;
+    const destIds = destinations.map((d) => d.id);
+
+    setLoading(true);
+    apiFetch<{ data?: InsightData }>('/planner/insight', {
+      method: 'POST',
+      body: JSON.stringify({ destination_ids: destIds }),
+    })
+      .then((res) => {
+        if (active && res.data) setInsight(res.data);
+      })
+      .catch(() => {
+        if (active) {
+          setInsight({
+            text: 'Mulai pilih destinasi wisata dari halaman Explore untuk mendapatkan insight dari Cepot AI!',
+            type: 'empty',
+          });
+        }
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => { active = false; };
+  }, [destinations]);
+
+  const displayText = insight?.text || 'Insight dari Cepot AI: Pilih destinasi untuk mendapatkan rekomendasi perjalanan yang lebih personal.';
+
   return (
     <section className="relative overflow-hidden rounded-[16px] sm:rounded-[18px] border border-[#BFE8F0] bg-[#EAF8FB] px-3 py-3 sm:px-5 sm:py-4 shadow-sm">
       <div className="relative z-10 flex items-start gap-2.5 sm:gap-4">
@@ -17,10 +60,8 @@ export function InsightCard() {
           <p className="text-[9px] sm:text-[11px] font-bold uppercase tracking-normal text-[#137CA6]">
             Cepot AI Insight
           </p>
-          <p className="mt-0.5 sm:mt-1.5 max-w-[640px] text-[10px] leading-relaxed sm:text-[14px] sm:leading-6 text-[#26485C]">
-            Insight dari Cepot AI: Wisatawan yang mengunjungi Kawah Putih
-            biasanya juga mengunjungi Situ Patenggang dan Ranca Upas karena
-            berada dalam satu kawasan wisata yang berdekatan.
+          <p className={`mt-0.5 sm:mt-1.5 max-w-[640px] text-[10px] leading-relaxed sm:text-[14px] sm:leading-6 text-[#26485C] transition-opacity duration-300 ${loading ? 'opacity-50' : 'opacity-100'}`}>
+            {displayText}
           </p>
         </div>
       </div>

@@ -5,6 +5,13 @@ import React, { createContext, useContext, useState, ReactNode } from 'react';
 export type PlannerDestination = {
   id: string;
   title: string;
+  slug?: string;
+  latitude?: number;
+  longitude?: number;
+  category?: string;
+  primaryIntent?: string;
+  image?: string;
+  distanceKm?: number;
 };
 
 export type PlannerAccommodation = {
@@ -21,6 +28,9 @@ export type PlannerAccommodation = {
 interface PlannerContextType {
   destinations: PlannerDestination[];
   accommodations: PlannerAccommodation[];
+  userLat?: number;
+  userLng?: number;
+  setUserLocation: (lat: number, lng: number) => void;
   addDestination: (dest: PlannerDestination) => void;
   removeDestination: (id: string) => void;
   addAccommodation: (acc: PlannerAccommodation) => void;
@@ -29,10 +39,33 @@ interface PlannerContextType {
 
 const PlannerContext = createContext<PlannerContextType | undefined>(undefined);
 
+function readStoredLocation(): { lat?: number; lng?: number } {
+  if (typeof window === 'undefined') return {};
+  try {
+    const raw = window.sessionStorage.getItem('muterbandung_location');
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed.lat && parsed.lng) return parsed;
+    }
+  } catch {
+    // ignore
+  }
+  return {};
+}
+
 export function PlannerProvider({ children }: { children: ReactNode }) {
-  // Initialize empty
   const [destinations, setDestinations] = useState<PlannerDestination[]>([]);
   const [accommodations, setAccommodationsState] = useState<PlannerAccommodation[]>([]);
+
+  // Initialize user location from sessionStorage (set by explore page)
+  const stored = readStoredLocation();
+  const [userLat, setUserLat] = useState<number | undefined>(stored.lat);
+  const [userLng, setUserLng] = useState<number | undefined>(stored.lng);
+
+  const setUserLocation = (lat: number, lng: number) => {
+    setUserLat(lat);
+    setUserLng(lng);
+  };
 
   const addDestination = (dest: PlannerDestination) => {
     setDestinations((prev) => {
@@ -58,6 +91,9 @@ export function PlannerProvider({ children }: { children: ReactNode }) {
       value={{
         destinations,
         accommodations,
+        userLat,
+        userLng,
+        setUserLocation,
         addDestination,
         removeDestination,
         addAccommodation,
