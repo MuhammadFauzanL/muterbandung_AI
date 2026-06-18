@@ -4,13 +4,11 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
 import { authService } from '@/services/auth';
 
 export function LoginForm() {
   const router = useRouter();
-  const { showToast } = useToast();
   const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -71,9 +69,9 @@ export function LoginForm() {
         router.push('/');
       }, 1000);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Terjadi kesalahan. Silakan coba lagi.';
+      setErrorMsg(message);
     } finally {
       setIsLoading(false);
     }

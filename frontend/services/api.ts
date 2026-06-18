@@ -59,8 +59,9 @@ export async function apiFetch<T>(
     }
 
     return data as T;
-  } catch (error: any) {
-    console.error(`API Error [${options.method || 'GET'} ${endpoint}]:`, error.message);
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error(`API Error [${options.method || 'GET'} ${endpoint}]:`, message);
     throw error;
   }
 }

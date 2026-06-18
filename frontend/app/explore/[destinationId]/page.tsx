@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { destinationsService } from '@/services/destinations';
-import type { DestinationDetail } from '@/types';
 import { DestinationDetailPageContent } from '@/components';
 
 interface DestinationDetailPageProps {

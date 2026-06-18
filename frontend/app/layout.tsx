@@ -13,8 +13,6 @@ import { AuthProvider } from "@/context/AuthContext";
 import { ToastProvider } from "@/context/ToastContext";
 import { ClientLayoutWrapper } from "@/components/layout/ClientLayoutWrapper";
 
-import Script from "next/script";
-
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { usePlanner } from '@/context/PlannerContext';
-import { MapPin, Star, Sparkles, Calendar, Users, Wallet, Check, Search, ArrowLeft, X } from 'lucide-react';
+import { MapPin, Star, Sparkles, Wallet, Search, X } from 'lucide-react';
 
 type AccommodationOption = {
   name: string;
@@ -86,7 +86,7 @@ function AccommodationFilters() {
       </label>
 
       <div className="mt-3 sm:mt-4 flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide">
-        {FILTERS.map((filter, index) => (
+        {FILTERS.map((filter) => (
           <button
             key={filter}
             type="button"
@@ -329,8 +329,6 @@ function HotelConfirmationModal({
   onClose: () => void;
   hotel: AccommodationOption | null;
 }) {
-  const router = useRouter();
-
   // Format dates: today and tomorrow
   const today = new Date();
   const tomorrow = new Date(today);
@@ -580,7 +578,7 @@ function AccommodationSidebar() {
                 key={b}
                 type="button"
                 className="flex w-full items-center gap-3 cursor-pointer text-left group"
-                onClick={() => setBudget(budget === b ? null : b)}
+                onClick={() => handleBudgetToggle(b)}
               >
                 <div className={`w-4 h-4 rounded-full border flex shrink-0 items-center justify-center transition-colors ${budget === b ? 'border-[#0E75BC] bg-[#0E75BC]' : 'border-slate-300 bg-white group-hover:border-[#0E75BC]'}`}>
                   {budget === b && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
@@ -624,7 +622,7 @@ function AccommodationSidebar() {
                 key={r}
                 type="button"
                 className="flex w-full items-center gap-3 cursor-pointer text-left group"
-                onClick={() => setRating(rating === r ? null : r)}
+                onClick={() => handleRatingToggle(r)}
               >
                 <div className={`w-4 h-4 rounded-full border flex shrink-0 items-center justify-center transition-colors ${rating === r ? 'border-[#0E75BC] bg-[#0E75BC]' : 'border-slate-300 bg-white group-hover:border-[#0E75BC]'}`}>
                   {rating === r && <div className="w-1.5 h-1.5 bg-white rounded-full" />}

@@ -3,11 +3,9 @@
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 import { useToast } from '@/context/ToastContext';
 
 export function ForgotPasswordForm() {
-  const router = useRouter();
   const { showToast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');

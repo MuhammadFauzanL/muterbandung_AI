@@ -14,36 +14,51 @@ export interface AuthResponse {
   user?: User;
 }
 
+type ApiEnvelope<T> = T | { data: T };
+
+function unwrapData<T>(response: ApiEnvelope<T>): T {
+  if (
+    typeof response === 'object' &&
+    response !== null &&
+    'data' in response
+  ) {
+    return response.data;
+  }
+
+  return response;
+}
+
 export const authService = {
   /**
    * Register a new user
    */
-  async register(name: string, email: string, password: string): Promise<any> {
-    return apiFetch('/auth/register', {
+  async register(name: string, email: string, password: string): Promise<AuthResponse> {
+    const res = await apiFetch<ApiEnvelope<AuthResponse>>('/auth/register', {
       method: 'POST',
       body: JSON.stringify({ name, email, password }),
     });
+    return unwrapData(res);
   },
 
   /**
    * Login user and get access token
    */
   async login(email: string, password: string): Promise<AuthResponse> {
-    const res = await apiFetch<any>('/auth/login', {
+    const res = await apiFetch<ApiEnvelope<AuthResponse>>('/auth/login', {
       method: 'POST',
       body: JSON.stringify({ email, password }),
     });
-    return res.data || res;
+    return unwrapData(res);
   },
 
   /**
    * Get current authenticated user profile
    */
   async getMe(): Promise<User> {
-    const res = await apiFetch<any>('/auth/me', {
+    const res = await apiFetch<ApiEnvelope<User>>('/auth/me', {
       method: 'GET',
       requireAuth: true,
     });
-    return res.data || res;
+    return unwrapData(res);
   },
 };

@@ -91,9 +91,9 @@ export function RegisterForm() {
         router.push('/preferences');
       }, 1000);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    } catch (err: any) {
-      setErrorMsg(err.message || 'Terjadi kesalahan. Silakan coba lagi.');
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : 'Terjadi kesalahan. Silakan coba lagi.';
+      setErrorMsg(message);
     } finally {
       setIsLoading(false);
     }

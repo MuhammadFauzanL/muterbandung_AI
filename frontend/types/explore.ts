@@ -90,13 +90,3 @@ export interface DestinationDetail extends ExploreDestination {
   nearbyStays: readonly NearbyStay[];
   reviews: readonly DestinationReview[];
 }
-
-export interface ExploreFilterGroup {
-  title: string;
-  options: readonly string[];
-}
-
-export interface ExploreStat {
-  label: string;
-  value: string;
-}

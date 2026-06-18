@@ -18,6 +18,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const logout = useCallback(() => {
+    setIsLoggedIn(false);
+    setUser(null);
+    localStorage.removeItem('muterbandung_token');
+  }, []);
+
   const fetchUser = useCallback(async () => {
     try {
       const userData = await authService.getMe();
@@ -30,16 +36,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [logout]);
 
   // Load state from localStorage on mount
   useEffect(() => {
-    const token = localStorage.getItem('muterbandung_token');
-    if (token) {
-      fetchUser();
-    } else {
-      setIsLoading(false);
-    }
+    const timeoutId = window.setTimeout(() => {
+      const token = localStorage.getItem('muterbandung_token');
+      if (token) {
+        void fetchUser();
+      } else {
+        setIsLoading(false);
+      }
+    }, 0);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
   }, [fetchUser]);
 
   const login = (token: string, userData?: User) => {
@@ -51,12 +63,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Ambil data user jika belum disediakan saat login
       fetchUser();
     }
-  };
-
-  const logout = () => {
-    setIsLoggedIn(false);
-    setUser(null);
-    localStorage.removeItem('muterbandung_token');
   };
 
   return (
