@@ -10,31 +10,25 @@
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/fac42ceb-3149-459e-85ce-8e8e327b9dc7" alt="Fauzan"><br>
       <a href="https://github.com/fauzanashshidiq">
-        <img src="" alt="051 Badge">
-      </a>
-    </td>
-    <td align="center">
-      <img width="128" height="128" src="https://github.com/user-attachments/assets/fac42ceb-3149-459e-85ce-8e8e327b9dc7" alt="Fauzan"><br>
-      <a href="https://github.com/fauzanashshidiq">
-        <img src="" alt="051 Badge">
+        <img src="https://img.shields.io/badge/051-M.%20Fauzan%20A.-blue" alt="051 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/800f0a8d-3503-4ce4-9266-99ce9a7c3f4b" alt="Rahardian"><br>
       <a href="https://github.com/rhrdianbaihaqi">
-        <img src="" alt="023 Badge">
+        <img src="https://img.shields.io/badge/023-M.%20Rahardian%20B.-blue" alt="023 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/7e57a253-1aa2-40f9-94d2-6c13ed51cc37" alt="Nazwa"><br>
       <a href="https://github.com/nazwaym">
-        <img src="" alt="007 Badge">
+        <img src="https://img.shields.io/badge/007-Nazwa%20Yulianti-blue" alt="007 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/b8239489-d715-409b-a883-3a8d4f0ca595" alt="Raflhy"><br>
       <a href="https://github.com/raflhyramadhan18">
-        <img src="" alt="004 Badge">
+        <img src="https://img.shields.io/badge/004-Raflhy%20Ramadhan-blue" alt="004 Badge">
       </a>
     </td>
   </tr>
@@ -68,7 +62,7 @@ Di era digital, pencarian destinasi wisata menggunakan aplikasi *travel* konvens
 ## 3. Tujuan Proyek
 - **Pemahaman Bahasa Natural (NLP):** Memproses *query* bebas pengguna dan memahami makna di baliknya (intensi pencarian) tanpa terikat pada *filter* kaku.
 - **Akurasi Geospasial (Location-Aware):** Mampu mengenali nama daerah (seperti Lembang, Dago, Jatinangor) lalu memberikan batasan radius jarak secara otomatis agar hasil rekomendasi benar-benar akurat secara geografis.
-- **Rekomendasi Berbasis AI (RAG):** Memberikan rangkuman dan alasan mengapa suatu tempat direkomendasikan dengan gaya bahasa asisten lokal Sunda yang ramah (Persona "Cepot").
+- **Rekomendasi Berbasis AI (RAG):** Memberikan rangkuman dan alasan mengapa suatu tempat direkomendasikan dengan gaya bahasa asisten lokal Sunda yang ramah.
 - **Integrasi Cerdas:** Otomatisasi pencarian penginapan terdekat dari destinasi wisata yang telah dipilih.
 
 ## 4. Teknologi yang Digunakan
@@ -77,16 +71,21 @@ Proyek ini dibangun dengan arsitektur Tri-Service yang terintegrasi untuk stabil
 - **Core Backend API Proxy:** FastAPI (Python), Uvicorn, httpx (bertugas sebagai *gateway* asinkron).
 - **Backend AI & ML:** Flask (Python), PyTorch, Pandas, NumPy.
 - **Machine Learning & NLP:** Sentence-Transformers (model `firqaaa/indo-sentence-bert-base`), Scikit-Learn (TF-IDF).
-- **Generative AI (LLM):** OpenRouter (Google Gemini / GPT-4o) untuk RAG (Persona Cepot).
+- **Generative AI (LLM):** OpenRouter (Google Gemini / GPT-4o) untuk RAG.
 - **Infrastruktur Hosting:** Vercel (Frontend), Hugging Face Spaces / Railway / VPS (Backend AI & Proxy).
 
 ## 5. Fitur Unggulan
 - **Pencarian AI Semantik:** Secara cerdas menyamakan kata "murah" dengan "gratis" atau "terjangkau", serta mendeteksi nuansa seperti "alam", "romantis", atau "edukasi".
 - **Location-Aware Enforcement & Fallback:** Memberlakukan batasan pencarian secara radial. Jika hasil terlalu sedikit, sistem otomatis melonggarkan radius (*fallback*) sebelum mengembalikan hasil kosong.
-- **AI Chatbot (Cepot):** Asisten *virtual* berlogat Sunda yang memberikan saran spesifik dan alasan logis berdasarkan dataset.
+- **AI Chatbot:** Asisten *virtual* yang memberikan saran spesifik dan alasan logis berdasarkan dataset.
 - **Rekomendasi Penginapan Sekitar:** Secara otomatis memetakan dan menyarankan hotel/villa terdekat dari wisata pilihan Anda.
 
-## 6. Arsitektur Tri-Service
+## 6. Model AI Persona & Behaviour
+MuterBandung tidak sekadar menampilkan data mentah, melainkan menyajikan pengalaman interaktif layaknya berbicara dengan warga lokal Bandung melalui rancangan pemodelan perilaku (Behaviour Model) dan karakter (Persona):
+- **Persona "Cepot":** Sistem AI Chatbot kami dirancang dengan *System Prompting* khusus agar memiliki karakter "Cepot" — asisten lokal Sunda yang ramah, sopan (*handap asor*), santai, dan berpengetahuan luas tentang Bandung. Penjelasan destinasi tidak lagi terasa kaku dan robotik.
+- **Behaviour Model (Anti-Halusinasi):** Algoritma dirancang secara cermat di mana model LLM *tidak memiliki hak* untuk menentukan hasil pencarian atau *ranking* destinasi. Model hanya bertindak sebagai **Interpreter** (Penerjemah Alasan) yang mengambil hasil pasti dari kalkulasi jarak dan skor TF-IDF *Backend AI Engine* kami. Mekanisme RAG (*Retrieval-Augmented Generation*) ketat ini memastikan AI tidak pernah mengarang informasi fiktif di luar dataset yang telah disurvei.
+
+## 7. Arsitektur Tri-Service
 Aplikasi ini memecah beban kerjanya ke dalam tiga *services* terpisah agar proses kalkulasi *Machine Learning* yang berat tidak membuat aplikasi *freeze*:
 
 - **Frontend (Next.js)** 
@@ -96,7 +95,7 @@ Aplikasi ini memecah beban kerjanya ke dalam tiga *services* terpisah agar prose
 - **Backend AI Engine (Flask)** 
   $\rightarrow$ Menangani komputasi berat, memuat model NLP, dataset `.csv` ke dalam memori RAM, menghitung *cosine similarity*, dan memanggil layanan API LLM pihak ketiga.
 
-## 7. Dokumentasi Antarmuka
+## 8. Dokumentasi Antarmuka
 
 <div align="center">
 
@@ -107,7 +106,7 @@ Aplikasi ini memecah beban kerjanya ke dalam tiga *services* terpisah agar prose
 *Catatan: Ganti gambar placeholder di atas dengan screenshot aktual aplikasi MuterBandung.*
 </div>
 
-## 8. Cara Instalasi Lokal untuk Development
+## 9. Cara Instalasi Lokal untuk Development
 
 ### Struktur Folder
 ```text
@@ -145,9 +144,5 @@ cd MuterBandung
 3. Buat `.env.local` dan tambahkan `NEXT_PUBLIC_API_URL=http://localhost:8001/api`
 4. Jalankan aplikasi web: `npm run dev`
 
-## 9. Kolaborasi Tim
+## 10. Kolaborasi Tim
 Proyek ini merupakan hasil kerja keras dari tim **Capstone Project PJK-GM056 (Tim PIJAK)** di bawah naungan program Dicoding. Pengembangan dilakukan melalui pendekatan lintas disiplin yang meliputi peran Front-End Engineering, Back-End Engineering, serta Machine Learning Engineering.
-
-## 10. Catatan Penting
-- Karena analisis pencarian menggunakan pemodelan AI (Sentence-BERT), waktu muat awal (*cold start*) ketika server dihidupkan akan memakan waktu untuk memuat model dan dataset ke dalam memori.
-- API LLM (OpenRouter/Gemini) memiliki batasan penggunaan (*Rate Limit*). Jika batas tercapai, sistem RAG secara otomatis akan menggunakan algoritma *Rule-Based* sebagai cadangan (*fallback*) agar aplikasi tetap berjalan lancar dan tidak *crash*.
