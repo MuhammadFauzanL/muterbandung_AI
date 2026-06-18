@@ -135,6 +135,7 @@ class DestinationDetailResponse(_CamelModel):
     tourism_zone: Optional[str] = None
     description: Optional[str] = None
     hero_image_url: Optional[str] = None
+    gallery: list[str] = Field(default_factory=list)
     rating: DestinationRatingResponse
     ticket: DestinationTicketResponse
     opening_hours: DestinationOpeningHoursResponse

@@ -13,6 +13,11 @@ from app.schemas.user_preference_schema import (  # noqa: F401
     UserPreferenceResponse,
     UserPreferenceUpsertRequest,
 )
+from app.schemas.accommodation_schema import (  # noqa: F401
+    AccommodationCardResponse,
+    AccommodationFilterMetadata,
+    AccommodationFilterOption,
+)
 
 # Phase 3+: Import additional schemas as they are created, e.g.:
 # from app.schemas.destination_schema import DestinationCreate, DestinationResponse

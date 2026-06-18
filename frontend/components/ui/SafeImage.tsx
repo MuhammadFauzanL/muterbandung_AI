@@ -46,18 +46,6 @@ interface SafeImageProps {
 }
 
 /**
- * Check if URL is from a source known to block server-side proxying.
- * These URLs must be loaded directly by the browser, not through
- * Next.js Image Optimization.
- */
-function isBlockedByProxy(url: string): boolean {
-  return (
-    url.includes("lh3.googleusercontent.com/gps-cs-s") ||
-    url.includes("dynamic-media-cdn.tripadvisor.com")
-  );
-}
-
-/**
  * Check if URL is a local/internal asset that can safely use Next.js Image.
  */
 function isLocalAsset(url: string): boolean {
@@ -129,9 +117,9 @@ export function SafeImage({
     );
   }
 
-  // For URLs that get blocked by Next.js Image Optimization proxy,
-  // use native <img> to let the browser fetch directly
-  if (isBlockedByProxy(src) && !isLocalAsset(src)) {
+  // External lodging/media URLs come from many providers. Use native <img>
+  // so unsupported remote domains never break the UI.
+  if (!isLocalAsset(src)) {
     return (
       <>
         {/* Loading skeleton shown until image loads */}

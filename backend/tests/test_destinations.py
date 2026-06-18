@@ -208,6 +208,8 @@ class TestDestinationDetail:
         assert "aiRecommendation" in d
         assert "facilities" in d
         assert "reviewSummary" in d
+        assert "gallery" in d
+        assert isinstance(d["gallery"], list)
         # id should be external_id
         assert d["id"].startswith("LOC-")
 

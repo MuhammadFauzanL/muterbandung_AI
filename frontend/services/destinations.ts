@@ -87,7 +87,6 @@ interface ApiDestinationDetail {
   gallery?: readonly string[];
   aiRecommendation?: { reason?: string };
   facilities?: Array<string | { label?: string }>;
-  reviews?: DestinationDetail['reviews'];
   nearbyStays?: DestinationDetail['nearbyStays'];
 }
 
@@ -265,14 +264,7 @@ export const destinationsService = {
       gallery: item.gallery || [heroImage],
       aiReason: item.aiRecommendation?.reason || "Destinasi ini sangat direkomendasikan untuk dikunjungi karena memiliki fasilitas dan ulasan yang sangat baik dari para wisatawan.",
       facilities: (item.facilities || []).map((f) => typeof f === 'object' ? f.label || '' : f),
-      reviews: item.reviews || [
-        { name: "Wisatawan Bandung", role: "Pengunjung", rating: "5", comment: "Tempat yang luar biasa! Pemandangannya indah dan fasilitasnya lengkap. Sangat cocok untuk liburan keluarga." },
-        { name: "Pengunjung Setia", role: "Pengunjung", rating: "4", comment: "Cukup memuaskan, tempatnya bersih dan pelayanannya ramah. Sayangnya saat akhir pekan agak terlalu ramai." }
-      ],
-      nearbyStays: item.nearbyStays || [
-        { name: "Hotel Dekat Sini", location: locationLabel, image: heroImage, price: "Rp 400.000" },
-        { name: "Villa Nyaman", location: locationLabel, image: heroImage, price: "Rp 750.000" },
-      ],
+      nearbyStays: item.nearbyStays || [],
       price: item.ticket?.label || item.priceLabel || "Gratis",
     };
   },

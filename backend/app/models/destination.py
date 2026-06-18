@@ -168,6 +168,12 @@ class Destination(Base):
         uselist=False,
         cascade="all, delete-orphan",
     )
+    gallery_images = relationship(
+        "DestinationGalleryImage",
+        back_populates="destination",
+        cascade="all, delete-orphan",
+        order_by="DestinationGalleryImage.sort_order",
+    )
 
     def __repr__(self) -> str:
         return f"<Destination {self.external_id}: {self.name}>"

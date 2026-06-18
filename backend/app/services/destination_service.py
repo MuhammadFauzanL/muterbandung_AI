@@ -74,6 +74,7 @@ def _eager_load_all():
         joinedload(Destination.media),
         joinedload(Destination.labels),
         joinedload(Destination.facilities),
+        joinedload(Destination.gallery_images),
     ]
 
 
@@ -466,6 +467,11 @@ def build_destination_detail(dest: Destination) -> dict:
     tourism_zone = dest.tourism_zone or "Bandung Raya"
     hero_image = dest.media.image_url if dest.media else None
     maps_url = dest.media.maps_url if dest.media else None
+    gallery_urls = [
+        image.image_url
+        for image in (dest.gallery_images or [])
+        if image.image_url
+    ]
 
     # Rating
     rating_label = "Belum ada rating"
@@ -520,6 +526,7 @@ def build_destination_detail(dest: Destination) -> dict:
         tourism_zone=dest.tourism_zone,
         description=dest.description,
         hero_image_url=hero_image,
+        gallery=gallery_urls,
         rating=rating,
         ticket=ticket,
         opening_hours=opening_hours,

@@ -5,21 +5,51 @@ import Link from 'next/link';
 import { usePlanner } from '@/context/PlannerContext';
 import { useToast } from '@/context/ToastContext';
 import { useFavorite } from '@/context/FavoriteContext';
+import { accommodationsService } from '@/services/accommodations';
 import { trackViewDetail, trackPlannerAdd } from '@/services/userEvents';
 import { ArrowLeft, MapPin, Ticket, Clock, Sparkles, Star, Car, Droplets, Book, Utensils, Camera, Accessibility, Heart, Share2, Building } from 'lucide-react';
-import type { DestinationDetail } from '@/types';
-import { useEffect } from 'react';
+import type { Accommodation, DestinationDetail } from '@/types';
+import { useEffect, useState } from 'react';
 
 export function DestinationDetailPageContent({ destination }: { destination: DestinationDetail }) {
   const { addDestination } = usePlanner();
   const { showToast } = useToast();
   const { isFavorite, toggleFavorite } = useFavorite();
   const favorited = isFavorite(destination.id);
+  const [nearbyAccommodations, setNearbyAccommodations] = useState<Accommodation[]>([]);
+  const [accommodationsLoading, setAccommodationsLoading] = useState(false);
 
   // Track view_detail event on mount
   useEffect(() => {
     trackViewDetail(destination.id);
   }, [destination.id]);
+
+  useEffect(() => {
+    if (!destination.slug) return;
+    let active = true;
+    const timeoutId = window.setTimeout(() => {
+      setAccommodationsLoading(true);
+      accommodationsService
+        .getNearbyForDestination(destination.slug!, {
+          limit: 3,
+          radiusKm: 10,
+          sort: 'recommended',
+        })
+        .then((result) => {
+          if (active) setNearbyAccommodations(result.data);
+        })
+        .catch(() => {
+          if (active) setNearbyAccommodations([]);
+        })
+        .finally(() => {
+          if (active) setAccommodationsLoading(false);
+        });
+    }, 0);
+    return () => {
+      active = false;
+      window.clearTimeout(timeoutId);
+    };
+  }, [destination.slug]);
 
   const handleAddTrip = () => {
     addDestination({ id: destination.id, title: destination.title });
@@ -187,32 +217,6 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
               </div>
             </section>
 
-            {/* Ulasan Pengunjung */}
-            <section>
-              <div className="flex items-center justify-between mb-2 sm:mb-4">
-                <h2 className="text-[16px] sm:text-xl font-bold text-slate-900">Ulasan Pengunjung</h2>
-                <button className="text-[11px] sm:text-[13px] font-bold text-[#0E75BC] hover:underline">Lihat Semua &gt;</button>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
-                {destination.reviews.slice(0, 3).map((rev, i) => (
-                  <div key={i} className="bg-[#F8FAFC] border border-slate-200 rounded-xl p-3.5 sm:p-5">
-                    <div className="flex items-center gap-2.5 sm:gap-3 mb-2 sm:mb-3">
-                      <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-slate-300 overflow-hidden bg-gradient-to-br from-blue-200 to-orange-200 shrink-0" />
-                      <div>
-                        <p className="text-[12px] sm:text-[13px] font-bold text-slate-900">{rev.name}</p>
-                        <div className="flex items-center text-[#F97316]">
-                          {[...Array(5)].map((_, j) => (
-                            <Star key={j} className={`h-2.5 w-2.5 sm:h-3 sm:w-3 ${j < Number(rev.rating) ? 'fill-current' : 'text-slate-300'}`} />
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                    <p className="text-[11px] sm:text-[13px] text-slate-600 leading-relaxed italic">&quot;{rev.comment}&quot;</p>
-                  </div>
-                ))}
-              </div>
-            </section>
-
           </div>
 
           {/* KOLOM KANAN (Sidebar) */}
@@ -240,21 +244,47 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
 
             {/* Penginapan Terdekat */}
             <section>
-              <h2 className="text-[14px] sm:text-[16px] font-bold text-slate-900 mb-3 sm:mb-4 flex items-center gap-2">
-                <Building className="h-4 w-4 sm:h-5 sm:w-5 text-[#E94B35]" /> Penginapan Terdekat
-              </h2>
+              <div className="mb-3 sm:mb-4 flex items-center justify-between gap-3">
+                <h2 className="text-[14px] sm:text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                  <Building className="h-4 w-4 sm:h-5 sm:w-5 text-[#E94B35]" /> Penginapan Terdekat
+                </h2>
+                {destination.slug && (
+                  <Link
+                    href={`/planner/penginapan?destination=${destination.slug}`}
+                    className="text-[11px] sm:text-[12px] font-bold text-[#0E75BC] hover:underline"
+                  >
+                    Lihat Semua
+                  </Link>
+                )}
+              </div>
               <div className="space-y-2 sm:space-y-3">
-                {destination.nearbyStays.slice(0, 3).map((stay, idx) => (
-                  <div key={idx} className="bg-white border border-slate-200 rounded-xl p-2.5 sm:p-3 flex gap-3 sm:gap-4 items-center shadow-sm hover:border-[#0E75BC] transition-colors cursor-pointer">
+                {accommodationsLoading && (
+                  [...Array(3)].map((_, idx) => (
+                    <div key={idx} className="h-[76px] animate-pulse rounded-xl border border-slate-100 bg-slate-100" />
+                  ))
+                )}
+                {!accommodationsLoading && nearbyAccommodations.length === 0 && (
+                  <div className="rounded-xl border border-dashed border-slate-200 bg-white p-3 text-[12px] leading-5 text-slate-500">
+                    Belum ada data penginapan terdekat yang bisa ditampilkan untuk destinasi ini.
+                  </div>
+                )}
+                {!accommodationsLoading && nearbyAccommodations.map((stay) => (
+                  <a
+                    key={stay.id}
+                    href={stay.mapsUrl || stay.bookingUrl || '#'}
+                    target={stay.mapsUrl || stay.bookingUrl ? '_blank' : undefined}
+                    rel={stay.mapsUrl || stay.bookingUrl ? 'noreferrer' : undefined}
+                    className="bg-white border border-slate-200 rounded-xl p-2.5 sm:p-3 flex gap-3 sm:gap-4 items-center shadow-sm hover:border-[#0E75BC] transition-colors"
+                  >
                     <div className="relative h-12 w-12 sm:h-16 w-16 rounded-lg sm:rounded-xl overflow-hidden shrink-0">
                       <SafeImage src={stay.image} alt={stay.name} fill className="object-cover" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <h4 className="text-[12px] sm:text-[14px] font-bold text-slate-900">{stay.name}</h4>
-                      <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">{stay.location.split(',')[0]}</p>
+                      <p className="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">{stay.distance}</p>
                       <p className="text-[11px] sm:text-[13px] font-bold text-[#0E75BC] mt-0.5 sm:mt-1">{stay.price}</p>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
             </section>

@@ -19,11 +19,6 @@ export interface Destination {
   gallery?: string[];
   aiReason?: string;
   facilities?: string[];
-  reviews?: Array<{
-    name: string;
-    rating: number | string;
-    comment: string;
-  }>;
   nearbyStays?: Array<{
     name: string;
     location: string;

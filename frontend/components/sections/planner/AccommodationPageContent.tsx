@@ -1,106 +1,161 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { usePlanner } from '@/context/PlannerContext';
+import { SafeImage } from '@/components/ui/SafeImage';
+import { accommodationsService } from '@/services/accommodations';
+import type { Accommodation, AccommodationFilterMetadata, AccommodationMeta } from '@/types';
 import { MapPin, Star, Sparkles, Wallet, Search, X } from 'lucide-react';
 
-type AccommodationOption = {
-  name: string;
-  type: string;
-  location: string;
-  distance: string;
-  price: string;
-  rating: string;
-  reviewCount: string;
-  description: string;
-  image: string;
-  highlights: readonly string[];
+type AccommodationFiltersState = {
+  search: string;
+  type: string | null;
+  budget: 'under_250000' | 'under_500000' | 'under_1000000' | null;
+  minRating: number | null;
+  facility: string | null;
+  sort: 'recommended' | 'nearest' | 'rating' | 'reviews' | 'price_low' | 'price_high';
 };
 
-const ACCOMMODATIONS: readonly AccommodationOption[] = [
-  {
-    name: 'Bobocabin Ranca Upas',
-    type: 'Cabin Alam',
-    location: 'Ranca Upas, Ciwidey',
-    distance: '2.4 km dari Kawah Putih',
-    price: 'Rp520.000',
-    rating: '4.8',
-    reviewCount: '1.284 ulasan',
-    description:
-      'Cabin ringkas di area hutan pinus dengan akses cepat ke Ranca Upas dan jalur wisata Ciwidey.',
-    image:
-      'https://lh3.googleusercontent.com/gps-proxy/ALd4DhFQNQ81Dicl74zu40V7aXYY50dw0TH-lPCwm_rFUokItvPcAB2TR0TclWJS-39WNWfCJ_04IFMGsytAfz0mjmiv_2ft5DRYmyE0tyFhO6Q8WM81wJqxKvqNiKtB-0VBqYxss31T3exO_FUzUlc3d9J0f-idvXZvvVAfRhO6qZKDrOa9ali32Kou7Q=w455-h240-k-no',
-    highlights: ['Dekat rute', 'View alam', 'Cocok pasangan'],
-  },
-  {
-    name: 'Patuha Resort Ciwidey',
-    type: 'Resort Keluarga',
-    location: 'Sugihmukti, Pasirjambu',
-    distance: '4.8 km dari Kawah Putih',
-    price: 'Rp680.000',
-    rating: '4.7',
-    reviewCount: '842 ulasan',
-    description:
-      'Resort tenang dengan kamar keluarga, sarapan, dan area terbuka untuk istirahat setelah itinerary.',
-    image:
-      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAEINPwRItiBa-w5a0baJmuuVumrV1ITN9jwyT2p_96DgsCe35Dr2WyED9858FVbmDDGeJUrv6XUoVepQsIyDRLiAvtNCd4UAVn0xPqFRYuSGP18ysRAcxChgCiuIN1WNCALULfvPQ=w416-h240-k-no',
-    highlights: ['Sarapan', 'Kamar keluarga', 'Parkir luas'],
-  },
-  {
-    name: 'Grand Sunshine Resort',
-    type: 'Hotel Resort',
-    location: 'Soreang, Bandung',
-    distance: '18 km dari Kawah Putih',
-    price: 'Rp850.000',
-    rating: '4.9',
-    reviewCount: '2.310 ulasan',
-    description:
-      'Pilihan paling nyaman untuk keluarga, dengan fasilitas lengkap dan akses balik ke Bandung yang mudah.',
-    image:
-      'https://lh3.googleusercontent.com/gps-cs-s/APNQkAHxUtQnsZfq1a1PWc2Y6__0XQVrIoI02cEtMtgkyOIKky2YGBLrfIqc6taBfnqP3D3gKeLiK2E4uxMLcgSy9GLOomkjEiV0tlVOH351NfYOeTxbBhjeDuELrIWzHnLMX1t5gwvCbhz1tjOO=w422-h240-k-no',
-    highlights: ['Kolam renang', 'Restoran', 'Akses kota'],
-  },
-] as const;
+const DEFAULT_META: AccommodationMeta = {
+  page: 1,
+  limit: 12,
+  total: 0,
+  totalPages: 0,
+};
 
-const FILTERS = ['Semua', 'Dekat Kawah Putih', 'Family stay', 'Cabin', 'Budget hemat'];
+const DEFAULT_FILTERS: AccommodationFiltersState = {
+  search: '',
+  type: null,
+  budget: null,
+  minRating: null,
+  facility: null,
+  sort: 'recommended',
+};
+
+const BUDGET_OPTIONS: Array<{ label: string; value: AccommodationFiltersState['budget']; maxPrice?: number }> = [
+  { label: '< 250k', value: 'under_250000', maxPrice: 250000 },
+  { label: '< 500k', value: 'under_500000', maxPrice: 500000 },
+  { label: '< 1jt', value: 'under_1000000', maxPrice: 1000000 },
+];
+
+function getMaxPrice(budget: AccommodationFiltersState['budget']) {
+  return BUDGET_OPTIONS.find((item) => item.value === budget)?.maxPrice;
+}
 
 
 
 
-function AccommodationFilters() {
-  const [activeFilter, setActiveFilter] = useState<string | null>('Semua');
-
+function AccommodationFilters({
+  filters,
+  metadata,
+  destinationMode,
+  onChange,
+  onReset,
+}: {
+  filters: AccommodationFiltersState;
+  metadata: AccommodationFilterMetadata | null;
+  destinationMode: boolean;
+  onChange: (patch: Partial<AccommodationFiltersState>) => void;
+  onReset: () => void;
+}) {
+  const facilityOptions = metadata?.facilityOptions.slice(0, 8) || [];
   return (
-    <section className="rounded-[16px] border border-slate-200 bg-white p-3 sm:p-4 shadow-sm">
+    <section className="space-y-3 rounded-[16px] border border-slate-200 bg-white p-3 sm:p-4 shadow-sm">
       <label className="flex h-10 sm:h-12 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-slate-500 focus-within:border-[#0E75BC] transition-colors">
         <Search className="h-4 w-4" />
         <span className="sr-only">Cari penginapan</span>
         <input
           type="search"
           placeholder="Cari area atau nama penginapan"
+          value={filters.search}
+          onChange={(event) => onChange({ search: event.target.value })}
           className="min-w-0 flex-1 bg-transparent text-[13px] sm:text-[14px] text-slate-800 outline-none placeholder:text-slate-400"
         />
       </label>
 
-      <div className="mt-3 sm:mt-4 flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide">
-        {FILTERS.map((filter) => (
+      <div className="flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide">
+        <button
+          type="button"
+          onClick={onReset}
+          className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-medium transition-colors ${
+            !filters.type && !filters.budget && !filters.minRating && !filters.facility
+              ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+              : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
+          }`}
+        >
+          Semua
+        </button>
+        {(metadata?.types || []).map((option) => (
           <button
-            key={filter}
+            key={option.value}
             type="button"
-            onClick={() => setActiveFilter(activeFilter === filter ? null : filter)}
+            onClick={() => onChange({ type: filters.type === option.value ? null : option.value })}
             className={`shrink-0 sm:shrink rounded-full border px-4 py-2 sm:px-5 sm:py-2.5 text-[12px] sm:text-[13px] font-medium transition-colors ${
-              activeFilter === filter
+              filters.type === option.value
                 ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
                 : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
             }`}
           >
-            {filter}
+            {option.label}
           </button>
         ))}
       </div>
+
+      <div className="grid gap-2 sm:grid-cols-3">
+        <select
+          value={filters.budget || ''}
+          onChange={(event) => onChange({ budget: (event.target.value || null) as AccommodationFiltersState['budget'] })}
+          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
+        >
+          <option value="">Semua budget</option>
+          {BUDGET_OPTIONS.map((option) => (
+            <option key={option.value || 'all'} value={option.value || ''}>{option.label}</option>
+          ))}
+        </select>
+        <select
+          value={filters.minRating || ''}
+          onChange={(event) => onChange({ minRating: event.target.value ? Number(event.target.value) : null })}
+          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
+        >
+          <option value="">Semua rating</option>
+          <option value="3">3+</option>
+          <option value="4">4+</option>
+          <option value="4.5">4.5+</option>
+        </select>
+        <select
+          value={filters.sort}
+          onChange={(event) => onChange({ sort: event.target.value as AccommodationFiltersState['sort'] })}
+          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
+        >
+          <option value="recommended">Rekomendasi</option>
+          {destinationMode && <option value="nearest">Terdekat</option>}
+          <option value="rating">Rating tertinggi</option>
+          <option value="reviews">Ulasan terbanyak</option>
+          <option value="price_low">Harga termurah</option>
+        </select>
+      </div>
+
+      {facilityOptions.length > 0 && (
+        <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1 scrollbar-hide">
+          {facilityOptions.map((facility) => (
+            <button
+              key={facility}
+              type="button"
+              onClick={() => onChange({ facility: filters.facility === facility ? null : facility })}
+              className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-medium transition-colors ${
+                filters.facility === facility
+                  ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+                  : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
+              }`}
+            >
+              {facility}
+            </button>
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -110,23 +165,24 @@ function AccommodationCard({
   onSelect,
   eagerImage = false,
 }: {
-  accommodation: AccommodationOption;
-  onSelect: (acc: AccommodationOption) => void;
+  accommodation: Accommodation;
+  onSelect: (acc: Accommodation) => void;
   eagerImage?: boolean;
 }) {
   return (
     <article className="grid overflow-hidden rounded-[14px] border border-[#DDEAF2] bg-white shadow-[0_10px_26px_rgba(17,73,112,0.06)] md:grid-cols-[220px_minmax(0,1fr)]">
       <div className="relative min-h-[190px]">
-        <Image
+        <SafeImage
           src={accommodation.image}
           alt={accommodation.name}
           fill
           loading={eagerImage ? 'eager' : 'lazy'}
           sizes="(min-width: 768px) 220px, 100vw"
           className="object-cover"
+          category={accommodation.type || accommodation.category}
         />
         <span className="absolute left-3 top-3 rounded-full bg-white/92 px-3 py-1 text-[11px] font-semibold text-[#176E9E] shadow-sm">
-          {accommodation.type}
+          {accommodation.type || 'Penginapan'}
         </span>
       </div>
 
@@ -157,7 +213,7 @@ function AccommodationCard({
         </div>
 
         <p className="mt-2 sm:mt-3 text-[12px] sm:text-[13px] leading-5 sm:leading-6 text-[#607382]">
-          {accommodation.description}
+          {accommodation.scoreReason || 'Penginapan aktif dari dataset akomodasi yang diurutkan berdasarkan jarak, rating, ulasan, dan kelengkapan data.'}
         </p>
 
         <div className="mt-2.5 sm:mt-4 flex flex-wrap gap-2">
@@ -176,10 +232,6 @@ function AccommodationCard({
             <p className="text-[11px] font-medium text-[#80909D]">Mulai dari</p>
             <p className="text-[18px] font-bold text-[#202B37]">
               {accommodation.price}
-              <span className="text-[11px] font-semibold text-[#7B8B99]">
-                {' '}
-                / malam
-              </span>
             </p>
           </div>
           <button
@@ -214,7 +266,7 @@ function CepotInsight() {
             Cepot AI Insight
           </p>
           <p className="mt-1 sm:mt-1.5 text-[12px] leading-5 sm:text-[13px] sm:leading-6 text-[#26485C]">
-            Cepot AI menemukan 3 penginapan terbaik di sekitar destinasi yang kamu pilih, semuanya punya rating tinggi dan cocok untuk istirahat setelah berkeliling Ciwidey!
+            Cepot AI mengurutkan penginapan dari jarak, rating, ulasan, harga, fasilitas, dan kelengkapan data agar pilihan istirahatmu lebih relevan.
           </p>
         </div>
       </div>
@@ -327,7 +379,7 @@ function HotelConfirmationModal({
 }: {
   isOpen: boolean;
   onClose: () => void;
-  hotel: AccommodationOption | null;
+  hotel: Accommodation | null;
 }) {
   // Format dates: today and tomorrow
   const today = new Date();
@@ -351,8 +403,10 @@ function HotelConfirmationModal({
   // Logika 1 Kamar untuk 2 Tamu
   const rooms = Math.ceil(guests / 2);
 
-  // Extract numeric price from "Rp750.000" string
-  const basePrice = hotel ? parseInt(hotel.price.replace(/[^0-9]/g, ''), 10) : 0;
+  const parsedBasePrice = hotel
+    ? parseInt(hotel.price.replace(/[^0-9]/g, ''), 10)
+    : 0;
+  const basePrice = Number.isFinite(parsedBasePrice) ? parsedBasePrice : 0;
   const totalEstimasi = basePrice * nights * rooms;
 
   const { addAccommodation } = usePlanner();
@@ -655,7 +709,84 @@ function AccommodationSidebar() {
 }
 
 export function AccommodationPageContent() {
-  const [selectedHotel, setSelectedHotel] = useState<AccommodationOption | null>(null);
+  const searchParams = useSearchParams();
+  const destinationSlug = searchParams.get('destination');
+  const destinationMode = Boolean(destinationSlug);
+  const [selectedHotel, setSelectedHotel] = useState<Accommodation | null>(null);
+  const [filters, setFilters] = useState<AccommodationFiltersState>(DEFAULT_FILTERS);
+  const [filterMetadata, setFilterMetadata] = useState<AccommodationFilterMetadata | null>(null);
+  const [accommodations, setAccommodations] = useState<Accommodation[]>([]);
+  const [meta, setMeta] = useState<AccommodationMeta>(DEFAULT_META);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    accommodationsService
+      .getFilters()
+      .then((data) => {
+        if (active) setFilterMetadata(data);
+      })
+      .catch(() => {
+        if (active) setFilterMetadata(null);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+    const timeoutId = window.setTimeout(() => {
+      setLoading(true);
+      setError(null);
+
+      const params = {
+        page: 1,
+        limit: 12,
+        search: filters.search.trim() || undefined,
+        type: filters.type,
+        maxPrice: getMaxPrice(filters.budget),
+        minRating: filters.minRating ?? undefined,
+        facilities: filters.facility ? [filters.facility] : undefined,
+        radiusKm: destinationMode ? 10 : undefined,
+        sort: filters.sort,
+      };
+
+      const request = destinationSlug
+        ? accommodationsService.getNearbyForDestination(destinationSlug, params)
+        : accommodationsService.getAll(params);
+
+      request
+        .then((result) => {
+          if (!active) return;
+          setAccommodations(result.data);
+          setMeta(result.meta);
+        })
+        .catch((fetchError: Error) => {
+          if (!active) return;
+          setError(fetchError.message || 'Gagal mengambil rekomendasi penginapan.');
+          setAccommodations([]);
+          setMeta(DEFAULT_META);
+        })
+        .finally(() => {
+          if (active) setLoading(false);
+        });
+    }, 0);
+
+    return () => {
+      active = false;
+      window.clearTimeout(timeoutId);
+    };
+  }, [destinationSlug, destinationMode, filters]);
+
+  const updateFilters = (patch: Partial<AccommodationFiltersState>) => {
+    setFilters((prev) => ({ ...prev, ...patch }));
+  };
+
+  const resetFilters = () => {
+    setFilters(DEFAULT_FILTERS);
+  };
 
   return (
     <main className="mx-auto max-w-[1180px] px-4 py-4 sm:py-6 sm:px-8">
@@ -673,23 +804,44 @@ export function AccommodationPageContent() {
 
       <div className="flex flex-col-reverse gap-3 sm:gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_340px]">
         <div className="min-w-0 space-y-3 sm:space-y-5">
-          <AccommodationFilters />
+          <AccommodationFilters
+            filters={filters}
+            metadata={filterMetadata}
+            destinationMode={destinationMode}
+            onChange={updateFilters}
+            onReset={resetFilters}
+          />
           <CepotInsight />
 
           <section>
             <div className="mb-3">
               <h2 className="text-[17px] font-semibold text-[#202B37]">
-                Rekomendasi Terbaik
+                {destinationMode ? 'Penginapan Terdekat dari Wisata Pilihan' : 'Rekomendasi Penginapan'}
               </h2>
               <p className="mt-1 text-[12px] leading-5 text-[#7B8B99]">
-                3 penginapan cocok untuk itinerary Ciwidey.
+                {loading
+                  ? 'Memuat data penginapan aktif...'
+                  : `${meta.total} penginapan ditemukan dari dataset aktif.`}
               </p>
             </div>
 
             <div className="space-y-3">
-              {ACCOMMODATIONS.map((accommodation, index) => (
+              {loading && [...Array(4)].map((_, index) => (
+                <div key={index} className="h-[220px] animate-pulse rounded-[14px] border border-slate-100 bg-slate-100" />
+              ))}
+              {!loading && error && (
+                <div className="rounded-[14px] border border-red-100 bg-red-50 p-4 text-[13px] font-semibold text-red-600">
+                  {error}
+                </div>
+              )}
+              {!loading && !error && accommodations.length === 0 && (
+                <div className="rounded-[14px] border border-dashed border-slate-200 bg-white p-5 text-[13px] leading-6 text-slate-500">
+                  Belum ada penginapan yang cocok dengan filter ini. Coba reset filter atau perluas radius.
+                </div>
+              )}
+              {!loading && !error && accommodations.map((accommodation, index) => (
                 <AccommodationCard
-                  key={accommodation.name}
+                  key={accommodation.id}
                   accommodation={accommodation}
                   onSelect={(acc) => setSelectedHotel(acc)}
                   eagerImage={index === 0}

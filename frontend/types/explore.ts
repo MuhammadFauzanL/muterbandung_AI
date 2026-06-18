@@ -62,13 +62,6 @@ export interface DetailMetric {
   tone: 'price' | 'time' | 'rating';
 }
 
-export interface DestinationReview {
-  name: string;
-  role: string;
-  rating: string;
-  comment: string;
-}
-
 export interface NearbyStay {
   name: string;
   location: string;
@@ -89,5 +82,4 @@ export interface DestinationDetail extends ExploreDestination {
     note: string;
   };
   nearbyStays: readonly NearbyStay[];
-  reviews: readonly DestinationReview[];
 }
