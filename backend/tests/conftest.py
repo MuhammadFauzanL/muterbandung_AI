@@ -42,6 +42,15 @@ def _cleanup_test_users():
             "recommend@example.com",
             "recommend-personal@example.com",
             "recommend-free@example.com",
+            "fav-empty@example.com",
+            "fav-invalid@example.com",
+            "fav-add@example.com",
+            "fav-remove@example.com",
+            "fav-rec@example.com",
+            "evt-view@example.com",
+            "evt-search@example.com",
+            "evt-planner@example.com",
+            "evt-invalid@example.com",
         ]
         db.query(User).filter(User.email.in_(test_emails)).delete(
             synchronize_session=False

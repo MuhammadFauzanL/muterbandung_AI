@@ -15,6 +15,7 @@ export interface ExploreDestination {
   distanceKm?: number;
   score?: number;
   scoreReason?: string;
+  isFavorite?: boolean;
 }
 
 export interface ExploreFilters {
@@ -31,7 +32,7 @@ export interface ExploreFilters {
   needsAccommodation: boolean;
   userLat?: number;
   userLng?: number;
-  sort: 'quality' | 'popular' | 'rating' | 'reviews' | 'price_low' | 'price_high' | 'nearest';
+  sort: 'quality' | 'popular' | 'rating' | 'reviews' | 'price_low' | 'price_high' | 'nearest' | 'personal';
 }
 
 export interface ExploreMeta {

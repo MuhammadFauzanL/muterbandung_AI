@@ -16,6 +16,8 @@ from typing import Optional
 from fastapi import APIRouter, Depends, Query
 from sqlalchemy.orm import Session
 
+from app.core.security import get_optional_current_user
+
 from app.database import get_db
 from app.services.destination_service import (
     get_destination_filters,
@@ -88,6 +90,7 @@ _ALLOWED_SORTS = {
     "price_low",
     "price_high",
     "nearest",
+    "personal",
 }
 
 
@@ -137,13 +140,14 @@ def list_destinations(
         None, ge=0, alias="radiusKm", description="Radius filter in kilometers",
     ),
     sort: str = Query("popular", description="Sort order"),
+    current_user=Depends(get_optional_current_user),
     db: Session = Depends(get_db),
 ):
     """
     Paginated destination list with search, filters, and sorting.
 
     **Allowed sorts:** popular, quality, rating, reviews, newest,
-    price_low, price_high, nearest
+    price_low, price_high, nearest, personal
     """
     # Validate sort
     if sort not in _ALLOWED_SORTS:
@@ -170,6 +174,7 @@ def list_destinations(
         user_lng=user_lng,
         radius_km=radius_km,
         sort=sort,
+        user_id=current_user.id if current_user else None,
     )
 
     return paginated_response(

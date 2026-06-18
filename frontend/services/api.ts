@@ -13,6 +13,15 @@ interface FetchOptions extends RequestInit {
   requireAuth?: boolean;
 }
 
+interface ApiErrorBody {
+  detail?: unknown;
+  message?: unknown;
+  errors?: Array<{
+    message?: string;
+    msg?: string;
+  }>;
+}
+
 export async function apiFetch<T>(
   endpoint: string,
   options: FetchOptions = {}
@@ -50,18 +59,35 @@ export async function apiFetch<T>(
       return {} as T;
     }
 
-    const data = await response.json();
+    const data: unknown = await response.json();
 
     if (!response.ok) {
+      const errorBody = data as ApiErrorBody;
       // Backend FastAPI biasanya mengembalikan error di `detail`
-      const errorMessage = data.detail || data.message || 'Terjadi kesalahan pada server';
+      let errorMessage = errorBody.detail || errorBody.message || 'Terjadi kesalahan pada server';
+      
+      // Jika ada array errors (contoh: validasi FastAPI Pydantic)
+      if (errorBody.errors && errorBody.errors.length > 0) {
+        const errorDetails = errorBody.errors
+          .map((error) => error.message || error.msg || 'Validasi tidak valid')
+          .join(', ');
+        errorMessage = `${errorMessage}: ${errorDetails}`;
+      }
+
       throw new Error(typeof errorMessage === 'string' ? errorMessage : JSON.stringify(errorMessage));
     }
 
     return data as T;
   } catch (error: unknown) {
     const message = error instanceof Error ? error.message : String(error);
-    console.error(`API Error [${options.method || 'GET'} ${endpoint}]:`, message);
+    
+    // Gunakan console.warn untuk 401 agar tidak memicu error overlay merah di Next.js saat token expired
+    if (message.includes('Invalid or expired token') || message.includes('Unauthorized') || message.includes('Not authenticated')) {
+      console.warn(`API Warn [${options.method || 'GET'} ${endpoint}]:`, message);
+    } else {
+      console.error(`API Error [${options.method || 'GET'} ${endpoint}]:`, message);
+    }
+    
     throw error;
   }
 }

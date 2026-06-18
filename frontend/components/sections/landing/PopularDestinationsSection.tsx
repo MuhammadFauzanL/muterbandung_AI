@@ -8,13 +8,18 @@
  */
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { Heart } from 'lucide-react';
 import { SafeImage } from '@/components/ui/SafeImage';
+import { useFavorite } from '@/context/FavoriteContext';
+import { useAuth } from '@/context/AuthContext';
 import { destinationsService } from '@/services/destinations';
+import { recommendationsService } from '@/services/recommendations';
 import type { Destination } from '@/types';
 
 export function PopularDestinationsSection() {
   const [destinations, setDestinations] = useState<Destination[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { isLoggedIn } = useAuth();
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scroll, setScroll] = useState({ start: true, end: false });
 
@@ -34,9 +39,26 @@ export function PopularDestinationsSection() {
 
   useEffect(() => {
     async function fetchPopular() {
+      setIsLoading(true);
       try {
-        const data = await destinationsService.getPopular(10);
-        setDestinations(data);
+        if (isLoggedIn) {
+          const res = await recommendationsService.getDestinations({ limit: 10, requireAuth: true });
+          const mapped: Destination[] = res.data.map(d => ({
+            id: d.id,
+            slug: d.slug,
+            title: d.title,
+            location: d.location,
+            rating: d.rating.toString(),
+            image: d.image,
+            price: d.price,
+            priceLabel: d.priceLabel,
+            category: d.category
+          }));
+          setDestinations(mapped);
+        } else {
+          const data = await destinationsService.getPopular(10);
+          setDestinations(data);
+        }
       } catch (error) {
         console.error("Gagal mengambil destinasi populer:", error);
       } finally {
@@ -44,7 +66,7 @@ export function PopularDestinationsSection() {
       }
     }
     fetchPopular();
-  }, []);
+  }, [isLoggedIn]);
 
   return (
     <section id="explore" className="bg-[#F8FBFE] py-6 sm:py-10">
@@ -52,15 +74,15 @@ export function PopularDestinationsSection() {
         <div className="flex flex-row items-center justify-between gap-2 mb-4 sm:mb-5">
           <div>
             <h2 className="text-[18px] sm:text-[28px] font-semibold tracking-normal text-slate-950">
-              Destinasi Populer
+              {isLoggedIn ? "Rekomendasi Spesial Untukmu" : "Destinasi Populer"}
             </h2>
             <p className="mt-0 sm:mt-1 text-[12px] sm:text-[18px] text-slate-600">
-              Sering dikunjungi wisatawan.
+              {isLoggedIn ? "Berdasarkan preferensi, pencarian, favorit, dan interaksimu." : "Sering dikunjungi wisatawan."}
             </p>
           </div>
 
           <Link
-            href="/popular"
+            href={isLoggedIn ? "/explore" : "/popular"}
             className="inline-flex items-center gap-1 sm:gap-2 text-[13px] sm:text-[18px] font-medium text-[#0E75BC] hover:text-[#095f99] shrink-0 bg-blue-50/50 px-2.5 py-1.5 rounded-full transition-colors"
           >
             Lihat Semua
@@ -108,6 +130,7 @@ export function PopularDestinationsSection() {
 }
 
 function PopularDestinationCard({
+  id,
   slug,
   title,
   location,
@@ -115,6 +138,10 @@ function PopularDestinationCard({
   image,
   category,
 }: Destination) {
+  const { isFavorite, toggleFavorite } = useFavorite();
+  const destId = String(id || '');
+  const favorited = isFavorite(destId);
+
   return (
     <Link href={`/explore/${slug || ''}`} className="block shrink-0 snap-center group">
       <article className="relative h-[180px] sm:h-[320px] w-[240px] sm:w-[320px] overflow-hidden rounded-[16px] sm:rounded-2xl shadow-sm border border-slate-200 sm:border-0 cursor-pointer">
@@ -127,6 +154,18 @@ function PopularDestinationCard({
           category={category}
         />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_30%,rgba(15,23,42,0.85)_100%)]" />
+
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleFavorite(destId);
+        }}
+        className={`absolute top-2 right-2 sm:top-3 sm:right-3 z-10 inline-flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-white/90 shadow-sm backdrop-blur-sm transition-colors ${favorited ? 'text-[#E54545]' : 'text-white/70 hover:text-[#E54545]'}`}
+      >
+        <Heart className={`h-3 w-3 sm:h-4 sm:w-4 ${favorited ? 'fill-current' : ''}`} />
+      </button>
 
       <div className="absolute inset-x-0 bottom-0 p-3 sm:p-5 text-white">
         <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-1.5 mb-1 sm:mb-1.5">

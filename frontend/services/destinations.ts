@@ -213,8 +213,10 @@ export const destinationsService = {
     appendQuery(query, 'radiusKm', params.radiusKm);
     appendQuery(query, 'sort', params.sort ?? 'quality');
 
+    // Always send auth token so backend can identify the user for personal sort
     const res = await apiFetch<ApiResponse<ApiDestinationCard[]>>(`/destinations?${query.toString()}`, {
       method: 'GET',
+      requireAuth: true,
     });
 
     return {

@@ -1,13 +1,17 @@
 """
-Personalized destination recommendation service.
+Personalized destination recommendation service — V2 Hybrid.
 
-V1 combines existing destination quality scoring with explicit onboarding
-preferences. Behavioral events (search/favorite/planner) can be layered later.
+Scoring formula:
+  30% quality_score + 20% onboarding_preference + 40% behavior_interest + 10% popularity
+
+Behavioral interest is built from user events (favorites, views, searches)
+over the last 90 days with exponential time decay.
 """
 
 from __future__ import annotations
 
 from typing import Iterable, Optional
+from uuid import UUID
 
 from sqlalchemy import and_, func, or_
 from sqlalchemy.orm import Session, joinedload
@@ -19,6 +23,8 @@ from app.services.destination_service import (
     build_destination_card,
     get_destinations,
 )
+from app.services.user_event_service import build_behavior_profile
+from app.services.user_favorite_service import get_favorite_destination_ids
 
 
 PREFERENCE_MATCHES: dict[str, dict[str, list[str]]] = {
@@ -208,36 +214,121 @@ def _preference_match_score(
     return min(score, 100.0), list(dict.fromkeys(matched_labels))
 
 
+def _behavior_match_score(
+    dest: Destination,
+    behavior_profile: dict[str, float],
+) -> float:
+    """Score how well a destination matches a user's behavioral profile.
+
+    Uses a sum-based approach with multi-match bonus to produce wider
+    score spread, so personalization feels noticeable.
+    """
+    if not behavior_profile:
+        return 0.0
+
+    labels = dest.labels
+    matches: list[float] = []
+
+    # Match primary intent (strongest signal)
+    if labels and labels.primary_intent:
+        intent_score = behavior_profile.get(labels.primary_intent, 0.0)
+        if intent_score > 0:
+            matches.append(intent_score * 1.2)  # intent gets 20% boost
+
+    # Match core labels
+    if labels and labels.core_labels:
+        core = labels.core_labels
+        if isinstance(core, str):
+            core = core.split(";")
+        for label in core:
+            label = label.strip()
+            label_score = behavior_profile.get(label, 0.0)
+            if label_score > 0:
+                matches.append(label_score)
+
+    # Match category
+    if dest.category:
+        cat_score = behavior_profile.get(dest.category, 0.0)
+        if cat_score > 0:
+            matches.append(cat_score * 0.6)
+
+    if not matches:
+        return 0.0
+
+    # Sum top 3 matches (not average!) for wider spread
+    top = sorted(matches, reverse=True)[:3]
+    base = sum(top) / max(len(top), 1)
+
+    # Multi-match bonus: destinations matching 2+ labels get a boost
+    match_count_bonus = 1.0
+    if len(matches) >= 3:
+        match_count_bonus = 1.5  # 50% boost for 3+ matches
+    elif len(matches) >= 2:
+        match_count_bonus = 1.25  # 25% boost for 2 matches
+
+    return min(100.0, base * match_count_bonus)
+
+
 def _personal_score(
     dest: Destination,
     preference: UserPreference,
+    behavior_profile: Optional[dict[str, float]] = None,
 ) -> tuple[float, list[str]]:
+    """V2 hybrid scoring: quality + onboarding + behavior + popularity.
+
+    Weights:
+      - With behavior data:  25% quality + 20% onboarding + 45% behavior + 10% popularity
+      - Without behavior:    35% quality + 45% onboarding + 20% popularity
+    """
     quality_fallback = _normalize_score(dest.avg_rating)
     quality_score = _normalize_score(dest.quality_score, quality_fallback)
     popularity_score = _normalize_score(dest.popular_score)
-    match_score, matched_labels = _preference_match_score(dest, preference)
-    final_score = (
-        0.60 * quality_score
-        + 0.30 * match_score
-        + 0.10 * popularity_score
-    )
+    pref_score, matched_labels = _preference_match_score(dest, preference)
+    behav_score = _behavior_match_score(dest, behavior_profile or {})
+
+    if behav_score > 0:
+        # Behavior-aware weights — behavior dominates
+        final_score = (
+            0.25 * quality_score
+            + 0.20 * pref_score
+            + 0.45 * behav_score
+            + 0.10 * popularity_score
+        )
+    else:
+        # No behavior data — rely more on onboarding preference
+        final_score = (
+            0.35 * quality_score
+            + 0.45 * pref_score
+            + 0.20 * popularity_score
+        )
+
     return round(final_score, 2), matched_labels
 
 
-def _personal_reason(matched_labels: list[str]) -> str:
-    if not matched_labels:
+def _personal_reason(
+    matched_labels: list[str],
+    has_behavior: bool = False,
+) -> str:
+    if not matched_labels and not has_behavior:
         return (
             "Direkomendasikan dari kualitas destinasi dan preferensi wisata "
             "yang kamu pilih."
         )
     visible = matched_labels[:3]
-    if len(visible) == 1:
-        labels = visible[0]
-    elif len(visible) == 2:
-        labels = f"{visible[0]} dan {visible[1]}"
+    if visible:
+        if len(visible) == 1:
+            labels = visible[0]
+        elif len(visible) == 2:
+            labels = f"{visible[0]} dan {visible[1]}"
+        else:
+            labels = f"{visible[0]}, {visible[1]}, dan {visible[2]}"
+        reason = f"Cocok karena kamu memilih preferensi {labels}."
     else:
-        labels = f"{visible[0]}, {visible[1]}, dan {visible[2]}"
-    return f"Cocok karena kamu memilih preferensi {labels}."
+        reason = "Direkomendasikan dari kualitas destinasi."
+
+    if has_behavior:
+        reason += " Disesuaikan juga dari kebiasaan browsing kamu."
+    return reason
 
 
 def get_recommended_destinations(
@@ -246,15 +337,31 @@ def get_recommended_destinations(
     page: int,
     limit: int,
     preference: Optional[UserPreference] = None,
+    user_id: Optional[UUID] = None,
 ) -> tuple[list[dict], int]:
-    """Return guest quality recommendations or personalized recommendations."""
+    """Return guest quality or personalized hybrid recommendations."""
     if preference is None:
-        return get_destinations(
+        # Guest fallback — quality-based, no favorites
+        items, total = get_destinations(
             db,
             page=page,
             limit=limit,
             sort="quality",
         )
+        # Still inject favorite status for logged-in guests without prefs
+        if user_id is not None:
+            fav_ids = get_favorite_destination_ids(db, user_id)
+            _inject_favorite_status(items, fav_ids, db)
+        return items, total
+
+    # Build behavioral profile from events (last 90 days)
+    behavior_profile: dict[str, float] = {}
+    favorite_ids: set[UUID] = set()
+    if user_id is not None:
+        behavior_profile = build_behavior_profile(db, user_id)
+        favorite_ids = get_favorite_destination_ids(db, user_id)
+
+    has_behavior = bool(behavior_profile)
 
     query = _active_with_media_query(db).options(
         joinedload(Destination.media),
@@ -273,7 +380,9 @@ def get_recommended_destinations(
     destinations = query.all()
     ranked: list[tuple[float, list[str], Destination]] = []
     for destination in destinations:
-        score, matched_labels = _personal_score(destination, preference)
+        score, matched_labels = _personal_score(
+            destination, preference, behavior_profile,
+        )
         ranked.append((score, matched_labels, destination))
 
     ranked.sort(
@@ -294,7 +403,31 @@ def get_recommended_destinations(
     for score, matched_labels, destination in page_items:
         card = build_destination_card(destination, sort="quality")
         card["score"] = score
-        card["scoreReason"] = _personal_reason(matched_labels)
+        card["scoreReason"] = _personal_reason(matched_labels, has_behavior)
+        card["isFavorite"] = destination.id in favorite_ids
         cards.append(card)
 
     return cards, total
+
+
+def _inject_favorite_status(
+    cards: list[dict],
+    favorite_ids: set[UUID],
+    db: Session,
+) -> None:
+    """Set isFavorite on existing card dicts by looking up external IDs."""
+    if not favorite_ids:
+        return
+    # Build external_id → internal_id mapping for the cards
+    external_ids = [c.get("id") for c in cards if c.get("id")]
+    if not external_ids:
+        return
+    rows = (
+        db.query(Destination.external_id, Destination.id)
+        .filter(Destination.external_id.in_(external_ids))
+        .all()
+    )
+    ext_to_internal = {ext: internal for ext, internal in rows}
+    for card in cards:
+        internal_id = ext_to_internal.get(card.get("id"))
+        card["isFavorite"] = internal_id in favorite_ids if internal_id else False

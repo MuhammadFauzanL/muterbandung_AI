@@ -12,6 +12,7 @@ import math
 import re
 import unicodedata
 from typing import Optional
+from uuid import UUID
 
 from sqlalchemy import and_, func, literal, or_
 from sqlalchemy.orm import Session, joinedload
@@ -584,6 +585,7 @@ def get_destinations(
     user_lng: Optional[float] = None,
     radius_km: Optional[float] = None,
     sort: str = "popular",
+    user_id: Optional[UUID] = None,
 ) -> tuple[list[dict], int]:
     """
     Return paginated, filtered destination cards.
@@ -667,10 +669,81 @@ def get_destinations(
     # ── Count (before pagination) ──
     total = query.count()
 
-    # ── Sort & paginate ──
-    query = _apply_sort(query, effective_sort, distance_expr)
-    offset = (page - 1) * limit
-    destinations = query.offset(offset).limit(limit).all()
+    if effective_sort == "personal" and user_id:
+        from app.services.recommendation_service import (
+            _personal_score,
+            _personal_reason,
+        )
+        from app.services.user_event_service import build_behavior_profile
+        from app.services.user_preference_service import get_user_preference
+
+        pref = get_user_preference(db, user_id)  # may be None
+        behavior_profile = build_behavior_profile(db, user_id)
+        
+        # Fetch all matches to sort in memory
+        all_destinations = query.all()
+        
+        # Score each — safely handle pref=None
+        scored_destinations = []
+        for d in all_destinations:
+            if pref is not None:
+                score, matched_labels = _personal_score(
+                    d, pref, behavior_profile,
+                )
+            else:
+                # No onboarding — use behavior + quality only
+                from app.services.recommendation_service import (
+                    _behavior_match_score,
+                    _normalize_score,
+                )
+                quality = _normalize_score(
+                    d.quality_score,
+                    _normalize_score(d.avg_rating),
+                )
+                behav = _behavior_match_score(d, behavior_profile)
+                popularity = _normalize_score(d.popular_score)
+                score = round(
+                    0.40 * quality + 0.40 * behav + 0.20 * popularity,
+                    2,
+                )
+                matched_labels = []
+            scored_destinations.append((score, matched_labels, d))
+        
+        # Sort descending by score, with quality tie-breaking
+        scored_destinations.sort(
+            key=lambda x: (
+                x[0],
+                x[2].quality_score or 0,
+                x[2].avg_rating or 0,
+            ),
+            reverse=True,
+        )
+        
+        # Paginate
+        offset = (page - 1) * limit
+        paginated = scored_destinations[offset : offset + limit]
+        
+        has_behavior = bool(behavior_profile)
+        destinations_res = []
+        for score, matched_labels, d in paginated:
+            card = build_destination_card(
+                d,
+                day_type=day_type,
+                distance_km=calculate_distance_km(d, user_lat, user_lng),
+                sort=effective_sort,
+            )
+            card["score"] = score
+            card["scoreReason"] = _personal_reason(
+                matched_labels, has_behavior=has_behavior,
+            )
+            destinations_res.append(card)
+        
+        return destinations_res, total
+    else:
+        # ── Standard DB Sort & paginate ──
+        query = _apply_sort(query, effective_sort, distance_expr)
+        offset = (page - 1) * limit
+        destinations = query.offset(offset).limit(limit).all()
 
     return [
         build_destination_card(

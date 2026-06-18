@@ -45,6 +45,18 @@ class User(Base):
         uselist=False,
         cascade="all, delete-orphan",
     )
+    favorites = relationship(
+        "UserFavorite",
+        back_populates="user",
+        cascade="all, delete-orphan",
+        lazy="dynamic",
+    )
+    events = relationship(
+        "UserDestinationEvent",
+        back_populates="user",
+        cascade="all, delete-orphan",
+        lazy="dynamic",
+    )
 
     def __repr__(self) -> str:
         return f"<User {self.email}>"

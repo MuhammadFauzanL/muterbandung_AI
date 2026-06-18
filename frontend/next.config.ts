@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
     ],
   },
   // Izinkan akses dari IP lokal untuk testing mobile
-  allowedDevOrigins: ["192.168.1.11"],
+  allowedDevOrigins: ["192.168.1.11", "192.168.110.246"],
   async rewrites() {
     if (!apiUrl || !hasValidApiUrl) {
       return [];

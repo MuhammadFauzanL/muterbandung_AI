@@ -29,8 +29,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const userData = await authService.getMe();
       setUser(userData);
       setIsLoggedIn(true);
-    } catch (error) {
-      console.error('Gagal mengambil data user:', error);
+    } catch {
+      // Hanya log sebagai warning karena token expired adalah siklus wajar
+      console.warn('Sesi telah berakhir atau tidak valid. Melakukan logout otomatis...');
       // Jika token expired atau invalid, otomatis logout
       logout();
     } finally {

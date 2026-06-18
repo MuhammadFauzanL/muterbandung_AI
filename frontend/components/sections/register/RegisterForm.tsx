@@ -82,14 +82,25 @@ export function RegisterForm() {
       const successTxt = 'Registrasi berhasil! Memproses masuk...';
       setSuccessMsg(successTxt);
       
-      // Karena register biasanya tidak mengembalikan token, kita otomatis login menggunakan kredensial yang sama
-      const loginResponse = await authService.login(formData.email, formData.password);
-      login(loginResponse.access_token, loginResponse.user);
-      
-      // Redirect ke preferences after a short delay
-      setTimeout(() => {
-        router.push('/preferences');
-      }, 1000);
+      try {
+        // Karena register biasanya tidak mengembalikan token, kita otomatis login menggunakan kredensial yang sama
+        const loginResponse = await authService.login(formData.email, formData.password);
+        login(loginResponse.access_token, loginResponse.user);
+        
+        // Redirect ke preferences after a short delay
+        setTimeout(() => {
+          router.push('/preferences');
+        }, 1000);
+      } catch (loginErr: unknown) {
+        // Jika login otomatis gagal (seharusnya jarang terjadi)
+        const msg = loginErr instanceof Error ? loginErr.message : 'Gagal login otomatis. Silakan masuk secara manual.';
+        setSuccessMsg(''); // Hapus pesan sukses karena proses tertunda
+        setErrorMsg(`Registrasi berhasil, tetapi gagal login: ${msg}`);
+        // Redirect manual ke login
+        setTimeout(() => {
+          router.push('/login');
+        }, 2000);
+      }
 
     } catch (err: unknown) {
       const message = err instanceof Error ? err.message : 'Terjadi kesalahan. Silakan coba lagi.';

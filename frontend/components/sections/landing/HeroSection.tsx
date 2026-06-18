@@ -45,10 +45,10 @@ export function HeroSection() {
 
             <div className="mt-6 sm:mt-9 flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center sm:justify-start">
               <Link
-                href={isLoggedIn ? "#foryou" : "#explore"}
+                href="#explore"
                 className="inline-flex w-full sm:w-auto items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/30 px-6 py-3 sm:px-7 sm:py-[14px] text-[13px] sm:text-[16px] font-bold text-white transition-all hover:bg-white/20"
               >
-                {isLoggedIn ? 'Destinasi Untukmu' : 'Destinasi Populer'}
+                {isLoggedIn ? 'Rekomendasi Untukmu' : 'Destinasi Populer'}
               </Link>
               <Link
                 href="/explore"

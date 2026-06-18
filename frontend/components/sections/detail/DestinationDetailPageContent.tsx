@@ -4,17 +4,26 @@ import { SafeImage } from '@/components/ui/SafeImage';
 import Link from 'next/link';
 import { usePlanner } from '@/context/PlannerContext';
 import { useToast } from '@/context/ToastContext';
+import { useFavorite } from '@/context/FavoriteContext';
+import { trackViewDetail, trackPlannerAdd } from '@/services/userEvents';
 import { ArrowLeft, MapPin, Ticket, Clock, Sparkles, Star, Car, Droplets, Book, Utensils, Camera, Accessibility, Heart, Share2, Building } from 'lucide-react';
 import type { DestinationDetail } from '@/types';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 export function DestinationDetailPageContent({ destination }: { destination: DestinationDetail }) {
   const { addDestination } = usePlanner();
   const { showToast } = useToast();
-  const [isFavorite, setIsFavorite] = useState(false);
+  const { isFavorite, toggleFavorite } = useFavorite();
+  const favorited = isFavorite(destination.id);
+
+  // Track view_detail event on mount
+  useEffect(() => {
+    trackViewDetail(destination.id);
+  }, [destination.id]);
 
   const handleAddTrip = () => {
     addDestination({ id: destination.id, title: destination.title });
+    trackPlannerAdd(destination.id);
     showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
   };
 
@@ -270,14 +279,14 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
             </div>
             <div className="flex w-full sm:w-auto items-center gap-2 sm:gap-3">
               <button 
-                onClick={() => setIsFavorite(!isFavorite)}
+                onClick={() => toggleFavorite(destination.id)}
                 className={`flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3.5 rounded-lg sm:rounded-xl text-[12px] sm:text-[13px] font-bold transition-all border-2 ${
-                  isFavorite 
+                  favorited 
                     ? 'bg-[#EAF6FC] border-[#0E75BC] text-[#0E75BC]' 
                     : 'bg-white border-slate-300 text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
                 }`}
               >
-                <Heart className={`h-4 w-4 ${isFavorite ? 'fill-current' : ''}`} />
+                <Heart className={`h-4 w-4 ${favorited ? 'fill-current' : ''}`} />
                 <span className="hidden sm:inline">Simpan Favorit</span>
               </button>
               <button 

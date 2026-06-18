@@ -28,7 +28,9 @@ def recommended_destinations(
 ):
     """Return destination recommendations for guest or logged-in users."""
     preference = None
+    user_id = None
     if current_user is not None:
+        user_id = current_user.id
         preference = get_user_preference(db, current_user.id)
 
     items, total = get_recommended_destinations(
@@ -36,6 +38,7 @@ def recommended_destinations(
         page=page,
         limit=limit,
         preference=preference,
+        user_id=user_id,
     )
 
     message = (
@@ -50,3 +53,4 @@ def recommended_destinations(
         total=total,
         message=message,
     )
+

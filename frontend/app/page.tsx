@@ -2,13 +2,11 @@
 
 import {
   HeroSection,
-  PersonalizedDestinationsSection,
   PopularDestinationsSection,
   FeaturesSection,
   AIChatPromoSection,
   CategoryHighlightsSection,
 } from '@/components';
-import { useAuth } from '@/context/AuthContext';
 
 /**
  * Home Page - MuterBandung Splash Screen
@@ -18,14 +16,11 @@ import { useAuth } from '@/context/AuthContext';
  * to start exploring Bandung destinations.
  */
 export default function Home() {
-  const { isLoggedIn } = useAuth();
-
   return (
     <div className="flex min-h-screen flex-col bg-white">
       <main className="flex-1">
         <HeroSection />
         {/* Filter Tags (Dihapus sesuai permintaan pengguna) */}
-        {isLoggedIn && <PersonalizedDestinationsSection />}
         <PopularDestinationsSection />
         <FeaturesSection />
         <AIChatPromoSection />

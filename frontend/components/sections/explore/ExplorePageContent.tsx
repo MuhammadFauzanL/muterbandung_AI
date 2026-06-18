@@ -6,8 +6,9 @@ import { Clock, Filter, Heart, Loader2, MapPin, Search, Wallet, X } from 'lucide
 import { SafeImage } from '@/components/ui/SafeImage';
 import { useAuth } from '@/context/AuthContext';
 import { usePlanner } from '@/context/PlannerContext';
+import { useFavorite } from '@/context/FavoriteContext';
 import { destinationsService, type ExploreQueryParams } from '@/services/destinations';
-import { recommendationsService } from '@/services/recommendations';
+import { trackSearch, trackFilterApply, trackPlannerAdd } from '@/services/userEvents';
 import type {
   ExploreDestination,
   ExploreFilterMetadata,
@@ -56,7 +57,7 @@ function parseCustomPrice(value: string) {
   return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
 }
 
-function buildExploreParams(filters: ExploreFilters, page: number): ExploreQueryParams {
+function buildExploreParams(filters: ExploreFilters, page: number, isLoggedIn: boolean): ExploreQueryParams {
   const maxPrice =
     filters.budget === 'under_50000'
       ? 50000
@@ -67,7 +68,12 @@ function buildExploreParams(filters: ExploreFilters, page: number): ExploreQuery
           : undefined;
 
   const withLocation = hasUserLocation(filters);
-  const sort = filters.sort === 'nearest' && !withLocation ? 'quality' : filters.sort;
+  let sort = filters.sort === 'nearest' && !withLocation ? 'quality' : filters.sort;
+  // For logged-in users, use personal scoring for quality/popular/rating modes
+  // (nearest keeps GPS-based sort since that's a hard constraint)
+  if (isLoggedIn && sort !== 'nearest' && sort !== 'price_low' && sort !== 'price_high') {
+    sort = 'personal';
+  }
 
   return {
     page,
@@ -549,16 +555,18 @@ function DestinationCard({
   eagerImage?: boolean;
 }) {
   const { addDestination, destinations } = usePlanner();
+  const { isFavorite, toggleFavorite } = useFavorite();
   const [showToast, setShowToast] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false);
 
   const isSelected = destinations.some((item) => item.id === destination.id);
   const displayCategory = destination.primaryIntent || destination.category;
   const detailHref = `/explore/${destination.slug || destination.id}`;
+  const favorited = isFavorite(destination.id);
 
   const handlePilih = () => {
     if (!isSelected) {
       addDestination({ id: destination.id, title: destination.title });
+      trackPlannerAdd(destination.id);
       setShowToast(true);
       window.setTimeout(() => setShowToast(false), 3000);
     }
@@ -590,11 +598,11 @@ function DestinationCard({
         </div>
         <button
           type="button"
-          onClick={() => setIsFavorite(!isFavorite)}
+          onClick={() => toggleFavorite(destination.id)}
           aria-label={`Simpan ${destination.title}`}
-          className={`absolute right-2 top-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/95 shadow-sm backdrop-blur-sm transition-colors sm:right-4 sm:top-4 sm:h-9 sm:w-9 ${isFavorite ? 'text-[#E54545]' : 'text-slate-400 hover:text-[#E54545]'}`}
+          className={`absolute right-2 top-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/95 shadow-sm backdrop-blur-sm transition-colors sm:right-4 sm:top-4 sm:h-9 sm:w-9 ${favorited ? 'text-[#E54545]' : 'text-slate-400 hover:text-[#E54545]'}`}
         >
-          <Heart className={`h-3 w-3 sm:h-5 sm:w-5 ${isFavorite ? 'fill-current' : ''}`} />
+          <Heart className={`h-3 w-3 sm:h-5 sm:w-5 ${favorited ? 'fill-current' : ''}`} />
         </button>
       </div>
 
@@ -634,9 +642,14 @@ function DestinationCard({
         </div>
 
         {destination.scoreReason && (
-          <p className="mb-3 line-clamp-2 text-[10px] leading-4 text-slate-500 sm:text-[12px]">
-            {destination.scoreReason}
-          </p>
+          <div className="mb-3 flex items-start gap-1.5 rounded-lg bg-blue-50/80 px-2 py-1.5 sm:px-3 sm:py-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="mt-0.5 h-3 w-3 shrink-0 text-[#0E75BC] sm:h-3.5 sm:w-3.5">
+              <path fillRule="evenodd" d="M10.868 2.884c-.321-.772-1.415-.772-1.736 0l-1.83 4.401-4.753.381c-.833.067-1.171 1.107-.536 1.651l3.62 3.102-1.106 4.637c-.194.813.691 1.456 1.405 1.02L10 15.591l4.069 2.485c.713.436 1.598-.207 1.404-1.02l-1.106-4.637 3.62-3.102c.635-.544.297-1.584-.536-1.65l-4.752-.382-1.831-4.401z" clipRule="evenodd" />
+            </svg>
+            <p className="line-clamp-2 text-[10px] font-medium leading-4 text-[#0E75BC] sm:text-[11px]">
+              {destination.scoreReason}
+            </p>
+          </div>
         )}
 
         <div className="mt-auto flex items-center justify-between border-t border-slate-100 pt-2 sm:pt-3">
@@ -852,18 +865,9 @@ export function ExplorePageContent() {
         userLng,
         sort,
       };
-      const shouldUsePersonalRecommendations =
-        isLoggedIn && !hasManualExploreFilters(queryFilters);
-
       setLoading(true);
       setError(null);
-      const request = shouldUsePersonalRecommendations
-        ? recommendationsService.getDestinations({
-            page,
-            limit: 12,
-            requireAuth: true,
-          })
-        : destinationsService.getExplore(buildExploreParams(queryFilters, page));
+      const request = destinationsService.getExplore(buildExploreParams(queryFilters, page, isLoggedIn));
 
       request
         .then((result) => {
@@ -909,6 +913,15 @@ export function ExplorePageContent() {
     setError(null);
     setPage(1);
     setFilters((prev) => ({ ...prev, ...patch }));
+
+    // Track filter changes for behavioral profiling
+    const trackable = { ...patch };
+    delete trackable.search; // search is tracked separately
+    delete trackable.userLat;
+    delete trackable.userLng;
+    if (Object.keys(trackable).length > 0) {
+      trackFilterApply(trackable);
+    }
   };
 
   const resetFilters = () => {
@@ -969,6 +982,7 @@ export function ExplorePageContent() {
   const submitSearch = () => {
     setError(null);
     setPage(1);
+    trackSearch(filters.search);
     flushSearch();
   };
 

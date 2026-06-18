@@ -12,6 +12,7 @@ import { ChatbotWidget } from "@/components/ui/ChatbotWidget";
 import { PlannerProvider } from "@/context/PlannerContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { ToastProvider } from "@/context/ToastContext";
+import { FavoriteProvider } from "@/context/FavoriteContext";
 import { ClientLayoutWrapper } from "@/components/layout/ClientLayoutWrapper";
 
 const stripExtensionHydrationAttrsScript = `
@@ -71,12 +72,14 @@ export default function RootLayout({
         )}
         <ToastProvider>
           <AuthProvider>
-            <PlannerProvider>
-              <ClientLayoutWrapper>
-                {children}
-              </ClientLayoutWrapper>
-              <ChatbotWidget />
-            </PlannerProvider>
+            <FavoriteProvider>
+              <PlannerProvider>
+                <ClientLayoutWrapper>
+                  {children}
+                </ClientLayoutWrapper>
+                <ChatbotWidget />
+              </PlannerProvider>
+            </FavoriteProvider>
           </AuthProvider>
         </ToastProvider>
       </body>
