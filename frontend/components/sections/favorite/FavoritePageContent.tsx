@@ -201,7 +201,14 @@ export function FavoritePageContent() {
                       <div className="space-y-1.5 sm:space-y-2 mt-auto">
                         <button 
                           onClick={() => {
-                            addDestination({ id: dest.id, title: dest.title });
+                            addDestination({
+                              id: dest.id,
+                              title: dest.title,
+                              slug: dest.slug,
+                              category: dest.category,
+                              primaryIntent: dest.primaryIntent,
+                              image: dest.image,
+                            });
                             trackPlannerAdd(dest.id);
                             showToast(`${dest.title} ditambahkan ke perjalanan!`, 'success');
                           }}

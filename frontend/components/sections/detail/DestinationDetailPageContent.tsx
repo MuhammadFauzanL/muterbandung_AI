@@ -52,7 +52,13 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
   }, [destination.slug]);
 
   const handleAddTrip = () => {
-    addDestination({ id: destination.id, title: destination.title });
+    addDestination({
+      id: destination.id,
+      title: destination.title,
+      slug: destination.slug,
+      category: destination.category,
+      image: destination.heroImage,
+    });
     trackPlannerAdd(destination.id);
     showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
   };

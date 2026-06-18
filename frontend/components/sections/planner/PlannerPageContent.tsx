@@ -24,7 +24,6 @@ export function PlannerPageContent() {
 
         <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
           <TripSummary />
-          <PlannerChatPrompt />
         </div>
       </div>
     </main>

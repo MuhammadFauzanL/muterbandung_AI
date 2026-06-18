@@ -45,118 +45,184 @@ function getMaxPrice(budget: AccommodationFiltersState['budget']) {
   return BUDGET_OPTIONS.find((item) => item.value === budget)?.maxPrice;
 }
 
+function useDebouncedValue<T>(value: T, delayMs: number): T {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => setDebouncedValue(value), delayMs);
+    return () => window.clearTimeout(timeoutId);
+  }, [value, delayMs]);
+  return debouncedValue;
+}
 
 
-
-function AccommodationFilters({
+function AccommodationTypeChips({
   filters,
   metadata,
-  destinationMode,
   onChange,
   onReset,
 }: {
   filters: AccommodationFiltersState;
   metadata: AccommodationFilterMetadata | null;
-  destinationMode: boolean;
   onChange: (patch: Partial<AccommodationFiltersState>) => void;
   onReset: () => void;
 }) {
-  const facilityOptions = metadata?.facilityOptions.slice(0, 8) || [];
   return (
-    <section className="space-y-3 rounded-[16px] border border-slate-200 bg-white p-3 sm:p-4 shadow-sm">
-      <label className="flex h-10 sm:h-12 items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 text-slate-500 focus-within:border-[#0E75BC] transition-colors">
-        <Search className="h-4 w-4" />
-        <span className="sr-only">Cari penginapan</span>
-        <input
-          type="search"
-          placeholder="Cari area atau nama penginapan"
-          value={filters.search}
-          onChange={(event) => onChange({ search: event.target.value })}
-          className="min-w-0 flex-1 bg-transparent text-[13px] sm:text-[14px] text-slate-800 outline-none placeholder:text-slate-400"
-        />
-      </label>
-
-      <div className="flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-hide">
+    <div className="flex flex-nowrap sm:flex-wrap gap-2 overflow-x-auto pb-1 scrollbar-hide">
+      <button
+        type="button"
+        onClick={onReset}
+        className={`shrink-0 rounded-full border px-5 py-2 text-[13px] font-medium transition-colors ${
+          !filters.type && !filters.budget && !filters.minRating && !filters.facility
+            ? 'border-[#0E75BC] bg-[#0E75BC] text-white shadow-sm'
+            : 'border-[#E1EEF6] bg-white text-[#23689A] hover:border-[#0E75BC] hover:text-[#0E75BC] hover:shadow-sm'
+        }`}
+      >
+        Semua Penginapan
+      </button>
+      {(metadata?.types || []).map((option) => (
         <button
+          key={option.value}
           type="button"
-          onClick={onReset}
-          className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-medium transition-colors ${
-            !filters.type && !filters.budget && !filters.minRating && !filters.facility
-              ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
-              : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
+          onClick={() => onChange({ type: filters.type === option.value ? null : option.value })}
+          className={`shrink-0 rounded-full border px-5 py-2 text-[13px] font-medium transition-colors ${
+            filters.type === option.value
+              ? 'border-[#0E75BC] bg-[#0E75BC] text-white shadow-sm'
+              : 'border-[#E1EEF6] bg-white text-[#23689A] hover:border-[#0E75BC] hover:text-[#0E75BC] hover:shadow-sm'
           }`}
         >
-          Semua
+          {option.label}
         </button>
-        {(metadata?.types || []).map((option) => (
-          <button
-            key={option.value}
-            type="button"
-            onClick={() => onChange({ type: filters.type === option.value ? null : option.value })}
-            className={`shrink-0 sm:shrink rounded-full border px-4 py-2 sm:px-5 sm:py-2.5 text-[12px] sm:text-[13px] font-medium transition-colors ${
-              filters.type === option.value
-                ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
-                : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
-            }`}
-          >
-            {option.label}
-          </button>
-        ))}
-      </div>
+      ))}
+    </div>
+  );
+}
 
-      <div className="grid gap-2 sm:grid-cols-3">
-        <select
-          value={filters.budget || ''}
-          onChange={(event) => onChange({ budget: (event.target.value || null) as AccommodationFiltersState['budget'] })}
-          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
-        >
-          <option value="">Semua budget</option>
-          {BUDGET_OPTIONS.map((option) => (
-            <option key={option.value || 'all'} value={option.value || ''}>{option.label}</option>
-          ))}
-        </select>
-        <select
-          value={filters.minRating || ''}
-          onChange={(event) => onChange({ minRating: event.target.value ? Number(event.target.value) : null })}
-          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
-        >
-          <option value="">Semua rating</option>
-          <option value="3">3+</option>
-          <option value="4">4+</option>
-          <option value="4.5">4.5+</option>
-        </select>
-        <select
-          value={filters.sort}
-          onChange={(event) => onChange({ sort: event.target.value as AccommodationFiltersState['sort'] })}
-          className="h-10 rounded-xl border border-[#DDEAF2] bg-white px-3 text-[12px] font-semibold text-[#476273] outline-none focus:border-[#0E75BC]"
-        >
-          <option value="recommended">Rekomendasi</option>
-          {destinationMode && <option value="nearest">Terdekat</option>}
-          <option value="rating">Rating tertinggi</option>
-          <option value="reviews">Ulasan terbanyak</option>
-          <option value="price_low">Harga termurah</option>
-        </select>
-      </div>
+function AccommodationFilterSidebar({
+  filters,
+  metadata,
+  destinationMode,
+  onChange,
+}: {
+  filters: AccommodationFiltersState;
+  metadata: AccommodationFilterMetadata | null;
+  destinationMode: boolean;
+  onChange: (patch: Partial<AccommodationFiltersState>) => void;
+}) {
+  const facilityOptions = metadata?.facilityOptions.slice(0, 8) || [];
 
-      {facilityOptions.length > 0 && (
-        <div className="flex flex-nowrap gap-2 overflow-x-auto pb-1 scrollbar-hide">
-          {facilityOptions.map((facility) => (
-            <button
-              key={facility}
-              type="button"
-              onClick={() => onChange({ facility: filters.facility === facility ? null : facility })}
-              className={`shrink-0 rounded-full border px-4 py-2 text-[12px] font-medium transition-colors ${
-                filters.facility === facility
-                  ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
-                  : 'border-slate-200 bg-white text-slate-600 hover:border-[#0E75BC] hover:text-[#0E75BC]'
-              }`}
-            >
-              {facility}
-            </button>
-          ))}
+  return (
+    <aside className="rounded-[24px] border border-[#E1EEF6] bg-white p-5 shadow-[0_8px_24px_rgba(31,90,145,0.06)]">
+      <h2 className="text-[17px] font-bold text-[#143A5C]">Sesuaikan Hasil</h2>
+      
+      <div className="mt-5 space-y-6">
+        {/* Search */}
+        <div>
+          <label className="flex items-center gap-2 rounded-xl border border-[#DDEAF2] bg-[#F4F9FD] px-3 py-2.5 text-[#476273] focus-within:border-[#0E75BC] focus-within:bg-white transition-colors">
+            <Search className="h-4 w-4 shrink-0" />
+            <input
+              type="search"
+              placeholder="Cari penginapan..."
+              value={filters.search}
+              onChange={(event) => onChange({ search: event.target.value })}
+              className="min-w-0 flex-1 bg-transparent text-[13px] text-[#202B37] outline-none placeholder:text-[#7B8B99]"
+            />
+          </label>
         </div>
-      )}
-    </section>
+
+        {/* Urutkan */}
+        <div>
+          <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#7B8B99]">Urutkan</h3>
+          <div className="grid grid-cols-2 gap-2">
+            {[
+              { label: 'Rekomendasi', value: 'recommended' },
+              ...(destinationMode ? [{ label: 'Terdekat', value: 'nearest' }] : []),
+              { label: 'Rating', value: 'rating' },
+              { label: 'Ulasan', value: 'reviews' },
+              { label: 'Termurah', value: 'price_low' },
+            ].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => onChange({ sort: opt.value as AccommodationFiltersState['sort'] })}
+                className={`flex items-center justify-center rounded-xl border py-2 px-2 text-[12px] font-medium transition-colors ${
+                  filters.sort === opt.value
+                    ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+                    : 'border-[#E1EEF6] bg-white text-[#476273] hover:border-[#0E75BC] hover:text-[#0E75BC]'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Budget */}
+        <div>
+          <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#7B8B99]">Budget per malam</h3>
+          <div className="grid grid-cols-2 gap-2">
+            {BUDGET_OPTIONS.map((opt) => (
+              <button
+                key={opt.value!}
+                type="button"
+                onClick={() => onChange({ budget: filters.budget === opt.value ? null : opt.value })}
+                className={`flex items-center justify-center rounded-xl border py-2 px-2 text-[12px] font-medium transition-colors ${
+                  filters.budget === opt.value
+                    ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+                    : 'border-[#E1EEF6] bg-white text-[#476273] hover:border-[#0E75BC] hover:text-[#0E75BC]'
+                }`}
+              >
+                {opt.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Rating */}
+        <div>
+          <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#7B8B99]">Minimal Rating</h3>
+          <div className="flex gap-2">
+            {[{label: '3+', value: 3}, {label: '4+', value: 4}, {label: '4.5+', value: 4.5}].map((opt) => (
+              <button
+                key={opt.value}
+                type="button"
+                onClick={() => onChange({ minRating: filters.minRating === opt.value ? null : opt.value })}
+                className={`flex flex-1 items-center justify-center gap-1.5 rounded-xl border py-2 text-[12px] font-medium transition-colors ${
+                  filters.minRating === opt.value
+                    ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+                    : 'border-[#E1EEF6] bg-white text-[#476273] hover:border-[#0E75BC] hover:text-[#0E75BC]'
+                }`}
+              >
+                {opt.label}
+                <Star className={`h-[12px] w-[12px] ${filters.minRating === opt.value ? 'text-[#0E75BC]' : 'text-[#F59E0B]'}`} fill="currentColor" />
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Fasilitas */}
+        {facilityOptions.length > 0 && (
+          <div>
+            <h3 className="mb-3 text-[11px] font-bold uppercase tracking-[0.08em] text-[#7B8B99]">Fasilitas</h3>
+            <div className="flex flex-wrap gap-2">
+              {facilityOptions.map((facility) => (
+                <button
+                  key={facility}
+                  type="button"
+                  onClick={() => onChange({ facility: filters.facility === facility ? null : facility })}
+                  className={`rounded-full border px-4 py-1.5 text-[12px] font-medium transition-colors ${
+                    filters.facility === facility
+                      ? 'border-[#0E75BC] bg-[#F4F9FD] text-[#0E75BC]'
+                      : 'border-[#E1EEF6] bg-white text-[#476273] hover:border-[#0E75BC] hover:text-[#0E75BC]'
+                  }`}
+                >
+                  {facility}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </aside>
   );
 }
 
@@ -292,7 +358,7 @@ function TripSidebar() {
   const totalAccommodationCost = accommodations.reduce((sum, acc) => sum + acc.totalPrice, 0);
 
   return (
-    <aside className="relative rounded-[16px] border border-[#DCEAF3] bg-white p-3 sm:p-5 shadow-[0_10px_28px_rgba(17,73,112,0.07)]">
+    <aside className="relative rounded-[24px] border border-[#E1EEF6] bg-white p-5 sm:p-6 shadow-[0_8px_24px_rgba(31,90,145,0.06)]">
       {/* Toast Error Notification */}
       <div className={`absolute top-4 left-1/2 -translate-x-1/2 z-50 rounded-2xl border border-red-100 bg-white px-4 py-2.5 text-[13px] font-bold text-red-600 shadow-[0_12px_40px_rgba(0,0,0,0.12)] transition-all duration-300 flex items-center gap-2 whitespace-nowrap ${showToast ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none'}`}>
         <div className="flex items-center justify-center w-5 h-5 rounded-full bg-red-100 text-red-600">
@@ -301,49 +367,49 @@ function TripSidebar() {
         Pilih hotel terlebih dahulu!
       </div>
 
-      <h2 className="text-[14px] sm:text-[15px] font-semibold text-[#202B37]">
+      <h2 className="text-[16px] sm:text-[17px] font-bold text-[#143A5C]">
         Ringkasan Perjalanan
       </h2>
 
-      <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-2.5">
+      <div className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3">
         {destinations.map((dest) => (
-          <div key={dest.id} className="flex items-center gap-2 rounded-[8px] sm:rounded-[10px] bg-[#EAF8FB] px-2.5 py-2 sm:px-3 sm:py-2.5 text-[11px] sm:text-[12px] font-semibold text-[#246983]">
-            <MapPin className="h-3 w-3 sm:h-4 sm:w-4 text-[#0E75BC]" />
-            <span className="flex-1">{dest.title}</span>
-            <button onClick={() => removeDestination(dest.id)} className="text-red-400 hover:text-red-600">
-              <X className="h-3 w-3 sm:h-4 sm:w-4" />
+          <div key={dest.id} className="flex items-center gap-3 rounded-[14px] bg-[#EEF9FC] px-3.5 py-3 text-[12px] sm:text-[13px] font-semibold text-[#143A5C]">
+            <MapPin className="h-4 w-4 shrink-0 text-[#0E75BC]" />
+            <span className="flex-1 truncate">{dest.title}</span>
+            <button onClick={() => removeDestination(dest.id)} className="shrink-0 text-[#F06161] hover:text-red-700 transition-colors">
+              <X className="h-4 w-4" />
             </button>
           </div>
         ))}
 
         {accommodations.length > 0 ? (
           accommodations.map((acc) => (
-            <div key={acc.name} className="flex items-center gap-2 rounded-[8px] sm:rounded-[10px] bg-[#EAF8FB] px-2.5 py-2 sm:px-3 sm:py-2.5 text-[11px] sm:text-[12px] font-semibold text-[#246983]">
-              <Wallet className="h-3 w-3 sm:h-4 sm:w-4 text-[#0E75BC]" />
-              <span className="flex-1">{acc.name}</span>
-              <button onClick={() => removeAccommodation(acc.name)} className="text-red-400 hover:text-red-600">
-                <X className="h-3 w-3 sm:h-4 sm:w-4" />
+            <div key={acc.name} className="flex items-center gap-3 rounded-[14px] bg-[#EEF9FC] px-3.5 py-3 text-[12px] sm:text-[13px] font-semibold text-[#143A5C]">
+              <Wallet className="h-4 w-4 shrink-0 text-[#0E75BC]" />
+              <span className="flex-1 truncate">{acc.name}</span>
+              <button onClick={() => removeAccommodation(acc.name)} className="shrink-0 text-[#F06161] hover:text-red-700 transition-colors">
+                <X className="h-4 w-4" />
               </button>
             </div>
           ))
         ) : (
-          <div className="flex items-center gap-2 rounded-[8px] sm:rounded-[10px] border border-[#E3EEF4] bg-white px-2.5 py-2 sm:px-3 sm:py-2.5 text-[11px] sm:text-[12px] text-[#97A5B1]">
-            <Wallet className="h-3 w-3 sm:h-4 sm:w-4" />
-            <span className="flex-1">Pilih penginapan...</span>
+          <div className="flex items-center gap-3 rounded-[14px] border border-[#E1EEF6] bg-white px-3.5 py-3 text-[12px] sm:text-[13px] text-[#7B8B99]">
+            <Wallet className="h-4 w-4 shrink-0" />
+            <span className="flex-1 truncate">Pilih penginapan...</span>
           </div>
         )}
       </div>
 
-      <dl className="mt-3 sm:mt-5 space-y-1.5 sm:space-y-2.5 border-t border-[#EDF4F8] pt-3 sm:pt-4 text-[11px] sm:text-[12px]">
+      <dl className="mt-5 space-y-3 border-t border-[#E1EEF6] pt-5 text-[12px] sm:text-[13px]">
         {accommodations.length > 0 ? (
           <>
             <div className="flex items-center justify-between gap-4">
               <dt className="text-[#7B8B99]">Penginapan Dipilih</dt>
-              <dd className="font-semibold text-[#202B37]">{accommodations.length} Hotel</dd>
+              <dd className="font-bold text-[#143A5C]">{accommodations.length} Hotel</dd>
             </div>
             <div className="flex items-center justify-between gap-4">
               <dt className="text-[#7B8B99]">Estimasi Penginapan</dt>
-              <dd className="font-semibold text-[#0E75BC]">Rp{totalAccommodationCost.toLocaleString('id-ID')}</dd>
+              <dd className="font-bold text-[#0E75BC]">Rp{totalAccommodationCost.toLocaleString('id-ID')}</dd>
             </div>
           </>
         ) : (
@@ -353,17 +419,17 @@ function TripSidebar() {
         )}
       </dl>
 
-      <div className="mt-3 sm:mt-5 space-y-2 sm:space-y-3">
+      <div className="mt-5 space-y-3">
         <button
           type="button"
           onClick={handleSave}
-          className="inline-flex h-9 sm:h-11 w-full items-center justify-center gap-2 rounded-[8px] sm:rounded-[10px] bg-[#0E75BC] px-4 text-[12px] sm:text-[13px] font-semibold text-white transition-colors hover:bg-[#095f99] shadow-md"
+          className="flex h-[42px] sm:h-[46px] w-full items-center justify-center gap-2 rounded-[14px] bg-[#0E75BC] px-4 text-[13px] sm:text-[14px] font-bold text-white transition-colors hover:bg-[#095f99] shadow-sm"
         >
           Simpan Pilihan
         </button>
         <Link
           href="/planner"
-          className="inline-flex h-9 sm:h-11 w-full items-center justify-center gap-2 rounded-[8px] sm:rounded-[10px] border border-[#0E75BC] bg-white px-4 text-[12px] sm:text-[13px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#F2FAFE]"
+          className="flex h-[42px] sm:h-[46px] w-full items-center justify-center gap-2 rounded-[14px] border-[1.5px] border-[#0E75BC] bg-white px-4 text-[13px] sm:text-[14px] font-bold text-[#0E75BC] transition-colors hover:bg-[#F4F9FD]"
         >
           Kembali ke Planner
         </Link>
@@ -403,9 +469,15 @@ function HotelConfirmationModal({
   // Logika 1 Kamar untuk 2 Tamu
   const rooms = Math.ceil(guests / 2);
 
-  const parsedBasePrice = hotel
-    ? parseInt(hotel.price.replace(/[^0-9]/g, ''), 10)
-    : 0;
+  const parsedBasePrice = useMemo(() => {
+    if (!hotel || !hotel.price) return 0;
+    // Extract the first sequence of digits and dots (e.g., "159.288" from "Mulai Rp 159.288/malam")
+    const match = hotel.price.match(/[\d\.]+/);
+    if (match && match[0]) {
+      return parseInt(match[0].replace(/\./g, ''), 10);
+    }
+    return 0;
+  }, [hotel]);
   const basePrice = Number.isFinite(parsedBasePrice) ? parsedBasePrice : 0;
   const totalEstimasi = basePrice * nights * rooms;
 
@@ -452,7 +524,7 @@ function HotelConfirmationModal({
             </span>
           </div>
           <p className="mt-2 text-[18px] font-bold text-[#0E75BC]">
-            {hotel.price} <span className="text-[11px] font-normal text-slate-500">/ malam</span>
+            {hotel.price}
           </p>
         </div>
 
@@ -555,170 +627,26 @@ function HotelConfirmationModal({
   );
 }
 
-function AccommodationSidebar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [budget, setBudget] = useState<string | null>(null);
-  const [types, setTypes] = useState<string[]>([]);
-  const [rating, setRating] = useState<string | null>(null);
 
-  const handleBudgetToggle = (val: string) => setBudget(p => p === val ? null : val);
-  const handleRatingToggle = (val: string) => setRating(p => p === val ? null : val);
-
-  const handleTypeToggle = (val: string) => setTypes(p => p.includes(val) ? p.filter(t => t !== val) : [...p, val]);
-
-  const handleReset = () => {
-    setBudget(null);
-    setTypes([]);
-    setRating(null);
-  };
-
-  return (
-    <>
-      {/* Mobile Backdrop */}
-      {isOpen && (
-        <div 
-          className="fixed inset-0 z-[10000] bg-slate-900/40 backdrop-blur-sm lg:hidden transition-opacity"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
-      {/* Mobile Trigger Button */}
-      <div className="lg:hidden">
-        <button 
-          type="button"
-          className="flex w-full items-center justify-center rounded-[16px] border border-slate-200 bg-white p-4 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-colors active:bg-slate-50"
-          onClick={() => setIsOpen(true)}
-        >
-          <div className="flex items-center gap-2">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-slate-800">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-            </svg>
-            <h2 className="text-[15px] font-bold text-slate-900">
-              Sesuaikan Hasil
-            </h2>
-          </div>
-        </button>
-      </div>
-
-      {/* Sidebar / Drawer */}
-      <aside className={`fixed inset-y-0 left-0 z-[10010] w-[280px] bg-white p-5 shadow-2xl transition-transform lg:static lg:block lg:w-full lg:transform-none lg:rounded-[16px] lg:border lg:border-slate-200 lg:bg-white lg:p-5 lg:shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-y-auto ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
-        
-        {/* Mobile Drawer Header */}
-        <div className="flex items-center justify-between lg:hidden mb-6">
-          <h2 className="text-[18px] font-bold text-slate-900">Sesuaikan Hasil</h2>
-          <button type="button" onClick={() => setIsOpen(false)} className="rounded-full p-2 text-slate-500 hover:bg-slate-100 transition-colors">
-            <X className="h-5 w-5" />
-          </button>
-        </div>
-
-        {/* Desktop Sidebar Header */}
-        <div className="hidden lg:flex items-center gap-2 mb-6">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-slate-800">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-          </svg>
-          <h2 className="text-[17px] font-bold text-slate-900">
-            Sesuaikan Hasil
-          </h2>
-        </div>
-
-        <form onSubmit={(e) => { e.preventDefault(); setIsOpen(false); }} onReset={handleReset} className="space-y-6">
-        <div>
-          <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-3">
-            Anggaran
-          </h3>
-          <div className="space-y-2.5">
-            {['< 500rb', '500rb - 1jt', '> 1jt'].map(b => (
-              <button
-                key={b}
-                type="button"
-                className="flex w-full items-center gap-3 cursor-pointer text-left group"
-                onClick={() => handleBudgetToggle(b)}
-              >
-                <div className={`w-4 h-4 rounded-full border flex shrink-0 items-center justify-center transition-colors ${budget === b ? 'border-[#0E75BC] bg-[#0E75BC]' : 'border-slate-300 bg-white group-hover:border-[#0E75BC]'}`}>
-                  {budget === b && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
-                </div>
-                <span className="text-[14px] text-slate-700">{b}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-3">
-            Tipe Properti
-          </h3>
-          <div className="space-y-2.5">
-            {['Hotel', 'Villa', 'Glamping'].map(t => (
-              <button
-                key={t}
-                type="button"
-                className="flex w-full items-center gap-3 cursor-pointer text-left group"
-                onClick={() => handleTypeToggle(t)}
-              >
-                <div className={`w-4 h-4 rounded border flex shrink-0 items-center justify-center transition-colors ${types.includes(t) ? 'border-[#0E75BC] bg-[#0E75BC]' : 'border-slate-300 bg-white group-hover:border-[#0E75BC]'}`}>
-                  {types.includes(t) && (
-                    <svg className="w-[10px] h-[10px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-                  )}
-                </div>
-                <span className="text-[14px] text-slate-700">{t}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-[11px] font-bold uppercase tracking-wider text-[#64748B] mb-3">
-            Rating
-          </h3>
-          <div className="space-y-2.5">
-            {['3+ Bintang', '4+ Bintang', '4.5+ Bintang'].map(r => (
-              <button
-                key={r}
-                type="button"
-                className="flex w-full items-center gap-3 cursor-pointer text-left group"
-                onClick={() => handleRatingToggle(r)}
-              >
-                <div className={`w-4 h-4 rounded-full border flex shrink-0 items-center justify-center transition-colors ${rating === r ? 'border-[#0E75BC] bg-[#0E75BC]' : 'border-slate-300 bg-white group-hover:border-[#0E75BC]'}`}>
-                  {rating === r && <div className="w-1.5 h-1.5 bg-white rounded-full" />}
-                </div>
-                <span className="text-[14px] text-slate-700">{r}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-6 pt-4 border-t border-slate-100 flex flex-col gap-3">
-          <button
-            type="submit"
-            className="w-full rounded-xl bg-[#0E75BC] px-4 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-bold text-white transition-colors hover:bg-[#095f99] shadow-sm"
-          >
-            Terapkan Filters
-          </button>
-          <button
-            type="reset"
-            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white px-4 py-3 sm:py-3.5 text-[13px] sm:text-[14px] font-bold text-slate-500 hover:text-[#E54545] hover:border-[#E54545] transition-colors"
-          >
-            <svg fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
-            Reset Filter
-          </button>
-        </div>
-      </form>
-    </aside>
-    </>
-  );
-}
 
 export function AccommodationPageContent() {
   const searchParams = useSearchParams();
   const destinationSlug = searchParams.get('destination');
   const destinationMode = Boolean(destinationSlug);
   const [selectedHotel, setSelectedHotel] = useState<Accommodation | null>(null);
-  const [filters, setFilters] = useState<AccommodationFiltersState>(DEFAULT_FILTERS);
+  const [filters, setFilters] = useState<AccommodationFiltersState>(() => ({
+    ...DEFAULT_FILTERS,
+    // Auto-set sort to 'nearest' when coming from planner with a destination
+    sort: destinationSlug ? 'nearest' : 'recommended',
+  }));
   const [filterMetadata, setFilterMetadata] = useState<AccommodationFilterMetadata | null>(null);
   const [accommodations, setAccommodations] = useState<Accommodation[]>([]);
   const [meta, setMeta] = useState<AccommodationMeta>(DEFAULT_META);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Debounce search input to prevent API spam per keystroke
+  const debouncedSearch = useDebouncedValue(filters.search, 400);
 
   useEffect(() => {
     let active = true;
@@ -737,48 +665,45 @@ export function AccommodationPageContent() {
 
   useEffect(() => {
     let active = true;
-    const timeoutId = window.setTimeout(() => {
-      setLoading(true);
-      setError(null);
+    setLoading(true);
+    setError(null);
 
-      const params = {
-        page: 1,
-        limit: 12,
-        search: filters.search.trim() || undefined,
-        type: filters.type,
-        maxPrice: getMaxPrice(filters.budget),
-        minRating: filters.minRating ?? undefined,
-        facilities: filters.facility ? [filters.facility] : undefined,
-        radiusKm: destinationMode ? 10 : undefined,
-        sort: filters.sort,
-      };
+    const params = {
+      page: 1,
+      limit: 12,
+      search: debouncedSearch.trim() || undefined,
+      type: filters.type,
+      maxPrice: getMaxPrice(filters.budget),
+      minRating: filters.minRating ?? undefined,
+      facilities: filters.facility ? [filters.facility] : undefined,
+      radiusKm: destinationMode ? 10 : undefined,
+      sort: filters.sort,
+    };
 
-      const request = destinationSlug
-        ? accommodationsService.getNearbyForDestination(destinationSlug, params)
-        : accommodationsService.getAll(params);
+    const request = destinationSlug
+      ? accommodationsService.getNearbyForDestination(destinationSlug, params)
+      : accommodationsService.getAll(params);
 
-      request
-        .then((result) => {
-          if (!active) return;
-          setAccommodations(result.data);
-          setMeta(result.meta);
-        })
-        .catch((fetchError: Error) => {
-          if (!active) return;
-          setError(fetchError.message || 'Gagal mengambil rekomendasi penginapan.');
-          setAccommodations([]);
-          setMeta(DEFAULT_META);
-        })
-        .finally(() => {
-          if (active) setLoading(false);
-        });
-    }, 0);
+    request
+      .then((result) => {
+        if (!active) return;
+        setAccommodations(result.data);
+        setMeta(result.meta);
+      })
+      .catch((fetchError: Error) => {
+        if (!active) return;
+        setError(fetchError.message || 'Gagal mengambil rekomendasi penginapan.');
+        setAccommodations([]);
+        setMeta(DEFAULT_META);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
 
     return () => {
       active = false;
-      window.clearTimeout(timeoutId);
     };
-  }, [destinationSlug, destinationMode, filters]);
+  }, [destinationSlug, destinationMode, debouncedSearch, filters.type, filters.budget, filters.minRating, filters.facility, filters.sort]);
 
   const updateFilters = (patch: Partial<AccommodationFiltersState>) => {
     setFilters((prev) => ({ ...prev, ...patch }));
@@ -790,42 +715,69 @@ export function AccommodationPageContent() {
 
   return (
     <main className="mx-auto max-w-[1180px] px-4 py-4 sm:py-6 sm:px-8">
-      <div className="mb-3 sm:mb-5 flex flex-col gap-2 sm:gap-4 lg:flex-row lg:items-end lg:justify-between">
-        <div>
-          <h1 className="text-[24px] font-semibold leading-tight text-[#202B37] sm:text-[34px]">
-            Pilih Penginapan
-          </h1>
-        </div>
+      {/* Page Header */}
+      <div className="mb-4 sm:mb-6">
+        <h1 className="text-[24px] font-semibold leading-tight text-[#202B37] sm:text-[34px]">
+          Pilih Penginapan
+        </h1>
+        <p className="mt-1 text-[13px] text-[#7B8B99]">
+          {destinationMode
+            ? 'Menampilkan penginapan terdekat dari destinasi wisata pilihanmu.'
+            : 'Temukan penginapan terbaik untuk perjalananmu di Bandung.'}
+        </p>
+      </div>
 
-        <div className="w-full lg:max-w-[460px]">
-
+      {/* Type Chips — full width, sticky like explore CategoryChips */}
+      <div className="pointer-events-none sticky top-0 z-30 -mx-4 px-4 pb-2 pt-4 sm:mx-0 sm:px-0">
+        <div className="pointer-events-auto">
+          <AccommodationTypeChips
+            filters={filters}
+            metadata={filterMetadata}
+            onChange={updateFilters}
+            onReset={resetFilters}
+          />
         </div>
       </div>
 
-      <div className="flex flex-col-reverse gap-3 sm:gap-5 lg:grid lg:grid-cols-[minmax(0,1fr)_320px] xl:grid-cols-[minmax(0,1fr)_340px]">
-        <div className="min-w-0 space-y-3 sm:space-y-5">
-          <AccommodationFilters
+      {/* 2-column grid: Filter Sidebar + Content — same as explore */}
+      <div className="mt-0 grid gap-6 lg:mt-2 lg:grid-cols-[280px_minmax(0,1fr)]">
+        {/* Left Sidebar: Trip Summary First, then Filters (hidden on mobile, sticky on desktop) */}
+        <div className="hidden lg:flex lg:flex-col lg:gap-5 lg:sticky lg:top-16 lg:self-start lg:max-h-[calc(100vh-4rem)] lg:overflow-y-auto lg:pb-6 scrollbar-hide">
+          {/* Trip Summary at the TOP for clear visibility */}
+          <TripSidebar />
+
+          <AccommodationFilterSidebar
             filters={filters}
             metadata={filterMetadata}
             destinationMode={destinationMode}
             onChange={updateFilters}
-            onReset={resetFilters}
           />
+        </div>
+
+        {/* Main Content Column */}
+        <div className="min-w-0 space-y-5">
+          {/* Cepot AI Insight */}
           <CepotInsight />
 
+          {/* Trip Summary — visible only on mobile, above hotel list */}
+          <div className="lg:hidden">
+            <TripSidebar />
+          </div>
+
+          {/* Hotel List */}
           <section>
-            <div className="mb-3">
-              <h2 className="text-[17px] font-semibold text-[#202B37]">
-                {destinationMode ? 'Penginapan Terdekat dari Wisata Pilihan' : 'Rekomendasi Penginapan'}
+            <div className="mb-4">
+              <h2 className="text-[18px] sm:text-[22px] font-bold text-[#143A5C]">
+                {destinationMode ? 'Penginapan Terdekat dari Wisata Pilihan' : 'Rekomendasi terbaik di Bandung'}
               </h2>
-              <p className="mt-1 text-[12px] leading-5 text-[#7B8B99]">
+              <p className="mt-1 text-[13px] text-[#7B8B99]">
                 {loading
                   ? 'Memuat data penginapan aktif...'
-                  : `${meta.total} penginapan ditemukan dari dataset aktif.`}
+                  : `Ditemukan ${meta.total} tempat dari data aktif.`}
               </p>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-4">
               {loading && [...Array(4)].map((_, index) => (
                 <div key={index} className="h-[220px] animate-pulse rounded-[14px] border border-slate-100 bg-slate-100" />
               ))}
@@ -835,8 +787,9 @@ export function AccommodationPageContent() {
                 </div>
               )}
               {!loading && !error && accommodations.length === 0 && (
-                <div className="rounded-[14px] border border-dashed border-slate-200 bg-white p-5 text-[13px] leading-6 text-slate-500">
-                  Belum ada penginapan yang cocok dengan filter ini. Coba reset filter atau perluas radius.
+                <div className="rounded-[14px] border border-dashed border-slate-200 bg-white p-6 text-center text-[13px] leading-6 text-slate-500">
+                  Belum ada penginapan yang cocok dengan filter ini.<br />
+                  Coba sesuaikan budget, rating, atau hapus pencarian.
                 </div>
               )}
               {!loading && !error && accommodations.map((accommodation, index) => (
@@ -849,11 +802,6 @@ export function AccommodationPageContent() {
               ))}
             </div>
           </section>
-        </div>
-
-        <div className="flex flex-col gap-3 sm:gap-5 lg:sticky lg:top-6 lg:self-start">
-          <TripSidebar />
-          <AccommodationSidebar />
         </div>
       </div>
 

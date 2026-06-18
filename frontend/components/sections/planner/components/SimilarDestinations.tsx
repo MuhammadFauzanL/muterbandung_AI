@@ -3,20 +3,25 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Compass as TravelIcon, Loader2 } from 'lucide-react';
+import { Compass as TravelIcon, Sparkles } from 'lucide-react';
 import { usePlanner } from '@/context/PlannerContext';
 import { destinationsService } from '@/services/destinations';
 import { recommendationsService } from '@/services/recommendations';
 import type { ExploreDestination } from '@/types';
+
+type FallbackSource = 'intent' | 'category' | 'ai' | 'popular';
 
 export function SimilarDestinations() {
   const { destinations } = usePlanner();
   const [similar, setSimilar] = useState<ExploreDestination[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [source, setSource] = useState<FallbackSource>('popular');
 
   const selectedIds = destinations.map((d) => d.id);
-  const dominantIntent = destinations[0]?.primaryIntent || destinations[0]?.category;
+  const firstDest = destinations[0];
+  const primaryIntent = firstDest?.primaryIntent;
+  const category = firstDest?.category;
 
   useEffect(() => {
     let active = true;
@@ -24,22 +29,100 @@ export function SimilarDestinations() {
     setLoading(true);
     setError(null);
 
-    const fetchSimilar = dominantIntent
-      ? destinationsService.getExplore({
-          intent: dominantIntent,
-          limit: 8,
-          sort: 'quality',
-        })
-      : recommendationsService.getDestinations({ limit: 8 });
+    /**
+     * Cascading Fallback Strategy:
+     * 1. If primaryIntent exists → search by intent (same "vibe")
+     * 2. If category exists → search by category (same type)
+     * 3. If user is logged in → AI personal recommendations
+     * 4. Final fallback → popular destinations
+     *
+     * At each level, if results (after filtering duplicates) are < 2,
+     * we fall through to the next level and merge results.
+     */
+    async function fetchWithFallback() {
+      const MAX_CARDS = 4;
+      const MIN_ACCEPTABLE = 2;
+      let results: ExploreDestination[] = [];
+      let activeSource: FallbackSource = 'popular';
 
-    fetchSimilar
-      .then((res) => {
-        if (!active) return;
-        const filtered = res.data
-          .filter((d) => !selectedIds.includes(d.id))
-          .slice(0, 4);
-        setSimilar(filtered);
-      })
+      // ── Level 1: Same Intent ──
+      if (primaryIntent) {
+        try {
+          const res = await destinationsService.getExplore({
+            intent: primaryIntent,
+            limit: 12,
+            sort: 'quality',
+          });
+          const filtered = res.data.filter((d) => !selectedIds.includes(d.id));
+          if (filtered.length > 0) {
+            results = filtered.slice(0, MAX_CARDS);
+            activeSource = 'intent';
+          }
+        } catch {
+          // silently fall through
+        }
+      }
+
+      // ── Level 2: Same Category (if intent gave < MIN results) ──
+      if (results.length < MIN_ACCEPTABLE && category) {
+        try {
+          const res = await destinationsService.getExplore({
+            category: category,
+            limit: 12,
+            sort: 'quality',
+          });
+          const existingIds = new Set([...selectedIds, ...results.map((r) => r.id)]);
+          const filtered = res.data.filter((d) => !existingIds.has(d.id));
+          if (filtered.length > 0) {
+            results = [...results, ...filtered].slice(0, MAX_CARDS);
+            if (activeSource === 'popular') activeSource = 'category';
+          }
+        } catch {
+          // silently fall through
+        }
+      }
+
+      // ── Level 3: AI Personal Recommendation ──
+      if (results.length < MIN_ACCEPTABLE) {
+        try {
+          const res = await recommendationsService.getDestinations({
+            limit: 12,
+            requireAuth: true,
+          });
+          const existingIds = new Set([...selectedIds, ...results.map((r) => r.id)]);
+          const filtered = res.data.filter((d) => !existingIds.has(d.id));
+          if (filtered.length > 0) {
+            results = [...results, ...filtered].slice(0, MAX_CARDS);
+            if (activeSource === 'popular') activeSource = 'ai';
+          }
+        } catch {
+          // silently fall through
+        }
+      }
+
+      // ── Level 4: Popular Destinations (final fallback) ──
+      if (results.length < MIN_ACCEPTABLE) {
+        try {
+          const res = await destinationsService.getExplore({
+            limit: 12,
+            sort: 'popular',
+          });
+          const existingIds = new Set([...selectedIds, ...results.map((r) => r.id)]);
+          const filtered = res.data.filter((d) => !existingIds.has(d.id));
+          results = [...results, ...filtered].slice(0, MAX_CARDS);
+          if (activeSource === 'popular') activeSource = 'popular';
+        } catch {
+          // silently fall through
+        }
+      }
+
+      if (!active) return;
+
+      setSimilar(results);
+      setSource(activeSource);
+    }
+
+    fetchWithFallback()
       .catch(() => {
         if (active) setError('Gagal memuat wisata serupa.');
       })
@@ -49,22 +132,34 @@ export function SimilarDestinations() {
 
     return () => { active = false; };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dominantIntent, selectedIds.join(',')]);
+  }, [primaryIntent, category, selectedIds.join(',')]);
 
-  const sectionTitle = dominantIntent
-    ? `Wisata ${dominantIntent} Lainnya`
-    : 'Wisata yang Mungkin Kamu Sukai';
+  // Dynamic section title based on source
+  const sectionTitle = (() => {
+    if (source === 'intent' && primaryIntent) return `Wisata ${primaryIntent} Lainnya`;
+    if (source === 'category' && category) return `${category} Lainnya`;
+    if (source === 'ai') return 'Rekomendasi AI Untukmu';
+    return 'Wisata Populer Lainnya';
+  })();
+
+  const sourceLabel = (() => {
+    if (source === 'intent') return 'Berdasarkan jenis wisata yang sama';
+    if (source === 'category') return 'Berdasarkan kategori serupa';
+    if (source === 'ai') return 'Dipilihkan Cepot AI khusus untukmu';
+    return 'Wisata populer di Bandung';
+  })();
 
   return (
     <section>
-      <div className="mb-3 flex items-center gap-2 text-[#202B37]">
+      <div className="mb-1 flex items-center gap-2 text-[#202B37]">
         <span className="text-[#0E75BC]">
-          <TravelIcon />
+          {source === 'ai' ? <Sparkles /> : <TravelIcon />}
         </span>
         <h2 className="text-[16px] font-semibold leading-6">
           {sectionTitle}
         </h2>
       </div>
+      <p className="mb-3 text-[11px] text-[#7B8B99]">{sourceLabel}</p>
 
       {loading && (
         <div className="grid gap-3 sm:gap-4 grid-cols-2">
@@ -89,7 +184,8 @@ export function SimilarDestinations() {
       {!loading && !error && similar.length === 0 && (
         <div className="rounded-xl border border-dashed border-[#BFE8F0] bg-[#F6FCFE] px-4 py-6 text-center">
           <p className="text-[13px] text-[#6A7E8E]">
-            Belum ada wisata serupa ditemukan. Coba pilih destinasi dari halaman Explore.
+            Belum ada wisata serupa ditemukan. Coba pilih destinasi dari halaman{' '}
+            <Link href="/explore" className="font-semibold text-[#0E75BC] underline">Explore</Link>.
           </p>
         </div>
       )}

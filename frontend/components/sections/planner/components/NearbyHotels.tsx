@@ -121,7 +121,7 @@ export function NearbyHotels() {
                     <p className="text-[14px] font-bold text-[#0E75BC]">{hotel.price}</p>
                   </div>
                   <Link
-                    href="/planner/penginapan"
+                    href={firstDest?.slug ? `/planner/penginapan?destination=${firstDest.slug}` : '/planner/penginapan'}
                     className="rounded-[8px] bg-[#EAF6FC] px-3 py-1.5 text-[11px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#DDEAF2]"
                   >
                     Lihat Detail

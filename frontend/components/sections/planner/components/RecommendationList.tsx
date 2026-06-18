@@ -127,25 +127,39 @@ export function RecommendationList() {
           </h2>
         </div>
 
-        {/* Inline location prompt — moved to header as a pill button */}
-        {!hasLocation && locationStatus !== 'denied' && (
+      </div>
+
+      {/* Elegant location prompt banner */}
+      {!hasLocation && locationStatus !== 'denied' && (
+        <div className="mb-4 flex items-center justify-between rounded-xl border border-[#BFE8F0] bg-[#EAF8FB] p-3 sm:p-4 shadow-sm transition-all">
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white text-[#0E75BC] shadow-[0_4px_12px_rgba(14,117,188,0.1)]">
+              <Navigation className="h-5 w-5" />
+            </div>
+            <div>
+              <p className="text-[13px] sm:text-[14px] font-bold text-[#0E75BC]">Cari di Sekitarmu</p>
+              <p className="mt-0.5 text-[11px] sm:text-[12px] text-[#6A7E8E] leading-tight">
+                Izinkan akses lokasi untuk rekomendasi terdekat yang lebih akurat.
+              </p>
+            </div>
+          </div>
           <button
             type="button"
             onClick={requestLocation}
             disabled={locationLoading}
-            className="flex shrink-0 items-center gap-1.5 rounded-full border border-[#BFE8F0] bg-[#EAF8FB] px-3 py-1.5 transition-colors hover:bg-[#D8F0F6]"
+            className="shrink-0 ml-2 rounded-full bg-[#0E75BC] px-4 py-2 text-[12px] font-semibold text-white shadow-sm transition-colors hover:bg-[#095f99] disabled:opacity-70"
           >
             {locationLoading ? (
-              <Loader2 className="h-3 w-3 animate-spin text-[#0E75BC]" />
+              <span className="flex items-center gap-2">
+                <Loader2 className="h-3 w-3 animate-spin" />
+                <span>Memproses...</span>
+              </span>
             ) : (
-              <Navigation className="h-3 w-3 text-[#0E75BC]" />
+              'Aktifkan'
             )}
-            <span className="text-[11px] font-semibold text-[#0E75BC]">
-              {locationLoading ? 'Mencari...' : 'Cari Terdekat'}
-            </span>
           </button>
-        )}
-      </div>
+        </div>
+      )}
 
       {loading && (
         <div className="space-y-3">

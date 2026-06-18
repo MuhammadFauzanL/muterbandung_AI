@@ -6,6 +6,7 @@ import { MapPin as PinIcon, Building as BuildingIcon, X as CloseIcon } from 'luc
 
 export function TripSummary() {
   const { destinations, accommodations, removeDestination, removeAccommodation } = usePlanner();
+  const firstDestSlug = destinations[0]?.slug;
 
   // Hitung jumlah destinasi (maksimal per hari misal 5)
   const destCount = destinations.length;
@@ -74,14 +75,14 @@ export function TripSummary() {
       <div className="mt-3 sm:mt-5 space-y-2 sm:space-y-3">
         {accommodations.length === 0 ? (
           <Link
-            href="/planner/penginapan"
+            href={firstDestSlug ? `/planner/penginapan?destination=${firstDestSlug}` : '/planner/penginapan'}
             className="inline-flex h-9 sm:h-11 w-full items-center justify-center gap-2 rounded-[8px] sm:rounded-[10px] bg-[#0E75BC] px-4 text-[12px] sm:text-[13px] font-semibold text-white transition-colors hover:bg-[#095f99]"
           >
             Lanjut Pilih Penginapan
           </Link>
         ) : (
           <Link
-            href="/planner/penginapan"
+            href={firstDestSlug ? `/planner/penginapan?destination=${firstDestSlug}` : '/planner/penginapan'}
             className="inline-flex h-9 sm:h-11 w-full items-center justify-center gap-2 rounded-[8px] sm:rounded-[10px] border border-[#0E75BC] bg-white px-4 text-[12px] sm:text-[13px] font-semibold text-[#0E75BC] transition-colors hover:bg-[#F2FAFE]"
           >
             Pilih Penginapan Lain
