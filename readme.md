@@ -8,13 +8,13 @@
 <table>
   <tr>
     <td align="center">
-      <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Rahardian" alt="Rahardian"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/800f0a8d-3503-4ce4-9266-99ce9a7c3f4b" alt="Rahardian"><br>
       <a href="https://github.com/rhrdianbaihaqi">
-        <img src="https://img.shields.io/badge/030-M.%20Rahardian%20B.-blue" alt="030 Badge">
+        <img src="https://img.shields.io/badge/030-Muhammad%20Rahardian%20Baihaqi-blue" alt="030 Badge">
       </a>
     </td>
     <td align="center">
-      <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Nazwa" alt="Nazwa"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/7e57a253-1aa2-40f9-94d2-6c13ed51cc37" alt="Nazwa"><br>
       <a href="https://github.com/nazwaym">
         <img src="https://img.shields.io/badge/050-Nazwa%20Yulianti-blue" alt="050 Badge">
       </a>
@@ -22,7 +22,7 @@
     <td align="center">
       <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Ridwan" alt="Ridwan"><br>
       <a href="https://github.com/Ridwanihsann">
-        <img src="https://img.shields.io/badge/377-M.%20Ridwan%20N.I.-blue" alt="377 Badge">
+        <img src="https://img.shields.io/badge/377-M.%20Ridwan%20Nur%20Ihsan-blue" alt="377 Badge">
       </a>
     </td>
     <td align="center">
@@ -34,7 +34,7 @@
     <td align="center">
       <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Veva" alt="Veva"><br>
       <a href="https://github.com/vevar02">
-        <img src="https://img.shields.io/badge/378-Muhamad%20Veva%20R.-blue" alt="378 Badge">
+        <img src="https://img.shields.io/badge/378-Muhamad%20Veva%20Ramadhan-blue" alt="378 Badge">
       </a>
     </td>
   </tr>
