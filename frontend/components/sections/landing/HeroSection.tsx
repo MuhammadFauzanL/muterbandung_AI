@@ -19,7 +19,7 @@ export function HeroSection() {
       className="relative min-h-[calc(100vh-68px)] overflow-hidden"
     >
       <Image
-        src="/images/background.png"
+        src="/images/background.webp"
         alt="Ilustrasi Gedung Sate Bandung"
         fill
         preload

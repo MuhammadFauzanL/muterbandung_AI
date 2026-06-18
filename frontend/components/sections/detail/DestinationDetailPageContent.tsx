@@ -227,7 +227,7 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
               <h2 className="text-[14px] sm:text-[16px] font-bold text-slate-900 mb-3 sm:mb-4">Lokasi</h2>
               <div className="w-full h-[120px] sm:h-[180px] bg-slate-200 rounded-lg sm:rounded-xl overflow-hidden relative mb-3 sm:mb-4">
                 {/* Mock Map Image */}
-                <SafeImage src="/images/background.png" alt="Map Route" fill className="object-cover opacity-70" />
+                <SafeImage src="/images/background.webp" alt="Map Route" fill className="object-cover opacity-70" />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="h-8 w-8 sm:h-10 sm:w-10 bg-white rounded-full flex items-center justify-center shadow-lg text-[#E94B35]">
                     <MapPin className="h-4 w-4 sm:h-6 w-6" />

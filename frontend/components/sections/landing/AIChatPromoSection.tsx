@@ -28,9 +28,9 @@ export function AIChatPromoSection() {
 
             <div className="flex items-center gap-4">
               <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/background.png" alt="User 1" fill className="object-cover" /></div>
+                <div className="w-10 h-10 rounded-full bg-blue-100 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/background.webp" alt="User 1" fill className="object-cover" /></div>
                 <div className="w-10 h-10 rounded-full bg-blue-200 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/welcome-cepot.png" alt="User 2" fill className="object-cover object-top" /></div>
-                <div className="w-10 h-10 rounded-full bg-blue-300 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/background.png" alt="User 3" fill className="object-cover" /></div>
+                <div className="w-10 h-10 rounded-full bg-blue-300 border-2 border-[#F3F8FC] overflow-hidden relative"><Image src="/images/background.webp" alt="User 3" fill className="object-cover" /></div>
               </div>
               <p className="text-[13px] text-slate-500 font-medium">
                 Dibuat oleh AI, divalidasi oleh para Traveler

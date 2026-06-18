@@ -12,5 +12,3 @@ export interface Category {
   count?: number;
   className?: string;
 }
-
-export type CategoryList = readonly Category[];

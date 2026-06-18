@@ -7,7 +7,6 @@
 export { HeroSection } from './HeroSection';
 export { PopularDestinationsSection } from './PopularDestinationsSection';
 export { CategoryHighlightsSection } from './CategoryHighlightsSection';
-export * from './CategoryTags';
 export * from './PersonalizedDestinationsSection';
 export * from './FeaturesSection';
 export * from './AIChatPromoSection';

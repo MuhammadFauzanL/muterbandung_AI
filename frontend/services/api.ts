@@ -35,8 +35,10 @@ export async function apiFetch<T>(
     headers.set('Content-Type', 'application/json');
   }
 
-  // Bypass Ngrok warning page
-  headers.set('ngrok-skip-browser-warning', 'true');
+  // Bypass Ngrok warning page (development only)
+  if (process.env.NODE_ENV === 'development') {
+    headers.set('ngrok-skip-browser-warning', 'true');
+  }
 
   // Inject token if required
   if (requireAuth) {
