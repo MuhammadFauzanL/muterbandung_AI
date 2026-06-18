@@ -4,8 +4,10 @@ import { FormEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Clock, Filter, Heart, Loader2, MapPin, Search, Wallet, X } from 'lucide-react';
 import { SafeImage } from '@/components/ui/SafeImage';
+import { useAuth } from '@/context/AuthContext';
 import { usePlanner } from '@/context/PlannerContext';
 import { destinationsService, type ExploreQueryParams } from '@/services/destinations';
+import { recommendationsService } from '@/services/recommendations';
 import type {
   ExploreDestination,
   ExploreFilterMetadata,
@@ -84,6 +86,20 @@ function buildExploreParams(filters: ExploreFilters, page: number): ExploreQuery
     radiusKm: withLocation ? filters.radiusKm : undefined,
     sort,
   };
+}
+
+function hasManualExploreFilters(filters: ExploreFilters) {
+  return Boolean(
+    filters.search.trim()
+    || filters.intent
+    || filters.budget
+    || filters.radiusKm
+    || filters.minRating
+    || filters.childFriendly
+    || filters.openNow
+    || filters.needsAccommodation
+    || filters.sort !== 'quality'
+  );
 }
 
 function readStoredLocation(): Pick<ExploreFilters, 'userLat' | 'userLng'> {
@@ -658,6 +674,8 @@ function DestinationGrid({
   error,
   meta,
   page,
+  title,
+  description,
   onPageChange,
 }: {
   destinations: ExploreDestination[];
@@ -665,6 +683,8 @@ function DestinationGrid({
   error: string | null;
   meta: ExploreMeta;
   page: number;
+  title: string;
+  description: string;
   onPageChange: (page: number) => void;
 }) {
   const totalPages = meta.totalPages || 0;
@@ -679,10 +699,10 @@ function DestinationGrid({
       <div className="mb-2 flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h2 className="text-xl font-bold tracking-normal text-[#1A202C] sm:text-[26px]">
-            Rekomendasi terbaik di Bandung
+            {title}
           </h2>
           <p className="mt-0.5 text-xs font-medium text-[#718096] sm:text-[15px]">
-            {loading ? 'Mengambil rekomendasi terbaru...' : `Ditemukan ${meta.total} tempat dari data aktif.`}
+            {loading ? 'Mengambil rekomendasi terbaru...' : description}
           </p>
         </div>
       </div>
@@ -746,6 +766,7 @@ function DestinationGrid({
 }
 
 export function ExplorePageContent() {
+  const { isLoggedIn, isLoading: authLoading } = useAuth();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<ExploreFilters>(DEFAULT_FILTERS);
   const [destinations, setDestinations] = useState<ExploreDestination[]>([]);
@@ -811,6 +832,8 @@ export function ExplorePageContent() {
   }, []);
 
   useEffect(() => {
+    if (authLoading) return;
+
     let active = true;
     const timeoutId = window.setTimeout(() => {
       const queryFilters: ExploreFilters = {
@@ -829,11 +852,20 @@ export function ExplorePageContent() {
         userLng,
         sort,
       };
+      const shouldUsePersonalRecommendations =
+        isLoggedIn && !hasManualExploreFilters(queryFilters);
 
       setLoading(true);
       setError(null);
-      destinationsService
-        .getExplore(buildExploreParams(queryFilters, page))
+      const request = shouldUsePersonalRecommendations
+        ? recommendationsService.getDestinations({
+            page,
+            limit: 12,
+            requireAuth: true,
+          })
+        : destinationsService.getExplore(buildExploreParams(queryFilters, page));
+
+      request
         .then((result) => {
           if (!active) return;
           setDestinations(result.data);
@@ -855,6 +887,8 @@ export function ExplorePageContent() {
       window.clearTimeout(timeoutId);
     };
   }, [
+    authLoading,
+    isLoggedIn,
     page,
     debouncedSearch,
     debouncedCustomMaxPrice,
@@ -946,6 +980,13 @@ export function ExplorePageContent() {
   };
 
   const nearbyActive = filters.sort === 'nearest' && hasUserLocation(filters);
+  const personalizedView = isLoggedIn && !hasManualExploreFilters(filters);
+  const gridTitle = personalizedView
+    ? 'Rekomendasi untukmu'
+    : 'Rekomendasi terbaik di Bandung';
+  const gridDescription = personalizedView
+    ? `Berdasarkan preferensi wisata kamu. Ditemukan ${meta.total} tempat yang cocok.`
+    : `Ditemukan ${meta.total} tempat dari data aktif.`;
 
   return (
     <main id="planner" className="mx-auto w-full max-w-[1180px] overflow-x-hidden px-4 py-6 sm:px-8">
@@ -1000,6 +1041,8 @@ export function ExplorePageContent() {
           error={error}
           meta={meta}
           page={page}
+          title={gridTitle}
+          description={gridDescription}
           onPageChange={changePage}
         />
       </div>

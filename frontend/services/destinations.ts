@@ -40,12 +40,12 @@ export interface ExploreResponse {
   meta: ExploreMeta;
 }
 
-interface ApiResponse<T> {
+export interface ApiResponse<T> {
   data?: T;
   meta?: ExploreMeta;
 }
 
-interface ApiHighlightItem {
+export interface ApiHighlightItem {
   slug?: string;
   name?: string;
   description?: string;
@@ -53,7 +53,7 @@ interface ApiHighlightItem {
   imageUrl?: string | null;
 }
 
-interface ApiDestinationCard {
+export interface ApiDestinationCard {
   id?: string;
   slug?: string;
   name?: string;
@@ -110,7 +110,7 @@ function formatDuration(minutes?: number | null) {
   return `${hours} jam ${remainingMinutes} menit`;
 }
 
-function mapExploreDestination(item: ApiDestinationCard): ExploreDestination {
+export function mapExploreDestination(item: ApiDestinationCard): ExploreDestination {
   return {
     id: item.id || item.slug || item.name || 'destination',
     slug: item.slug,

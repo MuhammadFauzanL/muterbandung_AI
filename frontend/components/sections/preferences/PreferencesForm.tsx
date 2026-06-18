@@ -3,115 +3,109 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { ArrowRight, Loader2, Sparkles } from 'lucide-react';
+import { userPreferencesService } from '@/services/userPreferences';
+import type {
+  FavoriteActivity,
+  FavoritePlaceType,
+  PreferredAtmosphere,
+  UserPreferencePayload,
+  VisitorTarget,
+} from '@/types';
 import {
-  Mountain,
-  Utensils,
-  ShoppingBag,
-  Landmark,
-  Home,
-  PawPrint,
-  Castle,
-  GraduationCap,
-  Leaf,
-  Camera,
-  PersonStanding,
-  Rocket,
-  Users,
-  Smile,
-  Building,
-  TreePine,
-  Moon,
-  ArrowRight,
-  Sparkles,
-} from 'lucide-react';
-
-// --- DATA CONSTANTS ---
-const FAVORITE_PLACES = [
-  { id: 'alam', label: 'Alam', icon: Mountain },
-  { id: 'kuliner', label: 'Kuliner', icon: Utensils },
-  { id: 'belanja', label: 'Belanja', icon: ShoppingBag },
-  { id: 'sejarah', label: 'Sejarah', icon: Landmark },
-  { id: 'budaya', label: 'Budaya', icon: Home },
-  { id: 'satwa', label: 'Satwa', icon: PawPrint },
-  { id: 'religi', label: 'Religi', icon: Castle },
-  { id: 'edukasi', label: 'Edukasi', icon: GraduationCap },
-];
-
-const FAVORITE_ACTIVITIES = [
-  { id: 'santai', label: 'Santai / Healing', desc: 'Tenangkan pikiran & jiwa.', icon: Leaf },
-  { id: 'foto', label: 'Spot Foto', desc: 'Estetik dan hits.', icon: Camera },
-  { id: 'petualangan', label: 'Petualangan', desc: 'Eksplorasi medan menantang.', icon: PersonStanding },
-  { id: 'wahana', label: 'Wahana Ekstrem', desc: 'Adrenalin tinggi & seru.', icon: Rocket },
-];
-
-const TARGET_VISITORS = [
-  { id: 'keluarga', label: 'Keluarga', icon: Users },
-  { id: 'ramah_anak', label: 'Ramah Anak', icon: Smile },
-];
-
-const ATMOSPHERES = [
-  { id: 'indoor', label: 'Indoor', icon: Building },
-  { id: 'outdoor', label: 'Outdoor', icon: TreePine },
-  { id: 'malam', label: 'Malam / City Light', icon: Moon },
-];
+  ATMOSPHERE_OPTIONS,
+  FAVORITE_ACTIVITY_OPTIONS,
+  FAVORITE_PLACE_OPTIONS,
+  VISITOR_TARGET_OPTIONS,
+} from './preferences.config';
 
 // --- INTERFACES ---
 interface PreferencesState {
-  places: string[];
-  activities: string[];
-  visitor: string;
-  atmospheres: string[];
+  places: FavoritePlaceType[];
+  activities: FavoriteActivity[];
+  visitor: VisitorTarget | null;
+  atmospheres: PreferredAtmosphere[];
   isFree: boolean;
 }
 
 export function PreferencesForm() {
+  const router = useRouter();
   const [prefs, setPrefs] = useState<PreferencesState>({
     places: [],
     activities: [],
-    visitor: '',
+    visitor: null,
     atmospheres: [],
     isFree: false,
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   // --- HANDLERS ---
-  const togglePlace = (id: string) => {
+  const togglePlace = (value: FavoritePlaceType) => {
     setPrefs((prev) => {
-      const isSelected = prev.places.includes(id);
+      const isSelected = prev.places.includes(value);
       if (isSelected) {
-        return { ...prev, places: prev.places.filter((p) => p !== id) };
+        return { ...prev, places: prev.places.filter((p) => p !== value) };
       }
       if (prev.places.length >= 3) return prev; // Max 3
-      return { ...prev, places: [...prev.places, id] };
+      return { ...prev, places: [...prev.places, value] };
     });
   };
 
-  const toggleActivity = (id: string) => {
+  const toggleActivity = (value: FavoriteActivity) => {
     setPrefs((prev) => {
-      const isSelected = prev.activities.includes(id);
+      const isSelected = prev.activities.includes(value);
       if (isSelected) {
-        return { ...prev, activities: prev.activities.filter((a) => a !== id) };
+        return { ...prev, activities: prev.activities.filter((a) => a !== value) };
       }
       if (prev.activities.length >= 2) return prev; // Max 2
-      return { ...prev, activities: [...prev.activities, id] };
+      return { ...prev, activities: [...prev.activities, value] };
     });
   };
 
-  const setVisitor = (id: string) => {
-    setPrefs((prev) => ({ ...prev, visitor: id }));
+  const setVisitor = (value: VisitorTarget) => {
+    setPrefs((prev) => ({ ...prev, visitor: value }));
   };
 
-  const toggleAtmosphere = (id: string) => {
+  const toggleAtmosphere = (value: PreferredAtmosphere) => {
     setPrefs((prev) => {
-      const isSelected = prev.atmospheres.includes(id);
+      const isSelected = prev.atmospheres.includes(value);
       if (isSelected) {
-        return { ...prev, atmospheres: prev.atmospheres.filter((a) => a !== id) };
+        return { ...prev, atmospheres: prev.atmospheres.filter((a) => a !== value) };
       }
-      return { ...prev, atmospheres: [...prev.atmospheres, id] };
+      return { ...prev, atmospheres: [...prev.atmospheres, value] };
     });
   };
 
   const toggleFree = () => {
     setPrefs((prev) => ({ ...prev, isFree: !prev.isFree }));
+  };
+
+  const handleSubmit = async () => {
+    setErrorMessage('');
+    setIsSubmitting(true);
+    const payload: UserPreferencePayload = {
+      favoritePlaceTypes: prefs.places,
+      favoriteActivities: prefs.activities,
+      visitorTarget: prefs.visitor,
+      preferredAtmospheres: prefs.atmospheres,
+      freeOnly: prefs.isFree,
+    };
+
+    try {
+      await userPreferencesService.saveMine(payload);
+      router.push('/explore');
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'Preferensi gagal disimpan.';
+      setErrorMessage(
+        message.includes('Unauthorized') || message.includes('Not authenticated')
+          ? 'Silakan login terlebih dahulu untuk menyimpan preferensi.'
+          : message,
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -178,13 +172,13 @@ export function PreferencesForm() {
                 <p className="mt-0.5 sm:mt-1 text-[11px] sm:text-[13px] text-[#40484D]">Pilih maksimal 3 yang kamu suka.</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
-                {FAVORITE_PLACES.map((place) => {
-                  const isSelected = prefs.places.includes(place.id);
+                {FAVORITE_PLACE_OPTIONS.map((place) => {
+                  const isSelected = prefs.places.includes(place.value);
                   const Icon = place.icon;
                   return (
                     <button
-                      key={place.id}
-                      onClick={() => togglePlace(place.id)}
+                      key={place.value}
+                      onClick={() => togglePlace(place.value)}
                       className={`flex items-center justify-start gap-2.5 rounded-[12px] border p-2 sm:p-4 transition-all active:scale-[0.98] ${
                         isSelected
                           ? 'border-[#00526E] bg-[#F0F7FC] shadow-sm'
@@ -210,13 +204,13 @@ export function PreferencesForm() {
                 <p className="mt-0.5 sm:mt-1 text-[11px] sm:text-[13px] text-[#40484D]">Pilih maksimal 2 aktivitas.</p>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 sm:gap-3">
-                {FAVORITE_ACTIVITIES.map((act) => {
-                  const isSelected = prefs.activities.includes(act.id);
+                {FAVORITE_ACTIVITY_OPTIONS.map((act) => {
+                  const isSelected = prefs.activities.includes(act.value);
                   const Icon = act.icon;
                   return (
                     <button
-                      key={act.id}
-                      onClick={() => toggleActivity(act.id)}
+                      key={act.value}
+                      onClick={() => toggleActivity(act.value)}
                       className={`flex items-center gap-2.5 sm:gap-4 rounded-[12px] border p-2 sm:p-4 text-left transition-all active:scale-[0.98] ${
                         isSelected
                           ? 'border-[#00526E] bg-[#F0F7FC] shadow-sm'
@@ -231,7 +225,7 @@ export function PreferencesForm() {
                           {act.label}
                         </span>
                         <span className="hidden sm:block mt-0.5 sm:mt-1 text-[11px] sm:text-[12px] text-[#6B7280]">
-                          {act.desc}
+                          {act.description}
                         </span>
                       </div>
                     </button>
@@ -247,13 +241,13 @@ export function PreferencesForm() {
                 <p className="mt-0.5 sm:mt-1 text-[11px] sm:text-[13px] text-[#40484D]">Pilih satu yang paling sesuai.</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                {TARGET_VISITORS.map((visitor) => {
-                  const isSelected = prefs.visitor === visitor.id;
+                {VISITOR_TARGET_OPTIONS.map((visitor) => {
+                  const isSelected = prefs.visitor === visitor.value;
                   const Icon = visitor.icon;
                   return (
                     <button
-                      key={visitor.id}
-                      onClick={() => setVisitor(visitor.id)}
+                      key={visitor.value}
+                      onClick={() => setVisitor(visitor.value)}
                       className={`flex items-center gap-1.5 sm:gap-2 rounded-full border px-4 py-2 sm:px-5 sm:py-2.5 transition-all active:scale-[0.98] ${
                         isSelected
                           ? 'border-[#00526E] bg-[#00526E] text-white shadow-sm'
@@ -274,13 +268,13 @@ export function PreferencesForm() {
                 <h3 className="text-[14px] sm:text-[16px] font-bold text-[#051D2E]">Suasana yang Disukai</h3>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
-                {ATMOSPHERES.map((atm) => {
-                  const isSelected = prefs.atmospheres.includes(atm.id);
+                {ATMOSPHERE_OPTIONS.map((atm) => {
+                  const isSelected = prefs.atmospheres.includes(atm.value);
                   const Icon = atm.icon;
                   return (
                     <button
-                      key={atm.id}
-                      onClick={() => toggleAtmosphere(atm.id)}
+                      key={atm.value}
+                      onClick={() => toggleAtmosphere(atm.value)}
                       className={`flex items-center justify-start gap-2.5 rounded-[12px] border p-2 sm:p-4 transition-all active:scale-[0.98] ${
                         isSelected
                           ? 'border-[#00526E] bg-[#F0F7FC] shadow-sm'
@@ -348,23 +342,35 @@ export function PreferencesForm() {
                 </div>
               </div>
             </section>
+
+            {errorMessage && (
+              <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-[12px] font-semibold text-red-700 sm:text-[13px]">
+                {errorMessage}
+              </div>
+            )}
           </div>
 
           {/* Form Footer Actions */}
           <div className="sticky bottom-0 z-20 flex flex-col-reverse sm:flex-row items-center justify-between border-t border-slate-100 bg-white/95 px-4 py-3 sm:px-8 sm:py-5 backdrop-blur-md gap-2 sm:gap-4">
             <Link
-              href="/"
+              href="/explore"
               className="text-[13px] sm:text-[14px] font-bold text-[#40484D] hover:text-[#051D2E] transition-colors"
             >
               Lewati
             </Link>
-            <Link
-              href="/#foryou"
+            <button
+              type="button"
+              disabled={isSubmitting}
+              onClick={handleSubmit}
               className="group flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-[#00526E] px-5 py-2.5 sm:px-6 sm:py-3 text-[13px] sm:text-[14px] font-semibold text-white transition-all hover:bg-[#00415C] active:scale-[0.98] shadow-md"
             >
-              Mulai Jelajahi Bandung
-              <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+              {isSubmitting ? 'Menyimpan...' : 'Mulai Jelajahi Bandung'}
+              {isSubmitting ? (
+                <Loader2 className="h-3.5 w-3.5 animate-spin sm:h-4 sm:w-4" />
+              ) : (
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1 sm:h-4 sm:w-4" />
+              )}
+            </button>
           </div>
 
         </div>

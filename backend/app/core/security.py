@@ -78,6 +78,7 @@ def decode_access_token(token: str) -> dict:
 # HTTPBearer shows a simple "Bearer Token" text field in Swagger UI
 # instead of OAuth2's username/password form.
 bearer_scheme = HTTPBearer()
+optional_bearer_scheme = HTTPBearer(auto_error=False)
 
 
 def get_current_user(
@@ -113,3 +114,35 @@ def get_current_user(
 
     return user
 
+
+def get_optional_current_user(
+    credentials: Optional[HTTPAuthorizationCredentials] = Depends(optional_bearer_scheme),
+    db: Session = Depends(get_db),
+):
+    """
+    Return the current user when a Bearer token is present.
+
+    Missing token returns None so public recommendation endpoints can fallback
+    to guest behavior. Invalid tokens still raise 401 to avoid hiding auth bugs.
+    """
+    if credentials is None:
+        return None
+
+    from app.models.user import User
+
+    token = credentials.credentials
+    payload = decode_access_token(token)
+    user_id: Optional[str] = payload.get("sub")
+
+    if user_id is None:
+        raise UnauthorizedException(message="Invalid or expired token")
+
+    user = db.query(User).filter(User.id == user_id).first()
+
+    if user is None:
+        raise UnauthorizedException(message="Invalid or expired token")
+
+    if not user.is_active:
+        raise UnauthorizedException(message="User account is deactivated")
+
+    return user

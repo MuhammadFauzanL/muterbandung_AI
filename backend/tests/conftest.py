@@ -34,6 +34,14 @@ def _cleanup_test_users():
             "format@example.com",
             "me@example.com",
             "nopw@example.com",
+            "pref@example.com",
+            "pref2@example.com",
+            "pref-owner@example.com",
+            "pref-other@example.com",
+            "pref-overflow@example.com",
+            "recommend@example.com",
+            "recommend-personal@example.com",
+            "recommend-free@example.com",
         ]
         db.query(User).filter(User.email.in_(test_emails)).delete(
             synchronize_session=False
@@ -41,4 +49,3 @@ def _cleanup_test_users():
         db.commit()
     finally:
         db.close()
-
