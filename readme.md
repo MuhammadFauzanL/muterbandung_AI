@@ -10,25 +10,31 @@
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/fac42ceb-3149-459e-85ce-8e8e327b9dc7" alt="Fauzan"><br>
       <a href="https://github.com/fauzanashshidiq">
-        <img src="https://img.shields.io/badge/051-M.%20Fauzan%20A.-blue" alt="051 Badge">
+        <img src="" alt="051 Badge">
+      </a>
+    </td>
+    <td align="center">
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/fac42ceb-3149-459e-85ce-8e8e327b9dc7" alt="Fauzan"><br>
+      <a href="https://github.com/fauzanashshidiq">
+        <img src="" alt="051 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/800f0a8d-3503-4ce4-9266-99ce9a7c3f4b" alt="Rahardian"><br>
       <a href="https://github.com/rhrdianbaihaqi">
-        <img src="https://img.shields.io/badge/023-M.%20Rahardian%20B.-blue" alt="023 Badge">
+        <img src="" alt="023 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/7e57a253-1aa2-40f9-94d2-6c13ed51cc37" alt="Nazwa"><br>
       <a href="https://github.com/nazwaym">
-        <img src="https://img.shields.io/badge/007-Nazwa%20Yulianti-blue" alt="007 Badge">
+        <img src="" alt="007 Badge">
       </a>
     </td>
     <td align="center">
       <img width="128" height="128" src="https://github.com/user-attachments/assets/b8239489-d715-409b-a883-3a8d4f0ca595" alt="Raflhy"><br>
       <a href="https://github.com/raflhyramadhan18">
-        <img src="https://img.shields.io/badge/004-Raflhy%20Ramadhan-blue" alt="004 Badge">
+        <img src="" alt="004 Badge">
       </a>
     </td>
   </tr>
