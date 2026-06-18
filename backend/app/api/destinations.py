@@ -18,6 +18,7 @@ from sqlalchemy.orm import Session
 
 from app.database import get_db
 from app.services.destination_service import (
+    get_destination_filters,
     get_destination_by_slug,
     get_destinations,
     get_highlighted_categories,
@@ -78,7 +79,16 @@ def popular_destinations(
 # GET /destinations
 # =========================================================================
 
-_ALLOWED_SORTS = {"popular", "quality", "rating", "reviews", "newest", "price_low", "price_high"}
+_ALLOWED_SORTS = {
+    "popular",
+    "quality",
+    "rating",
+    "reviews",
+    "newest",
+    "price_low",
+    "price_high",
+    "nearest",
+}
 
 
 @router.get("/destinations")
@@ -86,6 +96,7 @@ def list_destinations(
     page: int = Query(1, ge=1, description="Page number"),
     limit: int = Query(12, ge=1, le=50, description="Items per page"),
     search: Optional[str] = Query(None, min_length=1, max_length=200, description="Search query"),
+    intent: Optional[str] = Query(None, description="Filter by AI primary intent"),
     category: Optional[str] = Query(None, description="Filter by category"),
     tourism_zone: Optional[str] = Query(
         None, alias="tourismZone", description="Filter by tourism zone",
@@ -93,17 +104,46 @@ def list_destinations(
     price_type: Optional[str] = Query(
         None, alias="priceType", description="Filter by price type",
     ),
+    free_only: Optional[bool] = Query(
+        None, alias="freeOnly", description="Filter free destinations",
+    ),
+    max_price: Optional[int] = Query(
+        None, ge=0, alias="maxPrice", description="Maximum starting price",
+    ),
+    min_rating: Optional[float] = Query(
+        None, ge=0, le=5, alias="minRating", description="Minimum rating",
+    ),
     child_friendly: Optional[bool] = Query(
         None, alias="childFriendly", description="Filter child-friendly destinations",
     ),
     indoor: Optional[bool] = Query(None, description="Filter indoor destinations"),
+    open_now: Optional[bool] = Query(
+        None, alias="openNow", description="Filter destinations open at planned time",
+    ),
+    day_type: Optional[str] = Query(
+        None, alias="dayType", description="weekday or weekend",
+    ),
+    planned_time: Optional[str] = Query(
+        None, alias="plannedTime", pattern=r"^\d{2}:\d{2}$",
+        description="Planned visit time in HH:mm",
+    ),
+    user_lat: Optional[float] = Query(
+        None, ge=-90, le=90, alias="userLat", description="User latitude",
+    ),
+    user_lng: Optional[float] = Query(
+        None, ge=-180, le=180, alias="userLng", description="User longitude",
+    ),
+    radius_km: Optional[float] = Query(
+        None, ge=0, alias="radiusKm", description="Radius filter in kilometers",
+    ),
     sort: str = Query("popular", description="Sort order"),
     db: Session = Depends(get_db),
 ):
     """
     Paginated destination list with search, filters, and sorting.
 
-    **Allowed sorts:** popular, quality, rating, reviews, newest, price_low, price_high
+    **Allowed sorts:** popular, quality, rating, reviews, newest,
+    price_low, price_high, nearest
     """
     # Validate sort
     if sort not in _ALLOWED_SORTS:
@@ -114,11 +154,21 @@ def list_destinations(
         page=page,
         limit=limit,
         search=search,
+        intent=intent,
         category=category,
         tourism_zone=tourism_zone,
         price_type=price_type,
+        free_only=free_only,
+        max_price=max_price,
+        min_rating=min_rating,
         child_friendly=child_friendly,
         indoor=indoor,
+        open_now=open_now,
+        day_type=day_type,
+        planned_time=planned_time,
+        user_lat=user_lat,
+        user_lng=user_lng,
+        radius_km=radius_km,
         sort=sort,
     )
 
@@ -128,6 +178,23 @@ def list_destinations(
         limit=limit,
         total=total,
         message="Destinations retrieved successfully",
+    )
+
+
+# =========================================================================
+# GET /destinations/filters
+# =========================================================================
+
+
+@router.get("/destinations/filters")
+def destination_filters(
+    db: Session = Depends(get_db),
+):
+    """Dynamic filter metadata for Explore UI."""
+    data = get_destination_filters(db)
+    return success_response(
+        data=data,
+        message="Destination filters retrieved successfully",
     )
 
 

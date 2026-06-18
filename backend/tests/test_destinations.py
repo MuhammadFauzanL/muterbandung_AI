@@ -50,6 +50,10 @@ class TestPopularDestinations:
             assert "rating" in item
             assert "priceLabel" in item
             assert "location" in item
+            assert "primaryIntent" in item
+            assert "openingHoursLabel" in item
+            assert "durationMinutes" in item
+            assert "scoreReason" in item
             assert "isFavorite" in item
             # id should be external_id format (LOC-xxx), not UUID
             assert item["id"].startswith("LOC-")
@@ -115,9 +119,47 @@ class TestListDestinations:
             assert item["category"] == "Wisata Alam"
 
     def test_list_sort_options(self, client):
-        for sort_val in ["popular", "quality", "rating", "reviews", "newest", "price_low", "price_high"]:
+        for sort_val in ["popular", "quality", "rating", "reviews", "newest", "price_low", "price_high", "nearest"]:
             resp = client.get(f"/destinations?sort={sort_val}&limit=1")
             assert resp.status_code == 200
+
+    def test_list_intent_filter(self, client):
+        resp = client.get("/destinations?intent=Alam&limit=10")
+        data = resp.json()
+        for item in data["data"]:
+            assert item["primaryIntent"] == "Alam"
+
+    def test_list_free_only_filter(self, client):
+        resp = client.get("/destinations?freeOnly=true&limit=10")
+        data = resp.json()
+        for item in data["data"]:
+            assert item["priceLabel"] == "Gratis"
+
+    def test_list_min_rating_filter(self, client):
+        resp = client.get("/destinations?minRating=4.5&limit=10")
+        data = resp.json()
+        for item in data["data"]:
+            assert item["rating"] >= 4.5
+
+    def test_list_nearest_returns_distance_when_location_is_present(self, client):
+        resp = client.get(
+            "/destinations?sort=nearest&userLat=-6.9175&userLng=107.6191&limit=3"
+        )
+        data = resp.json()
+        for item in data["data"]:
+            assert "distanceKm" in item
+            assert item["distanceKm"] is not None
+
+    def test_destination_filters_endpoint(self, client):
+        resp = client.get("/destinations/filters")
+        data = resp.json()
+        assert resp.status_code == 200
+        assert data["statusCode"] == 200
+        assert "intents" in data["data"]
+        assert "categories" in data["data"]
+        assert "budgetOptions" in data["data"]
+        assert "ratingOptions" in data["data"]
+        assert "sortOptions" in data["data"]
 
 
 # =========================================================================

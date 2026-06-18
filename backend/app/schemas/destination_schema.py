@@ -41,11 +41,17 @@ class DestinationCardResponse(_CamelModel):
     slug: str
     name: str
     category: Optional[str] = None
+    primary_intent: Optional[str] = None
     image_url: Optional[str] = None
     rating: Optional[float] = None
     price_label: str = "Harga belum tersedia"
     location: str = "Bandung Raya"
     tourism_zone: Optional[str] = None
+    opening_hours_label: Optional[str] = None
+    duration_minutes: Optional[int] = None
+    distance_km: Optional[float] = None
+    score: Optional[float] = None
+    score_reason: Optional[str] = None
     is_favorite: bool = False
 
 

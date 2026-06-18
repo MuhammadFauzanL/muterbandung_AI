@@ -8,11 +8,12 @@ with the standard response helpers.
 
 from __future__ import annotations
 
+import math
 import re
 import unicodedata
 from typing import Optional
 
-from sqlalchemy import func, or_
+from sqlalchemy import and_, func, literal, or_
 from sqlalchemy.orm import Session, joinedload
 
 from app.models.destination import Destination
@@ -36,6 +37,8 @@ from app.schemas.destination_schema import (
 # =========================================================================
 # Reusable query helpers
 # =========================================================================
+
+EARTH_RADIUS_KM = 6371.0
 
 
 def _active_base_query(db: Session):
@@ -73,8 +76,15 @@ def _eager_load_all():
     ]
 
 
-def _apply_sort(query, sort: str):
+def _apply_sort(query, sort: str, distance_expr=None):
     """Apply sorting to a destination query."""
+    if sort == "nearest" and distance_expr is not None:
+        return query.order_by(
+            distance_expr.asc().nullslast(),
+            Destination.quality_score.desc().nullslast(),
+            Destination.avg_rating.desc().nullslast(),
+        )
+
     sort_map = {
         "popular": [
             Destination.popular_score.desc().nullslast(),
@@ -105,6 +115,54 @@ def _apply_sort(query, sort: str):
     }
     order_clauses = sort_map.get(sort, sort_map["popular"])
     return query.order_by(*order_clauses)
+
+
+def _distance_expression(user_lat: float, user_lng: float):
+    """
+    Build a Haversine SQL expression in kilometers.
+
+    PostGIS is intentionally avoided for the MVP so this works with the
+    existing latitude/longitude columns.
+    """
+    lat_1 = func.radians(user_lat)
+    lng_1 = func.radians(user_lng)
+    lat_2 = func.radians(Destination.latitude)
+    lng_2 = func.radians(Destination.longitude)
+    cosine_distance = (
+        func.sin(lat_1) * func.sin(lat_2)
+        + func.cos(lat_1) * func.cos(lat_2) * func.cos(lng_2 - lng_1)
+    )
+    clamped = func.least(1.0, func.greatest(-1.0, cosine_distance))
+    return EARTH_RADIUS_KM * func.acos(clamped)
+
+
+def calculate_distance_km(
+    dest: Destination,
+    user_lat: Optional[float],
+    user_lng: Optional[float],
+) -> Optional[float]:
+    """Calculate Haversine distance in Python for response payloads."""
+    if (
+        user_lat is None
+        or user_lng is None
+        or dest.latitude is None
+        or dest.longitude is None
+    ):
+        return None
+
+    lat_1 = math.radians(user_lat)
+    lng_1 = math.radians(user_lng)
+    lat_2 = math.radians(dest.latitude)
+    lng_2 = math.radians(dest.longitude)
+    delta_lat = lat_2 - lat_1
+    delta_lng = lng_2 - lng_1
+
+    a = (
+        math.sin(delta_lat / 2) ** 2
+        + math.cos(lat_1) * math.cos(lat_2) * math.sin(delta_lng / 2) ** 2
+    )
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return round(EARTH_RADIUS_KM * c, 2)
 
 
 # =========================================================================
@@ -159,6 +217,66 @@ def format_opening_hours(dest: Destination) -> DestinationOpeningHoursResponse:
 
     return DestinationOpeningHoursResponse(
         regular=regular, weekday=weekday, weekend=weekend,
+    )
+
+
+def format_opening_hours_label(
+    dest: Destination,
+    day_type: Optional[str] = None,
+) -> Optional[str]:
+    """Return the best compact opening-hours label for list cards."""
+    if dest.facilities and dest.facilities.open_24h:
+        return "Buka 24 Jam"
+
+    if day_type == "weekday" and dest.weekday_opening_time and dest.weekday_closing_time:
+        return f"{dest.weekday_opening_time} - {dest.weekday_closing_time}"
+    if day_type == "weekend" and dest.weekend_opening_time and dest.weekend_closing_time:
+        return f"{dest.weekend_opening_time} - {dest.weekend_closing_time}"
+    if dest.opening_time and dest.closing_time:
+        return f"{dest.opening_time} - {dest.closing_time}"
+    if dest.weekday_opening_time and dest.weekday_closing_time:
+        return f"{dest.weekday_opening_time} - {dest.weekday_closing_time}"
+    if dest.weekend_opening_time and dest.weekend_closing_time:
+        return f"{dest.weekend_opening_time} - {dest.weekend_closing_time}"
+    return None
+
+
+def _opening_columns(day_type: Optional[str]):
+    """Pick opening-hour columns based on planned visit day."""
+    if day_type == "weekday":
+        return (
+            func.coalesce(Destination.weekday_opening_time, Destination.opening_time),
+            func.coalesce(Destination.weekday_closing_time, Destination.closing_time),
+        )
+    if day_type == "weekend":
+        return (
+            func.coalesce(Destination.weekend_opening_time, Destination.opening_time),
+            func.coalesce(Destination.weekend_closing_time, Destination.closing_time),
+        )
+    return Destination.opening_time, Destination.closing_time
+
+
+def _open_at_time_filter(day_type: Optional[str], planned_time: str):
+    """Build a SQL filter for destinations open at a planned HH:mm time."""
+    open_col, close_col = _opening_columns(day_type)
+    time_value = literal(planned_time)
+    return or_(
+        DestinationFacility.open_24h.is_(True),
+        and_(
+            open_col.isnot(None),
+            close_col.isnot(None),
+            or_(
+                and_(
+                    close_col >= open_col,
+                    open_col <= time_value,
+                    close_col >= time_value,
+                ),
+                and_(
+                    close_col < open_col,
+                    or_(open_col <= time_value, close_col >= time_value),
+                ),
+            ),
+        ),
     )
 
 
@@ -276,19 +394,56 @@ _CATEGORY_DESCRIPTIONS: dict[str, str] = {
 # =========================================================================
 
 
-def build_destination_card(dest: Destination) -> dict:
+def build_score_reason(dest: Destination, sort: str) -> str:
+    """Explain why a destination appears in a recommendation list."""
+    if sort == "popular":
+        return "Populer berdasarkan jumlah ulasan, rating, dan skor popularitas."
+    if sort == "nearest":
+        return "Diurutkan berdasarkan jarak terdekat dari lokasi yang kamu izinkan."
+    if sort == "rating":
+        return "Diurutkan berdasarkan rating tertinggi dari data ulasan."
+    if sort == "reviews":
+        return "Diurutkan berdasarkan jumlah ulasan terbanyak."
+    return (
+        "Direkomendasikan dari rating, ulasan, sentimen, label, "
+        "dan kelengkapan data."
+    )
+
+
+def build_score_value(dest: Destination, sort: str) -> Optional[float]:
+    """Return the ranking score most relevant to the current sort."""
+    if sort == "popular":
+        return dest.popular_score
+    if sort in {"quality", "nearest"}:
+        return dest.quality_score
+    if sort == "rating":
+        return dest.avg_rating
+    if sort == "reviews":
+        return float(dest.total_reviews) if dest.total_reviews is not None else None
+    return dest.quality_score
+
+
+def build_destination_card(
+    dest: Destination,
+    *,
+    day_type: Optional[str] = None,
+    distance_km: Optional[float] = None,
+    sort: str = "quality",
+) -> dict:
     """Build a card dict from a Destination ORM instance."""
     image_url = None
     if dest.media:
         image_url = dest.media.image_url
 
     tourism_zone = dest.tourism_zone or "Bandung Raya"
+    primary_intent = dest.labels.primary_intent if dest.labels else None
 
     return DestinationCardResponse(
         id=dest.external_id,
         slug=dest.slug,
         name=dest.name,
         category=dest.category,
+        primary_intent=primary_intent,
         image_url=image_url,
         rating=dest.avg_rating,
         price_label=format_price_label(
@@ -296,6 +451,11 @@ def build_destination_card(dest: Destination) -> dict:
         ),
         location=tourism_zone,
         tourism_zone=dest.tourism_zone,
+        opening_hours_label=format_opening_hours_label(dest, day_type),
+        duration_minutes=dest.estimated_duration_minutes,
+        distance_km=distance_km,
+        score=build_score_value(dest, sort),
+        score_reason=build_score_reason(dest, sort),
         is_favorite=False,
     ).model_dump(by_alias=True)
 
@@ -378,11 +538,15 @@ def get_popular_destinations(db: Session, limit: int = 8) -> list[dict]:
     """Return top popular active destinations for homepage cards."""
     query = (
         _active_with_media_query(db)
-        .options(joinedload(Destination.media))
+        .options(
+            joinedload(Destination.media),
+            joinedload(Destination.labels),
+            joinedload(Destination.facilities),
+        )
     )
     query = _apply_sort(query, "popular")
     destinations = query.limit(limit).all()
-    return [build_destination_card(d) for d in destinations]
+    return [build_destination_card(d, sort="popular") for d in destinations]
 
 
 def get_destination_by_slug(db: Session, slug: str) -> Optional[dict]:
@@ -404,24 +568,49 @@ def get_destinations(
     page: int = 1,
     limit: int = 12,
     search: Optional[str] = None,
+    intent: Optional[str] = None,
     category: Optional[str] = None,
     tourism_zone: Optional[str] = None,
     price_type: Optional[str] = None,
+    free_only: Optional[bool] = None,
+    max_price: Optional[int] = None,
+    min_rating: Optional[float] = None,
     child_friendly: Optional[bool] = None,
     indoor: Optional[bool] = None,
+    open_now: Optional[bool] = None,
+    day_type: Optional[str] = None,
+    planned_time: Optional[str] = None,
+    user_lat: Optional[float] = None,
+    user_lng: Optional[float] = None,
+    radius_km: Optional[float] = None,
     sort: str = "popular",
 ) -> tuple[list[dict], int]:
     """
     Return paginated, filtered destination cards.
     Returns (items, total_count).
     """
+    has_user_location = user_lat is not None and user_lng is not None
+    distance_expr = (
+        _distance_expression(user_lat, user_lng) if has_user_location else None
+    )
+    effective_sort = sort
+    if sort == "nearest" and distance_expr is None:
+        effective_sort = "quality"
+
     query = _active_with_media_query(db).options(
         joinedload(Destination.media),
+        joinedload(Destination.labels),
+        joinedload(Destination.facilities),
     )
+
+    joined_labels = False
+    joined_facilities = False
 
     # ── Filters ──
     if search:
         pattern = f"%{search}%"
+        query = query.outerjoin(Destination.labels)
+        joined_labels = True
         query = query.filter(
             or_(
                 Destination.name.ilike(pattern),
@@ -429,35 +618,113 @@ def get_destinations(
                 Destination.subcategory.ilike(pattern),
                 Destination.description.ilike(pattern),
                 Destination.tourism_zone.ilike(pattern),
+                DestinationLabel.primary_intent.ilike(pattern),
             )
         )
+    if intent:
+        if not joined_labels:
+            query = query.join(Destination.labels)
+            joined_labels = True
+        query = query.filter(DestinationLabel.primary_intent == intent)
     if category:
         query = query.filter(Destination.category == category)
     if tourism_zone:
         query = query.filter(Destination.tourism_zone == tourism_zone)
     if price_type:
         query = query.filter(Destination.price_type == price_type)
+    if free_only is True:
+        query = query.filter(
+            or_(
+                func.lower(Destination.price_type) == "gratis",
+                and_(Destination.price_min == 0, Destination.price_max == 0),
+            )
+        )
+    if max_price is not None:
+        query = query.filter(Destination.price_min <= max_price)
+    if min_rating is not None:
+        query = query.filter(Destination.avg_rating >= min_rating)
     if child_friendly is not None:
-        query = query.join(Destination.facilities).filter(
+        query = query.join(Destination.facilities)
+        joined_facilities = True
+        query = query.filter(
             DestinationFacility.child_friendly == child_friendly,
         )
     if indoor is not None:
-        # Avoid double join if child_friendly already joined
-        if child_friendly is None:
+        if not joined_facilities:
             query = query.join(Destination.facilities)
+            joined_facilities = True
         query = query.filter(
             DestinationFacility.indoor_available == indoor,
         )
+    if open_now is True and planned_time:
+        if not joined_facilities:
+            query = query.outerjoin(Destination.facilities)
+            joined_facilities = True
+        query = query.filter(_open_at_time_filter(day_type, planned_time))
+    if radius_km is not None and distance_expr is not None:
+        query = query.filter(distance_expr <= radius_km)
 
     # ── Count (before pagination) ──
     total = query.count()
 
     # ── Sort & paginate ──
-    query = _apply_sort(query, sort)
+    query = _apply_sort(query, effective_sort, distance_expr)
     offset = (page - 1) * limit
     destinations = query.offset(offset).limit(limit).all()
 
-    return [build_destination_card(d) for d in destinations], total
+    return [
+        build_destination_card(
+            d,
+            day_type=day_type,
+            distance_km=calculate_distance_km(d, user_lat, user_lng),
+            sort=effective_sort,
+        )
+        for d in destinations
+    ], total
+
+
+def get_destination_filters(db: Session) -> dict:
+    """Return dynamic filter options for Explore UI."""
+    intent_rows = (
+        _active_with_media_query(db)
+        .join(Destination.labels)
+        .with_entities(
+            DestinationLabel.primary_intent.label("value"),
+            func.count(Destination.id).label("total"),
+        )
+        .filter(DestinationLabel.primary_intent.isnot(None))
+        .group_by(DestinationLabel.primary_intent)
+        .order_by(func.count(Destination.id).desc(), DestinationLabel.primary_intent.asc())
+        .all()
+    )
+
+    category_rows = (
+        _active_with_media_query(db)
+        .with_entities(
+            Destination.category.label("value"),
+            func.count(Destination.id).label("total"),
+        )
+        .filter(Destination.category.isnot(None))
+        .group_by(Destination.category)
+        .order_by(func.count(Destination.id).desc(), Destination.category.asc())
+        .all()
+    )
+
+    return {
+        "intents": [
+            {"label": value, "value": value, "count": total}
+            for value, total in intent_rows
+            if value
+        ],
+        "categories": [
+            {"label": value, "value": value, "count": total}
+            for value, total in category_rows
+            if value
+        ],
+        "budgetOptions": ["free", "under_50000", "under_100000"],
+        "ratingOptions": [3, 4, 4.5],
+        "sortOptions": ["quality", "popular", "rating", "nearest"],
+    }
 
 
 def get_highlighted_categories(
