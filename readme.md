@@ -8,7 +8,7 @@
 <table>
   <tr>
     <td align="center">
-      <img width="128" height="128" src="https://github.com/user-attachments/assets/800f0a8d-3503-4ce4-9266-99ce9a7c3f4b" alt="Rahardian"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/e9a9b1c4-7f7a-4a98-a761-243e01ac3991" alt="Rahardian"><br>
       <a href="https://github.com/rhrdianbaihaqi">
         <img src="https://img.shields.io/badge/030-Muhammad%20Rahardian%20Baihaqi-blue" alt="030 Badge">
       </a>
