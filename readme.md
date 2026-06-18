@@ -20,19 +20,19 @@
       </a>
     </td>
     <td align="center">
-      <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Ridwan" alt="Ridwan"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/d8cf4245-d9ec-4475-bfb4-1f75cc4888e9" alt="Ridwan"><br>
       <a href="https://github.com/Ridwanihsann">
         <img src="https://img.shields.io/badge/377-M.%20Ridwan%20Nur%20Ihsan-blue" alt="377 Badge">
       </a>
     </td>
     <td align="center">
-      <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Fauzan" alt="Fauzan"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/68c42542-ec25-4aed-8905-95c32801ccc7" alt="Fauzan"><br>
       <a href="https://github.com/MuhammadFauzanL">
         <img src="https://img.shields.io/badge/039-Muhammad%20Fauzan%20Lubada-blue" alt="039 Badge">
       </a>
     </td>
     <td align="center">
-      <img width="128" height="128" src="https://via.placeholder.com/128?text=Foto+Veva" alt="Veva"><br>
+      <img width="128" height="128" src="https://github.com/user-attachments/assets/68f1bfc4-76b6-41e8-8e19-a8be838da840" alt="Veva"><br>
       <a href="https://github.com/vevar02">
         <img src="https://img.shields.io/badge/378-Muhamad%20Veva%20Ramadhan-blue" alt="378 Badge">
       </a>
