@@ -34,10 +34,11 @@ muterbandung_AI/
 │   ├── .env.example             # Environment template
 │   └── .python-version         # Python version pin
 │
-├── frontend/                     # 🎨 Frontend Website (Next.js)
-│   ├── app/                     # Next.js app router
-│   ├── components/              # React components
-│   └── public/                  # Static assets
+├── apps/
+│   └── web/                     # 🎨 Frontend Website (Next.js)
+│       ├── app/                 # Next.js app router
+│       ├── components/          # React components
+│       └── public/              # Static assets
 │
 ├── ai_workspace/                # 📊 AI Research & Data Pipeline (Jupyter + Datasets)
 │   ├── Wisata_Workspace/        # Dataset dan dokumen wisata
@@ -112,7 +113,7 @@ muterbandung_AI/
 ### Setup Frontend (Next.js)
 
 ```bash
-cd frontend
+cd apps/web
 npm install
 npm run dev
 ```

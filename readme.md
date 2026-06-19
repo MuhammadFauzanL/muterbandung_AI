@@ -117,7 +117,8 @@ Aplikasi ini memecah beban kerjanya ke dalam dua *services* utama agar pengemban
 ```text
 📦 MuterBandung
  ┣ 📂 backend/                 # Backend API (FastAPI + PostgreSQL)
- ┣ 📂 frontend/                # Aplikasi Antarmuka (Next.js)
+ ┣ 📂 apps/
+ ┃ ┗ 📂 web/                   # Aplikasi Antarmuka (Next.js)
  ┣ 📂 ai_workspace/            # Workspace/dataset pendukung
  ┣ 📄 README_DEV.md            # Catatan development tambahan
  ┗ 📄 readme.md                # Dokumentasi utama proyek
@@ -166,7 +167,7 @@ python scripts/import_destination_gallery_images.py --file data/wisata_image.csv
 Buka terminal baru dari root repository:
 
 ```bash
-cd frontend
+cd apps/web
 cp .env.local.example .env.local
 npm install
 npm run dev
@@ -177,5 +178,5 @@ Frontend berjalan di `http://localhost:3000`.
 ### 5. Alur Menjalankan Aplikasi
 1. Pastikan PostgreSQL aktif melalui `docker compose up -d` di folder `backend`.
 2. Jalankan backend dengan `uvicorn app.main:app --reload`.
-3. Jalankan frontend dengan `npm run dev` di folder `frontend`.
+3. Jalankan frontend dengan `npm run dev` di folder `apps/web`.
 4. Buka `http://localhost:3000` di browser.
