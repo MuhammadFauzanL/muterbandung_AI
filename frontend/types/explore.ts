@@ -13,6 +13,8 @@ export interface ExploreDestination {
   image: string;
   openingHoursLabel?: string;
   distanceKm?: number;
+  latitude?: number;
+  longitude?: number;
   score?: number;
   scoreReason?: string;
   isFavorite?: boolean;

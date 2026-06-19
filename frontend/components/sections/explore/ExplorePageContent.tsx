@@ -573,6 +573,8 @@ function DestinationCard({
         primaryIntent: destination.primaryIntent,
         image: destination.image,
         distanceKm: destination.distanceKm,
+        latitude: destination.latitude,
+        longitude: destination.longitude,
       });
       trackPlannerAdd(destination.id);
       setShowToast(true);

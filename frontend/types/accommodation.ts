@@ -9,6 +9,8 @@ export interface Accommodation {
   reviewCount: string;
   price: string;
   location: string;
+  latitude?: number;
+  longitude?: number;
   distanceKm?: number;
   distance: string;
   facilities: readonly string[];

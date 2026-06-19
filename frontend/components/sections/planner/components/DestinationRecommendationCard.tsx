@@ -16,6 +16,8 @@ export type PlannerDestination = {
   price: string;
   rating: string;
   image: string;
+  latitude?: number;
+  longitude?: number;
 };
 
 export function DestinationRecommendationCard({
@@ -79,6 +81,8 @@ export function DestinationRecommendationCard({
                 slug: destination.slug,
                 category: destination.category,
                 image: destination.image,
+                latitude: destination.latitude,
+                longitude: destination.longitude,
               });
               showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
             }}

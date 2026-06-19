@@ -58,6 +58,8 @@ export function DestinationDetailPageContent({ destination }: { destination: Des
       slug: destination.slug,
       category: destination.category,
       image: destination.heroImage,
+      latitude: destination.latitude,
+      longitude: destination.longitude,
     });
     trackPlannerAdd(destination.id);
     showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');

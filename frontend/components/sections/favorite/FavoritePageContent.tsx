@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from 'react';
-import { MapPin, Map, Building, Heart, PlusCircle, Star, Loader2 } from 'lucide-react';
+import { MapPin, Map, Building, Heart, PlusCircle, Star, Loader2, Calendar, Users, Wallet, Trash2 } from 'lucide-react';
 import { usePlanner } from '@/context/PlannerContext';
 import { useToast } from '@/context/ToastContext';
 import { useAuth } from '@/context/AuthContext';
@@ -9,10 +9,112 @@ import { useFavorite } from '@/context/FavoriteContext';
 import { SafeImage } from '@/components/ui/SafeImage';
 import { userFavoritesService } from '@/services/userFavorites';
 import { trackPlannerAdd } from '@/services/userEvents';
+import { getSavedItineraries, deleteItinerary, getItineraryCount } from '@/services/savedItineraries';
+import type { SavedItinerary } from '@/services/savedItineraries';
 import Link from 'next/link';
 import type { ExploreDestination } from '@/types';
 
 type TabType = 'Destinasi' | 'Penginapan' | 'Itinerary';
+
+function ItineraryTabContent() {
+  const [itineraries, setItineraries] = useState<SavedItinerary[]>([]);
+  const { showToast } = useToast();
+
+  useEffect(() => {
+    setItineraries(getSavedItineraries());
+  }, []);
+
+  const handleDelete = (id: string, title: string) => {
+    deleteItinerary(id);
+    setItineraries((prev) => prev.filter((i) => i.id !== id));
+    showToast(`"${title}" dihapus`, 'success');
+  };
+
+  if (itineraries.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-12 sm:py-20 px-4 bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm text-center">
+        <div className="h-12 w-12 sm:h-16 sm:w-16 bg-[#EAF6FC] rounded-full flex items-center justify-center text-[#0E75BC] mb-3 sm:mb-4">
+          <Map className="h-6 w-6 sm:h-8 sm:w-8" />
+        </div>
+        <h3 className="text-[15px] sm:text-[18px] font-bold text-[#112F43] mb-1.5 sm:mb-2">Belum Ada Itinerary</h3>
+        <p className="text-xs sm:text-sm text-slate-500 mb-4 sm:mb-6 max-w-sm">Gunakan bantuan AI kami untuk merencanakan perjalanan, lalu simpan itinerary-mu di sini.</p>
+        <Link href="/planner" className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#00526E] text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-[11px] sm:text-sm transition-colors hover:bg-[#00415C]">
+          <PlusCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Buat Itinerary Baru
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
+      {itineraries.map((itn) => {
+        const savedDate = new Date(itn.savedAt).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+        const firstImage = itn.destinations[0]?.image;
+        
+        return (
+          <article key={itn.id} className="overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200 bg-white shadow-sm flex flex-col group">
+            {/* Image Header */}
+            <div className="relative h-[120px] sm:h-[160px] w-full bg-gradient-to-br from-[#0E75BC] to-[#0B5C73] overflow-hidden">
+              {firstImage ? (
+                <SafeImage src={firstImage} alt={itn.title} fill className="object-cover opacity-60" />
+              ) : null}
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              {/* Title on image */}
+              <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 right-3 sm:right-4">
+                <h3 className="text-[13px] sm:text-[16px] font-bold text-white leading-tight line-clamp-2 drop-shadow-md">{itn.title}</h3>
+                <p className="text-[9px] sm:text-[11px] text-white/70 mt-0.5">Disimpan {savedDate}</p>
+              </div>
+              {/* Delete button */}
+              <button
+                onClick={() => handleDelete(itn.id, itn.title)}
+                className="absolute top-2 right-2 sm:top-3 sm:right-3 h-7 w-7 sm:h-8 sm:w-8 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-red-500 hover:bg-red-50 transition-colors shadow-sm opacity-0 group-hover:opacity-100"
+                title="Hapus Itinerary"
+              >
+                <Trash2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+              </button>
+            </div>
+            {/* Content */}
+            <div className="p-3 sm:p-5 flex-1 flex flex-col">
+              {/* Destination pills */}
+              <div className="flex flex-wrap gap-1 sm:gap-1.5 mb-3">
+                {itn.destinations.slice(0, 3).map((dest) => (
+                  <span key={dest.id} className="inline-flex items-center gap-1 bg-[#EAF6FC] text-[#0B5C73] px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-medium">
+                    <MapPin className="h-2.5 w-2.5" />
+                    {dest.title}
+                  </span>
+                ))}
+                {itn.destinations.length > 3 && (
+                  <span className="inline-flex items-center bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full text-[8px] sm:text-[10px] font-medium">
+                    +{itn.destinations.length - 3} lagi
+                  </span>
+                )}
+              </div>
+              {/* Meta info */}
+              <div className="grid grid-cols-3 gap-2 text-center mt-auto">
+                <div className="flex flex-col items-center gap-0.5">
+                  <Calendar className="h-3.5 w-3.5 text-[#0E75BC]" />
+                  <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium">
+                    {itn.durationNights > 0 ? `${itn.durationDays}H ${itn.durationNights}M` : '1 Hari'}
+                  </span>
+                </div>
+                <div className="flex flex-col items-center gap-0.5">
+                  <Users className="h-3.5 w-3.5 text-[#0E75BC]" />
+                  <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium">{itn.guestCount} Org</span>
+                </div>
+                <div className="flex flex-col items-center gap-0.5">
+                  <Wallet className="h-3.5 w-3.5 text-[#0E75BC]" />
+                  <span className="text-[9px] sm:text-[11px] text-slate-500 font-medium">Rp{(itn.totalBudget / 1000).toFixed(0)}k</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+}
+
 
 export function FavoritePageContent() {
   const [activeTab, setActiveTab] = useState<TabType>('Destinasi');
@@ -24,7 +126,13 @@ export function FavoritePageContent() {
   const [destinations, setDestinations] = useState<ExploreDestination[]>([]);
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [itineraryCount, setItineraryCount] = useState(0);
   const page = 1;
+
+  // Load itinerary count from localStorage
+  useEffect(() => {
+    setItineraryCount(getItineraryCount());
+  }, [activeTab]);
 
   const fetchFavorites = useCallback(async () => {
     if (!isLoggedIn) {
@@ -105,7 +213,7 @@ export function FavoritePageContent() {
           </div>
           <div>
             <p className="text-[7px] sm:text-[11px] font-bold text-slate-500 uppercase tracking-widest line-clamp-1">Itinerary</p>
-            <p className="text-base sm:text-[32px] font-black text-[#112F43] leading-none mt-0.5 sm:mt-1">0</p>
+            <p className="text-base sm:text-[32px] font-black text-[#112F43] leading-none mt-0.5 sm:mt-1">{itineraryCount}</p>
           </div>
         </div>
       </div>
@@ -208,6 +316,8 @@ export function FavoritePageContent() {
                               category: dest.category,
                               primaryIntent: dest.primaryIntent,
                               image: dest.image,
+                              latitude: dest.latitude,
+                              longitude: dest.longitude,
                             });
                             trackPlannerAdd(dest.id);
                             showToast(`${dest.title} ditambahkan ke perjalanan!`, 'success');
@@ -246,16 +356,7 @@ export function FavoritePageContent() {
       )}
 
       {activeTab === 'Itinerary' && (
-        <div className="flex flex-col items-center justify-center py-12 sm:py-20 px-4 bg-white rounded-xl sm:rounded-2xl border border-slate-200 shadow-sm text-center">
-          <div className="h-12 w-12 sm:h-16 sm:w-16 bg-[#EAF6FC] rounded-full flex items-center justify-center text-[#0E75BC] mb-3 sm:mb-4">
-            <Map className="h-6 w-6 sm:h-8 sm:w-8" />
-          </div>
-          <h3 className="text-[15px] sm:text-[18px] font-bold text-[#112F43] mb-1.5 sm:mb-2">Belum Ada Itinerary</h3>
-          <p className="text-xs sm:text-sm text-slate-500 mb-4 sm:mb-6 max-w-sm">Gunakan bantuan AI kami untuk merencanakan perjalanan yang sempurna di Bandung.</p>
-          <Link href="/planner/itinerary" className="inline-flex items-center gap-1.5 sm:gap-2 bg-[#00526E] text-white px-5 py-2 sm:px-6 sm:py-2.5 rounded-full font-bold text-[11px] sm:text-sm transition-colors hover:bg-[#00415C]">
-            <PlusCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> Buat Itinerary Baru
-          </Link>
-        </div>
+        <ItineraryTabContent />
       )}
 
     </main>

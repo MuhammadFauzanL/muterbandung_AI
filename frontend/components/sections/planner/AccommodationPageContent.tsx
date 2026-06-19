@@ -494,7 +494,13 @@ function HotelConfirmationModal({
       nights,
       totalPrice: totalEstimasi,
       checkIn,
-      checkOut
+      checkOut,
+      image: hotel.image,
+      rating: hotel.rating ? parseFloat(String(hotel.rating)) : undefined,
+      distance: hotel.distance,
+      location: hotel.location,
+      latitude: hotel.latitude,
+      longitude: hotel.longitude,
     });
     onClose();
   };
