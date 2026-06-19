@@ -1,3 +1,30 @@
+export interface ExploreScoreBreakdown {
+  base_relevance_score?: number | null;
+  similarity?: number | null;
+  google_rating?: number | null;
+  confidence?: number | null;
+  distance_score?: number | null;
+  ranking_mode?: string | null;
+  personalization_boost?: number | null;
+  personalization_applied?: boolean;
+  persona_score?: number | null;
+  persona_boost?: number | null;
+  persona_applied?: boolean;
+  persona_model_used?: boolean;
+  persona_id?: string | null;
+  persona_source?: string | null;
+  persona_confidence?: number | null;
+  persona_matched_labels?: string[];
+  behaviour_score?: number | null;
+  behaviour_boost?: number | null;
+  behaviour_applied?: boolean;
+  behaviour_model_used?: boolean;
+  behaviour_model_source?: string | null;
+  behaviour_fallback_used?: boolean;
+  behaviour_matched_categories?: string[];
+  [key: string]: unknown;
+}
+
 export interface ExploreDestination {
   id: string;
   slug?: string;
@@ -17,6 +44,7 @@ export interface ExploreDestination {
   longitude?: number;
   score?: number;
   scoreReason?: string;
+  scoreBreakdown?: ExploreScoreBreakdown;
   isFavorite?: boolean;
 }
 

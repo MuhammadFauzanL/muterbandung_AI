@@ -4,10 +4,8 @@
  * dengan injeksi token otomatis dan error handling dasar.
  */
 
-// Gunakan URL absolut di sisi server (Server Components), dan /api di client (Client Components)
-const BASE_URL = typeof window === 'undefined' 
-  ? (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000') 
-  : '/api';
+// Gunakan URL backend langsung agar request AI tidak putus oleh proxy Next dev.
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 interface FetchOptions extends RequestInit {
   requireAuth?: boolean;
@@ -20,6 +18,28 @@ interface ApiErrorBody {
     message?: string;
     msg?: string;
   }>;
+}
+
+function extractApiErrorMessage(data: unknown, fallback: string): string {
+  if (typeof data === 'string') {
+    return data || fallback;
+  }
+
+  if (data && typeof data === 'object') {
+    const errorBody = data as ApiErrorBody;
+    let errorMessage = errorBody.detail || errorBody.message || fallback;
+
+    if (errorBody.errors && errorBody.errors.length > 0) {
+      const errorDetails = errorBody.errors
+        .map((error) => error.message || error.msg || 'Validasi tidak valid')
+        .join(', ');
+      errorMessage = `${errorMessage}: ${errorDetails}`;
+    }
+
+    return typeof errorMessage === 'string' ? errorMessage : JSON.stringify(errorMessage);
+  }
+
+  return fallback;
 }
 
 export async function apiFetch<T>(
@@ -61,22 +81,29 @@ export async function apiFetch<T>(
       return {} as T;
     }
 
-    const data: unknown = await response.json();
+    const contentType = response.headers.get('content-type') || '';
+    const rawText = await response.text();
+    let data: unknown = {};
+
+    if (rawText) {
+      if (contentType.includes('application/json')) {
+        try {
+          data = JSON.parse(rawText) as unknown;
+        } catch {
+          data = rawText;
+        }
+      } else {
+        data = rawText;
+      }
+    }
 
     if (!response.ok) {
-      const errorBody = data as ApiErrorBody;
-      // Backend FastAPI biasanya mengembalikan error di `detail`
-      let errorMessage = errorBody.detail || errorBody.message || 'Terjadi kesalahan pada server';
-      
-      // Jika ada array errors (contoh: validasi FastAPI Pydantic)
-      if (errorBody.errors && errorBody.errors.length > 0) {
-        const errorDetails = errorBody.errors
-          .map((error) => error.message || error.msg || 'Validasi tidak valid')
-          .join(', ');
-        errorMessage = `${errorMessage}: ${errorDetails}`;
-      }
+      const errorMessage = extractApiErrorMessage(
+        data,
+        response.statusText || 'Terjadi kesalahan pada server'
+      );
 
-      throw new Error(typeof errorMessage === 'string' ? errorMessage : JSON.stringify(errorMessage));
+      throw new Error(errorMessage);
     }
 
     return data as T;

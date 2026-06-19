@@ -1,8 +1,31 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { apiFetch } from '@/services/api';
+
+type ChatMessage = {
+  id: string;
+  role: 'assistant' | 'user';
+  content: string;
+};
+
+type CepotChatResponse = {
+  data?: {
+    answer?: string;
+  };
+  message?: string;
+};
+
+const initialMessages: ChatMessage[] = [
+  {
+    id: 'welcome',
+    role: 'assistant',
+    content: 'Sampurasun! Mau saya bantu susun rute Bandung yang sesuai budget?',
+  },
+];
 
 function SendIcon() {
   return (
@@ -47,6 +70,9 @@ function ChatIcon() {
 
 export function ChatbotWidget() {
   const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
+  const [inputValue, setInputValue] = useState('');
+  const [isSending, setIsSending] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -58,6 +84,41 @@ export function ChatbotWidget() {
   // Hide chatbot on auth pages
   if (pathname === '/register' || pathname === '/login') {
     return null;
+  }
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const message = inputValue.trim();
+    if (!message || isSending) return;
+
+    const userMessage: ChatMessage = {
+      id: `${Date.now()}-user`,
+      role: 'user',
+      content: message,
+    };
+    setMessages((current) => [...current, userMessage]);
+    setInputValue('');
+    setIsSending(true);
+
+    try {
+      const response = await apiFetch<CepotChatResponse>('/recommendations/cepot-chat', {
+        method: 'POST',
+        body: JSON.stringify({ message, top_k: 3 }),
+      });
+      const answer = response.data?.answer || response.message || 'Cepot belum bisa menjawab pertanyaan itu.';
+      setMessages((current) => [
+        ...current,
+        { id: `${Date.now()}-assistant`, role: 'assistant', content: answer },
+      ]);
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Gagal menghubungi Cepot AI.';
+      setMessages((current) => [
+        ...current,
+        { id: `${Date.now()}-error`, role: 'assistant', content: errorMessage },
+      ]);
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
@@ -92,11 +153,27 @@ export function ChatbotWidget() {
             </button>
           </div>
 
-          <div className="flex min-h-[300px] flex-col justify-end px-4 py-4">
-            <p className="max-w-[290px] rounded-2xl rounded-tl-sm bg-[#F0F7FC] px-4 py-3 text-sm leading-6 text-slate-700">
-              Sampurasun! Mau saya bantu susun rute Bandung yang sesuai budget?
-            </p>
-            <form className="mt-4 flex items-center gap-2 rounded-xl border border-[#D9E8F3] px-3 py-2">
+          <div className="flex h-[360px] flex-col">
+            <div className="flex-1 space-y-3 overflow-y-auto px-4 py-4">
+              {messages.map((message) => (
+                <p
+                  key={message.id}
+                  className={`max-w-[290px] rounded-2xl px-4 py-3 text-sm leading-6 ${
+                    message.role === 'user'
+                      ? 'ml-auto rounded-tr-sm bg-[#0E75BC] text-white'
+                      : 'rounded-tl-sm bg-[#F0F7FC] text-slate-700'
+                  }`}
+                >
+                  {message.content}
+                </p>
+              ))}
+              {isSending && (
+                <p className="max-w-[220px] rounded-2xl rounded-tl-sm bg-[#F0F7FC] px-4 py-3 text-sm leading-6 text-slate-500">
+                  Cepot sedang mengetik...
+                </p>
+              )}
+            </div>
+            <form onSubmit={handleSubmit} className="m-4 mt-0 flex items-center gap-2 rounded-xl border border-[#D9E8F3] px-3 py-2">
               <label className="sr-only" htmlFor="global-cepot-message">
                 Pesan untuk Cepot AI
               </label>
@@ -104,13 +181,17 @@ export function ChatbotWidget() {
                 id="global-cepot-message"
                 name="message"
                 type="text"
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
                 placeholder="Tanya apa saja tentang Bandung..."
-                className="min-w-0 flex-1 bg-transparent text-sm outline-none placeholder:text-slate-400"
+                disabled={isSending}
+                className="min-w-0 flex-1 bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-500"
               />
               <button
                 type="submit"
                 aria-label="Kirim pesan"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0E75BC] text-white transition-colors hover:bg-[#095f99]"
+                disabled={isSending || inputValue.trim().length === 0}
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#0E75BC] text-white transition-colors hover:bg-[#095f99] disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 <SendIcon />
               </button>
