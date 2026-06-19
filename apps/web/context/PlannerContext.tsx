@@ -95,27 +95,17 @@ function readStoredLocation(): { lat?: number; lng?: number } {
 
 export function PlannerProvider({ children }: { children: ReactNode }) {
   // Initialize from localStorage
-  const [destinations, setDestinations] = useState<PlannerDestination[]>([]);
-  const [accommodations, setAccommodationsState] = useState<PlannerAccommodation[]>([]);
-  const [isHydrated, setIsHydrated] = useState(false);
+  const [destinations, setDestinations] = useState<PlannerDestination[]>(
+    () => readStoredPlannerState().destinations,
+  );
+  const [accommodations, setAccommodationsState] = useState<PlannerAccommodation[]>(
+    () => readStoredPlannerState().accommodations,
+  );
 
-  // Hydrate from localStorage on mount (client only)
+  // Persist to localStorage whenever state changes
   useEffect(() => {
-    const stored = readStoredPlannerState();
-    if (stored.destinations.length > 0) {
-      setDestinations(stored.destinations);
-    }
-    if (stored.accommodations.length > 0) {
-      setAccommodationsState(stored.accommodations);
-    }
-    setIsHydrated(true);
-  }, []);
-
-  // Persist to localStorage whenever state changes (after hydration)
-  useEffect(() => {
-    if (!isHydrated) return;
     writePlannerState({ destinations, accommodations });
-  }, [destinations, accommodations, isHydrated]);
+  }, [destinations, accommodations]);
 
   // Initialize user location from sessionStorage (set by explore page)
   const stored = readStoredLocation();

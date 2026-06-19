@@ -6,7 +6,10 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for default marker icons in Next.js
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+const defaultIconPrototype = L.Icon.Default.prototype as L.Icon.Default & {
+  _getIconUrl?: unknown;
+};
+delete defaultIconPrototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -234,25 +237,42 @@ export default function MapComponent({ points }: MapComponentProps) {
 
   // Fetch road route from OSRM when points change
   useEffect(() => {
+    let active = true;
+
     if (points.length < 2) {
-      setRouteCoords(null);
-      setRouteMeta(null);
-      return;
+      void Promise.resolve().then(() => {
+        if (!active) return;
+        setRouteCoords(null);
+        setRouteMeta(null);
+        setIsLoading(false);
+      });
+      return () => {
+        active = false;
+      };
     }
 
-    const waypoints = points.map((p) => ({ lat: p.lat, lng: p.lng }));
+    void Promise.resolve().then(() => {
+      if (active) setIsLoading(true);
+    });
 
-    setIsLoading(true);
+    const waypoints = points.map((p) => ({ lat: p.lat, lng: p.lng }));
 
     Promise.all([
       fetchOSRMRoute(waypoints),
       fetchRouteMetadata(waypoints),
     ])
       .then(([coords, meta]) => {
+        if (!active) return;
         setRouteCoords(coords);
         setRouteMeta(meta);
       })
-      .finally(() => setIsLoading(false));
+      .finally(() => {
+        if (active) setIsLoading(false);
+      });
+
+    return () => {
+      active = false;
+    };
   }, [points]);
 
   // Empty state

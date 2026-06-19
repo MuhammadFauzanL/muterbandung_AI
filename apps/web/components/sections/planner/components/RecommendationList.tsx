@@ -67,8 +67,11 @@ export function RecommendationList() {
   useEffect(() => {
     let active = true;
 
-    setLoading(true);
-    setError(null);
+    void Promise.resolve().then(() => {
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+    });
 
     // Progressive Enhancement:
     // 1. hasLocation + firstDest → nearest + intent filter (BEST)

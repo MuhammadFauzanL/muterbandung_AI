@@ -1,4 +1,4 @@
-import { Map, Navigation } from 'lucide-react';
+import { Navigation } from 'lucide-react';
 import dynamic from 'next/dynamic';
 
 // Dynamically import MapComponent to disable SSR since Leaflet uses window object

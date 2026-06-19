@@ -5,7 +5,6 @@ import { RecommendationList } from './components/RecommendationList';
 import { NearbyHotels } from './components/NearbyHotels';
 import { SimilarDestinations } from './components/SimilarDestinations';
 import { TripSummary } from './components/TripSummary';
-import { PlannerChatPrompt } from './components/PlannerChatPrompt';
 
 export function PlannerPageContent() {
   return (

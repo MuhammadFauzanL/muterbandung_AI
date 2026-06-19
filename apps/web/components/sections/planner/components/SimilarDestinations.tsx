@@ -26,8 +26,11 @@ export function SimilarDestinations() {
   useEffect(() => {
     let active = true;
 
-    setLoading(true);
-    setError(null);
+    void Promise.resolve().then(() => {
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+    });
 
     /**
      * Cascading Fallback Strategy:

@@ -671,8 +671,12 @@ export function AccommodationPageContent() {
 
   useEffect(() => {
     let active = true;
-    setLoading(true);
-    setError(null);
+
+    void Promise.resolve().then(() => {
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+    });
 
     const params = {
       page: 1,

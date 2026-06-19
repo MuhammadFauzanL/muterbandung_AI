@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Building as BuildingIcon, Loader2 } from 'lucide-react';
+import { Building as BuildingIcon } from 'lucide-react';
 import { usePlanner } from '@/context/PlannerContext';
 import { accommodationsService } from '@/services/accommodations';
 import type { Accommodation } from '@/types';
@@ -19,8 +19,11 @@ export function NearbyHotels() {
   useEffect(() => {
     let active = true;
 
-    setLoading(true);
-    setError(null);
+    void Promise.resolve().then(() => {
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+    });
 
     if (firstDest?.slug) {
       // If destination is selected → get accommodations near that destination

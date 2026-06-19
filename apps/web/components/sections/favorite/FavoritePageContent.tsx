@@ -17,12 +17,8 @@ import type { ExploreDestination } from '@/types';
 type TabType = 'Destinasi' | 'Penginapan' | 'Itinerary';
 
 function ItineraryTabContent() {
-  const [itineraries, setItineraries] = useState<SavedItinerary[]>([]);
+  const [itineraries, setItineraries] = useState<SavedItinerary[]>(() => getSavedItineraries());
   const { showToast } = useToast();
-
-  useEffect(() => {
-    setItineraries(getSavedItineraries());
-  }, []);
 
   const handleDelete = (id: string, title: string) => {
     deleteItinerary(id);
@@ -126,13 +122,8 @@ export function FavoritePageContent() {
   const [destinations, setDestinations] = useState<ExploreDestination[]>([]);
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
-  const [itineraryCount, setItineraryCount] = useState(0);
+  const [itineraryCount, setItineraryCount] = useState(() => getItineraryCount());
   const page = 1;
-
-  // Load itinerary count from localStorage
-  useEffect(() => {
-    setItineraryCount(getItineraryCount());
-  }, [activeTab]);
 
   const fetchFavorites = useCallback(async () => {
     if (!isLoggedIn) {
@@ -223,7 +214,12 @@ export function FavoritePageContent() {
         {(['Destinasi', 'Penginapan', 'Itinerary'] as TabType[]).map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              setActiveTab(tab);
+              if (tab === 'Itinerary') {
+                setItineraryCount(getItineraryCount());
+              }
+            }}
             className={`flex-1 sm:flex-none px-4 py-2.5 sm:px-8 sm:py-2.5 rounded-lg sm:rounded-full text-xs sm:text-sm font-bold transition-all ${
               activeTab === tab 
                 ? 'bg-[#00526E] text-white shadow-md' 

@@ -19,7 +19,10 @@ export function InsightCard() {
     let active = true;
     const destIds = destinations.map((d) => d.id);
 
-    setLoading(true);
+    void Promise.resolve().then(() => {
+      if (active) setLoading(true);
+    });
+
     apiFetch<{ data?: InsightData }>('/planner/insight', {
       method: 'POST',
       body: JSON.stringify({ destination_ids: destIds }),

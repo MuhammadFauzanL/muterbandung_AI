@@ -1,8 +1,7 @@
 "use client";
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Download, Share2, Heart, Check, Loader2 } from 'lucide-react';
-import { usePlanner } from '@/context/PlannerContext';
 import { useToast } from '@/context/ToastContext';
 import { saveItinerary } from '@/services/savedItineraries';
 import type { PlannerDestination, PlannerAccommodation } from '@/context/PlannerContext';
@@ -27,7 +26,6 @@ export function BottomActionButtons({
   durationNights,
   guestCount,
   durationString,
-  contentRef,
 }: BottomActionButtonsProps) {
   const { showToast } = useToast();
 
@@ -78,10 +76,7 @@ export function BottomActionButtons({
 
     try {
       // Dynamic import to avoid SSR issues
-      const [{ default: jsPDF }, { default: html2canvas }] = await Promise.all([
-        import('jspdf'),
-        import('html2canvas'),
-      ]);
+      const { default: jsPDF } = await import('jspdf');
 
       const pdf = new jsPDF('p', 'mm', 'a4');
       const pageWidth = pdf.internal.pageSize.getWidth();
@@ -301,9 +296,10 @@ export function BottomActionButtons({
         setIsShared(true);
         showToast('Teks itinerary berhasil disalin ke clipboard!', 'success');
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       // User cancelled share or clipboard failed
-      if (err?.name !== 'AbortError') {
+      const isAbortError = err instanceof DOMException && err.name === 'AbortError';
+      if (!isAbortError) {
         // Try clipboard as last resort
         try {
           await navigator.clipboard.writeText(shareText);
