@@ -84,6 +84,7 @@ Menjawab latar belakang masalah tersebut, MuterBandung dibangun dengan tujuan ut
 Proyek ini dibangun dengan dua service utama yang saling terhubung:
 - **Frontend:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Lucide React, Leaflet/React Leaflet, html2canvas, dan jsPDF.
 - **Backend:** FastAPI (Python), Uvicorn, PostgreSQL, SQLAlchemy, Alembic, Pydantic Settings, JWT Auth, dan pytest untuk pengujian.
+- **AI Models:** Model analitik (Sentimen & Klasifikasi) yang telah dilatih secara khusus dapat diakses melalui Hugging Face: [muterbandung-ai-models](https://huggingface.co/fauzanlubada/muterbandung-ai-models).
 
 ## 5. Fitur Unggulan
 - **Rekomendasi Filter Preferensi:** Secara cerdas menyamakan kata "murah" dengan "gratis" atau "terjangkau", serta mendeteksi nuansa seperti "alam", "romantis", atau "edukasi".
