@@ -153,38 +153,50 @@ def ai_planner_recommend(payload: Dict[str, Any] | None = Body(default=None)):
 @router.post("/cepot-chat")
 def cepot_chat(payload: Dict[str, Any] | None = Body(default=None)):
     """Return Cepot chat answer grounded by backend recommendation evidence."""
-    payload = payload or {}
-    message = str(payload.get("message") or payload.get("query") or "").strip()
-    if not message:
-        return JSONResponse(
-            status_code=400,
-            content=error_response(
-                message="message is required.",
+    try:
+        payload = payload or {}
+        message = str(payload.get("message") or payload.get("query") or "").strip()
+        if not message:
+            return JSONResponse(
                 status_code=400,
-                errors=["message is required."],
-            ),
+                content=error_response(
+                    message="message is required.",
+                    status_code=400,
+                    errors=["message is required."],
+                ),
+            )
+        top_k = _safe_int(payload.get("top_k") or payload.get("limit"), 5)
+
+        from app.services.chatbot_service import build_chat_response, should_bypass_recommender
+
+        engine = None if should_bypass_recommender(message) else _get_ai_recommender()
+
+        response, _status = build_chat_response(
+            message,
+            engine,
+            top_k=top_k,
+            persona_context=_build_persona_context(payload),
+            behaviour_context=_build_behaviour_context(payload),
         )
-    top_k = _safe_int(payload.get("top_k") or payload.get("limit"), 5)
-
-    from app.services.chatbot_service import build_chat_response, should_bypass_recommender
-
-    engine = None if should_bypass_recommender(message) else _get_ai_recommender()
-
-    response, _status = build_chat_response(
-        message,
-        engine,
-        top_k=top_k,
-        persona_context=_build_persona_context(payload),
-        behaviour_context=_build_behaviour_context(payload),
-    )
-    if _status >= 400:
-        return JSONResponse(
-            status_code=_status,
-            content=error_response(
-                message=response.get("message", "Cepot request failed"),
+        if _status >= 400:
+            return JSONResponse(
                 status_code=_status,
-                errors=response.get("errors", []),
-            ),
+                content=error_response(
+                    message=response.get("message", "Cepot request failed"),
+                    status_code=_status,
+                    errors=response.get("errors", []),
+                ),
+            )
+        return success_response(data=response, message="Cepot response generated successfully")
+    except Exception as e:
+        import traceback
+        trace = traceback.format_exc()
+        return JSONResponse(
+            status_code=500,
+            content={
+                "message": f"Internal Server Error: {str(e)}",
+                "detail": trace,
+                "errors": [trace]
+            }
         )
-    return success_response(data=response, message="Cepot response generated successfully")
 

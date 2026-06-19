@@ -45,6 +45,149 @@ class PenginapanService:
         except (ValueError, TypeError):
             return float('inf')
 
+    def _first_value(self, row, *keys, default=None):
+        for key in keys:
+            if key in row and row.get(key) is not None and not pd.isna(row.get(key)):
+                value = row.get(key)
+                if str(value).strip():
+                    return value
+        return default
+
+    def _price_label(self, row):
+        explicit = self._first_value(row, "price_str", "price", default=None)
+        if explicit:
+            return str(explicit)
+
+        price_min = self._first_value(row, "price_min", default=None)
+        price_max = self._first_value(row, "price_max", default=None)
+        try:
+            price_min = int(float(price_min)) if price_min is not None else None
+            price_max = int(float(price_max)) if price_max is not None else None
+        except (TypeError, ValueError):
+            price_min = None
+            price_max = None
+
+        if price_min is not None and price_max is not None and price_min != price_max:
+            return f"Rp {price_min:,} - Rp {price_max:,}".replace(",", ".")
+        if price_min is not None:
+            return f"Rp {price_min:,}".replace(",", ".")
+        if price_max is not None:
+            return f"Rp {price_max:,}".replace(",", ".")
+        return "Hubungi untuk harga"
+
+    def _clean_text(self, value):
+        text = str(value or "").strip()
+        replacements = {
+            "â": '"',
+            "â": '"',
+            "â": "'",
+            "â": "-",
+            "â": "-",
+            "Â": "",
+        }
+        for bad, good in replacements.items():
+            text = text.replace(bad, good)
+        return text.strip()
+
+    def _row_to_item(self, row):
+        sentiment_score = self._first_value(row, "sentiment_score", "avg_sentimen_skor", default=0.5)
+        try:
+            sentiment_score = float(sentiment_score)
+        except (TypeError, ValueError):
+            sentiment_score = 0.5
+
+        badge_color = 'gray'
+        sentiment_label = 'Netral'
+        if sentiment_score > 0.7:
+            badge_color = 'green'
+            sentiment_label = 'Sangat Positif'
+        elif sentiment_score > 0.5:
+            badge_color = 'lightgreen'
+            sentiment_label = 'Positif'
+        elif sentiment_score < 0:
+            badge_color = 'red'
+            sentiment_label = 'Negatif'
+
+        image_url = self._first_value(row, "image_url", "media_image_url", default="")
+        if not image_url:
+            image_url = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop'
+
+        rating = self._first_value(row, "avg_rating", "totalScore", default=0)
+        try:
+            rating = float(rating)
+        except (TypeError, ValueError):
+            rating = 0.0
+
+        latitude = self._first_value(row, "latitude", default=0)
+        longitude = self._first_value(row, "longitude", default=0)
+        try:
+            latitude = float(latitude)
+            longitude = float(longitude)
+        except (TypeError, ValueError):
+            latitude = 0.0
+            longitude = 0.0
+
+        return {
+            "penginapan_id": self._clean_text(self._first_value(row, "location_id", default="")),
+            "name": self._clean_text(self._first_value(row, "location_name", "title", default="")).split(" | ")[0],
+            "type": self._clean_text(self._first_value(row, "subcategory", "category", default="Penginapan")),
+            "city": self._clean_text(self._first_value(row, "kota_kabupaten", "city", default="")),
+            "district": self._clean_text(self._first_value(row, "kecamatan", "neighborhood", default="")),
+            "coordinates": {
+                "latitude": latitude,
+                "longitude": longitude,
+            },
+            "price": self._price_label(row),
+            "google_rating": rating,
+            "image_url": str(image_url),
+            "destination_url": str(self._first_value(row, "media_destination_url", "url", default="")),
+            "website": str(self._first_value(row, "media_website", "website", default="")),
+            "distance_km": float(row.get('distance_km', 0)) if 'distance_km' in row and row.get('distance_km') is not None else None,
+            "ai_insight": {
+                "sentiment_label": sentiment_label,
+                "sentiment_score": sentiment_score,
+                "badge_color": badge_color,
+            }
+        }
+
+    def search_penginapans(self, query=None, limit=5, lat=None, lon=None):
+        if self.df is None or self.df.empty:
+            return []
+
+        filtered_df = self.df.copy()
+        query_text = str(query or "").lower()
+        stopwords = {
+            "cari", "carikan", "rekomendasi", "dekat", "sekitar", "di", "ke",
+            "hotel", "penginapan", "villa", "guest", "house", "kost", "kamar",
+            "yang", "murah", "bagus", "buat", "untuk",
+        }
+        tokens = [
+            token
+            for token in query_text.replace("-", " ").split()
+            if len(token) > 2 and token not in stopwords
+        ]
+        if tokens:
+            searchable_columns = [
+                column
+                for column in ("location_name", "subcategory", "kota_kabupaten", "kecamatan", "tags_sintetis")
+                if column in filtered_df.columns
+            ]
+            if searchable_columns:
+                haystack = filtered_df[searchable_columns].fillna("").astype(str).agg(" ".join, axis=1).str.lower()
+                mask = haystack.apply(lambda text: any(token in text for token in tokens))
+                if mask.any():
+                    filtered_df = filtered_df[mask]
+
+        if lat is not None and lon is not None:
+            filtered_df['distance_km'] = filtered_df.apply(
+                lambda row: self._haversine_distance(lat, lon, row.get('latitude'), row.get('longitude')), axis=1
+            )
+            filtered_df = filtered_df.sort_values(by=['distance_km', 'avg_rating'], ascending=[True, False])
+        elif 'avg_rating' in filtered_df:
+            filtered_df = filtered_df.sort_values(by='avg_rating', ascending=False)
+
+        return [self._row_to_item(row) for _, row in filtered_df.head(limit).iterrows()]
+
     def get_penginapans(self, limit=20, page=1, sentiment_filter=None, lat=None, lon=None, category_filter=None):
         if self.df is None or self.df.empty:
             return [], 0
@@ -116,28 +259,11 @@ class PenginapanService:
                 badge_color = 'red'
                 sentiment_label = 'Negatif'
 
-            # Try to build image URL
-            image_url = row.get('image_url')
-            if not image_url or pd.isna(image_url):
-                image_url = 'https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=900&auto=format&fit=crop'
-
-            item = {
-                "penginapan_id": str(row.get('location_id', '')),
-                "name": str(row.get('location_name', '')),
-                "type": str(row.get('subcategory', 'Penginapan')),
-                "coordinates": {
-                    "latitude": float(row.get('latitude', 0)),
-                    "longitude": float(row.get('longitude', 0))
-                },
-                "price": str(row.get('price_str', 'Hubungi untuk harga')),
-                "google_rating": float(row.get('avg_rating', 0)),
-                "image_url": str(image_url),
-                "distance_km": float(row.get('distance_km', 0)) if 'distance_km' in row else None,
-                "ai_insight": {
-                    "sentiment_label": sentiment_label,
-                    "sentiment_score": float(sentiment_score),
-                    "badge_color": badge_color
-                }
+            item = self._row_to_item(row)
+            item["ai_insight"] = {
+                "sentiment_label": sentiment_label,
+                "sentiment_score": float(sentiment_score),
+                "badge_color": badge_color
             }
             results.append(item)
 

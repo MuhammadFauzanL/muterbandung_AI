@@ -55,7 +55,7 @@ PRICE_PATTERN = re.compile(
     re.IGNORECASE,
 )
 DISTANCE_PATTERN = re.compile(r"\b\d+(?:[.,]\d+)?\s*km\b", re.IGNORECASE)
-URL_PATTERN = re.compile(r"https?://[^\s\]\)\}\",]+", re.IGNORECASE)
+URL_PATTERN = re.compile(r"https?://[^\s\]\}\"']+", re.IGNORECASE)
 RATING_PATTERN = re.compile(r"\b[1-5](?:[.,]\d{1,2})?\s*(?:/5|bintang)\b", re.IGNORECASE)
 
 FACILITY_POSITIVE_PATTERNS = {
@@ -189,13 +189,27 @@ def _parse_output(llm_output):
     if isinstance(llm_output, dict):
         return copy.deepcopy(llm_output), None
     if isinstance(llm_output, str):
+        text = llm_output.strip()
+        # Try raw first
         try:
-            parsed = json.loads(llm_output)
-        except ValueError as exc:
-            return None, f"LLM output is not valid JSON: {exc}"
-        if not isinstance(parsed, dict):
-            return None, "LLM output JSON must be an object."
-        return parsed, None
+            parsed = json.loads(text)
+            if isinstance(parsed, dict):
+                return parsed, None
+        except ValueError:
+            pass
+
+        # Try to extract from markdown or other wrappers
+        start = text.find("{")
+        end = text.rfind("}")
+        if start != -1 and end != -1 and end > start:
+            try:
+                parsed = json.loads(text[start : end + 1])
+                if isinstance(parsed, dict):
+                    return parsed, None
+            except ValueError as exc:
+                return None, f"LLM output is not valid JSON even after extraction: {exc}"
+
+        return None, "LLM output is not valid JSON or could not find JSON object."
     return None, "llm_output must be a JSON string or object."
 
 
@@ -526,8 +540,8 @@ def validate_llm_output(llm_output, evidence_pack):
     else:
         selected_ids = [_as_text(item) for item in selected_ids]
 
-    if candidates and not selected_ids:
-        errors.append("selected_destination_ids cannot be empty when evidence candidates are available.")
+    # Allow LLM to return empty selected_ids for out-of-domain queries
+    # even if backend provided candidates.
 
     if len(selected_ids) != len(set(selected_ids)):
         errors.append("selected_destination_ids contains duplicate ids.")

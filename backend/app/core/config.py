@@ -14,6 +14,7 @@ class Settings(BaseSettings):
         env_file=".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
+        extra="ignore",
     )
 
     # ── Application ──────────────────────────────────────
@@ -54,6 +55,8 @@ class Settings(BaseSettings):
             origins.update({
                 "http://localhost:3000",
                 "http://127.0.0.1:3000",
+                "http://localhost:3005",
+                "http://127.0.0.1:3005",
             })
 
         return list(origins)

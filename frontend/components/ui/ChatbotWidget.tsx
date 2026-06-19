@@ -185,7 +185,7 @@ export function ChatbotWidget() {
                 onChange={(event) => setInputValue(event.target.value)}
                 placeholder="Tanya apa saja tentang Bandung..."
                 disabled={isSending}
-                className="min-w-0 flex-1 bg-transparent text-sm text-black outline-none placeholder:text-slate-400 disabled:text-slate-500"
+                className="min-w-0 flex-1 bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400 disabled:text-slate-500"
               />
               <button
                 type="submit"

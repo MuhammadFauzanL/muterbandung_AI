@@ -6,6 +6,9 @@ Run with: uvicorn app.main:app --reload
 import logging
 from contextlib import asynccontextmanager
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # pyrefly: ignore [missing-import]
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -64,6 +67,7 @@ app.add_middleware(
         "Accept",
         "Origin",
         "X-Requested-With",
+        "ngrok-skip-browser-warning",
     ],
 )
 
