@@ -6,7 +6,7 @@ Recommendation endpoints.
 
 from __future__ import annotations
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 # pyrefly: ignore [missing-import]
 from fastapi import APIRouter, Body, Depends, Query
@@ -121,7 +121,7 @@ def recommended_destinations(
 
 
 @router.post("/ai-planner")
-def ai_planner_recommend(payload: Dict[str, Any] | None = Body(default=None)):
+def ai_planner_recommend(payload: Optional[Dict[str, Any]] = Body(default=None)):
     """Return AI Planner recommendations with evidence-ready score_breakdown."""
     payload = payload or {}
     filters = payload.get("filters") if isinstance(payload.get("filters"), dict) else {}
@@ -151,7 +151,7 @@ def ai_planner_recommend(payload: Dict[str, Any] | None = Body(default=None)):
 
 
 @router.post("/cepot-chat")
-def cepot_chat(payload: Dict[str, Any] | None = Body(default=None)):
+def cepot_chat(payload: Optional[Dict[str, Any]] = Body(default=None)):
     """Return Cepot chat answer grounded by backend recommendation evidence."""
     try:
         payload = payload or {}

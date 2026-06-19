@@ -274,7 +274,7 @@ SLANG_DICT = {
 class MuterBandungRecommender:
     """Core Recommender Engine untuk MuterBandung v1.0."""
 
-    def __init__(self, db_path='DATABASE_WISATA_FINAL_PARIPURNA.csv'):
+    def __init__(self, db_path='data/wisata_populer.csv'):
         """Load database, parse multi_labels, handle null avg_rating, initialize SentenceTransformer, and build dense vector corpus."""
         # Handle path resolution if running from different directories
         if db_path == 'DATABASE_WISATA_FINAL_PARIPURNA.csv':
