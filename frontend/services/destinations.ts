@@ -5,6 +5,7 @@ import type {
   ExploreDestination,
   ExploreFilterMetadata,
   ExploreMeta,
+  ExploreScoreBreakdown,
 } from '@/types';
 
 // We might need to adjust the exact response type based on the backend
@@ -69,6 +70,8 @@ export interface ApiDestinationCard {
   distanceKm?: number | null;
   score?: number | null;
   scoreReason?: string | null;
+  scoreBreakdown?: ExploreScoreBreakdown | null;
+  score_breakdown?: ExploreScoreBreakdown | null;
 }
 
 interface ApiDestinationDetail {
@@ -126,6 +129,7 @@ export function mapExploreDestination(item: ApiDestinationCard): ExploreDestinat
     distanceKm: item.distanceKm ?? undefined,
     score: item.score ?? undefined,
     scoreReason: item.scoreReason ?? undefined,
+    scoreBreakdown: item.scoreBreakdown ?? item.score_breakdown ?? undefined,
   };
 }
 

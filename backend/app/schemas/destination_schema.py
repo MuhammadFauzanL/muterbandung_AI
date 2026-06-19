@@ -7,7 +7,7 @@ Internal database models remain snake_case.
 
 from __future__ import annotations
 
-from typing import Optional
+from typing import Any, Dict, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -52,6 +52,7 @@ class DestinationCardResponse(_CamelModel):
     distance_km: Optional[float] = None
     score: Optional[float] = None
     score_reason: Optional[str] = None
+    score_breakdown: Optional[Dict[str, Any]] = None
     is_favorite: bool = False
 
 

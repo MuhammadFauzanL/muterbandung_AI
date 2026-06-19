@@ -81,7 +81,7 @@ export function AIChatPromoSection() {
                   <input 
                     type="text" 
                     placeholder="Tulis pesan ke Cepot..." 
-                    className="w-full bg-[#F3F8FC] border border-[#D9E8F3] rounded-full pl-5 pr-12 py-3 text-[14px] text-slate-900 placeholder:text-slate-500 font-medium outline-none focus:border-[#0E75BC] transition-colors"
+                    className="w-full bg-[#F3F8FC] border border-[#D9E8F3] rounded-full pl-5 pr-12 py-3 text-[14px] text-black placeholder:text-slate-500 font-medium outline-none focus:border-[#0E75BC] transition-colors"
                     readOnly
                   />
                   <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center bg-[#14528E] text-white rounded-full hover:bg-[#0E75BC] transition-colors">
