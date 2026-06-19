@@ -52,8 +52,8 @@ muterbandung_AI/
 ├── ARCHITECTURE.md              # Arsitektur sistem detail
 ├── BACKEND_AGENT_HANDOFF.md    # Dokumentasi untuk developer backend
 ├── SKILLS.md                    # Context & onboarding untuk AI agent
-├── SYSTEM_PROMPT.md             # LLM System Prompt (MIOA Directive untuk chatbot)
-└── README.md                    # File ini (Panduan Instalasi & Monorepo)
+├── README_DEV.md                # File ini (Panduan Monorepo)
+└── readme.md                    # LLM System Prompt (MIOA Directive untuk chatbot)
 ```
 
 ---
@@ -96,12 +96,8 @@ muterbandung_AI/
    ```bash
    cp .env.example .env
    ```
-   *Penting:* Jika Anda ingin menjalankan fitur Chatbot Cepot dan AI Planner, pastikan Anda mengisi `OPENROUTER_API_KEY` dan `CLOUDFLARE_API_TOKEN` di file `.env`.
 
-6. **Download / Pull Model AI**:
-   Pastikan Anda sudah berada di branch yang memiliki folder `Persona_Workspace` dan `Behaviour_Workspace` yang berisi file `.pkl` dan `.keras`.
-
-7. **Jalankan server**:
+6. **Jalankan server**:
    ```bash
    uvicorn app.main:app --reload
    ```
