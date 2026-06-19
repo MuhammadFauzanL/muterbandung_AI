@@ -50,6 +50,8 @@ class DestinationCardResponse(_CamelModel):
     opening_hours_label: Optional[str] = None
     duration_minutes: Optional[int] = None
     distance_km: Optional[float] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     score: Optional[float] = None
     score_reason: Optional[str] = None
     score_breakdown: Optional[Dict[str, Any]] = None

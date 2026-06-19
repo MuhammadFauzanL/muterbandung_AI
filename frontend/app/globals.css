@@ -35,3 +35,78 @@ body {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
+
+/* ─── Route Map Styles ────────────────────────────────────────── */
+
+@keyframes marker-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.route-info-overlay {
+  animation: route-fade-in 0.4s ease-out;
+}
+
+.route-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid #E2E8F0;
+  border-top-color: #0E75BC;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* Override Leaflet default icon styles */
+.custom-marker-icon {
+  background: none !important;
+  border: none !important;
+}
+
+/* Leaflet popup premium overrides */
+.leaflet-popup-content-wrapper {
+  border-radius: 14px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12) !important;
+  padding: 0 !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  font-family: 'Inter', sans-serif !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-popup-tip {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Route map container hover effect */
+.route-map-container {
+  transition: box-shadow 0.3s ease;
+}
+.route-map-container:hover {
+  box-shadow: 0 8px 30px rgba(14, 117, 188, 0.15);
+}

@@ -7,6 +7,12 @@ interface TimelineItem {
   type: 'destination' | 'accommodation';
   name: string;
   id?: string;
+  image?: string;
+  category?: string;
+  rating?: number;
+  location?: string;
+  checkIn?: string;
+  checkOut?: string;
 }
 
 interface ItineraryTimelineProps {
@@ -36,14 +42,18 @@ export function ItineraryTimeline({
             <div className="group relative overflow-hidden rounded-[16px] sm:rounded-[20px] border border-slate-200 bg-white shadow-sm transition-all flex flex-col sm:flex-row p-3 sm:p-4 gap-3 sm:gap-4">
               {/* Image Thumbnail */}
               <div className="relative h-32 sm:h-[130px] sm:w-[180px] rounded-xl overflow-hidden shrink-0">
-                <Image 
-                  src={item.type === 'destination' 
-                    ? `https://lh3.googleusercontent.com/gps-cs-s/APNQkAFaFXwEw1U4JIxhDsJyjEZJ7dqvRVW5IsAh8vwhX9CJumOqs71mWd90VbeY4WWgvBh6nodCe9tVRNO4574wsSgJnHLeoZRcFa7oXmZYME4fvSDhQ6Vgmu9TRYT8z7sUSaSkjUk_vQ=w408-h306-k-no`
-                    : 'https://lh3.googleusercontent.com/gps-proxy/ALd4DhFQNQ81Dicl74zu40V7aXYY50dw0TH-lPCwm_rFUokItvPcAB2TR0TclWJS-39WNWfCJ_04IFMGsytAfz0mjmiv_2ft5DRYmyE0tyFhO6Q8WM81wJqxKvqNiKtB-0VBqYxss31T3exO_FUzUlc3d9J0f-idvXZvvVAfRhO6qZKDrOa9ali32Kou7Q=w455-h240-k-no'} 
-                  alt={item.title} 
-                  fill 
-                  className="object-cover" 
-                />
+                {item.image ? (
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    fill 
+                    className="object-cover" 
+                  />
+                ) : (
+                  <div className="w-full h-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-400">
+                    No Image
+                  </div>
+                )}
               </div>
               
               <div className="flex-1 flex flex-col justify-between">
@@ -51,14 +61,14 @@ export function ItineraryTimeline({
                   <div className="flex items-start justify-between mb-1.5 sm:mb-2">
                     <span className={`font-bold text-[13px] sm:text-sm ${item.type === 'destination' ? 'text-[#0E75BC]' : 'text-[#E94B35]'}`}>{item.time}</span>
                     <span className={`text-[9px] sm:text-[10px] font-semibold px-2 sm:px-3 py-0.5 sm:py-1 rounded-full ${item.type === 'destination' ? 'bg-[#F2FAFE] text-[#557083]' : 'bg-[#E94B35] text-white'}`}>
-                      {item.type === 'destination' ? '2 Jam • Alam' : 'Check-In • Hotel'}
+                      {item.type === 'destination' ? `2 Jam • ${item.category || 'Wisata'}` : 'Check-In • Hotel'}
                     </span>
                   </div>
                   <h3 className="text-[15px] sm:text-base font-bold text-slate-900 mb-1 leading-tight">{item.title}</h3>
                   {item.type === 'destination' ? (
                     <div className="flex items-end justify-between gap-2 mt-1">
                       <p className="text-[11px] sm:text-[12px] text-slate-600 leading-relaxed flex-1">
-                        Menikmati pemandangan kawah vulkanik yang ikonik dengan suasana pegunungan yang sejuk.
+                        Menikmati waktu dan mengeksplorasi destinasi pilihan Anda di Bandung.
                       </p>
                       <button 
                         onClick={() => {
@@ -72,10 +82,10 @@ export function ItineraryTimeline({
                     </div>
                   ) : (
                     <div className="text-[10px] text-slate-600 mb-2">
-                      <p>★ 4.8 • Jl. Raya Ciwidey - Patengan</p>
+                      <p>{item.rating ? `★ ${item.rating}` : '★ 4.8'} • {item.location || 'Bandung'}</p>
                       <div className="flex flex-wrap gap-2 sm:gap-4 mt-1.5 sm:mt-2">
-                        <span className="flex items-center gap-1 font-semibold"><Calendar className="w-3 h-3 text-[#E94B35]" /> Check-in: 24 Mei 2024</span>
-                        <span className="flex items-center gap-1 font-semibold"><Calendar className="w-3 h-3 text-[#E94B35]" /> Check-out: 25 Mei 2024</span>
+                        <span className="flex items-center gap-1 font-semibold"><Calendar className="w-3 h-3 text-[#E94B35]" /> Check-in: {item.checkIn || '-'}</span>
+                        <span className="flex items-center gap-1 font-semibold"><Calendar className="w-3 h-3 text-[#E94B35]" /> Check-out: {item.checkOut || '-'}</span>
                       </div>
                       <div className="flex items-end justify-between gap-2 mt-1.5 sm:mt-2">
                         <p className="flex-1">Waktu istirahat dan menikmati fasilitas hotel.</p>

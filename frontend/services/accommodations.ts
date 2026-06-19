@@ -36,6 +36,8 @@ interface ApiAccommodationCard {
   reviewCount?: number | string | null;
   priceLabel?: string;
   location?: string;
+  latitude?: number | string | null;
+  longitude?: number | string | null;
   distanceKm?: number | null;
   facilities?: string[];
   mapsUrl?: string | null;
@@ -65,6 +67,11 @@ function formatDistance(value?: number | null) {
   return `${value.toFixed(value < 10 ? 1 : 0)} km dari destinasi`;
 }
 
+function parseCoordinate(value: unknown): number | undefined {
+  const numeric = typeof value === 'string' ? Number(value) : value;
+  return typeof numeric === 'number' && Number.isFinite(numeric) ? numeric : undefined;
+}
+
 function buildHighlights(item: ApiAccommodationCard) {
   const facilities = item.facilities || [];
   const values = [
@@ -89,6 +96,8 @@ export function mapAccommodation(item: ApiAccommodationCard): Accommodation {
     reviewCount: formatReviewCount(item.reviewCount),
     price: item.priceLabel || 'Harga belum tersedia',
     location: item.location || 'Bandung Raya',
+    latitude: parseCoordinate(item.latitude),
+    longitude: parseCoordinate(item.longitude),
     distanceKm: item.distanceKm ?? undefined,
     distance: formatDistance(item.distanceKm),
     facilities: item.facilities || [],

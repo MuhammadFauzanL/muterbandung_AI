@@ -6,6 +6,10 @@ interface Accommodation {
   nights: number;
   basePrice: number;
   totalPrice: number;
+  image?: string;
+  rating?: number;
+  distance?: string;
+  location?: string;
 }
 
 interface SelectedAccommodationsProps {
@@ -25,24 +29,30 @@ export function SelectedAccommodations({ accommodations }: SelectedAccommodation
           
           <div className="space-y-3 sm:space-y-4">
             <div className="relative w-full h-32 sm:h-40 overflow-hidden rounded-xl bg-slate-200">
-              <Image 
-                src="https://lh3.googleusercontent.com/gps-proxy/ALd4DhFQNQ81Dicl74zu40V7aXYY50dw0TH-lPCwm_rFUokItvPcAB2TR0TclWJS-39WNWfCJ_04IFMGsytAfz0mjmiv_2ft5DRYmyE0tyFhO6Q8WM81wJqxKvqNiKtB-0VBqYxss31T3exO_FUzUlc3d9J0f-idvXZvvVAfRhO6qZKDrOa9ali32Kou7Q=w455-h240-k-no" 
-                alt={acc.name} 
-                fill 
-                className="object-cover" 
-              />
+              {acc.image ? (
+                <Image 
+                  src={acc.image} 
+                  alt={acc.name} 
+                  fill 
+                  className="object-cover" 
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-slate-400 text-xs">
+                  No Image
+                </div>
+              )}
             </div>
             
             <div>
               <div className="flex items-start sm:items-center justify-between gap-2">
                 <h4 className="font-bold text-[#112F43] text-[15px] sm:text-lg leading-tight">{acc.name}</h4>
                 <span className="bg-[#FCD3D1] text-[#E94B35] px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md shadow-sm flex items-center gap-1 font-bold text-[10px] sm:text-xs shrink-0">
-                  <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-current" /> 4.8
+                  <Star className="h-2.5 w-2.5 sm:h-3 sm:w-3 fill-current" /> {acc.rating || '4.8'}
                 </span>
               </div>
               <div className="flex items-center gap-1 text-[11px] sm:text-xs text-slate-500 mt-1">
                 <MapPinIcon className="h-3 w-3 shrink-0" />
-                <span>0.5 km dari Kawah Putih</span>
+                <span>{acc.distance || acc.location || 'Bandung Raya'}</span>
               </div>
             </div>
               

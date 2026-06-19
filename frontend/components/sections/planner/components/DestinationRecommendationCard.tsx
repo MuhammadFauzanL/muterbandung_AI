@@ -7,6 +7,8 @@ import { Clock as ClockIcon, Wallet as WalletIcon } from 'lucide-react';
 
 export type PlannerDestination = {
   title: string;
+  id?: string;
+  slug?: string;
   category: string;
   description: string;
   distance: string;
@@ -14,6 +16,8 @@ export type PlannerDestination = {
   price: string;
   rating: string;
   image: string;
+  latitude?: number;
+  longitude?: number;
 };
 
 export function DestinationRecommendationCard({
@@ -71,7 +75,15 @@ export function DestinationRecommendationCard({
           </div>
           <button
             onClick={() => {
-              addDestination({ id: destination.title, title: destination.title });
+              addDestination({
+                id: destination.id || destination.title,
+                title: destination.title,
+                slug: destination.slug,
+                category: destination.category,
+                image: destination.image,
+                latitude: destination.latitude,
+                longitude: destination.longitude,
+              });
               showToast(`${destination.title} berhasil ditambahkan ke perjalanan!`, 'success');
             }}
             type="button"

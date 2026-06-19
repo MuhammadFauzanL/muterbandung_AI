@@ -11,7 +11,6 @@ import { SelectedAccommodations } from './itinerary/SelectedAccommodations';
 import { BudgetSummary } from './itinerary/BudgetSummary';
 import { ItineraryTimeline } from './itinerary/ItineraryTimeline';
 import { RouteVisualization } from './itinerary/RouteVisualization';
-import { AiHelpCta } from './itinerary/AiHelpCta';
 import { BottomActionButtons } from './itinerary/BottomActionButtons';
 import { DeleteConfirmationModal } from './itinerary/DeleteConfirmationModal';
 import { useState } from 'react';
@@ -22,7 +21,7 @@ export function ItineraryPageContent() {
 
   const generateTimeline = () => {
     let currentHour = 8;
-    const timeline: { time: string; title: string; type: 'destination' | 'accommodation'; name: string; id?: string }[] = [];
+    const timeline: { time: string; title: string; type: 'destination' | 'accommodation'; name: string; id?: string; image?: string; category?: string; rating?: number; location?: string; checkIn?: string; checkOut?: string; }[] = [];
 
     destinations.forEach((dest) => {
       timeline.push({
@@ -31,6 +30,8 @@ export function ItineraryPageContent() {
         type: 'destination',
         name: dest.title,
         id: dest.id,
+        image: dest.image,
+        category: dest.category || dest.primaryIntent,
       });
       currentHour += 2; 
     });
@@ -43,6 +44,11 @@ export function ItineraryPageContent() {
           title: acc.name,
           type: 'accommodation',
           name: acc.name,
+          image: acc.image,
+          rating: acc.rating,
+          location: acc.location,
+          checkIn: acc.checkIn,
+          checkOut: acc.checkOut,
         });
         currentHour = checkInHour + 1;
       });
@@ -79,7 +85,11 @@ export function ItineraryPageContent() {
             maxGuests={maxGuests}
             grandTotal={grandTotal}
           />
-          <AiInsightCard />
+          <AiInsightCard 
+            destinationsCount={destinations.length}
+            accommodationsCount={accommodations.length}
+            durationString={durationString}
+          />
           <SelectedAccommodations accommodations={accommodations} />
           <BudgetSummary 
             totalDestinationCost={totalDestinationCost}
@@ -148,13 +158,19 @@ export function ItineraryPageContent() {
             </div>
           </section>
 
-          <RouteVisualization />
-
-          <AiHelpCta />
+          <RouteVisualization destinations={destinations} accommodations={accommodations} />
         </div>
       </div>
 
-      <BottomActionButtons />
+      <BottomActionButtons 
+        destinations={destinations}
+        accommodations={accommodations}
+        totalBudget={grandTotal}
+        durationDays={maxNights > 0 ? maxNights + 1 : 1}
+        durationNights={maxNights}
+        guestCount={maxGuests}
+        durationString={durationString}
+      />
 
       {/* Delete Modal */}
       <DeleteConfirmationModal

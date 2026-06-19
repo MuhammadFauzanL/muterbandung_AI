@@ -1,6 +1,22 @@
 import { Sparkles } from 'lucide-react';
 
-export function AiInsightCard() {
+interface AiInsightCardProps {
+  destinationsCount: number;
+  accommodationsCount: number;
+  durationString: string;
+}
+
+export function AiInsightCard({ destinationsCount, accommodationsCount, durationString }: AiInsightCardProps) {
+  let insightText = "Mulai tambahkan destinasi ke Planner untuk mendapatkan insight perjalanan dari Cepot AI.";
+  
+  if (destinationsCount > 0 && accommodationsCount === 0) {
+    insightText = `Kamu telah merencanakan ${destinationsCount} destinasi yang menarik! Cepot merekomendasikan untuk menambahkan penginapan agar perjalanan ${durationString} kamu lebih nyaman dan terstruktur.`;
+  } else if (destinationsCount > 0 && accommodationsCount > 0) {
+    insightText = `Itinerary ini disusun untuk meminimalkan waktu perjalanan, mengoptimalkan budget, dan memberikan pengalaman wisata yang nyaman selama ${durationString}. Penginapan telah dipilih agar dekat dengan lokasi utama.`;
+  } else if (destinationsCount === 0 && accommodationsCount > 0) {
+    insightText = `Penginapan sudah siap! Sekarang saatnya memilih destinasi wisata di sekitar penginapanmu agar waktu liburanmu maksimal.`;
+  }
+
   return (
     <section className="relative rounded-[16px] sm:rounded-[24px] border border-[#CFE5F2] bg-[#F2FAFE] p-4 sm:p-6 shadow-sm overflow-hidden">
       {/* Decorative Sparkles Top Right */}
@@ -14,7 +30,7 @@ export function AiInsightCard() {
       </div>
       
       <p className="text-[12px] sm:text-sm leading-relaxed text-[#557083] relative z-10">
-        Itinerary ini disusun untuk meminimalkan waktu perjalanan, mengoptimalkan budget, dan memberikan pengalaman wisata yang lebih nyaman. Penginapan dipilih berdasarkan kedekatan dengan destinasi utama agar waktu perjalanan lebih efisien.
+        {insightText}
       </p>
     </section>
   );

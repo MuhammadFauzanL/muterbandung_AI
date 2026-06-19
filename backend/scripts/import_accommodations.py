@@ -202,15 +202,44 @@ def read_rows(csv_path: Path, limit: int | None = None) -> list[dict]:
         return rows
 
 
+def read_gallery_images(csv_path: Path) -> dict[str, str]:
+    """Read gallery CSV and return the best (lowest image_order) image for each location."""
+    if not csv_path.exists():
+        return {}
+    
+    gallery: dict[str, list[tuple[int, str]]] = {}
+    with csv_path.open(newline="", encoding="utf-8-sig") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            loc_id = row.get("location_id")
+            image_url = row.get("image_url")
+            image_order = safe_int(row.get("image_order")) or 999
+            if loc_id and image_url:
+                gallery.setdefault(loc_id, []).append((image_order, image_url))
+                
+    best_images = {}
+    for loc_id, images in gallery.items():
+        images.sort(key=lambda x: x[0])
+        best_images[loc_id] = images[0][1]
+        
+    return best_images
+
+
 def import_accommodations(
     csv_path: Path,
     *,
+    gallery_csv_path: Path | None = None,
     dry_run: bool = False,
     clear_existing: bool = False,
     include_inactive: bool = False,
     limit: int | None = None,
 ) -> None:
     rows = read_rows(csv_path, limit=limit)
+    
+    gallery_images = {}
+    if gallery_csv_path and gallery_csv_path.exists():
+        gallery_images = read_gallery_images(gallery_csv_path)
+
     db = SessionLocal()
     inserted = 0
     updated = 0
@@ -287,6 +316,9 @@ def import_accommodations(
                 row.get("sentiment_available"),
             )
             accommodation.image_url = safe_str(row.get("media_image_url"))
+            if not accommodation.image_url and external_id in gallery_images:
+                accommodation.image_url = gallery_images[external_id]
+                
             accommodation.destination_url = safe_str(row.get("media_destination_url"))
             accommodation.website_url = safe_str(row.get("media_website"))
             accommodation.media_source = safe_str(row.get("media_source"))
@@ -341,6 +373,12 @@ def parse_args() -> argparse.Namespace:
         default=Path("data/penginapan_data.csv"),
         help="Path to accommodation CSV file",
     )
+    parser.add_argument(
+        "--gallery-file",
+        type=Path,
+        default=Path("data/penginapan_gallery_data.csv"),
+        help="Path to accommodation gallery CSV file for image fallbacks",
+    )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--clear-existing", action="store_true")
     parser.add_argument("--include-inactive", action="store_true")
@@ -355,9 +393,14 @@ def main() -> None:
         csv_path = _BACKEND_DIR / csv_path
     if not csv_path.exists():
         raise SystemExit(f"CSV file not found: {csv_path}")
+        
+    gallery_csv_path = args.gallery_file
+    if not gallery_csv_path.is_absolute():
+        gallery_csv_path = _BACKEND_DIR / gallery_csv_path
 
     import_accommodations(
         csv_path,
+        gallery_csv_path=gallery_csv_path,
         dry_run=args.dry_run,
         clear_existing=args.clear_existing,
         include_inactive=args.include_inactive,

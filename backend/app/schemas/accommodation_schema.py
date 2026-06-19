@@ -34,6 +34,8 @@ class AccommodationCardResponse(_CamelModel):
     review_count: Optional[int] = None
     price_label: str = "Harga belum tersedia"
     location: str = "Bandung Raya"
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     distance_km: Optional[float] = None
     facilities: list[str] = []
     maps_url: Optional[str] = None
