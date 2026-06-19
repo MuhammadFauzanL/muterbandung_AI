@@ -456,10 +456,10 @@ def build_destination_card(
         opening_hours_label=format_opening_hours_label(dest, day_type),
         duration_minutes=dest.estimated_duration_minutes,
         distance_km=distance_km,
-        score=build_score_value(dest, sort),
-        score_reason=build_score_reason(dest, sort),
         latitude=dest.latitude,
         longitude=dest.longitude,
+        score=build_score_value(dest, sort),
+        score_reason=build_score_reason(dest, sort),
         is_favorite=False,
     ).model_dump(by_alias=True)
 

@@ -57,7 +57,7 @@ export interface ApiDestinationCard {
   id?: string;
   slug?: string;
   name?: string;
-  location?: string;
+  location?: string | { label?: string; latitude?: number | string | null; longitude?: number | string | null };
   tourismZone?: string;
   rating?: number | string | null;
   imageUrl?: string | null;
@@ -67,10 +67,10 @@ export interface ApiDestinationCard {
   durationMinutes?: number | null;
   openingHoursLabel?: string | null;
   distanceKm?: number | null;
+  latitude?: number | string | null;
+  longitude?: number | string | null;
   score?: number | null;
   scoreReason?: string | null;
-  latitude?: number | null;
-  longitude?: number | null;
 }
 
 interface ApiDestinationDetail {
@@ -78,7 +78,7 @@ interface ApiDestinationDetail {
   slug?: string;
   name?: string;
   description?: string;
-  location?: string | { label?: string };
+  location?: string | { label?: string; latitude?: number | string | null; longitude?: number | string | null };
   rating?: number | string | { value?: number | string | null } | null;
   imageUrl?: string | null;
   heroImageUrl?: string | null;
@@ -111,12 +111,25 @@ function formatDuration(minutes?: number | null) {
   return `${hours} jam ${remainingMinutes} menit`;
 }
 
+function parseCoordinate(value: unknown): number | undefined {
+  const numeric = typeof value === 'string' ? Number(value) : value;
+  return typeof numeric === 'number' && Number.isFinite(numeric) ? numeric : undefined;
+}
+
+function getLocationObject(location: ApiDestinationCard['location'] | ApiDestinationDetail['location']) {
+  return typeof location === 'object' && location !== null ? location : null;
+}
+
 export function mapExploreDestination(item: ApiDestinationCard): ExploreDestination {
+  const locationObj = getLocationObject(item.location);
+  const latitude = parseCoordinate(item.latitude ?? locationObj?.latitude);
+  const longitude = parseCoordinate(item.longitude ?? locationObj?.longitude);
+
   return {
     id: item.id || item.slug || item.name || 'destination',
     slug: item.slug,
     title: item.name || 'Destinasi Bandung',
-    location: item.location || item.tourismZone || 'Bandung Raya',
+    location: locationObj?.label || (typeof item.location === 'string' ? item.location : undefined) || item.tourismZone || 'Bandung Raya',
     rating: formatRating(item.rating),
     image: item.imageUrl || '',
     price: item.priceLabel || 'Harga belum tersedia',
@@ -126,10 +139,10 @@ export function mapExploreDestination(item: ApiDestinationCard): ExploreDestinat
     durationMinutes: item.durationMinutes ?? undefined,
     openingHoursLabel: item.openingHoursLabel ?? undefined,
     distanceKm: item.distanceKm ?? undefined,
+    latitude,
+    longitude,
     score: item.score ?? undefined,
     scoreReason: item.scoreReason ?? undefined,
-    latitude: item.latitude ?? undefined,
-    longitude: item.longitude ?? undefined,
   };
 }
 
@@ -184,7 +197,7 @@ export const destinationsService = {
       id: item.id,
       slug: item.slug,
       title: item.name || 'Destinasi Bandung',
-      location: item.location || item.tourismZone || 'Bandung Raya',
+      location: getLocationObject(item.location)?.label || (typeof item.location === 'string' ? item.location : undefined) || item.tourismZone || 'Bandung Raya',
       rating: formatRating(item.rating),
       image: item.imageUrl || '',
       price: item.priceLabel || 'Harga belum tersedia',
@@ -254,6 +267,7 @@ export const destinationsService = {
     const item = res.data || {};
     const heroImage = item.heroImageUrl || item.imageUrl || item.cover_image || '';
     const locationLabel = getDetailLocationLabel(item.location);
+    const locationObj = getLocationObject(item.location);
     return {
       id: item.id || slug,
       slug: item.slug,
@@ -270,6 +284,8 @@ export const destinationsService = {
       facilities: (item.facilities || []).map((f) => typeof f === 'object' ? f.label || '' : f),
       nearbyStays: item.nearbyStays || [],
       price: item.ticket?.label || item.priceLabel || "Gratis",
+      latitude: parseCoordinate(locationObj?.latitude),
+      longitude: parseCoordinate(locationObj?.longitude),
     };
   },
 };

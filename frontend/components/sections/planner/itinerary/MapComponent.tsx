@@ -1,221 +1,303 @@
 "use client";
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import type { RouteSegment } from './useRouteData';
 
 // Fix for default marker icons in Next.js
-delete (L.Icon.Default.prototype as any)._getIconUrl;
+type LeafletDefaultIconPrototype = L.Icon.Default & { _getIconUrl?: unknown };
+
+delete (L.Icon.Default.prototype as LeafletDefaultIconPrototype)._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-// ─── Custom Marker Icons ───────────────────────────────────────
-const createNumberedIcon = (number: number) => {
+// ─── Custom Marker Icons ─────────────────────────────────────────────────
+
+function createNumberedIcon(number: number, isActive: boolean = false) {
+  const size = isActive ? 36 : 28;
+  const fontSize = isActive ? 14 : 12;
+  const shadow = isActive
+    ? '0 0 0 4px rgba(14,117,188,0.25), 0 4px 12px rgba(14,117,188,0.4)'
+    : '0 2px 6px rgba(0,0,0,0.3)';
+  const bg = isActive
+    ? 'linear-gradient(135deg, #0E75BC 0%, #0A5A93 100%)'
+    : 'linear-gradient(135deg, #0E75BC 0%, #1A8DD8 100%)';
+  const pulseRing = isActive
+    ? `<div style="position:absolute;top:-6px;left:-6px;width:${size + 12}px;height:${size + 12}px;border-radius:50%;border:2px solid rgba(14,117,188,0.4);animation:marker-pulse 2s ease-out infinite;"></div>`
+    : '';
+
   return L.divIcon({
-    className: 'custom-div-icon',
+    className: 'custom-marker-icon',
     html: `
-      <div style="
-        position: relative;
-        background: linear-gradient(135deg, #0E75BC 0%, #0B5C73 100%);
-        color: white;
-        width: 32px; height: 32px;
-        display: flex; justify-content: center; align-items: center;
-        border-radius: 50%;
-        border: 3px solid white;
-        font-weight: 800; font-size: 14px;
-        box-shadow: 0 3px 8px rgba(14,117,188,0.45), 0 0 0 3px rgba(14,117,188,0.15);
-        font-family: system-ui, sans-serif;
-      ">${number}</div>
+      <div style="position:relative;display:flex;align-items:center;justify-content:center;">
+        ${pulseRing}
+        <div style="
+          background: ${bg};
+          color: white;
+          width: ${size}px;
+          height: ${size}px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 3px solid white;
+          font-weight: 800;
+          font-size: ${fontSize}px;
+          box-shadow: ${shadow};
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 2;
+          font-family: 'Inter', sans-serif;
+        ">${number}</div>
+      </div>
     `,
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
+    iconSize: [size + 12, size + 12],
+    iconAnchor: [(size + 12) / 2, (size + 12) / 2],
   });
-};
-
-const createHotelIcon = () => {
-  return L.divIcon({
-    className: 'custom-div-icon',
-    html: `
-      <div style="
-        position: relative;
-        background: linear-gradient(135deg, #E94B35 0%, #C93A28 100%);
-        color: white;
-        width: 36px; height: 36px;
-        display: flex; justify-content: center; align-items: center;
-        border-radius: 50%;
-        border: 3px solid white;
-        box-shadow: 0 3px 8px rgba(233,75,53,0.45), 0 0 0 3px rgba(233,75,53,0.15);
-      "><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14"/><path d="M3 11h18"/><path d="M9 21V11"/></svg></div>
-    `,
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
-  });
-};
-
-const createStartIcon = () => {
-  return L.divIcon({
-    className: 'custom-div-icon',
-    html: `
-      <div style="
-        position: relative;
-        background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-        color: white;
-        width: 36px; height: 36px;
-        display: flex; justify-content: center; align-items: center;
-        border-radius: 50%;
-        border: 3px solid white;
-        font-weight: 800; font-size: 14px;
-        box-shadow: 0 3px 8px rgba(16,185,129,0.45), 0 0 0 3px rgba(16,185,129,0.15);
-        font-family: system-ui, sans-serif;
-      ">1</div>
-    `,
-    iconSize: [36, 36],
-    iconAnchor: [18, 18],
-  });
-};
-
-// ─── OSRM Road Route Fetcher ────────────────────────────────────
-async function fetchOSRMRoute(
-  waypoints: { lat: number; lng: number }[]
-): Promise<[number, number][] | null> {
-  if (waypoints.length < 2) return null;
-
-  // Build OSRM coordinates string: lng,lat;lng,lat;...
-  const coords = waypoints
-    .map((wp) => `${wp.lng},${wp.lat}`)
-    .join(';');
-
-  const url = `https://router.project-osrm.org/route/v1/driving/${coords}?overview=full&geometries=geojson`;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    const data = await res.json();
-
-    if (data.code !== 'Ok' || !data.routes?.[0]) return null;
-
-    // OSRM returns [lng, lat], Leaflet expects [lat, lng]
-    const coordinates: [number, number][] = data.routes[0].geometry.coordinates.map(
-      (coord: [number, number]) => [coord[1], coord[0]]
-    );
-
-    return coordinates;
-  } catch {
-    return null;
-  }
 }
 
-// ─── Extract route metadata from OSRM ──────────────────────────
-async function fetchRouteMetadata(
-  waypoints: { lat: number; lng: number }[]
-): Promise<{ totalDistanceKm: number; totalDurationMin: number } | null> {
-  if (waypoints.length < 2) return null;
+function createHotelIcon(isActive: boolean = false) {
+  const size = isActive ? 36 : 28;
+  const shadow = isActive
+    ? '0 0 0 4px rgba(233,75,53,0.25), 0 4px 12px rgba(233,75,53,0.4)'
+    : '0 2px 6px rgba(0,0,0,0.3)';
+  const bg = isActive
+    ? 'linear-gradient(135deg, #E94B35 0%, #C73425 100%)'
+    : 'linear-gradient(135deg, #E94B35 0%, #F06050 100%)';
+  const pulseRing = isActive
+    ? `<div style="position:absolute;top:-6px;left:-6px;width:${size + 12}px;height:${size + 12}px;border-radius:50%;border:2px solid rgba(233,75,53,0.4);animation:marker-pulse 2s ease-out infinite;"></div>`
+    : '';
 
-  const coords = waypoints.map((wp) => `${wp.lng},${wp.lat}`).join(';');
-  const url = `https://router.project-osrm.org/route/v1/driving/${coords}?overview=false`;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return null;
-    const data = await res.json();
-    if (data.code !== 'Ok' || !data.routes?.[0]) return null;
-
-    return {
-      totalDistanceKm: Math.round((data.routes[0].distance / 1000) * 10) / 10,
-      totalDurationMin: Math.round(data.routes[0].duration / 60),
-    };
-  } catch {
-    return null;
-  }
+  return L.divIcon({
+    className: 'custom-marker-icon',
+    html: `
+      <div style="position:relative;display:flex;align-items:center;justify-content:center;">
+        ${pulseRing}
+        <div style="
+          background: ${bg};
+          color: white;
+          width: ${size}px;
+          height: ${size}px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          border: 3px solid white;
+          font-weight: 800;
+          font-size: ${isActive ? 16 : 13}px;
+          box-shadow: ${shadow};
+          transition: all 0.3s ease;
+          position: relative;
+          z-index: 2;
+        ">🏨</div>
+      </div>
+    `,
+    iconSize: [size + 12, size + 12],
+    iconAnchor: [(size + 12) / 2, (size + 12) / 2],
+  });
 }
 
-// ─── Animated Route Drawing ─────────────────────────────────────
-function AnimatedRoute({ routeCoords }: { routeCoords: [number, number][] }) {
-  const [visibleCoords, setVisibleCoords] = useState<[number, number][]>([]);
-  const animRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+// ─── Segment Colors ──────────────────────────────────────────────────────
+
+const SEGMENT_COLORS = [
+  '#0E75BC',
+  '#6366F1',
+  '#10B981',
+  '#F59E0B',
+  '#EC4899',
+  '#8B5CF6',
+  '#14B8A6',
+  '#F97316',
+];
+
+function getSegmentColor(index: number): string {
+  return SEGMENT_COLORS[index % SEGMENT_COLORS.length];
+}
+
+// ─── Map Controller (handles all dynamic map updates) ────────────────────
+
+function MapController({
+  points,
+  segments,
+  activeSegmentIndex,
+}: {
+  points: MapPoint[];
+  segments: RouteSegment[];
+  activeSegmentIndex: number;
+}) {
+  const map = useMap();
+  const prevActiveRef = useRef(activeSegmentIndex);
 
   useEffect(() => {
-    if (routeCoords.length === 0) return;
+    if (!map) return;
 
-    // Animate drawing the route progressively
-    const totalPoints = routeCoords.length;
-    const step = Math.max(1, Math.floor(totalPoints / 60)); // ~60 frames
-    let current = 0;
-
-    const animate = () => {
-      current = Math.min(current + step, totalPoints);
-      setVisibleCoords(routeCoords.slice(0, current));
-
-      if (current < totalPoints) {
-        animRef.current = setTimeout(animate, 16); // ~60fps
+    // Only fit bounds if active segment changed or on first render
+    if (activeSegmentIndex >= 0 && activeSegmentIndex < segments.length) {
+      const seg = segments[activeSegmentIndex];
+      if (seg.geometry.length > 0) {
+        const bounds = L.latLngBounds(seg.geometry);
+        map.fitBounds(bounds, { padding: [60, 60], maxZoom: 15, animate: true, duration: 0.8 });
       }
-    };
+    } else if (points.length > 0) {
+      // Show all points
+      const allCoords = points.map(p => [p.lat, p.lng] as [number, number]);
+      const bounds = L.latLngBounds(allCoords);
+      map.fitBounds(bounds, { padding: [60, 60], maxZoom: 15, animate: true, duration: 0.8 });
+    }
 
-    animate();
+    prevActiveRef.current = activeSegmentIndex;
+  }, [map, activeSegmentIndex, segments, points]);
+
+  return null;
+}
+
+// ─── Animated Polyline ───────────────────────────────────────────────────
+
+function AnimatedSegment({
+  geometry,
+  color,
+  isActive,
+  segmentIndex,
+}: {
+  geometry: [number, number][];
+  color: string;
+  isActive: boolean;
+  segmentIndex: number;
+}) {
+  const [visiblePoints, setVisiblePoints] = useState<[number, number][]>([]);
+  const animRef = useRef<number>(0);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (geometry.length === 0) {
+      queueMicrotask(() => setVisiblePoints([]));
+      return;
+    }
+
+    // Animate the route drawing
+    const totalPoints = geometry.length;
+    const animDuration = 800; // ms
+    let currentIndex = 0;
+
+    // Stagger start based on segment index
+    const startDelay = segmentIndex * 300;
+
+    timeoutRef.current = setTimeout(() => {
+      function step() {
+        currentIndex = Math.min(currentIndex + Math.ceil(totalPoints / (animDuration / 16)), totalPoints);
+        setVisiblePoints(geometry.slice(0, currentIndex));
+
+        if (currentIndex < totalPoints) {
+          animRef.current = requestAnimationFrame(step);
+        }
+      }
+      step();
+    }, startDelay);
 
     return () => {
-      if (animRef.current) clearTimeout(animRef.current);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+      if (animRef.current) cancelAnimationFrame(animRef.current);
     };
-  }, [routeCoords]);
+  }, [geometry, segmentIndex]);
 
-  if (visibleCoords.length < 2) return null;
+  if (visiblePoints.length < 2) return null;
 
   return (
     <>
-      {/* Shadow line (underneath) */}
+      {/* Shadow line underneath for depth */}
       <Polyline
-        positions={visibleCoords}
-        color="#0B5C73"
-        weight={7}
-        opacity={0.2}
+        positions={visiblePoints}
+        color="rgba(0,0,0,0.15)"
+        weight={isActive ? 8 : 5}
+        opacity={0.5}
         lineCap="round"
         lineJoin="round"
       />
       {/* Main route line */}
       <Polyline
-        positions={visibleCoords}
-        color="#0E75BC"
-        weight={4}
-        opacity={0.9}
+        positions={visiblePoints}
+        color={color}
+        weight={isActive ? 6 : 4}
+        opacity={isActive ? 1 : 0.45}
         lineCap="round"
         lineJoin="round"
+        dashArray={isActive ? undefined : "8, 6"}
       />
     </>
   );
 }
 
-// ─── Straight-line Fallback ──────────────────────────────────────
-function StraightLineFallback({ points }: { points: [number, number][] }) {
-  if (points.length < 2) return null;
-  return (
-    <Polyline
-      positions={points}
-      color="#0E75BC"
-      weight={3}
-      dashArray="8, 12"
-      opacity={0.6}
-      lineCap="round"
-    />
-  );
-}
+// ─── Animated Moving Marker ──────────────────────────────────────────────
 
-// ─── Auto-Zoom to Bounds ─────────────────────────────────────────
-function MapBoundsUpdater({ bounds }: { bounds: L.LatLngBoundsExpression }) {
-  const map = useMap();
+function MovingMarker({ geometry, color }: { geometry: [number, number][]; color: string }) {
+  const [position, setPosition] = useState<[number, number] | null>(null);
+  const animRef = useRef<number>(0);
+
   useEffect(() => {
-    if (bounds) {
-      map.fitBounds(bounds, { padding: [60, 60], maxZoom: 15 });
+    if (geometry.length < 2) {
+      queueMicrotask(() => setPosition(null));
+      return;
     }
-  }, [bounds, map]);
-  return null;
+
+    let idx = 0;
+    const speed = Math.max(1, Math.floor(geometry.length / 120)); // ~2s loop
+
+    function step() {
+      setPosition(geometry[idx]);
+      idx = (idx + speed) % geometry.length;
+      animRef.current = requestAnimationFrame(step);
+    }
+
+    // Small initial delay
+    const timeout = setTimeout(() => {
+      step();
+    }, 200);
+
+    return () => {
+      clearTimeout(timeout);
+      if (animRef.current) cancelAnimationFrame(animRef.current);
+    };
+  }, [geometry]);
+
+  if (!position) return null;
+
+  const icon = L.divIcon({
+    className: 'custom-marker-icon',
+    html: `
+      <div style="position:relative;">
+        <div style="
+          width: 14px;
+          height: 14px;
+          background: ${color};
+          border: 3px solid white;
+          border-radius: 50%;
+          box-shadow: 0 0 8px ${color}88, 0 2px 6px rgba(0,0,0,0.3);
+        "></div>
+        <div style="
+          position: absolute;
+          top: -4px; left: -4px;
+          width: 22px; height: 22px;
+          border: 2px solid ${color}66;
+          border-radius: 50%;
+          animation: marker-pulse 1.5s ease-out infinite;
+        "></div>
+      </div>
+    `,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11],
+  });
+
+  return <Marker position={position} icon={icon} interactive={false} />;
 }
 
-// ─── Main Component ─────────────────────────────────────────────
-interface Point {
+// ─── Main Map Component ──────────────────────────────────────────────────
+
+export interface MapPoint {
   name: string;
   lat: number;
   lng: number;
@@ -223,144 +305,188 @@ interface Point {
   index?: number;
 }
 
-interface MapComponentProps {
-  points: Point[];
+interface InteractiveRouteMapProps {
+  points: MapPoint[];
+  segments: RouteSegment[];
+  activeSegmentIndex: number;
+  onMarkerClick?: (pointIndex: number) => void;
+  isLoading?: boolean;
 }
 
-export default function MapComponent({ points }: MapComponentProps) {
-  const [routeCoords, setRouteCoords] = useState<[number, number][] | null>(null);
-  const [routeMeta, setRouteMeta] = useState<{ totalDistanceKm: number; totalDurationMin: number } | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+function formatDistance(meters: number): string {
+  if (meters >= 1000) return `${(meters / 1000).toFixed(1)} km`;
+  return `${Math.round(meters)} m`;
+}
 
-  // Fetch road route from OSRM when points change
-  useEffect(() => {
-    if (points.length < 2) {
-      setRouteCoords(null);
-      setRouteMeta(null);
-      return;
+function formatDuration(seconds: number): string {
+  if (seconds <= 0) return '-';
+  const mins = Math.round(seconds / 60);
+  if (mins < 60) return `${mins} mnt`;
+  const hours = Math.floor(mins / 60);
+  const remainMins = mins % 60;
+  return `${hours} jam ${remainMins} mnt`;
+}
+
+export default function InteractiveRouteMap({
+  points,
+  segments,
+  activeSegmentIndex,
+  onMarkerClick,
+  isLoading = false,
+}: InteractiveRouteMapProps) {
+  // Calculate initial bounds for MapContainer (only used on first render)
+  const getInitialBounds = useCallback((): L.LatLngBoundsExpression | undefined => {
+    if (points.length > 0) {
+      return L.latLngBounds(points.map(p => [p.lat, p.lng] as [number, number]));
     }
-
-    const waypoints = points.map((p) => ({ lat: p.lat, lng: p.lng }));
-
-    setIsLoading(true);
-
-    Promise.all([
-      fetchOSRMRoute(waypoints),
-      fetchRouteMetadata(waypoints),
-    ])
-      .then(([coords, meta]) => {
-        setRouteCoords(coords);
-        setRouteMeta(meta);
-      })
-      .finally(() => setIsLoading(false));
+    return undefined;
   }, [points]);
+
+  const initialBounds = getInitialBounds();
+
+  // Active segment for the moving marker
+  const activeSeg = activeSegmentIndex >= 0 && activeSegmentIndex < segments.length
+    ? segments[activeSegmentIndex]
+    : null;
 
   // Empty state
   if (points.length === 0) {
     return (
-      <div className="relative h-full w-full">
-        <MapContainer
-          center={[-6.9175, 107.6191]}
-          zoom={12}
-          style={{ height: '100%', width: '100%', zIndex: 10 }}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://carto.com">CARTO</a>'
-            url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
-          />
-        </MapContainer>
-        <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
-          <div className="bg-white/90 backdrop-blur-md px-4 py-3 rounded-xl shadow-lg text-center">
-            <p className="text-sm font-bold text-[#112F43]">Belum ada rute</p>
-            <p className="text-xs text-slate-500 mt-0.5">Tambahkan destinasi untuk melihat rute perjalanan</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  // Calculate bounds
-  const polylineCoords: [number, number][] = points.map((p) => [p.lat, p.lng]);
-  const bounds = L.latLngBounds(polylineCoords);
-
-  return (
-    <div className="relative h-full w-full">
       <MapContainer
-        bounds={bounds}
+        center={[-6.9175, 107.6191]}
+        zoom={12}
         style={{ height: '100%', width: '100%', zIndex: 10 }}
         zoomControl={false}
       >
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a href="https://carto.com">CARTO</a>'
+          attribution='&copy; <a href="https://carto.com">CARTO</a>'
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
         />
-
-        {/* Route: prefer road route, fallback to straight line */}
-        {routeCoords ? (
-          <AnimatedRoute routeCoords={routeCoords} />
-        ) : (
-          <StraightLineFallback points={polylineCoords} />
-        )}
-
-        {/* Markers */}
-        {points.map((point, i) => {
-          const isFirst = i === 0 && point.type === 'destination';
-          const icon = point.type === 'accommodation'
-            ? createHotelIcon()
-            : isFirst
-              ? createStartIcon()
-              : createNumberedIcon(point.index || i + 1);
-
-          return (
-            <Marker key={i} position={[point.lat, point.lng]} icon={icon}>
-              <Popup>
-                <div style={{ minWidth: 140 }}>
-                  <div style={{ fontWeight: 700, fontSize: 14, color: '#112F43', marginBottom: 2 }}>
-                    {point.type === 'destination' ? `${point.index || i + 1}. ` : ''}{point.name}
-                  </div>
-                  <div style={{ fontSize: 11, color: '#557083', textTransform: 'capitalize' }}>
-                    {point.type === 'accommodation' ? 'Check-in Hotel' : `Destinasi ke-${point.index || i + 1}`}
-                  </div>
-                </div>
-              </Popup>
-            </Marker>
-          );
-        })}
-
-        <MapBoundsUpdater bounds={bounds} />
       </MapContainer>
+    );
+  }
 
-      {/* Route Info Overlay */}
-      {routeMeta && (
-        <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-white/95 backdrop-blur-md px-3 py-2 sm:px-4 sm:py-2.5 rounded-xl shadow-lg border border-slate-200 z-20 pointer-events-none">
-          <div className="flex items-center gap-3 sm:gap-4 text-[10px] sm:text-xs">
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#0E75BC]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
-              <span className="font-bold text-[#112F43]">{routeMeta.totalDistanceKm} km</span>
-            </div>
-            <div className="w-px h-3 bg-slate-300" />
-            <div className="flex items-center gap-1.5">
-              <svg className="w-3.5 h-3.5 text-[#0E75BC]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span className="font-bold text-[#112F43]">
-                {routeMeta.totalDurationMin >= 60
-                  ? `${Math.floor(routeMeta.totalDurationMin / 60)}j ${routeMeta.totalDurationMin % 60}m`
-                  : `${routeMeta.totalDurationMin} menit`
-                }
-              </span>
-            </div>
-          </div>
-        </div>
+  return (
+    <MapContainer
+      center={initialBounds ? undefined : [-6.9175, 107.6191]}
+      bounds={initialBounds}
+      zoom={initialBounds ? undefined : 12}
+      style={{ height: '100%', width: '100%', zIndex: 10 }}
+      zoomControl={false}
+    >
+      {/* Premium map tiles — CARTO Voyager for clean look */}
+      <TileLayer
+        attribution='&copy; <a href="https://carto.com">CARTO</a>'
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+      />
+
+      {/* Dynamic map controller — handles fitBounds on segment changes */}
+      <MapController
+        points={points}
+        segments={segments}
+        activeSegmentIndex={activeSegmentIndex}
+      />
+
+      {/* Render route segments */}
+      {segments.map((seg, i) => (
+        <AnimatedSegment
+          key={`seg-${i}`}
+          geometry={seg.geometry}
+          color={getSegmentColor(i)}
+          isActive={i === activeSegmentIndex}
+          segmentIndex={i}
+        />
+      ))}
+
+      {/* Moving marker on active segment */}
+      {activeSeg && activeSeg.geometry.length > 2 && (
+        <MovingMarker
+          geometry={activeSeg.geometry}
+          color={getSegmentColor(activeSegmentIndex)}
+        />
       )}
 
-      {/* Loading Overlay */}
+      {/* Render markers */}
+      {points.map((point, i) => {
+        const isActive = (
+          activeSegmentIndex >= 0 &&
+          (i === activeSegmentIndex || i === activeSegmentIndex + 1)
+        );
+
+        const icon = point.type === 'accommodation'
+          ? createHotelIcon(isActive)
+          : createNumberedIcon(point.index || i + 1, isActive);
+
+        return (
+          <Marker
+            key={`marker-${i}`}
+            position={[point.lat, point.lng]}
+            icon={icon}
+            eventHandlers={{
+              click: () => onMarkerClick?.(i),
+            }}
+          >
+            <Popup>
+              <div style={{ minWidth: 160 }}>
+                <div style={{ fontWeight: 700, fontSize: 14, color: '#112F43', marginBottom: 4 }}>
+                  {point.type === 'destination' ? `${point.index || i + 1}. ` : '🏨 '}{point.name}
+                </div>
+                <div style={{ fontSize: 11, color: '#557083', textTransform: 'capitalize' }}>
+                  {point.type === 'destination' ? 'Destinasi Wisata' : 'Penginapan'}
+                </div>
+                {/* Show distance to next if this is not the last point and segment data exists */}
+                {i < segments.length && (
+                  <div style={{
+                    marginTop: 8,
+                    padding: '6px 8px',
+                    background: '#F2FAFE',
+                    borderRadius: 8,
+                    fontSize: 11,
+                    color: '#0E75BC',
+                    fontWeight: 600,
+                  }}>
+                    → {segments[i].to.name}: {formatDistance(segments[i].distance)} • {formatDuration(segments[i].duration)}
+                  </div>
+                )}
+              </div>
+            </Popup>
+          </Marker>
+        );
+      })}
+
+      {/* Loading overlay */}
       {isLoading && (
-        <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px] flex items-center justify-center z-20 pointer-events-none">
-          <div className="bg-white/95 px-4 py-2.5 rounded-xl shadow-lg flex items-center gap-2.5">
-            <div className="w-4 h-4 border-2 border-[#0E75BC] border-t-transparent rounded-full animate-spin" />
-            <span className="text-xs font-bold text-[#112F43]">Menghitung rute jalan...</span>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(255,255,255,0.6)',
+          backdropFilter: 'blur(4px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000,
+          pointerEvents: 'none',
+        }}>
+          <div style={{
+            background: 'white',
+            padding: '12px 20px',
+            borderRadius: 12,
+            boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
+            fontSize: 13,
+            fontWeight: 600,
+            color: '#0E75BC',
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+          }}>
+            <div className="route-spinner" />
+            Memuat rute...
           </div>
         </div>
       )}
-    </div>
+    </MapContainer>
   );
 }

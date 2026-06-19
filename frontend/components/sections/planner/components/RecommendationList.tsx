@@ -20,6 +20,8 @@ function mapToPlannerDestination(dest: ExploreDestination): PlannerDestination {
     price: dest.price || 'Harga belum tersedia',
     rating: dest.rating || '0.0',
     image: dest.image || '',
+    latitude: dest.latitude,
+    longitude: dest.longitude,
   };
 }
 
@@ -67,8 +69,11 @@ export function RecommendationList() {
   useEffect(() => {
     let active = true;
 
-    setLoading(true);
-    setError(null);
+    queueMicrotask(() => {
+      if (!active) return;
+      setLoading(true);
+      setError(null);
+    });
 
     // Progressive Enhancement:
     // 1. hasLocation + firstDest → nearest + intent filter (BEST)

@@ -193,6 +193,8 @@ def _build_card(
             accommodation.price_max,
         ),
         location=_location_label(accommodation),
+        latitude=accommodation.latitude,
+        longitude=accommodation.longitude,
         distance_km=distance_km,
         facilities=accommodation.facilities or [],
         maps_url=_maps_url(accommodation),
