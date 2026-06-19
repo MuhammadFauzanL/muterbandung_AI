@@ -76,7 +76,7 @@ from app.services.llm_guard import (
 
 
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-DEFAULT_OPENROUTER_MODEL = "meta-llama/llama-3.1-8b-instruct"
+DEFAULT_OPENROUTER_MODEL = "google/gemma-2-9b-it:free"
 ENABLE_ONLINE_LLM_VALUES = {"1", "true", "yes", "on"}
 
 
@@ -544,7 +544,7 @@ def _call_cloudflare_ai(message, evidence_pack, prompt_guard):
     }
     
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=8)
+        response = requests.post(url, headers=headers, json=payload, timeout=4)
         if response.status_code == 200:
             result = response.json()
             result_payload = result.get("result", {})
@@ -561,17 +561,20 @@ def _call_cloudflare_ai(message, evidence_pack, prompt_guard):
         return None, str(e)
 
 def _call_llm_with_failover(message, evidence_pack, prompt_guard):
-    # Try Cloudflare first
-    print("[LLM] Attempting Layer 1 (Cloudflare) for Chat/RAG...")
-    output, error = _call_cloudflare_ai(message, evidence_pack, prompt_guard)
+    # Strategy: OpenRouter first (faster free model), Cloudflare as fallback
+    print("[LLM] Attempting Layer 1 (OpenRouter) for Chat/RAG...")
+    output, error = _call_openrouter(message, evidence_pack, prompt_guard)
     
     if output:
-        return output, None, "cloudflare"
+        return output, None, "openrouter"
         
-    # Fallback to OpenRouter
-    print(f"[LLM] Layer 1 Failed ({error}). Switching to Layer 2 (OpenRouter)...")
-    output, error = _call_openrouter(message, evidence_pack, prompt_guard)
-    return output, error, "openrouter"
+    # Fallback to Cloudflare only if OpenRouter fails
+    print(f"[LLM] Layer 1 Failed ({error}). Switching to Layer 2 (Cloudflare)...")
+    output, error_cf = _call_cloudflare_ai(message, evidence_pack, prompt_guard)
+    if output:
+        return output, None, "cloudflare"
+    
+    return None, error, "none"
 
 def _call_openrouter(message, evidence_pack, prompt_guard):
     online_llm_enabled = _clean_env(os.getenv("MUTERBANDUNG_ENABLE_ONLINE_CHAT_LLM")).lower()
@@ -618,7 +621,7 @@ def _call_openrouter(message, evidence_pack, prompt_guard):
             OPENROUTER_API_URL,
             headers=headers,
             json=payload,
-            timeout=6,
+            timeout=15,
         )
     except requests.RequestException as exc:
         return None, f"LLM request failed: {exc}"

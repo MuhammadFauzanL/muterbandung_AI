@@ -51,6 +51,8 @@
   <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
   <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
   <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/AI-SentenceTransformers-FF6F00?style=flat-square&logo=huggingface&logoColor=white" alt="SentenceTransformers">
+  <img src="https://img.shields.io/badge/LLM-Gemma%202%20%7C%20Llama%203-4285F4?style=flat-square&logo=google&logoColor=white" alt="LLM">
 </p>
 
 ---
@@ -85,6 +87,10 @@ Proyek ini dibangun dengan dua service utama yang saling terhubung:
 - **Frontend:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Lucide React, Leaflet/React Leaflet, html2canvas, dan jsPDF.
 - **Backend:** FastAPI (Python), Uvicorn, PostgreSQL, SQLAlchemy, Alembic, Pydantic Settings, JWT Auth, dan pytest untuk pengujian.
 - **AI Models:** Model analitik (Sentimen & Klasifikasi) yang telah dilatih secara khusus dapat diakses melalui Hugging Face: [muterbandung-ai-models](https://huggingface.co/fauzanlubada/muterbandung-ai-models).
+- **AI Recommender Engine:** SentenceTransformer (`firqaaa/indo-sentence-bert-base`) untuk pencarian semantik berbahasa Indonesia, dengan pipeline LLM 2-layer failover:
+  - **Layer 1 (Primary):** OpenRouter API — `google/gemma-2-9b-it:free` (gratis, ~1-3 detik warm response).
+  - **Layer 2 (Fallback):** Cloudflare Workers AI — `@cf/meta/llama-3.3-70b-instruct-fp8-fast`.
+  - **Layer 3 (Deterministic):** Fallback lokal tanpa LLM — menggunakan ranking engine murni.
 
 ## 5. Fitur Unggulan
 - **Rekomendasi Filter Preferensi:** Secara cerdas menyamakan kata "murah" dengan "gratis" atau "terjangkau", serta mendeteksi nuansa seperti "alam", "romantis", atau "edukasi".
@@ -127,7 +133,7 @@ Aplikasi ini memecah beban kerjanya ke dalam dua *services* utama agar pengemban
 ### Prasyarat
 - Git
 - Node.js 20+ dan npm
-- Python 3.11+ disarankan
+- Python 3.9+ (3.11+ disarankan)
 - Docker dan Docker Compose untuk menjalankan PostgreSQL lokal
 
 ### 1. Clone Repository
@@ -153,6 +159,15 @@ uvicorn app.main:app --reload
 
 Backend berjalan di `http://localhost:8000`.
 Dokumentasi API tersedia di `http://localhost:8000/docs`.
+
+> **Catatan Penting:**
+> - Pastikan `DATABASE_URL` di file `.env` mengarah ke port PostgreSQL yang benar (default proyek ini: `5433`).
+> - Untuk mengaktifkan Chatbot Cepot AI dengan LLM, tambahkan variabel berikut di `.env`:
+>   ```env
+>   MUTERBANDUNG_ENABLE_ONLINE_CHAT_LLM=true
+>   OPENROUTER_API_KEY=sk-or-v1-xxxxxxxx   # Dapatkan gratis di https://openrouter.ai
+>   ```
+> - Pada panggilan pertama ke Cepot, sistem akan mengunduh model SentenceTransformer (~100MB) ke cache lokal. Proses ini hanya terjadi sekali.
 
 ### 3. Import Data Awal (Opsional)
 Jalankan dari folder `backend` setelah migration selesai jika database lokal masih kosong:
