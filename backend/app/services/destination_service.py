@@ -458,6 +458,8 @@ def build_destination_card(
         distance_km=distance_km,
         score=build_score_value(dest, sort),
         score_reason=build_score_reason(dest, sort),
+        latitude=dest.latitude,
+        longitude=dest.longitude,
         is_favorite=False,
     ).model_dump(by_alias=True)
 

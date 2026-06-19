@@ -47,10 +47,10 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Frontend-Next.js-000000?style=flat-square&logo=next.js&logoColor=white" alt="Next.js">
-  <img src="https://img.shields.io/badge/API_Gateway-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
-  <img src="https://img.shields.io/badge/AI_Engine-Flask-000000?style=flat-square&logo=flask&logoColor=white" alt="Flask">
-  <img src="https://img.shields.io/badge/Machine_Learning-PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch">
-  <img src="https://img.shields.io/badge/NLP-HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="HuggingFace">
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Backend-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Database-PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" alt="PostgreSQL">
 </p>
 
 ---
@@ -81,13 +81,9 @@ Menjawab latar belakang masalah tersebut, MuterBandung dibangun dengan tujuan ut
 - **Menghadirkan Pemandu Virtual Proaktif:** Membangun *chatbot hybrid* dengan model bahasa (*LLM*) yang telah dibekali konteks pariwisata lokal Bandung, siap melayani diskusi spesifik guna melengkapi detail yang tidak tertera pada layar rute perjalanan utama.
 
 ## 4. Teknologi yang Digunakan
-Proyek ini dibangun dengan arsitektur Tri-Service yang terintegrasi untuk stabilitas maksimal:
-- **Frontend:** React.js, Next.js (App Router), TailwindCSS.
-- **Core Backend API Proxy:** FastAPI (Python), Uvicorn, httpx (bertugas sebagai *gateway* asinkron).
-- **Backend AI & ML:** Flask (Python), PyTorch, Pandas, NumPy.
-- **Machine Learning & NLP:** Sentence-Transformers (model `firqaaa/indo-sentence-bert-base`), Scikit-Learn (TF-IDF).
-- **Generative AI (LLM):** OpenRouter (Google Gemini / GPT-4o) untuk RAG.
-- **Infrastruktur Hosting:** Vercel (Frontend), Hugging Face Spaces / Railway / VPS (Backend AI & Proxy).
+Proyek ini dibangun dengan dua service utama yang saling terhubung:
+- **Frontend:** Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS 4, Lucide React, Leaflet/React Leaflet, html2canvas, dan jsPDF.
+- **Backend:** FastAPI (Python), Uvicorn, PostgreSQL, SQLAlchemy, Alembic, Pydantic Settings, JWT Auth, dan pytest untuk pengujian.
 
 ## 5. Fitur Unggulan
 - **Rekomendasi Filter Preferensi:** Secara cerdas menyamakan kata "murah" dengan "gratis" atau "terjangkau", serta mendeteksi nuansa seperti "alam", "romantis", atau "edukasi".
@@ -95,15 +91,13 @@ Proyek ini dibangun dengan arsitektur Tri-Service yang terintegrasi untuk stabil
 - **AI Chatbot:** Asisten *virtual* yang memberikan saran spesifik dan alasan logis berdasarkan dataset.
 - **Rekomendasi Penginapan Sekitar:** Secara otomatis memetakan dan menyarankan hotel/villa terdekat dari wisata pilihan Anda.
 
-## 6. Arsitektur Tri-Service
-Aplikasi ini memecah beban kerjanya ke dalam tiga *services* terpisah agar proses kalkulasi *Machine Learning* yang berat tidak membuat aplikasi *freeze*:
+## 6. Arsitektur Aplikasi
+Aplikasi ini memecah beban kerjanya ke dalam dua *services* utama agar pengembangan frontend dan backend tetap terpisah:
 
-- **Frontend (Next.js)** 
-  $\rightarrow$ Menangani antarmuka UI/UX interaktif untuk pengguna.
-- **Backend Core API (FastAPI)** 
-  $\rightarrow$ Bertindak sebagai API Gateway super cepat. Menerima *request* dan mem-bypass hal-hal ringan.
-- **Backend AI Engine (Flask)** 
-  $\rightarrow$ Menangani komputasi berat, memuat model NLP, dataset `.csv` ke dalam memori RAM, menghitung *cosine similarity*, dan memanggil layanan API LLM pihak ketiga.
+- **Frontend (Next.js)**
+  $\rightarrow$ Menangani antarmuka UI/UX interaktif untuk pengguna, berjalan di `http://localhost:3000`, dan meneruskan request API melalui konfigurasi `API_URL` / `NEXT_PUBLIC_API_URL`.
+- **Backend API (FastAPI)**
+  $\rightarrow$ Menyediakan endpoint destinasi, penginapan, preferensi, rekomendasi, autentikasi, favorit, event pengguna, dan planner. Backend terhubung ke PostgreSQL dan berjalan di `http://localhost:8000`.
 
 ## 7. Dokumentasi Antarmuka (Implementasi 4 Pilar AI)
 
@@ -122,6 +116,66 @@ Aplikasi ini memecah beban kerjanya ke dalam tiga *services* terpisah agar prose
 ### Struktur Folder
 ```text
 📦 MuterBandung
- ┣ 📂 backend/                 # Mesin Backend AI (Flask + ML Models + NLP)
- ┣ 📂 backend_core/            # API Gateway Proxy (FastAPI)
- ┗ 📂 frontend/                # Aplikasi Antarmuka (Next.js)
+ ┣ 📂 backend/                 # Backend API (FastAPI + PostgreSQL)
+ ┣ 📂 frontend/                # Aplikasi Antarmuka (Next.js)
+ ┣ 📂 ai_workspace/            # Workspace/dataset pendukung
+ ┣ 📄 README_DEV.md            # Catatan development tambahan
+ ┗ 📄 readme.md                # Dokumentasi utama proyek
+```
+
+### Prasyarat
+- Git
+- Node.js 20+ dan npm
+- Python 3.11+ disarankan
+- Docker dan Docker Compose untuk menjalankan PostgreSQL lokal
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/MuhammadFauzanL/muterbandung_AI.git
+cd muterbandung_AI
+```
+
+### 2. Setup Backend
+```bash
+cd backend
+cp .env.example .env
+docker compose up -d
+
+python -m venv venv
+source venv/bin/activate
+# Windows: venv\Scripts\activate
+
+pip install -r requirements.txt
+alembic upgrade head
+uvicorn app.main:app --reload
+```
+
+Backend berjalan di `http://localhost:8000`.
+Dokumentasi API tersedia di `http://localhost:8000/docs`.
+
+### 3. Import Data Awal (Opsional)
+Jalankan dari folder `backend` setelah migration selesai jika database lokal masih kosong:
+
+```bash
+python scripts/import_destinations.py --file data/wisata_populer.csv
+python scripts/import_accommodations.py --file data/penginapan_data.csv
+python scripts/import_destination_gallery_images.py --file data/wisata_image.csv --apply
+```
+
+### 4. Setup Frontend
+Buka terminal baru dari root repository:
+
+```bash
+cd frontend
+cp .env.local.example .env.local
+npm install
+npm run dev
+```
+
+Frontend berjalan di `http://localhost:3000`.
+
+### 5. Alur Menjalankan Aplikasi
+1. Pastikan PostgreSQL aktif melalui `docker compose up -d` di folder `backend`.
+2. Jalankan backend dengan `uvicorn app.main:app --reload`.
+3. Jalankan frontend dengan `npm run dev` di folder `frontend`.
+4. Buka `http://localhost:3000` di browser.

@@ -52,6 +52,8 @@ class DestinationCardResponse(_CamelModel):
     distance_km: Optional[float] = None
     score: Optional[float] = None
     score_reason: Optional[str] = None
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
     is_favorite: bool = False
 
 

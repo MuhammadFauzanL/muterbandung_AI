@@ -42,6 +42,8 @@ interface ApiAccommodationCard {
   bookingUrl?: string | null;
   score?: number | null;
   scoreReason?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
 }
 
 function appendQuery(params: URLSearchParams, key: string, value: unknown) {
@@ -97,6 +99,8 @@ export function mapAccommodation(item: ApiAccommodationCard): Accommodation {
     score: item.score ?? undefined,
     scoreReason: item.scoreReason || undefined,
     highlights: buildHighlights(item),
+    latitude: item.latitude ?? undefined,
+    longitude: item.longitude ?? undefined,
   };
 }
 

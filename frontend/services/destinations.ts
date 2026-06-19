@@ -69,6 +69,8 @@ export interface ApiDestinationCard {
   distanceKm?: number | null;
   score?: number | null;
   scoreReason?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
 }
 
 interface ApiDestinationDetail {
@@ -126,6 +128,8 @@ export function mapExploreDestination(item: ApiDestinationCard): ExploreDestinat
     distanceKm: item.distanceKm ?? undefined,
     score: item.score ?? undefined,
     scoreReason: item.scoreReason ?? undefined,
+    latitude: item.latitude ?? undefined,
+    longitude: item.longitude ?? undefined,
   };
 }
 
