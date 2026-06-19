@@ -96,8 +96,12 @@ muterbandung_AI/
    ```bash
    cp .env.example .env
    ```
+   *Catatan:* Jika Anda mengaktifkan fitur AI Cepot atau AI Planner, pastikan Anda telah memasukkan `OPENROUTER_API_KEY` dan `CLOUDFLARE_API_TOKEN` ke dalam file `.env` tersebut.
 
-6. **Jalankan server**:
+6. **Siapkan Model AI (Persona & Behaviour)**:
+   Sistem rekomendasi AI membutuhkan model lokal untuk berfungsi. Pastikan Anda telah mengambil (*pull*) folder `Persona_Workspace` dan `Behaviour_Workspace` (yang berisi file `.pkl` dan `.keras`) ke direktori root repository.
+
+7. **Jalankan server**:
    ```bash
    uvicorn app.main:app --reload
    ```
